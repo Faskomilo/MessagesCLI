@@ -1,8 +1,4 @@
 import os
-from babel.messages.catalog import Catalog
-from babel.messages.extract import DEFAULT_KEYWORDS, DEFAULT_MAPPING, check_and_call_extract_file, extract_from_dir
-#from babel.messages.mofile import write_mo, read_mo
-from babel.messages.pofile import read_po, write_po
 
 class CLImessageClient:
     pathLanguages = os.path.join("languages")
@@ -10,8 +6,8 @@ class CLImessageClient:
 
     def readfile(self, language):
         path = os.path.join("languages", language, "LC_MESSAGES", "messages.po")
-        messages = read_po(open(path),language)
-        return messages._messages
+        messages = open(path).read()
+        return messages
 
     def languages(self):
         options = os.listdir(os.path.join(".", self.pathLanguages)) 
@@ -21,13 +17,21 @@ class CLImessageClient:
         print "Escoja una opcion:"
         print "1"
 
-    #def message (self):
-    #    a = "Loading Image"
-    #    s = ugettext(a)
-    #    return s
+    def toList(self, message):
+        messageList = message.split("\n\n")
+        messageMatrix = [[0 for x in range(3)] for y in range(len(messageList))]
+        line = messageList[0]
+        messageMatrix[0][0] = line[:line.index("\nmsgid")]
+        messageMatrix[0][1] = line[line.index("ms"):line.index("\nmsgstr")]
+        messageMatrix[0][2] = line[line.index("msgstr"):]
+        return messageMatrix
+
+    def message (self):
+        
+        return 0
         
         
 
 
 run = CLImessageClient()
-print(run.readfile("es"))
+print(run.toList(run.readfile("es")))
