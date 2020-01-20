@@ -1,10 +1,7 @@
-import os
-from babel.messages.catalog.Catalog import check
+import os, time
+from babel.messages.catalog import Message
 
 class CLImessageClient(object):
-    __message = ""
-    option = ""
-    _repeated = 0
 
     def __init__(self):
         print("")
@@ -60,47 +57,78 @@ class CLImessageClient(object):
                     "Instance 2" : secondInstance}
             else:
                 messageDic[msgid] = {"Comments" : commentsLine, "msgstr" : msgstr}
-            _repeated = len(repeatedDic)
+            self.__repeated = len(repeatedDic)
         return messageDic
 
 class Menu(object):
-        def __init__(self):
-            print("Welcome, choose the language you want to modify or check the translation of:")
+    def __init__(self):
+        self.language = "en"
 
-        def choose(self):
-            print "Escoja una opcion:"
-            print "1"
+    def listLanguages(self,pathLanguages):
+        options = os.listdir(os.path.join(".", pathLanguages)) 
+        return options
+
+    def showLanguageMenu(self, listLanguages):
+        print ("Which Language do you wish to change?:")
+        for x in range(len(listLanguages)):
+            string = str(x + 1) + ": " + listLanguages[x]
+            print(string)
+        print ("0: Exit")
+        self.option = input("Write the number of your choice: ")
+
+    def showMenu(self, language):
+        print ("Choose what would you like to do with the \"" + language + "\" messages:")
+        print ("1: Add a message")
+        print ("2: Look for a translation or comment with the message id")
+        print ("3: See all")
+        print ("4: Delete a message (message id, translation and comment)")
+        print ("5: Create new empty Language")
+        print ("0: Exit")
+        self.option = input("Write the number of your choice: ")
 
 class PathHandler(object):
-        pathLanguages = os.path.join("languages")
-
-        def listLanguages(self):
-            options = os.listdir(os.path.join(".", self.pathLanguages)) 
-            return options
+        def buildPath(self, language):
+            path = os.path.join("languages", language, "LC_MESSAGES", "messages.po")
+            return path
 
 class SpecificRecord(object):
     pass
 
 class FileManager(object):
-    def readfile(self, language):
-        path = os.path.join("languages", language, "LC_MESSAGES", "messages.po")
+    def readfile(self, language, path):
         messages = open(path).read()
         return messages
 
-    def writefile(self, language, message):
-        path = os.path.join("languages", language, "LC_MESSAGES", "messages.po")
+    def writefile(self, language, message, path):
         file = open(path)
         file.write(message)
 
-    def checkfile(self,file):
-        Catalog.check()
+    def compile(self, pathToEs):
+        os.system('-d' + pathToEs)
 
+class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
+    pathLanguages = os.path.join("languages")
+    __path = ""
+    __listLanguages = []
+    language = "es"
+    option = 1
+    __message = ""
+    option = ""
+    repeated = 0
 
-CLImessageClient = CLImessageClient()
-Menu = Menu()
-PathHandler = PathHandler()
-SpecificRecord = SpecificRecord()
-FileManager = FileManager()
-_message = FileManager.readfile("es")
-#CLImessageClient.DictionaryGeneration(_message)
-print(CLImessageClient.DictionaryGeneration(_message))
+    def __init__(self):
+        
+        while self.option != 0:
+            if os.name == 'nt':
+                _ = os.system('cls') 
+            else: 
+                _ = os.system('clear') 
+            self.__listLanguages = self.listLanguages(self.pathLanguages)
+            self.showLanguageMenu(self.__listLanguages)
+            if self.option != 0:
+                self.showMenu("language")
+                #print(self.option)
+
+if __name__ == "__main__":
+    Runner()
+
