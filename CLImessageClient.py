@@ -74,7 +74,17 @@ class Menu(object):
             string = str(x + 1) + ": " + listLanguages[x]
             print(string)
         print ("0: Exit")
-        self.option = input("Write the number of your choice: ")
+        print ("100: Add a new Language")
+        help = 1
+        while help != 0: 
+            try:
+                self.option = input("Write the number of your choice: ")
+                if (self.option < 0 or self.option > len(listLanguages)) and self.option != 100:
+                    raise Exception('Option outside of bounds')
+                help = 0
+            except:
+                print("\n")
+                print("Error :: Invalid option, try again\n")
 
     def showMenu(self, language):
         print ("Choose what would you like to do with the \"" + language + "\" messages:")
@@ -84,7 +94,17 @@ class Menu(object):
         print ("4: Delete a message (message id, translation and comment)")
         print ("5: Create new empty Language")
         print ("0: Exit")
-        self.option = input("Write the number of your choice: ")
+        __help = 1
+        while __help != 0: 
+            try:
+                self.option = input("Write the number of your choice: ")
+                if self.option < 0 or self.option > 5:
+                    raise Exception('Option outside of bounds')
+                __help = 0
+            except:
+                print("\n")
+                print("Error :: Invalid option, try again\n")
+
 
 class PathHandler(object):
         def buildPath(self, language):
@@ -113,7 +133,6 @@ class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
     language = "es"
     option = 1
     __message = ""
-    option = ""
     repeated = 0
 
     def __init__(self):
@@ -125,9 +144,14 @@ class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
                 _ = os.system('clear') 
             self.__listLanguages = self.listLanguages(self.pathLanguages)
             self.showLanguageMenu(self.__listLanguages)
-            if self.option != 0:
-                self.showMenu("language")
-                #print(self.option)
+            if self.option == 100:
+                pass
+            elif self.option != 0:
+                while self.option != 0:
+                    self.showMenu("language")
+                    if self.option == 1:
+                        print("ok")
+                    #print(self.option)
 
 if __name__ == "__main__":
     Runner()
