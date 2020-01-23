@@ -54,7 +54,9 @@ class CLImessageClient(object):
                 newString += idsList[x] + "\"\n"
                 newString += "msgstr \""
                 newString += messagesDictionary[idsList[x]]["msgstr"] + "\"\n\n"
+        newString += "############################################"
         newString += repeatedString
+        newString += "############################################"
         newString += fuzzyString
         print(newString)
         return newString
@@ -100,7 +102,7 @@ class CLImessageClient(object):
                 print("error inesperado en" + wholeLine)
             if "#~" in msgidLine:
                 index = message.index(msgidLine[3:])
-                secondIndex = message.index(msgidLine,index + 2)
+                secondIndex = message.index(msgidLine)
                 firstInstance = len(message[:index].split("\n"))
                 secondInstance = len(message[:secondIndex].split("\n"))
                 fuzzyDic[msgid] = {"Comments" : commentsLine, "msgstr" : msgstr, 
@@ -118,8 +120,6 @@ class CLImessageClient(object):
                 messageDic[msgid] = {"Comments" : commentsLine, "msgstr" : msgstr}
         self.__repeated = len(repeatedDic)
         self.__fuzzy = len(fuzzyDic)
-        print(repeatedDic)
-        print(fuzzyDic)
         messageDic["//Repeated"] = repeatedDic
         messageDic["//Fuzzy"] = fuzzyDic
         return messageDic
