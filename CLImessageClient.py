@@ -1,5 +1,6 @@
 import os, time
 from babel.messages.catalog import Message
+from babel.messages.frontend import CommandLineInterface, compile_catalog, init_catalog, extract_messages
 
 class CLImessageClient(object):
     def __init__(self):
@@ -11,11 +12,44 @@ class CLImessageClient(object):
         else: 
             _ = os.system('clear') 
 
-    def addLanguage(self):
+    def cleanMessages(self, message):
+        cleanMessage = message
+        messagesDictionary = self.textToDictionary(message)
+        cleanMessage = self.dictionaryToText(messagesDictionary)
+        return cleanMessage
+
+    def addLanguage(self, listLanguages):
         language = ""
-        language = raw_input("Which language do you wish to add? ")
-        if any(char.isdigit() for char in language):
-            print("ok")
+        listLanguages = listLanguages
+        errors = 1
+        while errors != 0:
+            try:
+                if errors == 1:
+                    print("Which language do you wish to add? ")
+                language = raw_input()
+                if any(char.isdigit() for char in language):
+                    raise Exception("Languages should have only letters")
+                if language in listLanguages:
+                    print("Language already exists, do you wish to add another language?\n0: No \n1:Yes, add another language")
+                    errorsOpt = 0
+                    while errorsOpt == 0:
+                        try:
+                            errors = int(raw_input("\nWhat do you choose?"))
+                            if errors > 1 or errors <0:
+                                raise Exception("Error: Invalid Option")
+                            errorsOpt = 1
+                        except Exception as e:
+                            print(e)
+                            print("Try again")
+                            print("")
+                    if errors == 1:
+                        raise Exception("")
+                errors = 0
+            except Exception as e:
+                print(e)
+                print("")
+                print("Try again")
+                print("")
         return language
 
     def dictionaryToText(self, messagesDictionary):
@@ -26,11 +60,13 @@ class CLImessageClient(object):
         newString = ""
         repeatedString = ""
         fuzzyString = ""
+        fuzzyQuantity = 0
+        repeatedQuantity = 0
         for x in range(len(idsList)):
             if idsList[x] == "//Repeated":
-                print(messagesDictionary[idsList[x]])
                 repeatedIdsList = sorted(messagesDictionary[idsList[x]])
                 for y in range(len(repeatedIdsList)):
+                    repeatedQuantity += 1
                     if messagesDictionary[idsList[x]][repeatedIdsList[y]]["Comments"] != "":
                         repeatedString += messagesDictionary[idsList[x]][repeatedIdsList[y]]["Comments"] + "\n"
                     repeatedString += "msgid \""
@@ -38,9 +74,9 @@ class CLImessageClient(object):
                     repeatedString += "msgstr \""
                     repeatedString += messagesDictionary[idsList[x]][repeatedIdsList[y]]["msgstr"] + "\"\n\n"
             elif idsList[x] == "//Fuzzy":
-                print(messagesDictionary[idsList[x]])
                 fuzzyIdsList = sorted(messagesDictionary[idsList[x]])
                 for y in range(len(fuzzyIdsList)):
+                    fuzzyQuantity += 1
                     if messagesDictionary[idsList[x]][fuzzyIdsList[y]]["Comments"] != "":
                         fuzzyString += messagesDictionary[idsList[x]][fuzzyIdsList[y]]["Comments"] + "\n"
                     fuzzyString += "#~ msgid \""
@@ -54,11 +90,16 @@ class CLImessageClient(object):
                 newString += idsList[x] + "\"\n"
                 newString += "msgstr \""
                 newString += messagesDictionary[idsList[x]]["msgstr"] + "\"\n\n"
-        newString += "############################################"
+        if self.option == 3 and repeatedQuantity > 0:
+            newString += "\n############################################ Repeated Message Id's ############################################\n"
         newString += repeatedString
-        newString += "############################################"
+        if self.option == 3 and fuzzyQuantity > 0:
+            newString += "\n############################################ Fuzzy Message Id's ############################################\n"
         newString += fuzzyString
-        print(newString)
+        if self.option == 3 and repeatedQuantity > 0:
+            newString += "############# Repeated Quantity: " + str(repeatedQuantity) + " #############\n"
+        if self.option == 3 and fuzzyQuantity > 0:
+            newString += "############# Fuzzy Quantity:    " + str(fuzzyQuantity) + " #############\n"
         return newString
 
     def textToDictionary(self, message):
@@ -67,7 +108,6 @@ class CLImessageClient(object):
         repeatedDic = {}
         fuzzyDic = {}
         a = 0
-        #n = 0
         for x in range(len(messageList)):
             a = a +1
             wholeLine = ""
@@ -99,7 +139,10 @@ class CLImessageClient(object):
                     msgid = msgidLine[msgidLine.index("\"")+1:-1]
                     msgstr = msgstrLine[msgstrLine.index("\"")+1:-1]
             except Exception:
-                print("error inesperado en" + wholeLine)
+                if wholeLine == "":
+                    pass
+                else:
+                    print("Unexpected error on " + wholeLine)
             if "#~" in msgidLine:
                 index = message.index(msgidLine[3:])
                 secondIndex = message.index(msgidLine)
@@ -135,7 +178,10 @@ class CLImessageClient(object):
                         raise Exception("No numbers")
                     errors = 0
                 except:
-                    print("Message id should not contain numbers")
+                    print("")
+                    print("Message id's should not contain numbers")
+                    print("Try again")
+                    print("")
             errors = 1
             while errors == 1:
                 try:
@@ -145,6 +191,7 @@ class CLImessageClient(object):
                     errors = 0
                 except:
                     print("Message translation should not contain numbers")
+                    print("Try again")
             errors = 1
             while errors == 1:
                 try:
@@ -166,13 +213,87 @@ class CLImessageClient(object):
                         repeated = inputRepeated
                         errors = 0
                     except: 
-                        print("Only 0 and 1 accepted")
+                        print("")
+                        print("Error: Invalid option")
+                        print("Try again")
                         print("")
             else:  
                 messageDictionary[newMsgid] = {"Comments" : newCommentsLine, "msgstr" : newMsgstr}
                 repeated = 1
         return messageDictionary
 
+    def searchMessage(self, messageDictionary):
+        specificMessage = ""
+        error = 1
+        msgError = 1
+        while msgError == 1:
+            error = 1
+            while error == 1:
+                try: 
+                    if self.option == 2:
+                        specificMessage = raw_input("Please write the message Id that you want to search for: ")
+                    if self.option == 4:
+                        specificMessage = raw_input("Please write the message Id that you want to delete: ")
+                    if any(char.isdigit() for char in specificMessage):
+                        raise Exception("Message id's does not contain numbers")
+                    error = 0
+                except Exception as e: 
+                    print("")
+                    print(e)
+                    print("Try again")
+                    print("")
+            if specificMessage in messageDictionary:
+                print("Message Id: " + specificMessage)
+                print("Message Translation: " + messageDictionary[specificMessage]["msgstr"])
+                print("Message Comments: " + messageDictionary[specificMessage]["Comments"])
+                msgError = 0
+                messageInfo = {specificMessage : messageDictionary[specificMessage]}
+                return messageInfo
+            else:
+                print("That Message Id doesn't exist")
+                error = 1
+                while error == 1:
+                    try:
+                        msgError = int(raw_input("Do you wish to search another Message Id?\n0: No \n1: Yes\n"))
+                        print("")
+                        if msgError < 0 or msgError > 1:
+                                raise Exception("Invalid Option")
+                        error = 0
+                    except Exception as e:
+                        print("")
+                        print("Error: Invalid option")
+                        print("Try again")
+                        print("")
+                if msgError == 0:
+                    return None
+                
+    def removeMessage(self, messageDictionary, especificMessage):
+        messageDictionary = messageDictionary
+        message = especificMessage
+        messageId = message.keys()[0]
+        messageStr = message[message.keys()[0]]["msgstr"]
+        messageComments = message[message.keys()[0]]["Comments"]
+        secure = 0
+        while secure == 0:
+            try:
+                print("Are you sure you want to delete the record: \nMessage id: " + messageId)
+                print("Translation: " + messageStr)
+                print("Comments: " + messageComments)
+                secure = input("\n")
+                secure = int(raw_input("0: No\n1:Yes\n"))
+                if secure > 1 or secure < 0:
+                    raise Exception("Invalid Option")
+                if secure == 0:
+                    return messageDictionary
+            except:
+                print("")
+                print("Error: Invalid option")
+                print("Try again")
+                print("")
+        del messageDictionary[messageId]
+        print("\nThe element has been succesfully deleted")
+        return messageDictionary
+        
 class Menu(object):
     def __init__(self):
         self.language = "en"
@@ -184,8 +305,8 @@ class Menu(object):
     def showLanguageMenu(self, listLanguages):
         print ("Which Language do you wish to change?:")
         for x in range(len(listLanguages)):
-            string = str(x + 1) + ": " + listLanguages[x]
-            print(string)
+            languageMenu = str(x + 1) + ": " + listLanguages[x]
+            print(languageMenu)
         print ("0: Exit")
         print ("100: Add a new Language")
         help = 1
@@ -196,16 +317,17 @@ class Menu(object):
                     raise Exception('Option outside of bounds')
                 help = 0
             except:
-                print("\n")
-                print("Error :: Invalid option, try again\n")
+                print("")
+                print("Error: Invalid option")
+                print("Try again")
+                print("")
 
     def showMenu(self, language):
-        print ("Choose what would you like to do with the \"" + language + "\" messages:")
-        print ("1: Add a message")
-        print ("2: Look for a translation or comment with the message id")
+        print ("Choose what would you like to do with the \"" + language + "\" Messages:")
+        print ("1: Add a Message")
+        print ("2: Look if a Message Id exists and see the Comments and Translation")
         print ("3: See all")
-        print ("4: Delete a message (message id, translation and comment)")
-        print ("5: Create new empty Language")
+        print ("4: Delete a message (Message Id, Translation and Comments)")
         print ("9: Return to Languages Menu")
         print ("0: Exit the CLI")
         
@@ -217,8 +339,10 @@ class Menu(object):
                     raise Exception('Option outside of bounds')
                 __help = 0
             except:
-                print("\n")
-                print("Error :: Invalid option, try again\n")
+                print("")
+                print("Error: Invalid option")
+                print("Try again")
+                print("")
 
 class PathHandler(object):
         def buildPathMessages(self, language):
@@ -237,19 +361,34 @@ class FileManager(object):
         messages = open(path).read()
         return messages
 
-    def writefile(self, language, message, path):
+    def writefile(self, message, path):
         file = open(path)
         file.write(message)
 
     def compile(self, pathToCatalog):
         print("")
         path = os.path.join(pathToCatalog,"messages")
-        os.system('pybabel compile -i ' + path + '.po -o ' + path + '.mo')
+        args = []
+        args.append("pybabel")
+        args.append("compile")
+        args.append("-i")
+        args.append(path + ".po")
+        args.append("-o")
+        args.append(path + ".mo")
+        self.CLI.run(args)
         print("")
 
     def extract(self, pathToCatalog):
         print("")
         path = os.path.join(pathToCatalog,"messages")
+        args = []
+        args.append("pybabel")
+        args.append("extract")
+        args.append(path + ".po")
+        args.append("-o")
+        args.append("messages.pot")
+        self.CLI.run(args)
+        print("")
         os.system('pybabel extract ' + path+ '.po -o '  + 'messages.pot')
         print("")
 
@@ -271,6 +410,7 @@ class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
     __messageDictionary = {}
     __repeatedDic = {}
     __repeated = 0
+    CLI = CommandLineInterface()
 
     def __init__(self):
         self.optionLan = 1
@@ -290,13 +430,15 @@ class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
             self.showLanguageMenu(self.__listLanguages)
             if self.optionLan == 100:
                 self.clearScreen()
-                self.language = self.addLanguage()
-                self.__pathCatalog = self.buildPathMessages("es")
-                self.extract(self.__pathCatalog)
-                self.__path = self.buildPath(self.language)
-                self.init(self.language, self.__path)
+                self.language = self.addLanguage(self.__listLanguages)
+                self.__pathCatalog = self.buildPath("es")
+                #self.extract(self.__pathCatalog)
+                #self.__path = self.buildPath(self.language)
+                #self.init(self.language, self.__path)
             elif self.optionLan != 0:
                 while self.option != 0:
+                    print("")
+                    print("")
                     self.language = self.__listLanguages[self.optionLan -1]
                     self.__pathCatalog = self.buildPath(self.language)
                     self.__pathMessages = self.buildPathMessages(self.language)
@@ -305,24 +447,28 @@ class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
                     self.__messageDictionary = {}
                     self.__message = ""
                     self.showMenu(self.language)
+                    self.__message = self.readfile(self.language, self.__pathMessages)
+                    self.__message = self.cleanMessages(self.__message)
                     print("")
                     if self.option == 1:
-                        self.__pathCatalog
-                        self.__message = self.readfile(self.language, self.__pathMessages)
                         self.__messageDictionary = self.textToDictionary(self.__message)
                         self.__messageDictionary = self.addMessage(self.__messageDictionary, self.language)
                         self.__message = self.dictionaryToText(self.__messageDictionary)
                         #check if correct
+                        #compile
                         self.compile(self.__pathCatalog)
+                        #self.writefile(self.__message, self.__pathMessages)
                     elif self.option == 2:
-                        pass
+                        self.__messageDictionary = self.textToDictionary(self.__message)
+                        self.searchMessage(self.__messageDictionary)
                     elif self.option == 3:
-                        self.__pathCatalog
-                        self.__message = self.readfile(self.language, self.__pathMessages)
-                        self.__messageDictionary = self.textToDictionary(self.__messageDictionary)
-                        print(self.__messageDictionary)
+                        print(self.__message)
                     elif self.option == 4:
-                        pass
+                        self.__messageDictionary = self.textToDictionary(self.__message)
+                        toBeDeleted = self.searchMessage(self.__messageDictionary)
+                        self.__messageDictionary = self.removeMessage(self.__messageDictionary, toBeDeleted)
+                        self.__message = self.dictionaryToText(self.__messageDictionary)
+                        #self.writefile(self.__message, self.__pathMessages)
                     elif self.option == 5:
                         pass
                     elif self.option == 6:
