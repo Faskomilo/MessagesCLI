@@ -325,7 +325,7 @@ class CLImessageClient(object):
                     print("Error: Invalid option")
                     print("Try again")
                     print("")
-                error = 1
+            error = 1
             while error == 1:
                 try:
                     error = int(raw_input("Do you wish to change the Message Translation: \n" + messageStr + "\n?\n0: No\n1: Yes\n"))
