@@ -1,4 +1,4 @@
-import os, time
+import os, time, argparse
 from babel.messages.catalog import Message
 from babel.messages.frontend import CommandLineInterface, compile_catalog, init_catalog, extract_messages
 
@@ -51,6 +51,43 @@ class CLImessageClient(object):
                 print("Try again")
                 print("")
         return language
+
+    def compareCatalogs(self, firstLanguage, secondLanguage):
+        firstMessages = self.readfile(firstLanguage, self.__pathMessages)
+        firstMessages = self.cleanMessages(firstMessages)
+        firstMessages = self.textToDictionary(firstMessages)
+        secondMessages = self.readfile(secondLanguage, self.__pathMessages)
+        secondMessages = self.cleanMessages(secondMessages)
+        secondMessages = self.textToDictionary(secondMessages)
+        helper = 0
+        helperList = []
+        if len(firstMessages) >= len(secondMessages):
+            for x in firstMessages:
+                firstHelper = helper
+                for y in secondMessages:
+                    if x == y:
+                        helper += 1
+                if firstHelper == helper:
+                    helperList.append(x.keys())
+            if helper == len(firstMessages):
+                print("Every Message in " + firstLanguage + " exists in " + secondLanguage)
+                return None
+            else:
+                print("The catalog for " + firstLanguage + " is larger than the " + secondLanguage + " catalog")
+                for x in helperList:
+                    print("Message id: " + x + " is on " + firstLanguage + " catalog but not in the " + secondLanguage + " catalog")
+        else:
+            for x in secondMessages:
+                firstHelper = helper
+                for y in firstMessages:
+                    if x == y:
+                        helper += 1
+                if firstHelper == helper:
+                    helperList.append(x.keys())
+            
+            print("The catalog for " + secondLanguage + " is larger than the " + firstLanguage + " catalog")
+            for x in helperList:
+                print("Message id: " + x + " is on " + secondLanguage + " catalog but not in the " + firstLanguage + " catalog")
 
     def dictionaryToText(self, messagesDictionary):
         messagesDictionary = messagesDictionary
@@ -445,7 +482,9 @@ class PathHandler(object):
 class SpecificRecord(object):
     pass
 
-class FileManager(object):
+class FileManager(CLImessageClient):
+    CLI = CommandLineInterface()
+
     def readfile(self, language, path):
         messages = open(path).read()
         return messages
@@ -494,7 +533,7 @@ class FileManager(object):
         self.CLI.run(args)
         print("")
 
-class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
+class Runner(Menu,PathHandler,SpecificRecord,FileManager):
     pathLanguages = ""
     language = ""
     __pathCatalog = ""
@@ -506,14 +545,19 @@ class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
     __messageDictionary = {}
     __repeatedDic = {}
     __repeated = 0
-    CLI = CommandLineInterface()
 
     def __init__(self):
         self.optionLan = 1
         self.runApp()
+    
+    def CLI(self):
+        argus = argparse.ArgumentParser(description="Options for .po catalogs")
+        #https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_argument
+        #https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser
+        #https://docs.python.org/3/library/argparse.html
+        #https://stackoverflow.com/questions/304883/what-do-i-use-on-linux-to-make-a-python-program-executable
 
     def runApp(self):
-
         while self.optionLan != 0:
             self.__pathCatalog = ""
             self.__pathMessages = ""
@@ -554,7 +598,7 @@ class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
                         self.__message = self.dictionaryToText(self.__messageDictionary)
                         print(self.__message)
                         #check if correct
-                        #self.writefile(self.__message, self.__pathMessages)
+                        self.writefile(self.__message, self.__pathMessages)
                         self.compile(self.__pathCatalog)
                     elif self.option == 3:                      #Search a message
                         self.__messageDictionary = self.textToDictionary(self.__message)
@@ -565,11 +609,10 @@ class Runner(CLImessageClient,Menu,PathHandler,SpecificRecord,FileManager):
                         if toBeModified != None:
                             self.__messageDictionary = self.modifyMessage(self.__messageDictionary, toBeModified)
                             self.__message = self.dictionaryToText(self.__messageDictionary)
-                            print(self.__message)
-                            #self.writefile(self.__message, self.__pathMessages)
+                            self.writefile(self.__message, self.__pathMessages)
                             self.compile(self.__pathCatalog)
                     elif self.option == 5:                      #Compare the message Catalog
-                        pass
+                        self.compareCatalogs(self.language, "en")
                     elif self.option == 6:                      #Delete a Message
                         self.__messageDictionary = self.textToDictionary(self.__message)
                         toBeDeleted = self.searchMessage(self.__messageDictionary)
