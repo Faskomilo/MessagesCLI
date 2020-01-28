@@ -1,4 +1,4 @@
-import os, time, argparse
+import os, time, argparse, sys
 from babel.messages.catalog import Message
 from babel.messages.frontend import CommandLineInterface, compile_catalog, init_catalog, extract_messages
 
@@ -538,8 +538,6 @@ class Runner(Menu,PathHandler,SpecificRecord,FileManager):
     language = ""
     __pathCatalog = ""
     __pathMessages = ""
-    __listLanguages = []
-    option = 0
     optionLan = 0
     __message = ""
     __messageDictionary = {}
@@ -548,10 +546,70 @@ class Runner(Menu,PathHandler,SpecificRecord,FileManager):
 
     def __init__(self):
         self.optionLan = 1
-        self.runApp()
+        self.CLI(sys.argv)
     
-    def CLI(self):
-        argus = argparse.ArgumentParser(description="Options for .po catalogs")
+    def CLI(self, args):
+        self.pathLanguages = os.path.join(".","languages")
+        options = ["aL","aM", "s", "mM", "c", "dM", "dL", "h"]
+        optionsLong = ["addLanguage","addMessage", "search", "modifyMessage", "compare", "deleteMessage", "deleteCatalog", "help"]
+
+        option = []
+        argsL = args
+
+        languages = self.listLanguages(self.pathLanguages)
+        languages.append("all")
+
+        newLan = ""
+        messageId = ""
+        #del argsL[0]
+
+        self.__pathCatalog = ""
+        self.__pathMessages = ""
+        
+        print("")
+        for x in options:
+            if argsL[1] == x:
+                option.append(x)
+        if len(option) == 0:
+            for x in range(len(optionsLong)):
+                if argsL[1] == optionsLong[x]:
+                    optionShort = options[x]
+                    option.append(optionShort)
+                    argsL[0] = optionShort
+        if len(option) == 0:
+            print("No valid first argument given, see --help if needed.")
+        elif len(option) > 1:
+            print("Too many actions, just one per run allowed, see --help if needed.")
+        else:
+            parser = argparse.ArgumentParser(prog="MsgManager", description="Options for management of .po catalogs")
+            parser.add_argument("CLImessageClient.py")
+            subparsers = parser.add_subparsers(title="Accepted commands", description="Available Options")
+
+            parser_c = subparsers.add_parser("c",help = "compare:          Allows to compare a language message catalog with either another one or the base")
+            parser_c.add_argument("exLan", choices=languages,metavar="Language to compare")
+
+            parser_s = subparsers.add_parser("s",help = "search:           Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
+            parser_s.add_argument("messageId",metavar="Message Id")
+
+            parser_aL = subparsers.add_parser("aL",help = "addLanguage:      Allows to add a new language with the Message Id's already added")
+            parser_aL.add_argument("newLan",metavar="New Language")
+
+            parser_aM = subparsers.add_parser("aM",help = "addMessage:       Allows to add a message, either to one language or all")
+            parser_aM.add_argument("messageId", metavar="New Message Id")
+
+            parser_mM = subparsers.add_parser("mM",help = "modifyMessage:    Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
+            parser_mM.add_argument("messageId", metavar="Message Id")
+
+            parser_dM = subparsers.add_parser("dM",help = "deleteMessage:    Allow to delete a Message Id in all catalogs or if language provided only in said language")
+            parser_dM.add_argument("messageId", metavar="Message Id to be deleted")
+
+            parser_dL = subparsers.add_parser("dL",help = "deleteCatalog:    Allows to delete a whole Language's Message Catalog")
+            parser_dL.add_argument("exLan", metavar="Language to delete its Catalog")
+
+            arguments = parser.parse_args(argsL)
+            print(arguments)
+
+            #parser.add_argument("-l", "--language", dest = "exLan")
         #https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_argument
         #https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser
         #https://docs.python.org/3/library/argparse.html
