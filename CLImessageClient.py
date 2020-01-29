@@ -131,7 +131,7 @@ class CLImessageClient(object):
             newString += "\n############################################ Repeated Message Id's ############################################\n"
         newString += repeatedString
         if self.option == 1 and fuzzyQuantity > 0:
-            newString += "\n############################################ Fuzzy Message Id's ############################################\n"
+            newString += "\n############################################ Obsolete Message Id's ############################################\n"
         newString += fuzzyString
         if self.option == 1 and repeatedQuantity > 0:
             newString += "############# Repeated Quantity: " + str(repeatedQuantity) + " #############\n"
@@ -204,83 +204,24 @@ class CLImessageClient(object):
         messageDic["//Fuzzy"] = fuzzyDic
         return messageDic
 
-    def addMessage(self, messageDictionary, language):
-        repeated = 0
-        while repeated == 0:
-            errors = 1
-            while errors == 1:
-                try:
-                    newMsgid = raw_input("Write a message (a message in English that can be translated): ")
-                    if any(char.isdigit() for char in newMsgid):
-                        raise Exception("No numbers")
-                    errors = 0
-                except:
-                    print("")
-                    print("Message id's should not contain numbers")
-                    print("Try again")
-                    print("")
-            errors = 1
-            while errors == 1:
-                try:
-                    newMsgstr = raw_input("Write the translation of the message on " + language + ": ")
-                    if any(char.isdigit() for char in newMsgstr):
-                        raise Exception("No numbers")
-                    errors = 0
-                except:
-                    print("Message translation should not contain numbers")
-                    print("Try again")
-            errors = 1
-            while errors == 1:
-                try:
-                    newCommentsLine = raw_input("Write a comment on where it's gonna be used (can be left blank):")
-                    errors = 0
-                except:
-                    print("Error on Comment")   
-            if newCommentsLine != "":
-                newCommentsLine = "#" + newCommentsLine
-            if newMsgid in messageDictionary:
-                print("That message id already exists")
-                print("Want to try to add another Message?")
-                errors = 1
-                while errors == 1:
-                    try:
-                        inputRepeated = int(raw_input("Write 0 to try to add another message or 1 to return to the main menu"))
-                        if inputRepeated < 0 or inputRepeated > 1:
-                            raise Exception("Value under 0 or under 1")
-                        repeated = inputRepeated
-                        errors = 0
-                    except: 
-                        print("")
-                        print("Error: Invalid option")
-                        print("Try again")
-                        print("")
-            else:  
-                messageDictionary[newMsgid] = {"Comments" : newCommentsLine, "msgstr" : newMsgstr}
-                repeated = 1
+    def addMessage(self, newMessage, newComment,messageDictionary):
+        messageDictionary = messageDictionary
+        newMsgid = newMessage
+        Comment = newComment
+        if newMsgid in messageDictionary:
+            print("That Message Id already exists")
+            print("")
+            return None
+        else:  
+            messageDictionary[newMsgid] = {"Comments" : Comment, "msgstr" : ""}
         return messageDictionary
 
-    def searchMessage(self, messageDictionary):
-        specificMessage = ""
-        error = 1
+    def searchMessage(self, message, messageDictionary, language):
+        specificMessage = message
         msgError = 1
         while msgError == 1:
-            error = 1
-            while error == 1:
-                try: 
-                    if self.option == 3:
-                        specificMessage = raw_input("Please write the message Id that you want to search for: ")
-                    elif self.option == 4:
-                        specificMessage = raw_input("Please write the message Id that you want to modify: ")
-                    elif self.option == 6:
-                        specificMessage = raw_input("Please write the message Id that you want to delete: ")
-                    if any(char.isdigit() for char in specificMessage):
-                        raise Exception("Message id's does not contain numbers")
-                    error = 0
-                except Exception as e: 
-                    print("")
-                    print(e)
-                    print("Try again")
-                    print("")
+            if any(char.isdigit() for char in specificMessage):
+                raise Exception("Message id's does not contain numbers")
             if specificMessage in messageDictionary:
                 print("Message Id: " + specificMessage)
                 print("Message Translation: " + messageDictionary[specificMessage]["msgstr"])
@@ -290,22 +231,8 @@ class CLImessageClient(object):
                 messageInfo = {specificMessage : messageDictionary[specificMessage]}
                 return messageInfo
             else:
-                print("That Message Id doesn't exist")
-                error = 1
-                while error == 1:
-                    try:
-                        msgError = int(raw_input("Do you wish to search another Message Id?\n0: No \n1: Yes\n"))
-                        print("")
-                        if msgError < 0 or msgError > 1:
-                                raise Exception("Invalid Option")
-                        error = 0
-                    except Exception as e:
-                        print("")
-                        print("Error: Invalid option")
-                        print("Try again")
-                        print("")
-                if msgError == 0:
-                    return None
+                print("That Message Id doesn't exist in the " + language + " Catalog")
+                return None
                 
     def modifyMessage(self, messageDictionary, especificMessage):
         messageDictionary = messageDictionary
@@ -472,7 +399,7 @@ class Menu(object):
 
 class PathHandler(object):
         def buildPathMessages(self, language):
-            path = os.path.join("languages", language, "LC_MESSAGES", "messages.po")
+            path = os.path.join("languages", language, "LC_MESSAGES", "messages.pot")
             return path
         
         def buildPath(self, language):
@@ -485,7 +412,7 @@ class SpecificRecord(object):
 class FileManager(CLImessageClient):
     CLI = CommandLineInterface()
 
-    def readfile(self, language, path):
+    def readfile(self, path):
         messages = open(path).read()
         return messages
 
@@ -532,6 +459,19 @@ class FileManager(CLImessageClient):
         args.append(path + ".po")
         self.CLI.run(args)
         print("")
+    
+    def update(self, pathToCatalog, pathToPot):
+        print("")
+        path = os.path.join(pathToCatalog,"messages.po")
+        args = []
+        args.append("pybabel")
+        args.append("update")
+        args.append("-i")
+        args.append(path)
+        args.append("-o")
+        args.append(pathToPot)
+        self.CLI.run(args)
+        print("")
 
 class Runner(Menu,PathHandler,SpecificRecord,FileManager):
     pathLanguages = ""
@@ -545,70 +485,139 @@ class Runner(Menu,PathHandler,SpecificRecord,FileManager):
     __repeated = 0
 
     def __init__(self):
-        self.optionLan = 1
+        self.pathLanguages = os.path.join(".","languages")
         self.CLI(sys.argv)
     
     def CLI(self, args):
-        self.pathLanguages = os.path.join(".","languages")
         options = ["aL","aM", "s", "mM", "c", "dM", "dL", "h"]
-        optionsLong = ["addLanguage","addMessage", "search", "modifyMessage", "compare", "deleteMessage", "deleteCatalog", "help"]
+        optionsLong = ["addLanguage","addMessage", "search", "modifyMessage", "check", "deleteMessage", "deleteCatalog", "help"]
+        languages = self.listLanguages(self.pathLanguages)
+        languages.append("all")
 
         option = []
         argsL = args
 
-        languages = self.listLanguages(self.pathLanguages)
-        languages.append("all")
-
-        newLan = ""
-        messageId = ""
-        #del argsL[0]
-
         self.__pathCatalog = ""
         self.__pathMessages = ""
-        
-        print("")
-        for x in options:
-            if argsL[1] == x:
-                option.append(x)
-        if len(option) == 0:
-            for x in range(len(optionsLong)):
-                if argsL[1] == optionsLong[x]:
-                    optionShort = options[x]
-                    option.append(optionShort)
-                    argsL[0] = optionShort
-        if len(option) == 0:
-            print("No valid first argument given, see --help if needed.")
-        elif len(option) > 1:
-            print("Too many actions, just one per run allowed, see --help if needed.")
+        if len(argsL) < 2:
+            print("No argument recieved, exiting. See --help if needed.")
         else:
-            parser = argparse.ArgumentParser(prog="MsgManager", description="Options for management of .po catalogs")
-            parser.add_argument("CLImessageClient.py")
-            subparsers = parser.add_subparsers(title="Accepted commands", description="Available Options")
+            for x in options:
+                if argsL[1] == x:
+                    option.append(x)
+            if len(option) == 0:
+                for x in range(len(optionsLong)):
+                    if argsL[1] == optionsLong[x]:
+                        optionShort = options[x]
+                        option.append(optionShort)
+                        argsL[0] = optionShort
+            if len(option) == 0:
+                print("No valid first argument given, see --help if needed.")
+            elif len(option) > 1:
+                print("Too many actions, just one per run allowed, see --help if needed.")
+            else:
+                parser = argparse.ArgumentParser(prog="MsgManager", description="Options for management of .po catalogs")
+                parser.add_argument("CLImessageClient.py")
+                subparsers = parser.add_subparsers(title="Accepted commands", description="Available Options")
 
-            parser_c = subparsers.add_parser("c",help = "compare:          Allows to compare a language message catalog with either another one or the base")
-            parser_c.add_argument("exLan", choices=languages,metavar="Language to compare")
+                parser_c = subparsers.add_parser("c",help = "check:          Allows to verify that every Language Catalog has the same Message Id's")
+                #parser_c.set_defaults(func=self.addMessage)
 
-            parser_s = subparsers.add_parser("s",help = "search:           Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
-            parser_s.add_argument("messageId",metavar="Message Id")
+                parser_s = subparsers.add_parser("s",help = "search:           Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
+                parser_s.add_argument("messageId", metavar="Message_Id")
+                parser_s.add_argument("exLan", choices=languages, nargs='?',  default = "all",  metavar="Language", help="Language to search in, for all languages: all")
+                #parser_s.set_defaults(func=self.searchMessage)
 
-            parser_aL = subparsers.add_parser("aL",help = "addLanguage:      Allows to add a new language with the Message Id's already added")
-            parser_aL.add_argument("newLan",metavar="New Language")
+                parser_aL = subparsers.add_parser("aL",help = "addLanguage:      Allows to add a new language with the Message Id's already added")
+                parser_aL.add_argument("newLan", metavar="New_Language", help="Language to be added")
+                #parser_aL.set_defaults(func=self.addLanguage)
 
-            parser_aM = subparsers.add_parser("aM",help = "addMessage:       Allows to add a message, either to one language or all")
-            parser_aM.add_argument("messageId", metavar="New Message Id")
+                parser_aM = subparsers.add_parser("aM",help = "addMessage:       Allows to add a message, either to one language or all")
+                parser_aM.add_argument("messageId", metavar="New_Message_Id", help="The Message Id should go wrapped in quotation marks")
+                #parser_aM.set_defaults(func=self.addMessage)
 
-            parser_mM = subparsers.add_parser("mM",help = "modifyMessage:    Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
-            parser_mM.add_argument("messageId", metavar="Message Id")
+                parser_mM = subparsers.add_parser("mM",help = "modifyMessage:    Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
+                parser_mM.add_argument("messageId", metavar="Message_Id")
+                parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
+                parser_mM.add_argument("exLan", choices=languages, nargs='?',   default = "all", metavar="Language", help= "Language to search in, for changes on Translation use ")
+                if((len(args) > 3 and argsL[1] == "mM" and argsL[3] != "all") or "-h" in argsL or "--help" in argsL):
+                    parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks")
+                
+                #parser_mM.set_defaults(func=self.modify)
 
-            parser_dM = subparsers.add_parser("dM",help = "deleteMessage:    Allow to delete a Message Id in all catalogs or if language provided only in said language")
-            parser_dM.add_argument("messageId", metavar="Message Id to be deleted")
+                parser_dM = subparsers.add_parser("dM",help = "deleteMessage:    Allow to delete a Message Id in all catalogs or if language provided only in said language")
+                parser_dM.add_argument("messageId", metavar="Message_Id", help = "Message Id to be deleted")
+                #parser_dM.set_defaults(func=self.modify)
 
-            parser_dL = subparsers.add_parser("dL",help = "deleteCatalog:    Allows to delete a whole Language's Message Catalog")
-            parser_dL.add_argument("exLan", metavar="Language to delete its Catalog")
+                parser_dL = subparsers.add_parser("dL",help = "deleteCatalog:    Allows to delete a whole Language's Message Catalog")
+                parser_dL.add_argument("exLan", choices=languages, metavar="Language", help= "Language to delete its Catalog")
+                #parser_dL.set_defaults(func=self.modify)
 
-            arguments = parser.parse_args(argsL)
-            print(arguments)
+                arguments = parser.parse_args(argsL)
+                #arguments.__new__(hola = "as")
+                print(arguments)
 
+    def checkCatalogs(self):
+        pass
+
+    def searchMessageInCatalogs(self, message, language):
+        pathLanguages = self.pathLanguages
+        __message = message
+        __messageDictionary = {}
+        allLanguages = [language]
+        if language == "all":
+            allLanguages = self.listLanguages(pathLanguages)
+        for x in range(len(allLanguages)):
+            language = allLanguages[x]
+            pathMessages = os.path.join(pathLanguages, language, "LC_MESSAGES", "messages.po")
+            __message = self.readfile(pathMessages)
+            __message = self.cleanMessages(__message)
+            __messageDictionary = self.textToDictionary(__message)
+            self.searchMessage(message ,__messageDictionary, language)
+            print("")
+        __message = message
+        __messageDictionary = {} 
+    
+    def addLanguageCatalog(self):
+        self.language = self.addLanguage(self.__listLanguages)
+        self.__pathCatalog = self.buildPath("es")
+        #self.extract(self.__pathCatalog)
+        self.__path = self.buildPath(self.language)
+        self.init(self.language, self.__path)
+    
+    def addMessageToCatalogs(self, newMessage, newComment):
+        pathLanguages = self.pathLanguages
+        pathToPot = os.path.join(pathLanguages, "messages.pot")
+        allLanguages = self.listLanguages(pathLanguages)
+        __message = ""
+        __messageDictionary = {}
+        __message = self.readfile(pathToPot)
+        __message = self.cleanMessages(__message)
+        __messageDictionary = self.textToDictionary(__message)
+        __messageDictionary = self.addMessage(newMessage, __messageDictionary, newComment)
+        if __messageDictionary != None:
+            __message = self.dictionaryToText(__messageDictionary)
+            self.writefile(__message, pathToPot)
+            for x in range(len(allLanguages)):
+                pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
+                self.update(pathToCatalog, pathToPot)
+                self.compile(self.__pathCatalog)  
+        __message = ""
+        __messageDictionary = {} 
+        
+    
+    def modifyMessageInCatalog(self):
+        pass
+    
+    def deleteMessageInCAtalogs(self):
+        pass
+
+    def deleteLanguageCatalog(self):
+        pass
+
+    def addTranslations(self):
+        pass
+    
             #parser.add_argument("-l", "--language", dest = "exLan")
         #https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_argument
         #https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser
@@ -628,11 +637,6 @@ class Runner(Menu,PathHandler,SpecificRecord,FileManager):
             self.showLanguageMenu(self.__listLanguages)
             if self.optionLan == 100:                          #Add new language
                 self.clearScreen()
-                self.language = self.addLanguage(self.__listLanguages)
-                self.__pathCatalog = self.buildPath("es")
-                #self.extract(self.__pathCatalog)
-                self.__path = self.buildPath(self.language)
-                self.init(self.language, self.__path)
             elif self.optionLan != 0:
                 while self.option != 0:
                     print("")
@@ -645,7 +649,7 @@ class Runner(Menu,PathHandler,SpecificRecord,FileManager):
                     self.__messageDictionary = {}
                     self.__message = ""
                     self.showMenu(self.language)
-                    self.__message = self.readfile(self.language, self.__pathMessages)
+                    self.__message = self.readfile(self.__pathMessages)
                     self.__message = self.cleanMessages(self.__message)
                     print("")
                     if self.option == 1:                       #See all messages
@@ -658,9 +662,6 @@ class Runner(Menu,PathHandler,SpecificRecord,FileManager):
                         #check if correct
                         self.writefile(self.__message, self.__pathMessages)
                         self.compile(self.__pathCatalog)
-                    elif self.option == 3:                      #Search a message
-                        self.__messageDictionary = self.textToDictionary(self.__message)
-                        self.searchMessage(self.__messageDictionary)
                     elif self.option == 4:                      #Modify a message
                         self.__messageDictionary = self.textToDictionary(self.__message)
                         toBeModified = self.searchMessage(self.__messageDictionary)
