@@ -454,7 +454,7 @@ class FileManager(CLImessageClient):
         args.append("-l")
         args.append(newLanguage)
         args.append("-i")
-        args.append(pathtoPot)
+        args.append(pathToPot)
         args.append("-o")
         args.append(path)
         self.CLI.run(args)
@@ -579,13 +579,13 @@ class Runner(Menu,PathHandler,SpecificRecord,FileManager):
         __messageDictionary = {} 
     
     def addLanguageCatalog(self, language):
-        self.pathLanguages
-        self.language = self.addLanguage(self.__listLanguages)
-        self.__pathCatalog = self.buildPath("es")
-        #self.extract(self.__pathCatalog)
-        self.__path = self.buildPath(self.language)
-        self.init(self.language, self.__path)
-    
+        pathLanguages = self.pathLanguages
+        pathToPot = os.path.join(pathLanguages, "messages.pot")
+        pathToCatalog = self.buildPath(language)
+        self.init(language,pathToCatalog,pathToPot)
+        self.update(pathToCatalog,pathToPot)
+        self.compile(pathToCatalog)
+
     def addMessageToCatalogs(self, newMessage, newComment):
         pathLanguages = self.pathLanguages
         pathToPot = os.path.join(pathLanguages, "messages.pot")
