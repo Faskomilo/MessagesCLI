@@ -25,7 +25,7 @@ class CLImessageClient(object):
             elif self.option == 2:
                 print("Are you sure you want to delete the record: \nMessage id: " + message)
             elif self.option == 3:
-                print("Are you sure you want to delete the record: \nMessage id: " + message)
+                print("Are you sure you want to delete the whole " + message + " language")
             confident = int(raw_input("0: No\n1:Yes\n"))
             if confident > 1 or confident < 0:
                 raise Exception("Invalid Option")
@@ -40,7 +40,7 @@ class CLImessageClient(object):
     def getDictionary(self, language):
         pathToLanguages = self.pathLanguages
         if language == "all":
-            pathToPot = so.path.join(pathToLanguages, "messages.pot")
+            pathToPot = os.path.join(pathToLanguages, "messages.pot")
             pathToMessages = pathToPot
         else:
             pathToMessages = self.buildPathMessages(pathToLanguages, language)
@@ -50,12 +50,8 @@ class CLImessageClient(object):
         return __messageDictionary
 
     def compareCatalogs(self, firstLanguage, secondLanguage):
-        firstMessages = self.readfile(firstLanguage, self.__pathMessages)
-        firstMessages = self.cleanMessages(firstMessages)
-        firstMessages = self.textToDictionary(firstMessages)
-        secondMessages = self.readfile(secondLanguage, self.__pathMessages)
-        secondMessages = self.cleanMessages(secondMessages)
-        secondMessages = self.textToDictionary(secondMessages)
+        firstMessages = self.getDictionary(firstLanguage)
+        secondMessages = self.getDictionary(secondLanguage)
         helper = 0
         helperList = []
         if len(firstMessages) >= len(secondMessages):
@@ -67,12 +63,12 @@ class CLImessageClient(object):
                 if firstHelper == helper:
                     helperList.append(x.keys())
             if helper == len(firstMessages):
-                print("Every Message in " + firstLanguage + " exists in " + secondLanguage)
+                print("Every Message in the .pot file exists in " + secondLanguage)
                 return None
             else:
-                print("The catalog for " + firstLanguage + " is larger than the " + secondLanguage + " catalog")
+                print("The catalog for the .pot file is larger than the " + secondLanguage + " catalog")
                 for x in helperList:
-                    print("Message id: " + x + " is on " + firstLanguage + " catalog but not in the " + secondLanguage + " catalog")
+                    print("Message id: " + x + " is on the .pot file catalog but not in the " + secondLanguage + " catalog")
         else:
             for x in secondMessages:
                 firstHelper = helper
@@ -81,10 +77,9 @@ class CLImessageClient(object):
                         helper += 1
                 if firstHelper == helper:
                     helperList.append(x.keys())
-            
-            print("The catalog for " + secondLanguage + " is larger than the " + firstLanguage + " catalog")
+            print("The catalog for " + secondLanguage + " is larger than the .pot file catalog")
             for x in helperList:
-                print("Message id: " + x + " is on " + secondLanguage + " catalog but not in the " + firstLanguage + " catalog")
+                print("Message id: " + x + " is on " + secondLanguage + " catalog but not in the .pot file")
 
     def dictionaryToText(self, messagesDictionary):
         messagesDictionary = messagesDictionary
@@ -229,43 +224,38 @@ class CLImessageClient(object):
             print("That Message Id doesn't exist in the " + language + " Catalog")
             return None
                 
-    def modifyMessage(self, messageDictionary, especificMessage):
+    def modifyMessage(self, messageDictionary, especificMessage, comment, translation):
         messageDictionary = messageDictionary
         message = especificMessage
         messageId = message.keys()[0]
         messageStr = message[message.keys()[0]]["msgstr"]
         messageComments = message[message.keys()[0]]["Comments"]
-        newMessageId = ""
-        newMessageStr = ""
-        newMessageComments = ""
+        newMessageStr = translation
+        newMessageComments = comment
         if self.option == 1:
-            try:
-                newMessageId = raw_input("Write the new Message Id: ")
-                if any(char.isdigit() for char in newMessageId):
-                    raise Exception("Message Id's should have only letters")
-            except:
-                print("")
-                print("Error: Message Id's should have only letters")
-                print("")
-                return None
-            try:
-                newMessageStr = raw_input("Write the new Message Translation: ")
-                if any(char.isdigit() for char in newMessageStr):
-                    raise Exception("Message Translations should have only letters")
-            except:
-                print("")
-                print("Error: Message Translations should have only letters")
-                print("")
-                return None
-            try:
-                newMessageComments = raw_input("Write the new Message Comments: ")
-            except:
-                print("")
-                print("Error: Unknown Comment changes errors")
-                print("Try again")
-                print("")
-            messageDictionary[newMessageId] = {"Comments" : newMessageComments, "msgstr" : newMessageStr}
-            del messageDictionary[messageId]
+            if newMessageStr == "":
+                newMessageStr = messageStr
+            else:
+                try:
+                    newMessageStr = newMessageStr
+                    if any(char.isdigit() for char in newMessageStr):
+                        raise Exception("Message Translations should have only letters")
+                except:
+                    print("")
+                    print("Error: Message Translations should have only letters")
+                    print("")
+                    return None
+            if newMessageComments == "":
+                newMessageComments = messageComments
+            else:
+                try:
+                    newMessageComments = newMessageComments
+                except:
+                    print("")
+                    print("Error: Unknown Comment changes errors")
+                    print("")
+                    return None
+            messageDictionary[messageId] = {"Comments" : newMessageComments, "msgstr" : newMessageStr}
         elif self.option == 2:
             del messageDictionary[messageId]
             print("\nThe element has been succesfully deleted")
@@ -279,6 +269,10 @@ class PathHandler(object):
         def buildPath(self, language):
             path = os.path.join("languages", language, "LC_MESSAGES")
             return path
+        
+        def listLanguages(self,pathLanguages):
+            options = os.listdir(os.path.join(".", pathLanguages)) 
+            return options
             
 class SpecificRecord(object):
     pass
@@ -395,7 +389,7 @@ class Runner(PathHandler,SpecificRecord,FileManager):
                 subparsers = parser.add_subparsers(title="Accepted commands", description="Available Options")
 
                 parser_v = subparsers.add_parser("v",help = "verify:          Allows to verify that every Language Catalog has the same Message Id's")
-                #parser_v.set_defaults(func=self.addMessage)
+                parser_v.set_defaults(func=self.verifyCatalogs)
 
                 parser_s = subparsers.add_parser("s",help = "search:           Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
                 parser_s.add_argument("messageId", metavar="Message_Id")
@@ -415,25 +409,30 @@ class Runner(PathHandler,SpecificRecord,FileManager):
                 parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
                 parser_mM.add_argument("exLan", choices=languages, nargs='?',   default = "all", metavar="Language", help= "Language to search in, for changes on Translation use ")
                 print(len(args))
-                if((len(args) > 3 and argsL[1] == "mM" and argsL[3] != "all") or "-h" in argsL or "--help" in argsL):
+                if(("all" not in argsL) or "-h" in argsL or "--help" in argsL):
                     parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks")
-                
-                #parser_mM.set_defaults(func=self.modify)
+                parser_mM.set_defaults(func=self.modifyMessageInCatalog)
 
                 parser_dM = subparsers.add_parser("dM",help = "deleteMessage:    Allow to delete a Message Id in all catalogs or if language provided only in said language")
                 parser_dM.add_argument("messageId", metavar="Message_Id", help = "Message Id to be deleted")
-                #parser_dM.set_defaults(func=self.modify)
+                parser_dM.set_defaults(func=self.deleteMessageInCatalogs)
 
                 parser_dL = subparsers.add_parser("dL",help = "deleteCatalog:    Allows to delete a whole Language's Message Catalog")
                 parser_dL.add_argument("exLan", choices=languages, metavar="Language", help= "Language to delete its Catalog")
-                #parser_dL.set_defaults(func=self.modify)
+                parser_dL.set_defaults(func=self.deleteLanguageCatalog)
 
                 arguments = parser.parse_args(argsL)
                 #arguments.__new__(hola = "as")
                 print(arguments)
 
-    def verifyCatalogs(self):
-        pass
+    def verifyCatalogs(self, args):
+        pathLanguages = self.pathLanguages
+        allLanguages = self.listLanguages(pathLanguages)
+        for x in allLanguages:
+            print("#########  " + x + "Catalog  #########")
+            self.compareCatalogs("all", x)
+            print("")
+            print("")
 
     def searchMessageInCatalogs(self, message, language):
         pathLanguages = self.pathLanguages
@@ -444,7 +443,6 @@ class Runner(PathHandler,SpecificRecord,FileManager):
             allLanguages = self.listLanguages(pathLanguages)
         for x in range(len(allLanguages)):
             language = allLanguages[x]
-            pathMessages = os.path.join(pathLanguages, language, "LC_MESSAGES", "messages.po")
             __messageDictionary = self.getDictionary(language)
             self.searchMessage(message ,__messageDictionary, language)
             print("")
@@ -470,13 +468,13 @@ class Runner(PathHandler,SpecificRecord,FileManager):
             __message = self.dictionaryToText(__messageDictionary)
             self.writefile(__message, pathToPot)
             for x in range(len(allLanguages)):
-                pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                self.update(pathToCatalog, pathToPot)
-                self.compile(self.__pathCatalog)  
+                __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
+                self.update(__pathToCatalog, pathToPot)
+                self.compile(__pathToCatalog)  
         __message = ""
         __messageDictionary = {} 
         
-    def modifyMessageInCatalog(self, language, message):
+    def modifyMessageInCatalog(self, language, message, translation, comment):
         option = 1
         pathLanguages = self.pathLanguages
         pathToPot = os.path.join(pathLanguages, "messages.pot")
@@ -487,21 +485,25 @@ class Runner(PathHandler,SpecificRecord,FileManager):
         if toBeModified != None:
             ask = self.askIfConfident(message)
         if ask != None:
-            #<__messageDictionary = self.modifyMessage(self.__messageDictionary, toBeModified)
-            __message = self.dictionaryToText(self.__messageDictionary)
-            if len(allLanguages) == 1:
-                pathToCatalog = os.path.join(pathLanguages, allLanguages[0], "LC_MESSAGES")
-                self.writefile(self.__message, self.__pathMessages)
-                self.compile(self.__pathCatalog)
+            __messageDictionary = self.modifyMessage(__messageDictionary, toBeModified, comment, translation)
+            __message = self.dictionaryToText(__messageDictionary)
+            if language != "all":
+                __pathToCatalog = os.path.join(pathLanguages, allLanguages[0], "LC_MESSAGES")
+                __pathMessages = os.path.join(__pathToCatalog, "messages.po")
+                self.writefile(__message, __pathMessages)
+                self.compile(__pathToCatalog)
             else:
+                self.writefile(__message, pathToPot)
                 for x in range(len(allLanguages)):
-                    pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                    self.update(pathToCatalog, pathToPot)
-                    self.compile(self.__pathCatalog)
+                    __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
+                    self.update(__pathToCatalog, pathToPot)
+                    self.compile(__pathToCatalog)
                 
-    
     def deleteMessageInCatalogs(self, language, message):
         option = 2
+        pathLanguages = self.pathLanguages
+        pathToPot = os.path.join(pathLanguages, "messages.pot")
+        allLanguages = self.listLanguages(pathLanguages)
         __messageDictionary = self.getDictionary(language)
         toBeDeleted = self.searchMessage(message, __messageDictionary, language)
         ask = None 
@@ -509,16 +511,23 @@ class Runner(PathHandler,SpecificRecord,FileManager):
             ask = self.askIfConfident(message)
         if ask != None:
             if toBeDeleted != None:
-                #<__messageDictionary = self.modifyMessage(self.__messageDictionary, toBedeleted)
-                __message = self.dictionaryToText(self.__messageDictionary)
-                self.writefile(self.__message, self.__pathMessages)
-                self.compile(self.__pathCatalog)
-
+                __messageDictionary = self.modifyMessage(__messageDictionary, toBeDeleted, "", "")
+                __message = self.dictionaryToText(__messageDictionary)
+                self.writefile(__message, pathToPot)
+                for x in range(len(allLanguages)):
+                    __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
+                    self.update(__pathToCatalog, pathToPot)
+                    self.compile(__pathToCatalog)
+            
     def deleteLanguageCatalog(self, language):
-        option = 2
-        #ask = self.askIfConfident()
-        #if ask != None:
-        #    pass
+        option = 3
+        pathLanguages = self.pathLanguages
+        ask = self.askIfConfident(language)
+        if ask != None:
+            pathLanguage = os.path.join(pathLanguages, language)
+            shutil.rmtree(pathLanguage)
+            print("The deletion of the " + language + " language was succesful")
+            print("")
 
     def addTranslations(self):
         pass
@@ -528,63 +537,6 @@ class Runner(PathHandler,SpecificRecord,FileManager):
         #https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser
         #https://docs.python.org/3/library/argparse.html
         #https://stackoverflow.com/questions/304883/what-do-i-use-on-linux-to-make-a-python-program-executable
-
-    def runApp(self):
-        while self.optionLan != 0:
-            self.__pathCatalog = ""
-            self.__pathMessages = ""
-            self.__listLanguages = []
-            self.language = "es"
-            self.pathLanguages = os.path.join(".","languages")
-            self.option = 1
-            self.clearScreen()
-            self.__listLanguages = self.listLanguages(self.pathLanguages)
-            self.showLanguageMenu(self.__listLanguages)
-            if self.optionLan == 100:                          #Add new language
-                self.clearScreen()
-            elif self.optionLan != 0:
-                while self.option != 0:
-                    print("")
-                    print("")
-                    self.language = self.__listLanguages[self.optionLan -1]
-                    self.__pathCatalog = self.buildPath(self.language)
-                    self.__pathMessages = self.buildPathMessages(self.language)
-                    self.__repeated = 0
-                    self.__repeatedDic = {}
-                    self.__messageDictionary = {}
-                    self.__message = ""
-                    self.showMenu(self.language)
-                    self.__message = self.readfile(self.__pathMessages)
-                    self.__message = self.cleanMessages(self.__message)
-                    print("")
-                    if self.option == 1:                       #See all messages
-                        print(self.__message)
-                    elif self.option == 2:                     #Add new message
-                        self.__messageDictionary = self.textToDictionary(self.__message)
-                        self.__messageDictionary = self.addMessage(self.__messageDictionary, self.language)
-                        self.__message = self.dictionaryToText(self.__messageDictionary)
-                        print(self.__message)
-                        #check if correct
-                        self.writefile(self.__message, self.__pathMessages)
-                        self.compile(self.__pathCatalog)
-                    elif self.option == 5:                      #Compare the message Catalog
-                        self.compareCatalogs(self.language, "en")
-                    elif self.option == 6:                      #Delete a Message
-                        self.__messageDictionary = self.textToDictionary(self.__message)
-                        toBeDeleted = self.searchMessage(self.__messageDictionary)
-                        if toBeDeleted != None:
-                            self.__messageDictionary = self.modifyMessage(self.__messageDictionary, toBeDeleted)
-                            self.__message = self.dictionaryToText(self.__messageDictionary)
-                            self.writefile(self.__message, self.__pathMessages)
-                            self.compile(self.__pathCatalog)
-                    elif self.option == 7:
-                        pass
-                    elif self.option == 8:
-                        pass
-                    elif self.option == 9:
-                        self.option = 0
-                    elif self.option == 0:
-                        self.optionLan = 0
 
 if __name__ == "__main__":
     Runner()
