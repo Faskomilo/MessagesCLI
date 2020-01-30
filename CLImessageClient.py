@@ -445,18 +445,18 @@ class FileManager(CLImessageClient):
         self.CLI.run(args)
         print("")
 
-    def init(self, newLanguage, pathToCatalog):
+    def init(self, newLanguage, pathToCatalog, pathToPot):
         print("")
-        path = os.path.join(pathToCatalog,"messages")
+        path = os.path.join(pathToCatalog,"messages.po")
         args = []
         args.append("pybabel")
         args.append("init")
         args.append("-l")
         args.append(newLanguage)
         args.append("-i")
-        args.append("messages.pot")
+        args.append(pathtoPot)
         args.append("-o")
-        args.append(path + ".po")
+        args.append(path)
         self.CLI.run(args)
         print("")
     
@@ -578,7 +578,8 @@ class Runner(Menu,PathHandler,SpecificRecord,FileManager):
         __message = message
         __messageDictionary = {} 
     
-    def addLanguageCatalog(self):
+    def addLanguageCatalog(self, language):
+        self.pathLanguages
         self.language = self.addLanguage(self.__listLanguages)
         self.__pathCatalog = self.buildPath("es")
         #self.extract(self.__pathCatalog)
