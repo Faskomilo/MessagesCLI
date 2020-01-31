@@ -1,5 +1,11 @@
 import os, time, argparse, sys, shutil
-from babel.messages.frontend import CommandLineInterface
+try:
+    from babel.messages.frontend import CommandLineInterface
+except:
+    print("")
+    print("Install Babel before trying to run this program")
+    print("")
+    sys.exit(0)
 
 class CLImessageClient(object):
     def __init__(self):
@@ -333,8 +339,11 @@ class FileManager(CommandLineInterface):
         babArgs.append(language)
         babArgs.append("-o")
         babArgs.append(path + ".mo")
-        CommandLineInterface().run(babArgs)
-        print("Compile Completed")
+        try:
+            CommandLineInterface().run(babArgs)
+            print("Compile Completed")
+        except:
+            pass
         print("")
 
     def extract(self, pathToCatalog):
@@ -346,8 +355,11 @@ class FileManager(CommandLineInterface):
         babArgs.append(path + ".po")
         babArgs.append("-o")
         babArgs.append("messages.pot")
-        CommandLineInterface().run(babArgs)
-        print("Extract to .pot Completed")
+        try:
+            CommandLineInterface().run(babArgs)
+            print("Extract to .pot Completed")
+        except:
+            pass
         print("")
 
     def init(self, newLanguage, pathToCatalog, pathToPot):
@@ -362,8 +374,11 @@ class FileManager(CommandLineInterface):
         babArgs.append(pathToPot)
         babArgs.append("-o")
         babArgs.append(path)
-        CommandLineInterface().run(babArgs)
-        print("\"" + newLanguage + "\" Initialized Succesfully")
+        try:
+            CommandLineInterface().run(babArgs)
+            print("\"" + newLanguage + "\" Initialized Succesfully")
+        except:
+            pass
         print("")
     
     def update(self, pathToCatalog, pathToPot, language):
@@ -378,8 +393,11 @@ class FileManager(CommandLineInterface):
         babArgs.append(language)
         babArgs.append("-o")
         babArgs.append(path)
-        CommandLineInterface().run(babArgs)
-        print("Update Completed")
+        try:
+            CommandLineInterface().run(babArgs)
+            print("Update Completed")
+        except:
+            pass
         print("")
 
 class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
@@ -404,13 +422,6 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         optionsLong = ["addLanguage","addMessage", "search", "modifyMessage", "verify", "deleteMessage", "deleteCatalog", "--help", "addTranslations"]
         languages = self.listLanguages(self.pathLanguages)
         languages.append("all")
-
-        try:
-            from babel.messages.frontend import CommandLineInterface
-        except:
-            print("Error 001 :: Babel does not exists in the current context, please install it")
-            print("")
-            args = []
 
         option = []
         argsL = args
