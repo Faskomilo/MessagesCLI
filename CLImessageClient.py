@@ -351,6 +351,7 @@ class Runner(PathHandler,SpecificRecord,FileManager):
     __messageDictionary = {}
     __repeatedDic = {}
     __repeated = 0
+    option = 0
 
     def __init__(self):
         self.pathLanguages = os.path.join(".","languages")
@@ -402,6 +403,7 @@ class Runner(PathHandler,SpecificRecord,FileManager):
 
                 parser_aM = subparsers.add_parser("aM",help = "addMessage:       Allows to add a message, either to one language or all")
                 parser_aM.add_argument("messageId", metavar="New_Message_Id", help="The Message Id should go wrapped in quotation marks")
+                parser_aM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
                 parser_aM.set_defaults(func=self.addMessageToCatalogs)
 
                 parser_mM = subparsers.add_parser("mM",help = "modifyMessage:    Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
@@ -422,7 +424,7 @@ class Runner(PathHandler,SpecificRecord,FileManager):
                 parser_dL.set_defaults(func=self.deleteLanguageCatalog)
 
                 arguments = parser.parse_args(argsL)
-                #arguments.__new__(hola = "as")
+                arguments.func(arguments)
                 print(arguments)
 
     def verifyCatalogs(self, args):
@@ -434,7 +436,9 @@ class Runner(PathHandler,SpecificRecord,FileManager):
             print("")
             print("")
 
-    def searchMessageInCatalogs(self, message, language):
+    def searchMessageInCatalogs(self, args):
+        message = args.messageId
+        language = args.language
         pathLanguages = self.pathLanguages
         __message = message
         __messageDictionary = {}
@@ -449,14 +453,17 @@ class Runner(PathHandler,SpecificRecord,FileManager):
         __message = message
         __messageDictionary = {} 
     
-    def addLanguageCatalog(self, language):
+    def addLanguageCatalog(self, args):
+        language = args.newLan
         pathLanguages = self.pathLanguages
         pathToPot = os.path.join(pathLanguages, "messages.pot")
         pathToCatalog = self.buildPath(language)
         self.init(language,pathToCatalog,pathToPot)
         self.compile(pathToCatalog)
 
-    def addMessageToCatalogs(self, newMessage, newComment):
+    def addMessageToCatalogs(self, args):
+        newMessage = args.messageId
+        newComment = args.Comment
         pathLanguages = self.pathLanguages
         pathToPot = os.path.join(pathLanguages, "messages.pot")
         allLanguages = self.listLanguages(pathLanguages)
@@ -474,8 +481,12 @@ class Runner(PathHandler,SpecificRecord,FileManager):
         __message = ""
         __messageDictionary = {} 
         
-    def modifyMessageInCatalog(self, language, message, translation, comment):
-        option = 1
+    def modifyMessageInCatalog(self, args):
+        language = args.exLan
+        message = args.messageId
+        translation = args.Translation
+        comment = args.Comment
+        self.option = 1
         pathLanguages = self.pathLanguages
         pathToPot = os.path.join(pathLanguages, "messages.pot")
         allLanguages = self.listLanguages(pathLanguages)
@@ -499,8 +510,10 @@ class Runner(PathHandler,SpecificRecord,FileManager):
                     self.update(__pathToCatalog, pathToPot)
                     self.compile(__pathToCatalog)
                 
-    def deleteMessageInCatalogs(self, language, message):
-        option = 2
+    def deleteMessageInCatalogs(self, args):
+        language = "all"
+        message = args.messageId
+        self.option = 2
         pathLanguages = self.pathLanguages
         pathToPot = os.path.join(pathLanguages, "messages.pot")
         allLanguages = self.listLanguages(pathLanguages)
@@ -519,8 +532,9 @@ class Runner(PathHandler,SpecificRecord,FileManager):
                     self.update(__pathToCatalog, pathToPot)
                     self.compile(__pathToCatalog)
             
-    def deleteLanguageCatalog(self, language):
-        option = 3
+    def deleteLanguageCatalog(self, args):
+        language = args.exLan
+        self.option = 3
         pathLanguages = self.pathLanguages
         ask = self.askIfConfident(language)
         if ask != None:
