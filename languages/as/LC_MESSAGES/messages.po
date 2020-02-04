@@ -1,12 +1,13 @@
+
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-01-31 13:08-0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2020-01-27 11:37-0600\n"
+"PO-Revision-Date: 2020-02-04 10:38-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
-"Language-Team: en <LL@li.org>\n"
+"Language: as\n"
+"Language-Team: as <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -16,51 +17,45 @@ msgstr ""
 #: views/field/operation.html:416 views/field/planning.html:21
 #: views/field/weather.html:23 views/map/components/i18n.html:165
 msgid " Blocks selected."
-msgstr "Parcelas selecionadas"
+msgstr ""
 
 #: controllers/catalogs.py:57 controllers/catalogs.py:70
 #: controllers/management.py:392 controllers/management.py:405
 #: models/Employee.py:338 models/Employee.py:462
 msgid " Cost per hour: *"
-msgstr "Costo por hora: *"
+msgstr ""
 
 #: views/field/planning.html:17 views/field/weather.html:19
 msgid " Fields selected."
-msgstr " Campos seleccionados"
+msgstr ""
 
 #: views/parcel/getTaskDetail.html:55
 msgid " supervisor"
-msgstr " supervisor"
+msgstr ""
 
 #: views/field/planning.html:268
 msgid ""
 "A Plan Template is a list of activities, when a plan template is assigned"
 " to a field automatically all activities are placed in the field."
 msgstr ""
-"Una plantilla de plan es una lista de actividades que cuando se asignan a"
-" un campo dichas actividades se agregan al campo automaticamente."
 
 #: views/field/planning.html:44
 msgid ""
 "Do you really want to complete the field plan _FIELD_PLAN_? If the field "
 "plan is completed all the associated jobs will also be mark as complete"
 msgstr ""
-"¿Realmente desea completar el plan de campo  _FIELD_PLAN_? Si el plan "
-"termina todos los trabajos asociados tambien se marcaran como completados"
 
 #: views/catalogs/employees.html:12 views/management/laborPayroll.html:12
 msgid ""
 "Do you really want to delete the _WORKGROUP_ team?. All employees of the "
 "group will be disassigned"
-msgstr "¿Desea eliminar el grupo? Todos los empleados del grupo serán desasignados"
+msgstr ""
 
 #: views/field/planning.html:34 views/field/weather.html:36
 msgid ""
 "Do you really want to terminate the crop _CROP_? If the crop is "
 "terminated all the associated plans will also be terminated"
 msgstr ""
-"¿Realmente desea finalizar el cultivo _CROP_? Si el cultivo termina todos"
-" los planes asociados tambien terminarán"
 
 #: views/field/weather.html:42
 msgid ""
@@ -68,16 +63,12 @@ msgid ""
 "season plan is terminated all the associated plans will also be "
 "terminated"
 msgstr ""
-"¿Realmente desea terminar el plan de temporada  _SEASON_PLAN_? Si el plan"
-" termina todos los planes asociados tambien terminarán"
 
 #: views/management/sales.html:18
 msgid ""
 "Do you want to save it as a paid Sale and register it in the accounting "
 "books?"
 msgstr ""
-"¿Realmente deseas marcar como venta pagada y registrar en los libros de "
-"contabilidad?"
 
 #: views/assets/machinery.html:23 views/assets/products.html:22
 #: views/catalogs/machinery.html:23 views/catalogs/products.html:22
@@ -86,32 +77,24 @@ msgid ""
 "Do you want to save it as a paid purchase and register it in the "
 "accounting books?"
 msgstr ""
-"¿Desea guardar la orden de compra como pagada y registrala en el libro de"
-" contabilidad?"
 
 #: views/login/recovery.html:20
 msgid ""
 "Enter email registered in Agrosuite, we will send an email with the "
 "instructions to recovery."
 msgstr ""
-"Ingrese el correo electrónico registrado, le enviaremos  las "
-"instrucciones para recuperar su contraseña por correo."
 
 #: controllers/login.py:114 views/login/recovery.html:25
 msgid ""
 "Recovery password email sent, please, check your email inbox to see the "
 "instructions."
 msgstr ""
-"Se ha envido por correo las instrucciones para recuperar su contraseña, "
-"por favor revise su correo."
 
 #: views/field/planning.html:237
 msgid ""
 "Short abbreviation to identify your crops faster, Agrosuite help you to "
 "create it."
 msgstr ""
-"Abreviación corta para identificar más rapido los cultivos, Agrosuite te "
-"ayuda a crearlos."
 
 #: views/social/donation.html:26
 msgid ""
@@ -122,12 +105,6 @@ msgid ""
 "of food banks in Mexico and we are one of the largest network around the "
 "world."
 msgstr ""
-"Somos una red de 53 bancos de alimentos distribuidos practicamente por "
-"todo el territorio nacional que tan solo en 2017, rescatamos más de 128 "
-"mil toneladas de alimento, ayudando así a más de 1.2 millones de "
-"beneficiarions constantes. Conformamos una de las asociaciones más "
-"importantes del país: somos la única red de bancos de alimentos de México"
-" y una de la más grandes en el mundo."
 
 #: views/management/sales.html:367
 msgid ""
@@ -149,8 +126,6 @@ msgid ""
 "You can confirm your harvest record later. Once the registration is "
 "confirmed you will not be able to make changes."
 msgstr ""
-"Puedes confirmar tu registro de cosecha posteriormente. Una vez "
-"confirmado no podrás realizar cambios."
 
 #: controllers/catalogs.py:226 controllers/management.py:125
 msgid "-"
@@ -168,7 +143,7 @@ msgstr ""
 
 #: views/field/planning.html:236
 msgid "Abbreviation"
-msgstr "Abreviación"
+msgstr ""
 
 #: controllers/map.py:246
 msgid "AccessToken is required"
@@ -176,7 +151,7 @@ msgstr ""
 
 #: views/management/finances.html:7 views/management/jornual.html:7
 msgid "Account record save successfully"
-msgstr "Registros guardados con éxito"
+msgstr ""
 
 #: controllers/finances.py:96
 msgid "Account-book"
@@ -184,16 +159,16 @@ msgstr ""
 
 #: views/dashboards/crop.html:175
 msgid "Accumulated Cost"
-msgstr "Costo acumulado"
+msgstr ""
 
 #: views/field/operation.html:429 views/field/planning.html:146
 #: views/map/getInfoModal.html:25
 msgid "Activities"
-msgstr "Actividades"
+msgstr ""
 
 #: views/map/components/i18n.html:167 views/map/jobsWizard.html:366
 msgid "Activities and jobs created successfully"
-msgstr "Actividades y trabajos creados con éxito"
+msgstr ""
 
 #: contents/jobsmodal.html:33 views/activities/getActivityDetail.html:12
 #: views/dashboards/activity.html:102 views/field/getJobDetail.html:28
@@ -201,11 +176,11 @@ msgstr "Actividades y trabajos creados con éxito"
 #: views/field/planning.html:54 views/field/planning.html:295
 #: views/field/planning.html:299 views/map/components/i18n.html:174
 msgid "Activity"
-msgstr "Actividad"
+msgstr ""
 
 #: controllers/dashboards.py:885 views/dashboards/activity.html:101
 msgid "Activity Status"
-msgstr "Estatus de actividad"
+msgstr ""
 
 #: controllers/cron.py:209
 msgid "Activity cost validation"
@@ -225,11 +200,11 @@ msgstr ""
 
 #: controllers/dashboards.py:108 controllers/dashboards.py:171
 msgid "Activity overview"
-msgstr "Resumen de actividades"
+msgstr ""
 
 #: contents/jobsmodal.html:56
 msgid "Activity type"
-msgstr "Tipo de actividad"
+msgstr ""
 
 #: controllers/dashboards.py:886
 msgid "Activity#"
@@ -248,74 +223,74 @@ msgstr ""
 #: views/map/jobsWizard.html:180 views/map/jobsWizard.html:247
 #: views/map/jobsWizard.html:321
 msgid "Add"
-msgstr "Agregar"
+msgstr ""
 
 #: contents/jobsmodal.html:185 views/management/purchaseOrder.html:435
 msgid "Add Equipment"
-msgstr "Agregar Equipo"
+msgstr ""
 
 #: contents/jobsmodal.html:241 views/management/purchaseOrder.html:121
 msgid "Add Product"
-msgstr "Agregar Insumo"
+msgstr ""
 
 #: views/dashboards/crop.html:227
 msgid "Add Projection"
-msgstr "Agregar proyección"
+msgstr ""
 
 #: views/_scheduleTabContent.html:182
 msgid "Add a storage loaction and supplies"
-msgstr "Agregar ubicación de almacenaje y Proveedores"
+msgstr ""
 
 #: views/_scheduleTabContent.html:56
 msgid "Add an employee"
-msgstr "Agregar empleado"
+msgstr ""
 
 #: views/_scheduleTabContent.html:115
 msgid "Add an equipment"
-msgstr "Agregar un equipo"
+msgstr ""
 
 #: views/field/weather.html:51 views/map/components/i18n.html:13
 msgid "Add job"
-msgstr "Agregar trabajo"
+msgstr ""
 
 #: contents/jobsmodal.html:295 views/_scheduleTabContent.html:266
 msgid "Add notes"
-msgstr "Agregar notas"
+msgstr ""
 
 #: views/map/components/i18n.html:60
 msgid "Add photo"
-msgstr "Agregar foto"
+msgstr ""
 
 #: views/management/sales.html:48 views/management/sales.html:58
 msgid "Add sale"
-msgstr "Agregar venta"
+msgstr ""
 
 #: views/map/getFeatureContent.html:6
 msgid "Add the feature content"
-msgstr "Agrega el contenido caracteristico"
+msgstr ""
 
 #: views/map/jobsWizard.html:313
 msgid "Add the notes that you consider"
-msgstr "Agrega las notas que consideres"
+msgstr ""
 
 #: views/demorequest/index.html:70
 msgid "Additional notes"
-msgstr "Notas adicionales"
+msgstr ""
 
 #: models/Buyer.py:360 models/Company.py:290 models/ShippingAddress.py:238
 #: models/Supplier.py:369 views/management/sales.html:386
 #: views/management/sales.html:387 views/social/donation.html:40
 #: views/social/donation.html:41
 msgid "Address"
-msgstr "Dirección"
+msgstr ""
 
 #: models/Employee.py:494
 msgid "Admision Date"
-msgstr "Fecha de admisión"
+msgstr ""
 
 #: models/Employee.py:349 models/Employee.py:473
 msgid "Admission Date:"
-msgstr "Fecha de Admisión:"
+msgstr ""
 
 #: controllers/map.py:772
 msgid "Agent Location Data"
@@ -323,28 +298,28 @@ msgstr ""
 
 #: views/map/index.html:52 views/map/index.html:96
 msgid "Agents"
-msgstr "Agentes"
+msgstr ""
 
 #: controllers/api.py:469 controllers/api.py:484 controllers/api.py:499
 #: controllers/api.py:520 controllers/api.py:530 controllers/api.py:568
 msgid "Agrosuite Checkin"
-msgstr "Registro Agrosuite"
+msgstr ""
 
 #: controllers/login.py:34 controllers/loginSecundary.py:30
 msgid "Agrosuite: Login"
-msgstr "Agrosuite: Iniciar sesión"
+msgstr ""
 
 #: controllers/login.py:99
 msgid "Agrosuite: Password recovery"
-msgstr "Agrosuite: Recuperar contraseña"
+msgstr ""
 
 #: controllers/demorequest.py:25
 msgid "Agrosuite: Request a demo"
-msgstr "Agrosuite: Solicita un demo"
+msgstr ""
 
 #: controllers/login.py:168
 msgid "Agrosuite: Select a project"
-msgstr "Agrosuite: Seleccione un proyecto"
+msgstr ""
 
 #: controllers/login.py:63
 msgid "Agrosuite: Set new password"
@@ -361,41 +336,41 @@ msgstr ""
 #: controllers/management.py:140 controllers/management.py:160
 #: views/dashboards/crop.html:9 views/field/operation.html:30
 msgid "All"
-msgstr "Todos"
+msgstr ""
 
 #: views/dashboards/activity.html:72
 msgid "All Activity status"
-msgstr "Todas los estatus de actividad"
+msgstr ""
 
 #: views/dashboards/activity.html:47
 msgid "All Crops"
-msgstr "Todas los cultivos"
+msgstr ""
 
 #: views/dashboards/crop.html:51 views/dashboards/jobs.html:26
 #: views/dashboards/jobs.html:41 views/dashboards/products.html:26
 #: views/field/harvest.html:41 views/management/finances.html:28
 #: views/management/jornual.html:27 views/management/sales.html:44
 msgid "All Field Plans"
-msgstr "Todos los planes de campo"
+msgstr ""
 
 #: views/dashboards/activity.html:67
 msgid "All Field Supervisor"
-msgstr "Todos los supervisores"
+msgstr ""
 
 #: views/dashboards/activity.html:52 views/dashboards/crop.html:36
 #: views/field/scouting.html:45 views/management/finances.html:13
 #: views/management/finances.html:46 views/management/finances.html:53
 #: views/management/jornual.html:12
 msgid "All Fields"
-msgstr "Todos los campos"
+msgstr ""
 
 #: views/dashboards/activity.html:62
 msgid "All Job Status"
-msgstr "Todos los estatus de trabajo"
+msgstr ""
 
 #: views/dashboards/activity.html:57
 msgid "All Job Types"
-msgstr "Todos los tipos de trabajos"
+msgstr ""
 
 #: controllers/map.py:267
 msgid "All Map Elements"
@@ -403,15 +378,15 @@ msgstr ""
 
 #: views/dashboards/products.html:46
 msgid "All Product Categories"
-msgstr "Todas las categorías"
+msgstr ""
 
 #: views/field/scouting.html:35
 msgid "All Scout Categories"
-msgstr "Todas las Categorías de exploración"
+msgstr ""
 
 #: views/field/scouting.html:40
 msgid "All Scout Subcategories"
-msgstr "Todas las Subcategorías de exploración"
+msgstr ""
 
 #: views/activities/getActivities.html:16
 msgid "All activities"
@@ -421,33 +396,33 @@ msgstr ""
 #: views/field/weather.html:21 views/map/components/i18n.html:40
 #: views/map/components/i18n.html:163
 msgid "All blocks selected"
-msgstr "Todas las parcelas seleccionadas"
+msgstr ""
 
 #: views/map/index.html:105
 msgid "All categories"
-msgstr "Todas las categorías"
+msgstr ""
 
 #: views/management/jornual.html:32 views/management/jornual.html:65
 msgid "All concepts"
-msgstr "Todos los conceptos"
+msgstr ""
 
 #: views/dashboards/heatMap.html:57 views/field/harvest.html:28
 #: views/field/planning.html:66 views/management/sales.html:29
 msgid "All crop types"
-msgstr "Todos: Tipos de cultivo"
+msgstr ""
 
 #: views/field/planning.html:132
 msgid "All crops"
-msgstr "Todos los cultivos"
+msgstr ""
 
 #: views/dashboards/jobs.html:25
 msgid "All field"
-msgstr "Todos los campos"
+msgstr ""
 
 #: views/dashboards/heatMap.html:24 views/field/planning.html:15
 #: views/field/weather.html:17
 msgid "All fields selected"
-msgstr "Todos los campos"
+msgstr ""
 
 #: controllers/login.py:93
 msgid "All parameters are required"
@@ -455,11 +430,11 @@ msgstr ""
 
 #: views/map/components/i18n.html:73
 msgid "All segments"
-msgstr "Todos los segmentos"
+msgstr ""
 
 #: views/dashboards/jobs.html:50
 msgid "All status"
-msgstr "Todos los estatus"
+msgstr ""
 
 #: views/field/sampling.html:9
 msgid "All supervisor selected"
@@ -467,50 +442,50 @@ msgstr ""
 
 #: controllers/dashboards.py:985
 msgid "All years"
-msgstr "Todos los años"
+msgstr ""
 
 #: models/Product.py:257 models/Product.py:337
 msgid "Allow Over-Subscription"
-msgstr "Permitir suscripción excesiva"
+msgstr ""
 
 #: views/management/jornual.html:152
 msgid "Amount"
-msgstr "Cantidad"
+msgstr ""
 
 #: models/Employee.py:284 models/Employee.py:408 models/Equipment.py:157
 #: models/Equipment.py:223 models/Product.py:196 models/Product.py:276
 #: models/Warehouse.py:167 models/Warehouse.py:286
 msgid "An internal code will be automatically generated"
-msgstr "Se generará automáticamente un código interno"
+msgstr ""
 
 #: views/map/components/i18n.html:83
 msgid "Animals"
-msgstr "Animales"
+msgstr ""
 
 #: views/dashboards/crop.html:26
 msgid "April"
-msgstr "Abril"
+msgstr ""
 
 #: views/dashboards/crop.html:17
 msgid "Are you sure you want to delete this projection?"
-msgstr "¿Está seguro de quere borrar esta proyección?"
+msgstr ""
 
 #: controllers/assets.py:112 controllers/assets.py:171
 #: controllers/assets.py:233
 msgid "Assets"
-msgstr "Activos"
+msgstr ""
 
 #: views/field/planning.html:68
 msgid "Assign"
-msgstr "Asignar"
+msgstr ""
 
 #: views/_scheduleTabContent.html:12 views/field/operation.html:109
 msgid "Assign Date"
-msgstr "Asigna fecha"
+msgstr ""
 
 #: views/field/operation.html:405 views/field/operation.html:434
 msgid "Assign activity"
-msgstr "Asignar actividad"
+msgstr ""
 
 #: views/field/planning.html:28
 msgid "Assign plan template"
@@ -522,7 +497,7 @@ msgstr ""
 
 #: views/field/operation.html:425
 msgid "Assigning activity"
-msgstr "Asignando actividad"
+msgstr ""
 
 #: views/field/planning.html:29
 msgid "Assigning plan template to field"
@@ -538,83 +513,83 @@ msgstr ""
 
 #: views/field/weather.html:31
 msgid "Assingning season plan to field"
-msgstr "Assignando plan de temporada al campo"
+msgstr ""
 
 #: views/map/components/i18n.html:111
 msgid "Atmospheric Pressure"
-msgstr "Presión Atmosférica"
+msgstr ""
 
 #: views/dashboards/crop.html:30
 msgid "August"
-msgstr "Agosto"
+msgstr ""
 
 #: views/resources/download.html:243
 #: views/resources/downloadEquipmentOrder.html:244
 #: views/resources/downloadPreconfirm.html:221
 msgid "Authorization"
-msgstr "Autorización"
+msgstr ""
 
 #: views/resources/download.html:246
 #: views/resources/downloadEquipmentOrder.html:247
 #: views/resources/downloadPreconfirm.html:224
 msgid "Authorized by"
-msgstr "Autorizado por"
+msgstr ""
 
 #: views/field/harvest.html:239 views/management/sales.html:162
 msgid "Autogenerate"
-msgstr "Autogenerar"
+msgstr ""
 
 #: models/Employee.py:283 models/Employee.py:407 models/Equipment.py:156
 #: models/Equipment.py:222 models/Product.py:195 models/Product.py:275
 #: models/Warehouse.py:166 models/Warehouse.py:285
 msgid "Autogenerate internal code"
-msgstr "Autogenerar Código Interno"
+msgstr ""
 
 #: views/field/operation.html:438 views/map/components/i18n.html:166
 msgid "Available quantity"
-msgstr "Cantidad disponible"
+msgstr ""
 
 #: views/field/sampling.html:16
 msgid "Average"
-msgstr "Promedio"
+msgstr ""
 
 #: views/settings/field.html:92
 msgid "BLOCK DATA"
-msgstr "DATOS DE PARCELA"
+msgstr ""
 
 #: views/settings/field.html:75
 msgid "BLOCKS"
-msgstr "PARCELAS"
+msgstr ""
 
 #: views/management/jornual.html:51
 msgid "BOOK RECORDS"
-msgstr "REGISTROS"
+msgstr ""
 
 #: contents/jobsmodal.html:327 views/error/error.html:13
 #: views/field/operation.html:401
 msgid "Back"
-msgstr "Regresar"
+msgstr ""
 
 #: controllers/api.py:243 controllers/api.py:266 controllers/api.py:365
 #: controllers/projections.py:62 controllers/test.py:924
 msgid "Bad request"
-msgstr "Petición errónea"
+msgstr ""
 
 #: controllers/finances.py:92 views/management/jornual.html:87
 msgid "Balance"
-msgstr "Balance"
+msgstr ""
 
 #: views/field/harvest.html:251 views/management/sales.html:201
 #: views/management/sales.html:300
 msgid "Batch"
-msgstr "Lote"
+msgstr ""
 
 #: controllers/dashboards.py:918 views/activities/getActivityDetail.html:83
 #: views/activities/progressdetail.html:111 views/field/planning.html:519
 #: views/field/scouting.html:73 views/field/scouting.html:148
 #: views/management/laborPayroll.html:63 views/resources/payroll.html:54
 msgid "Block"
-msgstr "Parcela"
+msgstr ""
 
 #: views/settings/field.html:186
 msgid "Block Name"
@@ -622,22 +597,22 @@ msgstr ""
 
 #: views/settings/field.html:97
 msgid "Block name:"
-msgstr "Nombre de Parcela"
+msgstr ""
 
 #: views/_scheduleTabContent.html:42
 msgid "Block:"
-msgstr "Parcela:"
+msgstr ""
 
 #: contents/jobsmodal.html:26 contents/jobsmodal.html:94
 #: views/_scheduleTabContent.html:68 views/activities/getActivityDetail.html:17
 #: views/dashboards/activity.html:100 views/dashboards/jobs.html:24
 #: views/settings/field.html:171
 msgid "Blocks"
-msgstr "Parcelas"
+msgstr ""
 
 #: views/map/jobsWizard.html:51
 msgid "Blocks and fields"
-msgstr "Campos y parcelas"
+msgstr ""
 
 #: views/map/components/i18n.html:42
 msgid "Blocks selected"
@@ -645,7 +620,7 @@ msgstr ""
 
 #: views/field/operation.html:147
 msgid "Blocks:"
-msgstr "Parcelas:"
+msgstr ""
 
 #: controllers/map.py:402
 msgid "Box is required"
@@ -657,34 +632,34 @@ msgstr ""
 
 #: views/map/components/i18n.html:35
 msgid "Bugs"
-msgstr "Bichos"
+msgstr ""
 
 #: views/map/components/i18n.html:105
 msgid "Bulk relative permittivity"
-msgstr "Permitividad relativa"
+msgstr ""
 
 #: models/Company.py:159 models/Company.py:230
 msgid "Business name: *"
-msgstr "Razón social: *"
+msgstr ""
 
 #: views/field/harvest.html:116 views/field/harvest.html:219
 #: views/harvest/downloadSale.html:154 views/management/sales.html:142
 #: views/management/sales.html:272
 msgid "Buyer"
-msgstr "Comprador"
+msgstr ""
 
 #: controllers/catalogs.py:139 controllers/catalogs.py:150
 #: views/field/harvest.html:128
 msgid "Buyers"
-msgstr "Clientes"
+msgstr ""
 
 #: views/dashboards/crop.html:263
 msgid "By percentage"
-msgstr "Por porcentaje"
+msgstr ""
 
 #: views/dashboards/crop.html:262
 msgid "By quantity"
-msgstr "Por cantidad"
+msgstr ""
 
 #: contents/jobsmodal.html:328 views/catalogs/employees.html:141
 #: views/field/operation.html:400 views/field/operation.html:402
@@ -693,19 +668,19 @@ msgstr "Por cantidad"
 #: views/management/laborPayroll.html:109 views/map/jobsWizard.html:356
 #: views/resources/payroll.html:101
 msgid "CANCEL"
-msgstr "CANCELAR"
+msgstr ""
 
 #: views/map/components/i18n.html:153
 msgid "CHART"
-msgstr "GRÁFICA"
+msgstr ""
 
 #: models/Employee.py:301 models/Employee.py:425
 msgid "CURP: (Identifier)"
-msgstr "CURP:"
+msgstr ""
 
 #: views/field/planning.html:129
 msgid "CURRENT PLANS"
-msgstr "PLANES ACTUALES"
+msgstr ""
 
 #: controllers/dashboards.py:883
 msgid "Cabo"
@@ -728,19 +703,19 @@ msgstr ""
 #: views/settings/field.html:13 views/settings/field.html:161
 #: views/settings/field.html:203
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
 
 #: views/assets/machinery.html:12 views/assets/products.html:11
 #: views/catalogs/machinery.html:12 views/catalogs/products.html:11
 #: views/management/purchaseOrder.html:11
 msgid "Cancel purchase?"
-msgstr "¿Cancelar orden de compra?"
+msgstr ""
 
 #: views/assets/machinery.html:21 views/assets/products.html:20
 #: views/catalogs/machinery.html:21 views/catalogs/products.html:20
 #: views/management/purchaseOrder.html:20
 msgid "Canceled"
-msgstr "Cancelado"
+msgstr ""
 
 #: controllers/field.py:626
 msgid "Cannot create perimeter"
@@ -752,7 +727,7 @@ msgstr ""
 
 #: views/field/planning.html:9 views/field/weather.html:11
 msgid "Cannot load crops. Try again."
-msgstr "No se pudieron cargar los cultivos. Intenta más tarde"
+msgstr ""
 
 #: views/field/planning.html:59 views/field/weather.html:56
 #: views/map/components/i18n.html:16
@@ -766,15 +741,15 @@ msgstr ""
 
 #: views/field/planning.html:13 views/field/weather.html:15
 msgid "Cannot load season plans. Try again."
-msgstr "No se pudieron cargar los planes de temporada. Intenta más tarde"
+msgstr ""
 
 #: views/field/planning.html:77
 msgid "Cannot save Crop"
-msgstr "No se puede guardar el cultivo"
+msgstr ""
 
 #: views/field/planning.html:79
 msgid "Cannot save Plan template"
-msgstr "No se puede guardar la plantilla de plan"
+msgstr ""
 
 #: controllers/field.py:367 controllers/field.py:405
 msgid "Cannot update Field"
@@ -783,7 +758,7 @@ msgstr ""
 #: controllers/api.py:963 controllers/map.py:195 controllers/map.py:234
 #: controllers/system.py:80
 msgid "Carto API call"
-msgstr "Llamada Carto API"
+msgstr ""
 
 #: controllers/catalogs.py:105 controllers/catalogs.py:139
 #: controllers/catalogs.py:173 controllers/catalogs.py:279
@@ -791,7 +766,7 @@ msgstr "Llamada Carto API"
 #: controllers/catalogs.py:435 controllers/catalogs.py:555
 #: controllers/catalogs.py:586 controllers/resources.py:75
 msgid "Catalogs"
-msgstr "Catálogos"
+msgstr ""
 
 #: contents/jobsmodal.html:181 contents/jobsmodal.html:237
 #: contents/jobsmodal.html:257 models/Equipment.py:277
@@ -804,24 +779,24 @@ msgstr "Catálogos"
 #: views/field/planning.html:422 views/map/jobsWizard.html:175
 #: views/map/jobsWizard.html:241 views/map/jobsWizard.html:263
 msgid "Category"
-msgstr "Categoría"
+msgstr ""
 
 #: models/Buyer.py:360 models/Company.py:290 models/ShippingAddress.py:238
 #: models/Supplier.py:369 views/management/sales.html:390
 #: views/management/sales.html:391 views/social/donation.html:44
 #: views/social/donation.html:45
 msgid "City"
-msgstr "Ciudad"
+msgstr ""
 
 #: models/ShippingAddress.py:146 models/ShippingAddress.py:207
 #: models/Warehouse.py:194 models/Warehouse.py:313
 msgid "City or Province: *"
-msgstr "Ciudad: *"
+msgstr ""
 
 #: models/Buyer.py:200 models/Buyer.py:320 models/Company.py:189
 #: models/Company.py:260 models/Supplier.py:207 models/Supplier.py:328
 msgid "City: *"
-msgstr "Ciudad: *"
+msgstr ""
 
 #: views/management/sales.html:407 views/social/donation.html:61
 msgid "Ciudad de Mexico"
@@ -829,7 +804,7 @@ msgstr ""
 
 #: models/HarvestRecord.py:188 views/management/sales.html:105
 msgid "Class"
-msgstr "Clase"
+msgstr ""
 
 #: models/CropClass.py:104 models/CropClass.py:132
 msgid "Class name : *"
@@ -837,11 +812,11 @@ msgstr ""
 
 #: views/settings/field.html:16
 msgid "Clear all"
-msgstr "Borrar todo"
+msgstr ""
 
 #: views/map/components/i18n.html:80
 msgid "Clear and exit measure distance"
-msgstr "Limpiar y salir de medición de distancia"
+msgstr ""
 
 #: views/map/components/i18n.html:66
 msgid "Clear and exit measure tool"
@@ -849,15 +824,15 @@ msgstr ""
 
 #: views/settings/field.html:21
 msgid "Click cancel to undo changes"
-msgstr "Da click en cancelar para descartar cambios"
+msgstr ""
 
 #: views/settings/field.html:9
 msgid "Click first point to close this perimeter"
-msgstr "Da click en el primer punto para cerrar el perímetro"
+msgstr ""
 
 #: views/settings/field.html:22
 msgid "Click on a perimeter to remove"
-msgstr "Da click en un perímetro para borrarlo"
+msgstr ""
 
 #: views/map/components/i18n.html:70
 msgid "Click on a point to delete it."
@@ -865,7 +840,7 @@ msgstr ""
 
 #: views/map/components/i18n.html:79
 msgid "Click on an added point to delete it."
-msgstr "Clic en el punto para borrarlo."
+msgstr ""
 
 #: views/map/components/i18n.html:69
 msgid "Click on another point on the map to create a segment."
@@ -873,26 +848,26 @@ msgstr ""
 
 #: views/settings/field.html:8
 msgid "Click to continue drawing perimeter"
-msgstr "Da click para continuar dibujando el perímetro"
+msgstr ""
 
 #: views/settings/field.html:6
 msgid "Click to draw the field perimeter"
-msgstr "Da click para dibujar el perímetro"
+msgstr ""
 
 #: views/settings/field.html:7
 msgid "Click to start drawing"
-msgstr "Da click para dibujar"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:43
 msgid "Close"
-msgstr "Cerrar"
+msgstr ""
 
 #: controllers/catalogs.py:586 controllers/catalogs.py:596
 #: controllers/settings.py:174 controllers/settings.py:184
 #: views/management/purchaseOrder.html:104
 #: views/management/purchaseOrder.html:418
 msgid "Companies"
-msgstr "Compañias"
+msgstr ""
 
 #: views/field/harvest.html:224 views/management/purchaseOrder.html:101
 #: views/management/purchaseOrder.html:209
@@ -902,26 +877,26 @@ msgstr "Compañias"
 #: views/management/purchaseOrder.html:597 views/management/sales.html:154
 #: views/management/sales.html:287
 msgid "Company"
-msgstr "Compañía"
+msgstr ""
 
 #: models/Buyer.py:190 models/Buyer.py:310 models/Company.py:179
 #: models/Company.py:250 models/Supplier.py:197 models/Supplier.py:318
 msgid "Company Address: *"
-msgstr "Dirección de la Compañía: *"
+msgstr ""
 
 #: views/management/sales.html:380 views/management/sales.html:381
 #: views/social/donation.html:34 views/social/donation.html:35
 msgid "Company Name"
-msgstr "Nombre de la Empresa"
+msgstr ""
 
 #: models/Buyer.py:121 models/Buyer.py:241 models/Company.py:149
 #: models/Company.py:220 models/Supplier.py:127 models/Supplier.py:248
 msgid "Company Name: *"
-msgstr "Nombre de la Compañía: *"
+msgstr ""
 
 #: views/demorequest/index.html:34
 msgid "Company name*"
-msgstr "Nombre de la compañía"
+msgstr ""
 
 #: views/field/planning.html:73
 msgid "Complete"
@@ -930,25 +905,25 @@ msgstr ""
 #: views/dashboards/jobs.html:17 views/dashboards/jobs.html:21
 #: views/map/components/i18n.html:27
 msgid "Completed"
-msgstr "Completado"
+msgstr ""
 
 #: views/field/getJobDetail.html:44
 msgid "Completed Parcels"
-msgstr "Parcelas completadas"
+msgstr ""
 
 #: views/dashboards/plan.html:125
 msgid "Completed blocks"
-msgstr "Parcelas completadas"
+msgstr ""
 
 #: controllers/finances.py:88 views/dashboards/crop.html:174
 #: views/harvest/downloadSale.html:176
 msgid "Concept"
-msgstr "Concepto"
+msgstr ""
 
 #: views/management/purchaseOrder.html:241
 #: views/management/purchaseOrder.html:554
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr ""
 
 #: views/assets/machinery.html:18 views/assets/products.html:17
 #: views/catalogs/machinery.html:18 views/catalogs/products.html:17
@@ -956,12 +931,12 @@ msgstr "Confirmar"
 #: views/management/purchaseOrder.html:178
 #: views/management/purchaseOrder.html:491
 msgid "Confirm Reception"
-msgstr "Confirmar recepción"
+msgstr ""
 
 #: models/Buyer.py:140 models/Buyer.py:260 models/Supplier.py:147
 #: models/Supplier.py:268 models/Warehouse.py:254 models/Warehouse.py:373
 msgid "Contact Name:"
-msgstr "Nombre del contacto:"
+msgstr ""
 
 #: controllers/demorequest.py:139
 msgid "Contact request list"
@@ -970,7 +945,7 @@ msgstr ""
 #: views/help/index.html:52 views/help/index.html:56 views/help/index.html:144
 #: views/help/index.html:148
 msgid "Contact us!"
-msgstr "¡Contáctanos!"
+msgstr ""
 
 #: contents/jobsmodal.html:330 views/field/operation.html:406
 #: views/field/operation.html:445
@@ -979,7 +954,7 @@ msgstr ""
 
 #: controllers/api.py:132
 msgid "Cool"
-msgstr "Exito"
+msgstr ""
 
 #: controllers/map.py:448
 msgid "Coordinates is required."
@@ -994,15 +969,15 @@ msgstr ""
 #: views/parcel/getTaskDetail.html:44 views/parcel/getTaskDetail.html:67
 #: views/parcel/getTaskDetail.html:100
 msgid "Cost"
-msgstr "Costo"
+msgstr ""
 
 #: controllers/dashboards.py:1362
 msgid "Cost per area"
-msgstr "Costo por área"
+msgstr ""
 
 #: views/management/laborPayroll.html:64 views/resources/payroll.html:55
 msgid "Cost per hour"
-msgstr "Costo por hora"
+msgstr ""
 
 #: views/management/purchaseOrder.html:228
 #: views/management/purchaseOrder.html:302
@@ -1010,43 +985,41 @@ msgstr "Costo por hora"
 #: views/management/purchaseOrder.html:615 views/resources/download.html:204
 #: views/resources/downloadEquipmentOrder.html:204
 msgid "Cost per unit"
-msgstr "Costo por unidad"
+msgstr ""
 
 #: views/assets/machinery.html:26 views/assets/products.html:25
 #: views/catalogs/machinery.html:26 views/catalogs/products.html:25
 #: views/management/purchaseOrder.html:25
 msgid "Could not get currency information, please try again"
 msgstr ""
-"No se pudo obtener la información de la moneda, por favor intente más "
-"tarde"
 
 #: views/map/components/i18n.html:76
 msgid "Couldn't get distances for this segment"
-msgstr "No se puede obtener la medida del segmento"
+msgstr ""
 
 #: models/ShippingAddress.py:238 views/demorequest/index.html:39
 #: views/settings/project.html:25
 msgid "Country"
-msgstr "País"
+msgstr ""
 
 #: models/Buyer.py:220 models/Buyer.py:340 models/Company.py:209
 #: models/Company.py:280 models/ShippingAddress.py:166
 #: models/ShippingAddress.py:227 models/Supplier.py:227 models/Supplier.py:348
 #: models/Warehouse.py:214 models/Warehouse.py:333
 msgid "Country: *"
-msgstr "País: *"
+msgstr ""
 
 #: views/map/jobsWizard.html:9
 msgid "Create and organize your jobs fields"
-msgstr "Crea y organiza los trabajos de tus campos"
+msgstr ""
 
 #: views/field/weather.html:5 views/map/components/i18n.html:5
 msgid "Create new job"
-msgstr "Crear nuevo trabajo"
+msgstr ""
 
 #: views/map/components/i18n.html:57
 msgid "Creating Scouting record"
-msgstr "Creando reporte de exploración"
+msgstr ""
 
 #: controllers/cron.py:126 controllers/cron.py:177
 msgid "Cronjob is block"
@@ -1058,64 +1031,64 @@ msgstr ""
 #: views/field/planning.html:144 views/field/planning.html:170
 #: views/field/planning.html:520 views/management/sales.html:137
 msgid "Crop"
-msgstr "Cultivo"
+msgstr ""
 
 #: views/field/harvest.html:250 views/management/sales.html:182
 #: views/management/sales.html:200 views/management/sales.html:299
 msgid "Crop Class"
-msgstr "Clasificación de cultivo"
+msgstr ""
 
 #: models/CropClass.py:124 models/CropClass.py:152 models/CropClass.py:159
 msgid "Crop Type"
-msgstr "Tipo de cultivo:"
+msgstr ""
 
 #: controllers/catalogs.py:367 controllers/catalogs.py:378
 msgid "Crop classes"
-msgstr "Clasificación de cultivo"
+msgstr ""
 
 #: views/field/planning.html:225
 msgid "Crop density"
-msgstr "Densidad de cultivo"
+msgstr ""
 
 #: views/field/planning.html:22 views/field/planning.html:24
 #: views/field/weather.html:24 views/field/weather.html:26
 msgid "Crop saved successfully"
-msgstr "Cultivos guardadas satisfactoriamente"
+msgstr ""
 
 #: views/dashboards/crop.html:96 views/field/planning.html:180
 #: views/field/planning.html:523
 msgid "Crop type"
-msgstr "Tipo de cultivo"
+msgstr ""
 
 #: views/dashboards/crop.html:101
 msgid "Cultivation Year"
-msgstr "Año de cultivo"
+msgstr ""
 
 #: views/field/planning.html:190
 msgid "Cultivation year"
-msgstr "Año de cultivación"
+msgstr ""
 
 #: models/Employee.py:494 views/settings/project.html:33
 msgid "Currency"
-msgstr "Moneda"
+msgstr ""
 
 #: views/map/components/modals.html:5
 msgid "Current Feature"
-msgstr "Caracteristica actual"
+msgstr ""
 
 #: views/map/components/i18n.html:154
 msgid "DATA TABLE"
-msgstr "TABLA DE DATOS"
+msgstr ""
 
 #: controllers/dashboards.py:80 controllers/dashboards.py:108
 #: controllers/dashboards.py:139 controllers/dashboards.py:171
 #: controllers/dashboards.py:196 controllers/dashboards.py:222
 msgid "Dashboards"
-msgstr "Tableros de control"
+msgstr ""
 
 #: views/field/sampling.html:25
 msgid "Data table"
-msgstr "Tabla de datos"
+msgstr ""
 
 #: controllers/dashboards.py:878 controllers/dashboards.py:913
 #: controllers/finances.py:87 models/Employee.py:351 models/Employee.py:475
@@ -1133,11 +1106,11 @@ msgstr "Tabla de datos"
 #: views/resources/downloadEquipmentOrder.html:248
 #: views/resources/downloadPreconfirm.html:225 views/resources/payroll.html:51
 msgid "Date"
-msgstr "Fecha"
+msgstr ""
 
 #: views/dashboards/jobs.html:69
 msgid "Date Completed"
-msgstr "Fecha Completada"
+msgstr ""
 
 #: views/field/operation.html:427
 msgid "Date already selected for this user"
@@ -1145,28 +1118,28 @@ msgstr ""
 
 #: views/field/operation.html:428
 msgid "Date already used for this job"
-msgstr "Ya se ha asignado esta fecha para este trabajo"
+msgstr ""
 
 #: views/field/getJobs.html:7 views/field/planning.html:51
 #: views/field/weather.html:49 views/map/components/i18n.html:11
 msgid "Date completed"
-msgstr "Fecha Completada"
+msgstr ""
 
 #: views/activities/getActivities.html:4
 msgid "Date range"
-msgstr "Rango de fechas"
+msgstr ""
 
 #: views/field/planning.html:69
 msgid "Deallocate"
-msgstr "Desasignar"
+msgstr ""
 
 #: views/dashboards/crop.html:34
 msgid "December"
-msgstr "Diciembre"
+msgstr ""
 
 #: views/field/sampling.html:217
 msgid "Decimals"
-msgstr "Decimales"
+msgstr ""
 
 #: views/map/components/i18n.html:125
 msgid "Delegated observer"
@@ -1178,19 +1151,19 @@ msgstr ""
 
 #: views/field/operation.html:404
 msgid "Delete activity"
-msgstr "Borrar actividad"
+msgstr ""
 
 #: views/settings/field.html:12
 msgid "Delete last point"
-msgstr "Borrar el último punto"
+msgstr ""
 
 #: views/settings/field.html:19
 msgid "Delete perimeter"
-msgstr "Borrar perímetros"
+msgstr ""
 
 #: views/dashboards/crop.html:21
 msgid "Deleted"
-msgstr "Registro borrado"
+msgstr ""
 
 #: views/field/operation.html:426
 msgid "Deleting activity"
@@ -1198,7 +1171,7 @@ msgstr ""
 
 #: controllers/demorequest.py:93 controllers/demorequest.py:120
 msgid "Demo request inputs are required."
-msgstr "Los datos de solicitud de demo son obligatorios"
+msgstr ""
 
 #: controllers/demorequest.py:128
 msgid "Demo request list"
@@ -1206,15 +1179,15 @@ msgstr ""
 
 #: controllers/demorequest.py:88 controllers/demorequest.py:115
 msgid "DemoRequest added"
-msgstr "Solicitud de demo procesada"
+msgstr ""
 
 #: views/field/planning.html:222
 msgid "Density"
-msgstr "Densidad"
+msgstr ""
 
 #: views/help/index.html:19 views/help/index.html:115
 msgid "Department"
-msgstr "Departamento"
+msgstr ""
 
 #: contents/jobsmodal.html:72 controllers/dashboards.py:919 models/Buyer.py:360
 #: models/CropClass.py:114 models/CropClass.py:142 models/CropClass.py:159
@@ -1226,7 +1199,7 @@ msgstr "Departamento"
 #: views/resources/downloadEquipmentOrder.html:202
 #: views/resources/downloadPreconfirm.html:202 views/settings/field.html:155
 msgid "Description"
-msgstr "Descripción"
+msgstr ""
 
 #: controllers/field.py:601
 msgid "Description is required"
@@ -1236,19 +1209,19 @@ msgstr ""
 #: models/Equipment.py:240 models/Product.py:213 models/Product.py:293
 #: models/Supplier.py:137 models/Supplier.py:258
 msgid "Description:"
-msgstr "Descripción:"
+msgstr ""
 
 #: views/field/harvest.html:63
 msgid "Destination"
-msgstr "Destino"
+msgstr ""
 
 #: controllers/finances.py:89
 msgid "Detail"
-msgstr "Detalle"
+msgstr ""
 
 #: views/field/planning.html:67
 msgid "Details"
-msgstr "Detalles"
+msgstr ""
 
 #: models/Warehouse.py:264 models/Warehouse.py:383
 msgid "Details:"
@@ -1256,24 +1229,24 @@ msgstr ""
 
 #: views/map/components/i18n.html:126
 msgid "Dewpoint"
-msgstr "Punto de rocío"
+msgstr ""
 
 #: views/help/index.html:56 views/help/index.html:148
 msgid "Did not find what you need?"
-msgstr "¿No encuentras lo que necesitas?"
+msgstr ""
 
 #: views/field/sampling.html:27
 msgid "Distribution"
-msgstr "Distribución"
+msgstr ""
 
 #: views/field/harvest.html:18
 msgid "Do yo want to delete this harvest?"
-msgstr "¿Desea borrar el registro de cosecha?"
+msgstr ""
 
 #: views/field/planning.html:45 views/field/weather.html:43
 #: views/map/components/i18n.html:7
 msgid "Do you really want to remove the field plan _FIELD_PLAN_ from your field?"
-msgstr "¿Realmente desea remover el plan de campo _FIELD_PLAN_ de tu campo?"
+msgstr ""
 
 #: views/field/planning.html:43
 msgid "Do you really want to remove the plan template _SEASON_PLAN_?"
@@ -1281,27 +1254,27 @@ msgstr ""
 
 #: layouts/blueprints/jscrud.html:131
 msgid "Do you want to delete"
-msgstr "Deseas eliminar"
+msgstr ""
 
 #: views/field/operation.html:439
 msgid "Do you want to delete this activity?"
-msgstr "¿Quiere borrar esta actividad?"
+msgstr ""
 
 #: views/management/finances.html:97
 msgid "Do you want to know how much you can earn?"
-msgstr "Le gustaría saber cuánto podría ganar?"
+msgstr ""
 
 #: controllers/social.py:27
 msgid "Donate"
-msgstr "Donar"
+msgstr ""
 
 #: views/management/sales.html:356 views/social/donation.html:18
 msgid "Donate to support vunerable population of Mexico"
-msgstr "Haz una donación para apoyar a la población vunerable de México"
+msgstr ""
 
 #: views/management/sales.html:433
 msgid "Donation Type"
-msgstr "Tipo de Donación"
+msgstr ""
 
 #: controllers/social.py:44
 msgid "Donation saved"
@@ -1309,15 +1282,15 @@ msgstr ""
 
 #: views/map/components/i18n.html:168
 msgid "Drawing parcels.."
-msgstr "Dibujando parcelas.."
+msgstr ""
 
 #: views/settings/field.html:25
 msgid "Drawlayer"
-msgstr "Capa de dibujo"
+msgstr ""
 
 #: views/map/components/i18n.html:89
 msgid "Dryness"
-msgstr "Sequedad"
+msgstr ""
 
 #: views/map/components/i18n.html:140
 msgid "E"
@@ -1333,7 +1306,7 @@ msgstr ""
 
 #: views/management/sales.html:97
 msgid "EXISTENCE"
-msgstr "EXISTENCIA"
+msgstr ""
 
 #: views/field/planning.html:71 views/settings/field.html:171
 msgid "Edit"
@@ -1341,15 +1314,15 @@ msgstr ""
 
 #: views/field/planning.html:32 views/field/weather.html:34
 msgid "Edit crop details"
-msgstr "Editar detalles de cultivos"
+msgstr ""
 
 #: views/field/planning.html:53 views/field/planning.html:510
 msgid "Edit crop types"
-msgstr "Editar tipo de cultivo"
+msgstr ""
 
 #: views/settings/field.html:17
 msgid "Edit perimeter"
-msgstr "Editar perímetro"
+msgstr ""
 
 #: views/field/planning.html:39
 msgid "Edit plan templates details"
@@ -1357,11 +1330,11 @@ msgstr ""
 
 #: views/field/weather.html:40
 msgid "Edit season plan details"
-msgstr "Editar detalles de plan de temporada"
+msgstr ""
 
 #: views/map/components/i18n.html:75
 msgid "Elevation"
-msgstr "Elevación"
+msgstr ""
 
 #: controllers/map.py:432
 msgid "Elevation profile"
@@ -1369,20 +1342,20 @@ msgstr ""
 
 #: views/login/recovery.html:31
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr ""
 
 #: controllers/login.py:117
 msgid "Email input is required."
-msgstr "Email es requerido"
+msgstr ""
 
 #: views/demorequest/index.html:58
 msgid "Email*"
-msgstr "Correo electrónico*"
+msgstr ""
 
 #: models/Buyer.py:170 models/Buyer.py:290 models/Employee.py:328
 #: models/Employee.py:452
 msgid "Email:"
-msgstr "Correo electrónico:"
+msgstr ""
 
 #: models/Supplier.py:177 models/Supplier.py:298
 msgid "Email: *"
@@ -1397,11 +1370,11 @@ msgstr ""
 #: views/parcel/getTaskDetail.html:65 views/parcel/getTaskDetail.html:98
 #: views/resources/payroll.html:52 views/resources/payroll.html:88
 msgid "Employee"
-msgstr "Empleado"
+msgstr ""
 
 #: models/EmployeeStatus.py:18
 msgid "Employee Status"
-msgstr "Estatus de empleado"
+msgstr ""
 
 #: controllers/catalogs.py:105 controllers/catalogs.py:119
 #: controllers/management.py:453 models/Employee.py:121
@@ -1409,18 +1382,18 @@ msgstr "Estatus de empleado"
 #: views/dashboards/crop.html:180 views/management/laborPayroll.html:153
 #: views/map/jobsWizard.html:54
 msgid "Employees"
-msgstr "Empleados"
+msgstr ""
 
 #: contents/jobsmodal.html:86 views/dashboards/crop.html:286
 #: views/map/components/i18n.html:34 views/map/components/i18n.html:152
 #: views/map/getAgentInfo.html:46 views/map/getAgentInfo.html:97
 #: views/map/jobsWizard.html:41
 msgid "End date"
-msgstr "Fecha de término"
+msgstr ""
 
 #: views/field/getJobDetail.html:17
 msgid "End:"
-msgstr "Final:"
+msgstr ""
 
 #: contents/jobsmodal.html:41 contents/jobsmodal.html:182
 #: models/Equipment.py:73 views/_scheduleTabContent.html:115
@@ -1431,15 +1404,15 @@ msgstr "Final:"
 #: views/map/components/i18n.html:96 views/map/jobsWizard.html:57
 #: views/map/jobsWizard.html:176 views/parcel/getTaskDetail.html:89
 msgid "Equipment"
-msgstr "Equipo"
+msgstr ""
 
 #: models/EquipmentCategory.py:15 views/management/purchaseOrder.html:442
 msgid "Equipment Categories"
-msgstr "Categorías de Equipo"
+msgstr ""
 
 #: models/Equipment.py:184 models/Equipment.py:250
 msgid "Equipment Category:"
-msgstr "Categoría del Equipo:"
+msgstr ""
 
 #: controllers/inventory.py:499
 msgid "EquipmentPurchaseOrder is canceled"
@@ -1448,7 +1421,7 @@ msgstr ""
 #: controllers/assets.py:171 controllers/catalogs.py:435
 #: controllers/catalogs.py:446 views/activities/getActivityDetail.html:122
 msgid "Equipments"
-msgstr "Equipos"
+msgstr ""
 
 #: controllers/inventory.py:501
 msgid "Equipments are missing"
@@ -1456,7 +1429,7 @@ msgstr ""
 
 #: controllers/catalogs.py:505
 msgid "Equipments catalog"
-msgstr "Catalogo de Equipo"
+msgstr ""
 
 #: controllers/projections.py:61
 msgid "Error"
@@ -1464,19 +1437,19 @@ msgstr ""
 
 #: controllers/demorequest.py:90 controllers/demorequest.py:117
 msgid "Error adding your demo request, please try again later."
-msgstr "Erro procesando solicitud de demo, porfavor intenta más tarde"
+msgstr ""
 
 #: controllers/seasonplan.py:129
 msgid "Error assigning season plan"
-msgstr "Error a asginar el plan de temporada"
+msgstr ""
 
 #: controllers/map.py:672
 msgid "Error dowloading data"
-msgstr "Error descargando datos"
+msgstr ""
 
 #: views/dashboards/heatMap.html:26
 msgid "Error downloading maps"
-msgstr "Error descargando los mapas"
+msgstr ""
 
 #: controllers/api.py:569
 msgid "Error getting projects"
@@ -1484,7 +1457,7 @@ msgstr ""
 
 #: views/management/finances.html:5 views/management/jornual.html:5
 msgid "Error loading account records."
-msgstr "Ocurrió un error al intentar cargar los registros"
+msgstr ""
 
 #: views/catalogs/employees.html:8 views/management/laborPayroll.html:8
 msgid "Error loading employees"
@@ -1492,7 +1465,7 @@ msgstr ""
 
 #: views/map/components/i18n.html:170
 msgid "Error loading grid"
-msgstr "Error cargando las cuadricula"
+msgstr ""
 
 #: views/map/components/i18n.html:46
 msgid "Error loading orthophoto"
@@ -1500,7 +1473,7 @@ msgstr ""
 
 #: views/map/components/i18n.html:44
 msgid "Error loading tracked agent"
-msgstr "Error cargando información de agente"
+msgstr ""
 
 #: controllers/api.py:882
 msgid "Error processing photos"
@@ -1516,23 +1489,23 @@ msgstr ""
 
 #: controllers/job.py:238
 msgid "Error saving Job, please try again later."
-msgstr "Error al guardar el trabajo, por favor intente de nuevo."
+msgstr ""
 
 #: views/management/finances.html:6 views/management/jornual.html:6
 msgid "Error saving account record."
-msgstr "Ocurrió un error al intentar guardar los registros"
+msgstr ""
 
 #: controllers/settings.py:154
 msgid "Error saving project settings, please try again later."
-msgstr "Error al salvar los ajustes del proyecto, por favor intente de nuevo."
+msgstr ""
 
 #: controllers/seasonplan.py:63
 msgid "Error saving season plan, please try again later."
-msgstr "Error al guardar el plan de temporada, por favor intente de nuevo."
+msgstr ""
 
 #: controllers/settings.py:96
 msgid "Error saving user settings, please try again later."
-msgstr "Error al guardar la configuración del usuario, por favor intente de nuevo."
+msgstr ""
 
 #: controllers/help.py:65
 msgid "Error sending help data, please try again later."
@@ -1540,25 +1513,25 @@ msgstr ""
 
 #: views/dashboards/jobs.html:18 views/dashboards/jobs.html:68
 msgid "Estimated Date"
-msgstr "Fecha Estimada"
+msgstr ""
 
 #: views/field/harvest.html:252 views/management/sales.html:202
 msgid "Existence"
-msgstr "Existencia"
+msgstr ""
 
 #: views/field/planning.html:50 views/field/weather.html:48
 #: views/map/components/i18n.html:10
 msgid "Expected Completion"
-msgstr "Expectativa de termino"
+msgstr ""
 
 #: views/field/getJobs.html:6
 msgid "Expected completion"
-msgstr "Termino previsto"
+msgstr ""
 
 #: controllers/dashboards.py:893 controllers/dashboards.py:897
 #: controllers/dashboards.py:927 controllers/dashboards.py:931
 msgid "Export Activities"
-msgstr "Exportar actividades"
+msgstr ""
 
 #: controllers/resources.py:271 controllers/resources.py:275
 msgid "Export Equipment Purchase Orders"
@@ -1576,45 +1549,45 @@ msgstr ""
 #: controllers/finances.py:100 controllers/finances.py:104
 #: controllers/finances.py:108
 msgid "Export account records"
-msgstr "Exportar"
+msgstr ""
 
 #: models/EquipmentPurchaseOrder.py:99 models/PurchaseOrder.py:109
 msgid "External Code"
-msgstr "No. de orden externa"
+msgstr ""
 
 #: views/management/purchaseOrder.html:271
 #: views/management/purchaseOrder.html:510
 #: views/management/purchaseOrder.html:584
 msgid "External order No"
-msgstr "No de orden Externa"
+msgstr ""
 
 #: views/management/purchaseOrder.html:401
 msgid "External order No."
-msgstr "No. orden externa"
+msgstr ""
 
 #: views/help/index.html:87
 msgid "FAQs"
-msgstr "FAQs"
+msgstr ""
 
 #: views/settings/field.html:49
 msgid "FIELDS"
-msgstr "CAMPOS"
+msgstr ""
 
 #: views/management/finances.html:75
 msgid "FINANCIALS"
-msgstr "FINANZAS"
+msgstr ""
 
 #: views/map/components/i18n.html:97
 msgid "Failure in irrigation system"
-msgstr "Falla en sistema de riego"
+msgstr ""
 
 #: views/map/getFeatureContent.html:5
 msgid "Feature description"
-msgstr "Descripción de caracteristica"
+msgstr ""
 
 #: views/dashboards/crop.html:24
 msgid "February"
-msgstr "Febrero"
+msgstr ""
 
 #: controllers/dashboards.py:880 controllers/dashboards.py:917
 #: controllers/field.py:122 controllers/field.py:202 controllers/field.py:243
@@ -1628,18 +1601,18 @@ msgstr "Febrero"
 #: views/management/purchaseOrder.html:408 views/management/sales.html:104
 #: views/settings/field.html:145
 msgid "Field"
-msgstr "Campo"
+msgstr ""
 
 #: controllers/map.py:279 controllers/map.py:301 controllers/map.py:351
 msgid "Field ID is required"
-msgstr "Id de campo es requerido"
+msgstr ""
 
 #: views/management/jornual.html:140 views/management/purchaseOrder.html:204
 #: views/management/purchaseOrder.html:278
 #: views/management/purchaseOrder.html:517
 #: views/management/purchaseOrder.html:591
 msgid "Field Plan"
-msgstr "Plan de campo"
+msgstr ""
 
 #: controllers/field.py:625
 msgid "Field Successfully created"
@@ -1647,175 +1620,175 @@ msgstr ""
 
 #: views/dashboards/jobs.html:19
 msgid "Field Supervisor"
-msgstr "Supervisor de campo"
+msgstr ""
 
 #: views/_scheduleTabContent.html:18 views/_scheduleTabContent.html:31
 #: views/field/operation.html:120 views/map/jobsWizard.html:112
 msgid "Field Supervisor:"
-msgstr "Supervisor de campo:"
+msgstr ""
 
 #: views/dashboards/activity.html:99
 msgid "Field Supervisors"
-msgstr "Supervisores de campo"
+msgstr ""
 
 #: views/settings/field.html:153
 msgid "Field name"
-msgstr "Nombre del campo"
+msgstr ""
 
 #: views/management/laborPayroll.html:32 views/resources/payroll.html:25
 msgid "Field plan"
-msgstr "Plan de campo"
+msgstr ""
 
 #: views/field/planning.html:42
 msgid "Field plan completed"
-msgstr "Plan de campo terminado"
+msgstr ""
 
 #: controllers/settings.py:43
 msgid "Field settings"
-msgstr "Campos"
+msgstr ""
 
 #: views/activities/getActivityDetail.html:54
 msgid "Field supervisor"
-msgstr "Supervisor de campo"
+msgstr ""
 
 #: views/map/index.html:80 views/map/jobsWizard.html:8
 msgid "Field supervisor plan"
-msgstr "Plan de supervisor de campo"
+msgstr ""
 
 #: views/dashboards/crop.html:164
 msgid "Field work costs"
-msgstr "Costos operativos"
+msgstr ""
 
 #: views/settings/field.html:101
 msgid "Field:"
-msgstr "Campo:"
+msgstr ""
 
 #: views/dashboards/crop.html:118 views/management/purchaseOrder.html:97
 #: views/management/purchaseOrder.html:411
 msgid "Fields"
-msgstr "Campo"
+msgstr ""
 
 #: controllers/builk.py:37
 msgid "File can't be processed"
-msgstr "Archivo no pudo ser procesado"
+msgstr ""
 
 #: controllers/finances.py:125 controllers/finances.py:161
 #: controllers/management.py:300
 msgid "Financials"
-msgstr "Finanzas"
+msgstr ""
 
 #: views/settings/field.html:11
 msgid "Finish"
-msgstr "Terminar"
+msgstr ""
 
 #: models/Warehouse.py:394
 msgid "First Address"
-msgstr "Dirección principal"
+msgstr ""
 
 #: models/ShippingAddress.py:126 models/ShippingAddress.py:187
 #: models/Warehouse.py:184 models/Warehouse.py:303
 msgid "First Address: *"
-msgstr "Dirección: *"
+msgstr ""
 
 #: views/settings/user.html:18
 msgid "First name"
-msgstr "Nombre"
+msgstr ""
 
 #: models/Employee.py:246 models/Employee.py:370
 msgid "First name: *"
-msgstr "Nombre: *"
+msgstr ""
 
 #: views/map/components/i18n.html:90
 msgid "Flood"
-msgstr "Inundación"
+msgstr ""
 
 #: views/login/index.html:29 views/loginSecundary/index.html:22
 msgid "Forgot your password?"
-msgstr "¿Olvidaste tu contraseña?"
+msgstr ""
 
 #: views/map/components/i18n.html:87
 msgid "Forgotten picked fruit"
-msgstr "Fruta olvidada"
+msgstr ""
 
 #: views/field/harvest.html:102
 msgid "From Block"
-msgstr "De Parcela"
+msgstr ""
 
 #: views/management/sales.html:177
 msgid "From Field"
-msgstr "Del Campo"
+msgstr ""
 
 #: views/management/sales.html:171
 msgid "From Warehouse"
-msgstr "Desde Almacén"
+msgstr ""
 
 #: views/field/harvest.html:98
 msgid "From field"
-msgstr "Del campo"
+msgstr ""
 
 #: views/map/components/i18n.html:85
 msgid "Fungy"
-msgstr "Hongo"
+msgstr ""
 
 #: views/login/hub.html:23
 msgid "GO TO PROJECT"
-msgstr "IR AL PROYECTO"
+msgstr ""
 
 #: views/resources/payroll.html:6
 msgid "General"
-msgstr "General"
+msgstr ""
 
 #: views/map/components/i18n.html:24
 msgid "Getting and drawing perimeters"
-msgstr "Dibujando perímetros"
+msgstr ""
 
 #: views/field/operation.html:424
 msgid "Getting data"
-msgstr "Obteniendo datos"
+msgstr ""
 
 #: views/dashboards/heatMap.html:71
 msgid "Go"
-msgstr "Cargar"
+msgstr ""
 
 #: views/map/index.html:98
 msgid "Go to agent"
-msgstr "Ir al agente"
+msgstr ""
 
 #: views/map/index.html:30
 msgid "Go to field"
-msgstr "Ir al campo"
+msgstr ""
 
 #: views/map/components/i18n.html:18 views/map/index.html:34
 msgid "Go to parcel"
-msgstr "Ir a la parcela"
+msgstr ""
 
 #: views/map/index.html:104
 msgid "Go to reports"
-msgstr "Ir a los reportes"
+msgstr ""
 
 #: views/map/index.html:86
 msgid "Go to sensor"
-msgstr "Ir al sensor"
+msgstr ""
 
 #: views/map/index.html:92
 msgid "Go to station"
-msgstr "Ir a la estación"
+msgstr ""
 
 #: views/map/components/i18n.html:94
 msgid "Grass cutting required"
-msgstr "Corte de hierba requerido"
+msgstr ""
 
 #: controllers/map.py:370 controllers/map.py:398
 msgid "Grid ID is required"
-msgstr "Id de cuadrícula es requerido"
+msgstr ""
 
 #: views/map/components/i18n.html:19
 msgid "Grids"
-msgstr "Cuadrículas"
+msgstr ""
 
 #: views/field/harvest.html:185
 msgid "HARVEST RECORD CONFIRMED"
-msgstr "REGISTRO DE COSECHA CONFIRMADO"
+msgstr ""
 
 #: views/help/index.html:168
 msgid "HELP TITLE"
@@ -1823,7 +1796,7 @@ msgstr ""
 
 #: controllers/field.py:243 views/field/harvest.html:45
 msgid "Harvest"
-msgstr "Cosecha"
+msgstr ""
 
 #: controllers/api.py:510
 msgid "Harvest Checkin"
@@ -1831,31 +1804,31 @@ msgstr ""
 
 #: views/field/harvest.html:82
 msgid "Harvest Record"
-msgstr "Registro de cosecha"
+msgstr ""
 
 #: views/field/harvest.html:163
 msgid "Harvest classification"
-msgstr "Clasificación de cosecha"
+msgstr ""
 
 #: views/demorequest/index.html:83 views/login/recovery.html:37
 msgid "Have an account?"
-msgstr "¿Tienes una cuenta?"
+msgstr ""
 
 #: controllers/dashboards.py:80
 msgid "Heat Map"
-msgstr "Mapa de calor"
+msgstr ""
 
 #: views/map/components/i18n.html:128
 msgid "Heat index celsius"
-msgstr "Índice de calor"
+msgstr ""
 
 #: controllers/help.py:35 views/help/index.html:84
 msgid "Help"
-msgstr "Ayuda"
+msgstr ""
 
 #: views/help/index.html:77
 msgid "Help and support"
-msgstr "Ayuda y soporte"
+msgstr ""
 
 #: controllers/help.py:68
 msgid "Help and support inputs are required."
@@ -1867,47 +1840,47 @@ msgstr ""
 
 #: views/dashboards/crop.html:35 views/dashboards/crop.html:62
 msgid "Hide projections"
-msgstr "Ocultar proyecciones"
+msgstr ""
 
 #: views/field/sampling.html:26
 msgid "Histogram"
-msgstr "Histograma"
+msgstr ""
 
 #: views/map/components/i18n.html:91
 msgid "Holes in soil"
-msgstr "Agujeros en suelo"
+msgstr ""
 
 #: views/activities/progressdetail.html:112
 msgid "Hours"
-msgstr "Horas"
+msgstr ""
 
 #: views/dashboards/crop.html:260
 msgid "How do you prefer to enter the monthly data?"
-msgstr "¿Cómo prefiere ingresar los datos mensuales?"
+msgstr ""
 
 #: views/map/components/i18n.html:72 views/map/components/i18n.html:77
 msgid "How to measure?"
-msgstr "¿Cómo medir la distancia?"
+msgstr ""
 
 #: models/Project.py:92
 msgid "ID Area unit does not exists"
-msgstr "El identificador de la unidad de área no existe"
+msgstr ""
 
 #: models/Project.py:86
 msgid "ID Area unit must be an integer"
-msgstr "ID unidad de área debe ser un numero entero"
+msgstr ""
 
 #: models/SeasonPlan.py:94
 msgid "ID Client does not exists"
-msgstr "El identificador del cliente no existe"
+msgstr ""
 
 #: models/SeasonPlan.py:87
 msgid "ID Client must be an integer"
-msgstr "ID cliente debe ser un numero entero"
+msgstr ""
 
 #: models/SeasonPlan.py:72
 msgid "ID Crop does not exists"
-msgstr "El identificador del cultivo no existe"
+msgstr ""
 
 #: models/SeasonPlan.py:66
 msgid "ID Crop type must be an integer"
@@ -1915,19 +1888,19 @@ msgstr ""
 
 #: models/Project.py:62 models/Project.py:72 models/Project.py:82
 msgid "ID Currency does not exists"
-msgstr "El identificador de moneda no existe"
+msgstr ""
 
 #: models/Project.py:56 models/Project.py:66 models/Project.py:76
 msgid "ID Currency must be an integer"
-msgstr "ID de moneda debe ser un numero entero"
+msgstr ""
 
 #: models/SeasonPlan.py:85
 msgid "ID Project does not exists"
-msgstr "El identificador del proyecto no existe"
+msgstr ""
 
 #: models/SeasonPlan.py:78
 msgid "ID Project must be an integer"
-msgstr "Indentificador del proyecto debe ser un numero entero"
+msgstr ""
 
 #: controllers/inventory.py:306 controllers/inventory.py:483
 msgid "Id Purchase Order missing"
@@ -1935,27 +1908,27 @@ msgstr ""
 
 #: views/field/planning.html:74
 msgid "Import activities from template"
-msgstr "Importar actividades de la plantilla"
+msgstr ""
 
 #: views/dashboards/jobs.html:16 views/map/components/i18n.html:26
 msgid "In progress"
-msgstr "En progreso"
+msgstr ""
 
 #: views/dashboards/plan.html:64
 msgid "Included Blocks"
-msgstr "Bloques incluídos"
+msgstr ""
 
 #: controllers/finances.py:90 views/management/jornual.html:85
 msgid "Income"
-msgstr "Ingresos"
+msgstr ""
 
 #: views/field/sampling.html:208 views/field/sampling.html:209
 msgid "Information (Showed in the app form)"
-msgstr "Información (Desplegada el formulario de la aplicación)"
+msgstr ""
 
 #: views/field/sampling.html:216
 msgid "Integer numbers"
-msgstr "Números enteros"
+msgstr ""
 
 #: models/Employee.py:494 models/Equipment.py:277
 #: models/Equipment_Warehouse.py:112 models/Product.py:345
@@ -1969,17 +1942,17 @@ msgstr "Números enteros"
 #: views/resources/downloadEquipmentOrder.html:200
 #: views/resources/downloadPreconfirm.html:200
 msgid "Internal Code "
-msgstr "Código Interno "
+msgstr ""
 
 #: models/Employee.py:273 models/Employee.py:397 models/Equipment.py:146
 #: models/Equipment.py:212 models/Product.py:185 models/Product.py:265
 #: models/Warehouse.py:156 models/Warehouse.py:275
 msgid "Internal Code: *"
-msgstr "Código Interno: *"
+msgstr ""
 
 #: models/HarvestRecord.py:210
 msgid "Invalid Crop Class"
-msgstr "Clase de cosecha invalida"
+msgstr ""
 
 #: models/FoodBank.py:30
 msgid "Invalid address"
@@ -1987,11 +1960,11 @@ msgstr ""
 
 #: models/Buyer.py:404 models/Supplier.py:415 models/Warehouse.py:435
 msgid "Invalid address 1"
-msgstr "Formato de direccion inválido"
+msgstr ""
 
 #: models/Company.py:127 models/ShippingAddress.py:255
 msgid "Invalid address format"
-msgstr "Formato de dirección inválido"
+msgstr ""
 
 #: models/Sale.py:200 models/SaleBatch.py:131
 msgid "Invalid buyer format"
@@ -2004,19 +1977,19 @@ msgstr ""
 #: models/Buyer.py:377 models/FoodBank.py:34 models/Supplier.py:386
 #: models/Warehouse.py:415
 msgid "Invalid city format"
-msgstr "Formato de cuidad inválido"
+msgstr ""
 
 #: models/Employee.py:542 models/Product.py:370
 msgid "Invalid code format"
-msgstr "Formato del código invalido"
+msgstr ""
 
 #: controllers/login.py:89
 msgid "Invalid code has been used before."
-msgstr "Código invalido, ya fue usado anteriormente."
+msgstr ""
 
 #: controllers/login.py:90
 msgid "Invalid code."
-msgstr "Código invalido."
+msgstr ""
 
 #: models/Sale.py:212
 msgid "Invalid company format"
@@ -2024,7 +1997,7 @@ msgstr ""
 
 #: models/Buyer.py:396 models/Supplier.py:407
 msgid "Invalid contact name"
-msgstr "Formato del nombre de contacto inválido"
+msgstr ""
 
 #: models/Warehouse.py:438
 msgid "Invalid contact name format"
@@ -2032,7 +2005,7 @@ msgstr ""
 
 #: models/Employee.py:514
 msgid "Invalid cost"
-msgstr "Formato de primer nombre invalido"
+msgstr ""
 
 #: models/Sale.py:224 models/SaleBatch.py:151
 msgid "Invalid cost format"
@@ -2041,11 +2014,11 @@ msgstr ""
 #: models/Buyer.py:380 models/Company.py:138 models/ShippingAddress.py:266
 #: models/Supplier.py:390 models/Warehouse.py:418
 msgid "Invalid country"
-msgstr "Formato de país inválido"
+msgstr ""
 
 #: views/login/index.html:33
 msgid "Invalid credentials, please, try again"
-msgstr "Credenciales invalidas, intenta de nuevo"
+msgstr ""
 
 #: models/Sale.py:204 models/SaleBatch.py:135
 msgid "Invalid crop class format"
@@ -2053,15 +2026,15 @@ msgstr ""
 
 #: controllers/inventory.py:463
 msgid "Invalid data or missing"
-msgstr "Información inválida"
+msgstr ""
 
 #: models/Buyer.py:412
 msgid "Invalid description"
-msgstr "Formato de descripción inválido"
+msgstr ""
 
 #: models/CropClass.py:176 models/Product.py:374 models/Supplier.py:423
 msgid "Invalid description format"
-msgstr "Formato de descrición invalido"
+msgstr ""
 
 #: models/Warehouse.py:443
 msgid "Invalid details format"
@@ -2069,19 +2042,19 @@ msgstr ""
 
 #: models/Buyer.py:392 models/Supplier.py:403
 msgid "Invalid email"
-msgstr "Formato de correo electrónico inválido"
+msgstr ""
 
 #: models/Employee.py:518
 msgid "Invalid email format"
-msgstr "Formato de correo electrónico invalido"
+msgstr ""
 
 #: models/EquipmentPurchaseOrder.py:124 models/PurchaseOrder.py:123
 msgid "Invalid externalID format"
-msgstr "Formato de identificador externo invalido"
+msgstr ""
 
 #: models/HarvestRecord.py:206
 msgid "Invalid field format"
-msgstr "Formato de campo invalido"
+msgstr ""
 
 #: models/Sale.py:216 models/SaleBatch.py:143
 msgid "Invalid field plan format"
@@ -2089,15 +2062,15 @@ msgstr ""
 
 #: models/Employee.py:507
 msgid "Invalid first name format"
-msgstr "Formato de primer nombre invalido"
+msgstr ""
 
 #: models/User.py:134
 msgid "Invalid firstname format"
-msgstr "Formato de nombre invalido"
+msgstr ""
 
 #: models/Warehouse.py:431
 msgid "Invalid internal code"
-msgstr "Ingresa el código interno"
+msgstr ""
 
 #: models/Sale.py:228 models/SaleBatch.py:155
 msgid "Invalid invoice format"
@@ -2113,11 +2086,11 @@ msgstr ""
 
 #: models/Employee.py:511
 msgid "Invalid last name format"
-msgstr "Formato de segundo nombre invalido"
+msgstr ""
 
 #: models/User.py:138
 msgid "Invalid lastname format"
-msgstr "Formato de apellido invalido"
+msgstr ""
 
 #: controllers/inventory.py:60 controllers/inventory.py:95
 #: controllers/inventory.py:145 controllers/inventory.py:198
@@ -2134,7 +2107,7 @@ msgstr ""
 #: models/Product.py:358 models/ShippingAddress.py:251 models/Supplier.py:382
 #: models/Warehouse.py:407
 msgid "Invalid name format"
-msgstr "Formato del nombre inválido"
+msgstr ""
 
 #: models/Employee.py:546
 msgid "Invalid notes format"
@@ -2150,15 +2123,15 @@ msgstr ""
 
 #: models/Buyer.py:389 models/Supplier.py:400 models/Warehouse.py:427
 msgid "Invalid phone"
-msgstr "Formato telefónico inválido"
+msgstr ""
 
 #: models/Employee.py:522
 msgid "Invalid phone format"
-msgstr "Formato telefonico invalido"
+msgstr ""
 
 #: models/Employee.py:527
 msgid "Invalid position format"
-msgstr "Formato del puesto invalido"
+msgstr ""
 
 #: controllers/map.py:197 controllers/map.py:236
 msgid "Invalid project"
@@ -2166,15 +2139,15 @@ msgstr ""
 
 #: models/Project.py:52
 msgid "Invalid project name"
-msgstr "Nombre de proyecto invalido"
+msgstr ""
 
 #: controllers/map.py:359 controllers/map.py:380 controllers/map.py:414
 msgid "Invalid project or field"
-msgstr "Proyecto o campo invalido"
+msgstr ""
 
 #: controllers/map.py:290 controllers/map.py:776
 msgid "Invalid project or fields"
-msgstr "Proyectos o campos invalido"
+msgstr ""
 
 #: models/Sale.py:231 models/SaleBatch.py:158
 msgid "Invalid purchaseOrder format"
@@ -2183,7 +2156,7 @@ msgstr ""
 #: models/FoodBank.py:42 models/HarvestRecord.py:214 models/Sale.py:220
 #: models/SaleBatch.py:147
 msgid "Invalid quantity format"
-msgstr "Formato de cantidad invalido"
+msgstr ""
 
 #: controllers/activities.py:692
 msgid "Invalid request"
@@ -2191,20 +2164,20 @@ msgstr ""
 
 #: models/HarvestRecord.py:202
 msgid "Invalid season Plan format"
-msgstr "Formato invalido de plan de temporada"
+msgstr ""
 
 #: models/SeasonPlan.py:75
 msgid "Invalid season plan name"
-msgstr "Nombre del plan de temporada invalido"
+msgstr ""
 
 #: models/Employee.py:536
 msgid "Invalid security number format"
-msgstr "Formato del numero se seguridad invalido"
+msgstr ""
 
 #: models/Buyer.py:383 models/Company.py:134 models/ShippingAddress.py:262
 #: models/Supplier.py:393 models/Warehouse.py:421
 msgid "Invalid state"
-msgstr "Fomato de estado inválido"
+msgstr ""
 
 #: models/FoodBank.py:38
 msgid "Invalid state format"
@@ -2212,11 +2185,11 @@ msgstr ""
 
 #: models/Employee.py:532
 msgid "Invalid status format"
-msgstr "Formato del estatus invalido"
+msgstr ""
 
 #: models/Buyer.py:408 models/Supplier.py:419
 msgid "Invalid tax format"
-msgstr "Formato del inpuesto inválido"
+msgstr ""
 
 #: models/Company.py:119
 msgid "Invalid tax name"
@@ -2236,35 +2209,35 @@ msgstr ""
 
 #: models/Buyer.py:386 models/Supplier.py:397 models/Warehouse.py:424
 msgid "Invalid zipcode"
-msgstr "Formato de código postal inválido"
+msgstr ""
 
 #: views/assets/machinery.html:44 views/assets/products.html:65
 msgid "Inventory"
-msgstr "Inventario"
+msgstr ""
 
 #: views/_scheduleTabContent.html:194
 msgid "Inventory Storage Location"
-msgstr "Localización del almacenaje del inventario"
+msgstr ""
 
 #: controllers/catalogs.py:633
 msgid "Inventory catalog"
-msgstr "Catalogo de inventario"
+msgstr ""
 
 #: views/management/sales.html:280
 msgid "Invoice"
-msgstr "Factura"
+msgstr ""
 
 #: views/field/planning.html:210
 msgid "Is used for the harvest register and for sales."
-msgstr "Es usado para el registro de cosecha y ventas"
+msgstr ""
 
 #: views/field/planning.html:199
 msgid "Is used to specify the progress of your labor in the field."
-msgstr "Es usada para indicar el progreso de la mano de obra en el cultivo"
+msgstr ""
 
 #: views/dashboards/crop.html:23
 msgid "January"
-msgstr "Enero"
+msgstr ""
 
 #: controllers/dashboards.py:881 views/dashboards/activity.html:96
 #: views/dashboards/jobs.html:67 views/field/planning.html:49
@@ -2272,11 +2245,11 @@ msgstr "Enero"
 #: views/map/components/i18n.html:9 views/parcel/getTaskDetail.html:14
 #: views/resources/payroll.html:53
 msgid "Job"
-msgstr "Trabajo"
+msgstr ""
 
 #: views/dashboards/activity.html:98
 msgid "Job Status"
-msgstr "Estatus de trabajo"
+msgstr ""
 
 #: controllers/fieldplan.py:63
 msgid "Job completed susccessfully"
@@ -2285,24 +2258,24 @@ msgstr ""
 #: controllers/fieldplan.py:41 controllers/fieldplan.py:64
 #: controllers/fieldplan.py:112
 msgid "Job does not exists"
-msgstr "Trabajo no existe"
+msgstr ""
 
 #: controllers/fieldplan.py:40
 msgid "Job has activities"
-msgstr "Trabajo tiene actividades, no se puede eliminar"
+msgstr ""
 
 #: controllers/fieldplan.py:35 controllers/fieldplan.py:39
 msgid "Job removed from field plan susccessfully"
-msgstr "Trabajo ha sido eliminado"
+msgstr ""
 
 #: controllers/job.py:236 views/field/planning.html:57
 #: views/field/weather.html:54 views/map/components/i18n.html:15
 msgid "Job saved successfully"
-msgstr "Trabajo guardado exitosamente."
+msgstr ""
 
 #: views/map/jobsWizard.html:21
 msgid "Job type"
-msgstr "Tipo de trabajo"
+msgstr ""
 
 #: controllers/dashboards.py:882
 msgid "JobStatus"
@@ -2314,19 +2287,19 @@ msgstr ""
 
 #: views/dashboards/plan.html:73
 msgid "Jobs Overview"
-msgstr "Resumen de trabajos"
+msgstr ""
 
 #: controllers/management.py:360
 msgid "Jornual"
-msgstr "Libro diario"
+msgstr ""
 
 #: views/dashboards/crop.html:29
 msgid "July"
-msgstr "Julio"
+msgstr ""
 
 #: views/dashboards/crop.html:28
 msgid "June"
-msgstr "Junio"
+msgstr ""
 
 #: controllers/dashboards.py:1352 controllers/test.py:91
 msgid "Kpi"
@@ -2334,33 +2307,33 @@ msgstr ""
 
 #: views/login/index.html:37 views/loginSecundary/index.html:25
 msgid "LOGIN"
-msgstr "INICIAR SESIÓN"
+msgstr ""
 
 #: controllers/management.py:441 controllers/resources.py:113
 #: views/management/laborPayroll.html:25 views/resources/payroll.html:18
 msgid "Labor payroll"
-msgstr "Pago de labores"
+msgstr ""
 
 #: views/catalogs/employees.html:118 views/management/laborPayroll.html:86
 #: views/resources/payroll.html:78
 msgid "Labor payroll summary"
-msgstr "Resumen del pago de labores"
+msgstr ""
 
 #: views/settings/project.html:57
 msgid "Land area unit"
-msgstr "Unidades de área terrestre"
+msgstr ""
 
 #: views/settings/project.html:49 views/settings/user.html:26
 msgid "Language"
-msgstr "Idioma"
+msgstr ""
 
 #: views/map/components/i18n.html:148 views/map/getSensorInfo.html:31
 msgid "Last collection data"
-msgstr "Últimos datos"
+msgstr ""
 
 #: views/map/components/i18n.html:147 views/map/getSensorInfo.html:17
 msgid "Last data"
-msgstr "Último dato"
+msgstr ""
 
 #: controllers/map.py:340
 msgid "Last locations"
@@ -2368,23 +2341,23 @@ msgstr ""
 
 #: views/settings/user.html:22
 msgid "Last name"
-msgstr "Apellido"
+msgstr ""
 
 #: models/Employee.py:256 models/Employee.py:380
 msgid "Last name: *"
-msgstr "Apellido: *"
+msgstr ""
 
 #: models/Employee.py:494
 msgid "Lastname"
-msgstr "Apellido"
+msgstr ""
 
 #: controllers/map.py:357 views/map/getInfoModal.html:34
 msgid "Layers"
-msgstr "Capas"
+msgstr ""
 
 #: views/map/components/i18n.html:67 views/map/components/i18n.html:81
 msgid "Linear distance"
-msgstr "Distancia lineal"
+msgstr ""
 
 #: controllers/dashboards.py:1369
 msgid "List of metrics"
@@ -2392,40 +2365,40 @@ msgstr ""
 
 #: views/map/components/i18n.html:169
 msgid "Loading Image"
-msgstr "Cargando imagen"
+msgstr ""
 
 #: views/map/components/i18n.html:43
 msgid "Loading agent info"
-msgstr "Cargando información de agentes"
+msgstr ""
 
 #: views/field/planning.html:8 views/field/weather.html:10
 msgid "Loading crops error"
-msgstr "Cargando error de cultivos"
+msgstr ""
 
 #: views/field/planning.html:6 views/field/weather.html:8
 msgid "Loading crops..."
-msgstr "Cargando cultivos..."
+msgstr ""
 
 #: views/field/planning.html:5 views/field/planning.html:151
 #: views/field/weather.html:7
 msgid "Loading fields..."
-msgstr "Cargando campos..."
+msgstr ""
 
 #: views/management/finances.html:82
 msgid "Loading financials..."
-msgstr "Cargando Finanzas"
+msgstr ""
 
 #: views/map/components/i18n.html:47
 msgid "Loading layer"
-msgstr "Cargando capa"
+msgstr ""
 
 #: views/settings/field.html:31
 msgid "Loading map"
-msgstr "Cargando mapa"
+msgstr ""
 
 #: views/map/components/i18n.html:45
 msgid "Loading orthophoto"
-msgstr "Cargando ortofotos"
+msgstr ""
 
 #: views/assets/machinery.html:27 views/assets/products.html:26
 #: views/catalogs/buyers.html:6 views/catalogs/cropClasses.html:6
@@ -2443,46 +2416,46 @@ msgstr "Cargando ortofotos"
 #: views/settings/field.html:30 views/settings/project.html:6
 #: views/settings/user.html:6 views/social/donation.html:6
 msgid "Loading page ..."
-msgstr "Cargando página"
+msgstr ""
 
 #: views/map/components/i18n.html:157
 msgid "Loading public stations"
-msgstr "Cargando estaciones públicas"
+msgstr ""
 
 #: views/management/jornual.html:101
 msgid "Loading recods..."
-msgstr "Cargando datos"
+msgstr ""
 
 #: views/map/components/i18n.html:31
 msgid "Loading scouting reports"
-msgstr "Cargando reportes de exploración"
+msgstr ""
 
 #: views/field/planning.html:12 views/field/weather.html:14
 msgid "Loading season plan error"
-msgstr "Error en la carga del plan de temporada"
+msgstr ""
 
 #: views/field/planning.html:10 views/field/weather.html:12
 msgid "Loading season plans..."
-msgstr "Cargando Planes de temporada..."
+msgstr ""
 
 #: views/map/components/i18n.html:49
 msgid "Loading topographical chart"
-msgstr "Cargando capas topográficas"
+msgstr ""
 
 #: views/field/weather.html:6
 msgid "Loading weather data"
-msgstr "Cargando información del clima"
+msgstr ""
 
 #: views/assets/machinery.html:25 views/assets/products.html:24
 #: views/catalogs/machinery.html:25 views/catalogs/products.html:24
 #: views/dashboards/jobs.html:28 views/management/purchaseOrder.html:24
 #: views/management/sales.html:24
 msgid "Loading..."
-msgstr "Cargando..."
+msgstr ""
 
 #: views/field/scouting.html:161
 msgid "Location"
-msgstr "Ubicación"
+msgstr ""
 
 #: controllers/map.py:495
 msgid "Locations"
@@ -2491,11 +2464,11 @@ msgstr ""
 #: views/demorequest/index.html:84 views/login/recovery.html:38
 #: views/login/setnewpassword.html:43
 msgid "Log in"
-msgstr "Iniciar sesión"
+msgstr ""
 
 #: views/login/hub.html:25
 msgid "Log out"
-msgstr "Cerrar sesión"
+msgstr ""
 
 #: views/loginSecundary/index.html:7
 msgid "Login"
@@ -2503,52 +2476,52 @@ msgstr ""
 
 #: controllers/inventory.py:283 controllers/inventory.py:457
 msgid "Looks good !"
-msgstr "Bien"
+msgstr ""
 
 #: views/field/planning.html:93
 msgid "MY CROPS"
-msgstr "MIS CULTIVOS"
+msgstr ""
 
 #: views/map/components/i18n.html:95
 msgid "Machinery"
-msgstr "Maquinaria"
+msgstr ""
 
 #: controllers/management.py:58 controllers/management.py:203
 #: controllers/management.py:300 controllers/management.py:360
 #: controllers/management.py:441
 msgid "Management"
-msgstr "Administración"
+msgstr ""
 
 #: controllers/map.py:140
 msgid "Map View"
-msgstr "Mapa"
+msgstr ""
 
 #: views/dashboards/crop.html:25
 msgid "March"
-msgstr "Marzo"
+msgstr ""
 
 #: views/field/planning.html:41
 msgid "Mark as complete"
-msgstr "Marcar como completado"
+msgstr ""
 
 #: views/assets/machinery.html:22 views/assets/products.html:21
 #: views/catalogs/machinery.html:22 views/catalogs/products.html:21
 #: views/management/purchaseOrder.html:21
 msgid "Mark as paid"
-msgstr "Marcar como pagado"
+msgstr ""
 
 #: views/map/components/i18n.html:88
 msgid "Mature fruit"
-msgstr "Fruta madura"
+msgstr ""
 
 #: views/dashboards/heatMap.html:19 views/field/sampling.html:15
 #: views/field/sampling.html:228
 msgid "Max"
-msgstr "Max"
+msgstr ""
 
 #: views/map/components/i18n.html:63
 msgid "Max file size 10mb"
-msgstr "Tamaño maximo 10mb"
+msgstr ""
 
 #: models/Equipment.py:309 models/Product.py:378
 msgid "Max must be a number"
@@ -2561,15 +2534,15 @@ msgstr ""
 
 #: views/dashboards/crop.html:27
 msgid "May"
-msgstr "Mayo"
+msgstr ""
 
 #: views/map/components/i18n.html:52 views/map/components/i18n.html:71
 msgid "Measure distance"
-msgstr "Medir distancia"
+msgstr ""
 
 #: views/help/index.html:35 views/help/index.html:131
 msgid "Message"
-msgstr "Mensaje"
+msgstr ""
 
 #: views/management/sales.html:413 views/social/donation.html:67
 msgid "Michoacan de Ocampo"
@@ -2578,7 +2551,7 @@ msgstr ""
 #: views/dashboards/heatMap.html:18 views/field/sampling.html:14
 #: views/field/sampling.html:224
 msgid "Min"
-msgstr "Min"
+msgstr ""
 
 #: models/Equipment.py:313 models/Product.py:382
 msgid "Min must be a number"
@@ -2595,31 +2568,31 @@ msgstr ""
 
 #: views/map/components/i18n.html:92
 msgid "Missing tree or bush"
-msgstr "Falta árbol o arbusto"
+msgstr ""
 
 #: views/field/sampling.html:18
 msgid "Mode"
-msgstr "Moda"
+msgstr ""
 
 #: views/map/components/i18n.html:138
 msgid "N"
-msgstr "N"
+msgstr ""
 
 #: views/map/components/i18n.html:139
 msgid "NE"
-msgstr "NE"
+msgstr ""
 
 #: views/field/planning.html:95 views/field/planning.html:111
 msgid "NEW"
-msgstr "Nuevo"
+msgstr ""
 
 #: views/settings/field.html:68
 msgid "NEW FIELD"
-msgstr "Nuevo campo"
+msgstr ""
 
 #: views/map/components/i18n.html:145
 msgid "NW"
-msgstr "NO"
+msgstr ""
 
 #: models/Buyer.py:360 models/Company.py:290 models/CropClass.py:159
 #: models/Employee.py:494 models/Equipment.py:277
@@ -2645,7 +2618,7 @@ msgstr "NO"
 #: views/resources/downloadPreconfirm.html:201 views/social/donation.html:30
 #: views/social/donation.html:31
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 #: controllers/field.py:599
 msgid "Name is required"
@@ -2653,68 +2626,68 @@ msgstr ""
 
 #: models/Role.py:25 models/Role.py:35
 msgid "Name of the role"
-msgstr "Nombre del rol"
+msgstr ""
 
 #: views/field/planning.html:279
 msgid "Name to identify your Plan Template."
-msgstr "Nombre para idenficiar tu plantilla de plan"
+msgstr ""
 
 #: models/Equipment.py:164 models/Equipment.py:230 models/Product.py:203
 #: models/Product.py:283 models/ShippingAddress.py:116
 #: models/ShippingAddress.py:177 models/Warehouse.py:174
 #: models/Warehouse.py:293
 msgid "Name: *"
-msgstr "Nombre: *"
+msgstr ""
 
 #: views/settings/field.html:145
 msgid "New"
-msgstr "Nuevo"
+msgstr ""
 
 #: views/recovery/change_password.html:5
 msgid "New Password"
-msgstr "Contraseña"
+msgstr ""
 
 #: views/assets/products.html:123 views/assets/products.html:197
 msgid "New Product Return"
-msgstr "Nueva devolución"
+msgstr ""
 
 #: views/management/purchaseOrder.html:67
 #: views/management/purchaseOrder.html:344
 #: views/management/purchaseOrder.html:382
 #: views/management/purchaseOrder.html:657
 msgid "New Purchase Order"
-msgstr "Nueva compra"
+msgstr ""
 
 #: views/field/sampling.html:144
 msgid "New Sampling"
-msgstr "Nuevo muestreo"
+msgstr ""
 
 #: views/login/setnewpassword.html:34
 msgid "New password"
-msgstr "Nueva contraseña"
+msgstr ""
 
 #: views/dashboards/crop.html:14
 msgid "New projection"
-msgstr "Nueva proyección"
+msgstr ""
 
 #: views/assets/machinery.html:13 views/assets/products.html:12
 #: views/catalogs/machinery.html:13 views/catalogs/products.html:12
 #: views/management/purchaseOrder.html:12
 msgid "New purchase added"
-msgstr "Nueva compra"
+msgstr ""
 
 #: views/management/jornual.html:41 views/management/jornual.html:74
 #: views/management/jornual.html:117
 msgid "New record"
-msgstr "Nuevo registro"
+msgstr ""
 
 #: views/field/harvest.html:17
 msgid "New sale"
-msgstr "Nueva venta"
+msgstr ""
 
 #: views/field/operation.html:423
 msgid "New supervisor"
-msgstr "Nuevo supervisor"
+msgstr ""
 
 #: controllers/system.py:85
 msgid "New user successfully created"
@@ -2727,7 +2700,7 @@ msgstr ""
 #: views/field/operation.html:441 views/management/laborPayroll.html:11
 #: views/management/purchaseOrder.html:15 views/management/sales.html:15
 msgid "No"
-msgstr "No"
+msgstr ""
 
 #: controllers/map.py:774
 msgid "No Agent Location Data Available"
@@ -2735,23 +2708,23 @@ msgstr ""
 
 #: controllers/harvest.py:378
 msgid "No Cropclass"
-msgstr "Sin clasificación de cultivo"
+msgstr ""
 
 #: views/management/finances.html:80
 msgid "No account book selected."
-msgstr "Por favor seleccione un libro contable"
+msgstr ""
 
 #: views/management/finances.html:81
 msgid "No account records for this book."
-msgstr "Sin registros"
+msgstr ""
 
 #: views/field/planning.html:304
 msgid "No activities added"
-msgstr "Actividades no agregadas"
+msgstr ""
 
 #: views/activities/getActivities.html:33 views/map/getInfoModal.html:45
 msgid "No activities for this parcel"
-msgstr "Ninguna actividad para esta parcela"
+msgstr ""
 
 #: views/map/getInfoModal.html:39
 msgid "No actvities found for this field"
@@ -2759,23 +2732,23 @@ msgstr ""
 
 #: controllers/activities.py:276 controllers/activities.py:278
 msgid "No assign date selected"
-msgstr "No se ha seleccionado fecha"
+msgstr ""
 
 #: views/field/operation.html:417
 msgid "No blocks assigned"
-msgstr "Ningun bloque asignado"
+msgstr ""
 
 #: views/settings/field.html:81
 msgid "No blocks available for this field."
-msgstr "No hay bloques disponibles para este campo."
+msgstr ""
 
 #: controllers/activities.py:288 controllers/activities.py:290
 msgid "No blocks selected"
-msgstr "No se han selecionado parcelas"
+msgstr ""
 
 #: views/field/harvest.html:6 views/management/sales.html:6
 msgid "No crops found"
-msgstr "No se encontraron cultivos"
+msgstr ""
 
 #: controllers/finances.py:126
 msgid "No data"
@@ -2788,24 +2761,24 @@ msgstr ""
 #: views/map/components/i18n.html:150 views/map/components/i18n.html:155
 #: views/map/getSensorInfo.html:65
 msgid "No data to display"
-msgstr "No hay datos que mostrar"
+msgstr ""
 
 #: controllers/map.py:981
 msgid "No employee for this user"
-msgstr "Este usuario no tiene empleado"
+msgstr ""
 
 #: views/_scheduleTabContent.html:102
 msgid "No employees added"
-msgstr "Ningun empleado agregado"
+msgstr ""
 
 #: views/activities/getActivityDetail.html:113
 msgid "No employees were required for this task"
-msgstr "Ningun empleado fue requerido para esta tarea"
+msgstr ""
 
 #: contents/jobsmodal.html:224 views/field/operation.html:272
 #: views/field/planning.html:391 views/map/jobsWizard.html:224
 msgid "No equipment added."
-msgstr "Ningun equipo agregado."
+msgstr ""
 
 #: views/_scheduleTabContent.html:169
 msgid "No equipment added. You must have stock in your inventory to add."
@@ -2813,11 +2786,11 @@ msgstr ""
 
 #: views/field/operation.html:421
 msgid "No equipment found"
-msgstr "Ningun equipo asignado"
+msgstr ""
 
 #: views/activities/getActivityDetail.html:146
 msgid "No equipments were required for this task"
-msgstr "Ningun equipo fue requerido para esta tarea"
+msgstr ""
 
 #: views/field/planning.html:154
 msgid "No fields available"
@@ -2825,15 +2798,15 @@ msgstr ""
 
 #: views/settings/field.html:62
 msgid "No fields available for this project."
-msgstr "No hay campos disponibles en este proyecto."
+msgstr ""
 
 #: views/field/planning.html:62
 msgid "No fields to show"
-msgstr "No hay campos a mostrar"
+msgstr ""
 
 #: views/map/components/i18n.html:21
 msgid "No grids available"
-msgstr "No hay cuadrículas disponibles"
+msgstr ""
 
 #: controllers/projections.py:85
 msgid "No info to show"
@@ -2841,23 +2814,23 @@ msgstr ""
 
 #: views/field/planning.html:337
 msgid "No jobs added"
-msgstr "Trabajos no agregados"
+msgstr ""
 
 #: views/field/getJobs.html:51
 msgid "No jobs found for this field"
-msgstr "Ningun trabajo encontrado para este campo"
+msgstr ""
 
 #: views/field/operation.html:430
 msgid "No jobs founded"
-msgstr "No se encontraron trabajos"
+msgstr ""
 
 #: views/dashboards/plan.html:8
 msgid "No jobs to show"
-msgstr "No hay trabajos que mostrar"
+msgstr ""
 
 #: views/map/components/i18n.html:23
 msgid "No layers available"
-msgstr "No hay capas disponibles"
+msgstr ""
 
 #: controllers/map.py:269
 msgid "No map elements available"
@@ -2867,11 +2840,11 @@ msgstr ""
 #: views/field/operation.html:388 views/field/planning.html:480
 #: views/map/jobsWizard.html:343
 msgid "No notes added"
-msgstr "Ninguna nota agregada"
+msgstr ""
 
 #: views/activities/progressdetail.html:48
 msgid "No notes."
-msgstr "Sin notas."
+msgstr ""
 
 #: views/assets/machinery.html:24 views/assets/products.html:23
 #: views/catalogs/buyers.html:5 views/catalogs/cropClasses.html:5
@@ -2894,23 +2867,23 @@ msgstr "Sin notas."
 #: views/settings/project.html:5 views/settings/user.html:5
 #: views/social/donation.html:5
 msgid "No notifications available"
-msgstr "Sin notificaciones por el momento"
+msgstr ""
 
 #: views/map/components/i18n.html:22
 msgid "No ortophotos available"
-msgstr "Ortofotos no disponibles"
+msgstr ""
 
 #: views/settings/field.html:20
 msgid "No perimeters to delete"
-msgstr "No hay perímetros para borrar"
+msgstr ""
 
 #: views/settings/field.html:18
 msgid "No perimeters to edit"
-msgstr "No hay perímetros para editar"
+msgstr ""
 
 #: views/activities/progressdetail.html:62
 msgid "No pictures."
-msgstr "Sin imágenes."
+msgstr ""
 
 #: views/field/planning.html:61
 msgid "No plan templates available."
@@ -2918,7 +2891,7 @@ msgstr ""
 
 #: views/dashboards/plan.html:6
 msgid "No plans found"
-msgstr "No se encontraron planes"
+msgstr ""
 
 #: controllers/map.py:696 views/map/getAgentInfo.html:79
 msgid "No positions found for that interval"
@@ -2926,12 +2899,12 @@ msgstr ""
 
 #: views/field/operation.html:422
 msgid "No product found"
-msgstr "ningun producto asignado"
+msgstr ""
 
 #: contents/jobsmodal.html:280 views/field/operation.html:350
 #: views/field/planning.html:445 views/map/jobsWizard.html:304
 msgid "No products added."
-msgstr "Ningún producto agregado."
+msgstr ""
 
 #: views/_scheduleTabContent.html:253
 msgid "No products added. You must have stock in your inventory to add."
@@ -2940,15 +2913,15 @@ msgstr ""
 #: views/activities/getActivityDetail.html:180
 #: views/parcel/getTaskDetail.html:122
 msgid "No products were required for this task"
-msgstr "Ningun producto fue necesario para esta tarea"
+msgstr ""
 
 #: views/activities/progressdetail.html:138
 msgid "No progresses available for this activity."
-msgstr "No hay progresos disponibles para esta actividad."
+msgstr ""
 
 #: views/dashboards/crop.html:8 views/dashboards/crop.html:145
 msgid "No records"
-msgstr "Sin registros"
+msgstr ""
 
 #: controllers/dashboards.py:791 layouts/blueprints/jscrud.html:192
 #: views/assets/machinery.html:17 views/assets/productStock.html:5
@@ -2966,7 +2939,7 @@ msgstr "Sin registros"
 #: views/management/sales.html:87 views/management/sales.html:113
 #: views/management/sales.html:184
 msgid "No records found"
-msgstr "No se encontraron registros"
+msgstr ""
 
 #: contents/jobsmodal.html:164 views/field/operation.html:201
 #: views/map/jobsWizard.html:156
@@ -2975,15 +2948,15 @@ msgstr ""
 
 #: views/management/jornual.html:98
 msgid "No records found."
-msgstr "Sin registros"
+msgstr ""
 
 #: views/field/sampling.html:23
 msgid "No sampling records"
-msgstr "No se han tomado registros de muestras"
+msgstr ""
 
 #: views/field/sampling.html:13
 msgid "No samplings found"
-msgstr "No existen muestreos"
+msgstr ""
 
 #: views/field/weather.html:58
 msgid "No season plans available."
@@ -2991,11 +2964,11 @@ msgstr ""
 
 #: views/dashboards/crop.html:10 views/management/laborPayroll.html:40
 msgid "No season plans found"
-msgstr "No se encontraron planes"
+msgstr ""
 
 #: views/map/components/i18n.html:14 views/map/getInfoModal.html:42
 msgid "No sensors on this field"
-msgstr "No hay sensores en este campo"
+msgstr ""
 
 #: controllers/map.py:288
 msgid "No stations available"
@@ -3003,23 +2976,23 @@ msgstr ""
 
 #: controllers/activities.py:282 controllers/activities.py:284
 msgid "No supervisor selected"
-msgstr "No se ha seleccionado supervisor"
+msgstr ""
 
 #: views/map/components/i18n.html:51
 msgid "No topographic charts found"
-msgstr "No se han encontrado cartas topográficas"
+msgstr ""
 
 #: views/management/sales.html:19
 msgid "Non existence available"
-msgstr "Sin existencias"
+msgstr ""
 
 #: views/field/harvest.html:25 views/social/donation.html:9
 msgid "None"
-msgstr "Ninguna"
+msgstr ""
 
 #: views/map/components/i18n.html:29
 msgid "None selected"
-msgstr "Nada seleccionado"
+msgstr ""
 
 #: controllers/inventory.py:90
 msgid "Not all products are avialable"
@@ -3035,15 +3008,15 @@ msgstr ""
 
 #: views/activities/scheduleTable.html:39
 msgid "Not employees added"
-msgstr "No se han agregado empleados"
+msgstr ""
 
 #: views/map/components/i18n.html:62
 msgid "Not files selected"
-msgstr "Ninguna imagen seleccionada"
+msgstr ""
 
 #: views/dashboards/jobs.html:15 views/map/components/i18n.html:25
 msgid "Not started"
-msgstr "No iniciado"
+msgstr ""
 
 #: contents/jobsmodal.html:49 contents/jobsmodal.html:292
 #: models/Employee.py:361 models/Employee.py:485
@@ -3053,15 +3026,15 @@ msgstr "No iniciado"
 #: views/field/planning.html:452 views/field/planning.html:455
 #: views/map/jobsWizard.html:63 views/map/jobsWizard.html:318
 msgid "Notes"
-msgstr "Notas"
+msgstr ""
 
 #: models/Employee.py:359 models/Employee.py:483
 msgid "Notes:"
-msgstr "Notas:"
+msgstr ""
 
 #: views/dashboards/crop.html:33
 msgid "November"
-msgstr "Noviembre"
+msgstr ""
 
 #: views/management/sales.html:416 views/social/donation.html:70
 msgid "Nuevo Leon"
@@ -3069,74 +3042,74 @@ msgstr ""
 
 #: views/catalogs/employees.html:71 views/demorequest/index.html:46
 msgid "Number of employees"
-msgstr "Número de empleados"
+msgstr ""
 
 #: views/demorequest/index.html:51
 msgid "Number of hectares"
-msgstr "Número de Hectáreas"
+msgstr ""
 
 #: views/dashboards/crop.html:32
 msgid "October"
-msgstr "Octubre"
+msgstr ""
 
 #: views/field/harvest.html:198 views/field/scouting.html:203
 #: views/help/index.html:199 views/management/purchaseOrder.html:315
 #: views/management/purchaseOrder.html:628 views/management/sales.html:345
 msgid "Ok"
-msgstr "Listo"
+msgstr ""
 
 #: views/map/components/i18n.html:123
 msgid "Omnimetrix control unit"
-msgstr "Unidad de control Omnimetrix"
+msgstr ""
 
 #: models/Company.py:211 models/Company.py:282
 msgid "Only letters are accepted"
-msgstr "Únicamente se aceptan letras."
+msgstr ""
 
 #: views/map/components/i18n.html:50
 msgid "Open topographic chart"
-msgstr "Abrir carta topográfica"
+msgstr ""
 
 #: models/Buyer.py:150 models/Buyer.py:270 models/Supplier.py:157
 #: models/Supplier.py:278 models/Warehouse.py:244 models/Warehouse.py:363
 msgid "Opening Hours:"
-msgstr "Horario de apertura:"
+msgstr ""
 
 #: controllers/field.py:122
 msgid "Operation"
-msgstr "Operación"
+msgstr ""
 
 #: views/management/jornual.html:167 views/management/jornual.html:169
 msgid "Operation detail"
-msgstr "Detalle de operación"
+msgstr ""
 
 #: views/management/jornual.html:168
 msgid "Operation detail like ticket number, invoices numbers or purchase orders"
-msgstr "Detalle de operación como: núm. de ticket, núm. de factura o núm. de orden"
+msgstr ""
 
 #: views/management/jornual.html:84 views/management/jornual.html:125
 msgid "Operation type"
-msgstr "Tipo de operación"
+msgstr ""
 
 #: views/field/sampling.html:218 views/field/sampling.html:236
 msgid "Options"
-msgstr "Opciones"
+msgstr ""
 
 #: views/harvest/downloadSale.html:155
 msgid "Order"
-msgstr "Orden"
+msgstr ""
 
 #: models/EquipmentPurchaseOrder.py:99 models/PurchaseOrder.py:109
 msgid "Order Status"
-msgstr "Estatus de orden"
+msgstr ""
 
 #: views/field/operation.html:22
 msgid "Order by"
-msgstr "Ordenar por"
+msgstr ""
 
 #: controllers/inventory.py:323 controllers/inventory.py:500
 msgid "Order can be canceled"
-msgstr "La orden puede ser cancelada"
+msgstr ""
 
 #: controllers/inventory.py:305 controllers/inventory.py:482
 msgid "Order can be paid"
@@ -3145,7 +3118,7 @@ msgstr ""
 #: controllers/inventory.py:92 controllers/inventory.py:142
 #: controllers/inventory.py:287 controllers/inventory.py:461
 msgid "Order doesn't exist"
-msgstr "La orden no existe"
+msgstr ""
 
 #: views/management/purchaseOrder.html:87
 #: views/management/purchaseOrder.html:197
@@ -3154,16 +3127,16 @@ msgstr ""
 
 #: views/map/components/i18n.html:20
 msgid "Ortophotos"
-msgstr "Ortofotos"
+msgstr ""
 
 #: views/map/components/i18n.html:38
 msgid "Other"
-msgstr "Otro"
+msgstr ""
 
 #: controllers/activities.py:107 controllers/field.py:110
 #: controllers/field.py:192 controllers/map.py:122 controllers/map.py:842
 msgid "Other employees"
-msgstr "Otros empleados"
+msgstr ""
 
 #: controllers/map.py:412
 msgid "Othophoto mosaic"
@@ -3171,7 +3144,7 @@ msgstr ""
 
 #: controllers/finances.py:91 views/management/jornual.html:86
 msgid "Outcome"
-msgstr "Salidas"
+msgstr ""
 
 #: views/map/components/i18n.html:118
 msgid "Output current"
@@ -3184,7 +3157,7 @@ msgstr ""
 #: views/dashboards/activity.html:38 views/dashboards/jobs.html:14
 #: views/map/components/i18n.html:28
 msgid "Overdue"
-msgstr "Retraso"
+msgstr ""
 
 #: views/help/index.html:180
 msgid "PDF"
@@ -3192,11 +3165,11 @@ msgstr ""
 
 #: views/field/planning.html:109
 msgid "PLAN TEMPLATES"
-msgstr "PLANTILLAS DE PLAN"
+msgstr ""
 
 #: views/dashboards/crop.html:127
 msgid "PRODUCTION (HARVEST)"
-msgstr "PRODUCCIÓN (COSECHA)"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:74 views/assets/machinery.html:71
 #: views/assets/products.html:92 views/assets/products.html:204
@@ -3205,26 +3178,26 @@ msgstr "PRODUCCIÓN (COSECHA)"
 #: views/field/scouting.html:83 views/management/purchaseOrder.html:351
 #: views/management/purchaseOrder.html:664
 msgid "Page"
-msgstr "Página"
+msgstr ""
 
 #: views/assets/machinery.html:31 views/assets/products.html:32
 #: views/catalogs/machinery.html:31 views/catalogs/products.html:32
 #: views/management/purchaseOrder.html:32 views/management/sales.html:32
 msgid "Paid"
-msgstr "Pagado"
+msgstr ""
 
 #: controllers/dashboards.py:884 views/parcel/getTaskDetail.html:18
 msgid "Parcel"
-msgstr "Parcela"
+msgstr ""
 
 #: controllers/system.py:30 models/User.py:123 views/login/index.html:26
 #: views/loginSecundary/index.html:19 views/recovery/change_password.html:7
 msgid "Password"
-msgstr "Contraseña"
+msgstr ""
 
 #: views/login/setnewpassword.html:37
 msgid "Password confirmation"
-msgstr "Confirmación de contraseña"
+msgstr ""
 
 #: views/map/components/i18n.html:68
 msgid "Path line distance"
@@ -3232,60 +3205,60 @@ msgstr ""
 
 #: views/map/components/i18n.html:82
 msgid "Pathline distance"
-msgstr "Distancia de la ruta"
+msgstr ""
 
 #: views/management/sales.html:17
 msgid "Pay"
-msgstr "Pagar"
+msgstr ""
 
 #: models/EquipmentPurchaseOrder.py:99 models/PurchaseOrder.py:109
 #: views/management/sales.html:80
 msgid "Payment Status"
-msgstr "Estatus de pago"
+msgstr ""
 
 #: views/assets/machinery.html:31 views/assets/products.html:32
 #: views/catalogs/machinery.html:31 views/catalogs/products.html:32
 #: views/dashboards/jobs.html:23 views/management/purchaseOrder.html:32
 #: views/management/sales.html:32
 msgid "Pending"
-msgstr "Pendiente"
+msgstr ""
 
 #: views/activities/scheduleTable.html:21
 msgid "People"
-msgstr "Personas"
+msgstr ""
 
 #: views/demorequest/index.html:63
 msgid "Phone"
-msgstr "Teléfono"
+msgstr ""
 
 #: models/Buyer.py:160 models/Buyer.py:280 models/Employee.py:318
 #: models/Employee.py:442 models/Supplier.py:167 models/Supplier.py:288
 msgid "Phone:"
-msgstr "Teléfono:"
+msgstr ""
 
 #: models/Warehouse.py:234 models/Warehouse.py:353
 msgid "Phone: "
-msgstr "Teléfono:"
+msgstr ""
 
 #: views/field/scouting.html:164
 msgid "Photos"
-msgstr "Fotos"
+msgstr ""
 
 #: views/activities/progressdetail.html:87
 msgid "Pictures"
-msgstr "Imágenes"
+msgstr ""
 
 #: views/map/components/i18n.html:84
 msgid "Plague"
-msgstr "Plaga"
+msgstr ""
 
 #: views/dashboards/plan.html:93 views/parcel/getTaskDetail.html:16
 msgid "Plan"
-msgstr "Plan"
+msgstr ""
 
 #: views/field/planning.html:267
 msgid "Plan Template"
-msgstr "Plantilla de plan"
+msgstr ""
 
 #: views/field/planning.html:31
 msgid "Plan template imported successfully"
@@ -3297,36 +3270,36 @@ msgstr ""
 
 #: controllers/field.py:202
 msgid "Planning"
-msgstr "Planeación"
+msgstr ""
 
 #: views/map/components/i18n.html:36
 msgid "Plant/Fruit"
-msgstr "Planta/Fruta"
+msgstr ""
 
 #: views/field/harvest.html:10 views/field/harvest.html:168
 #: views/management/sales.html:9
 msgid "Please add"
-msgstr "Agrega"
+msgstr ""
 
 #: views/field/harvest.html:7 views/management/sales.html:7
 msgid "Please add crop"
-msgstr "Agrega un cultivo"
+msgstr ""
 
 #: views/field/harvest.html:168
 msgid "Please add cropclass"
-msgstr "Agregar clasificación de cultivo"
+msgstr ""
 
 #: views/field/sampling.html:7
 msgid "Please add elements to the sampling"
-msgstr "Por favor, agregue elementos al muestreo"
+msgstr ""
 
 #: views/dashboards/plan.html:9
 msgid "Please add jobs to your season plans"
-msgstr "Por favor, agrega trabajos a tu plan de temporada"
+msgstr ""
 
 #: views/dashboards/plan.html:7
 msgid "Please add plans"
-msgstr "Es necesario agregar planes"
+msgstr ""
 
 #: views/dashboards/crop.html:11
 msgid "Please add season plans"
@@ -3334,11 +3307,11 @@ msgstr ""
 
 #: views/settings/field.html:5
 msgid "Please draw a field perimeter"
-msgstr "Por favor, dibuja un perímetro"
+msgstr ""
 
 #: views/field/harvest.html:23 views/management/sales.html:23
 msgid "Please review available quantity product"
-msgstr "Por favor revisa la disponibilidad de producto"
+msgstr ""
 
 #: views/field/harvest.html:22 views/management/sales.html:22
 msgid "Please review quantities according existence."
@@ -3346,31 +3319,31 @@ msgstr ""
 
 #: models/Product.py:361
 msgid "Please select Product Category"
-msgstr "Seleciona una categoría de producto"
+msgstr ""
 
 #: models/Product.py:366
 msgid "Please select Product Unit"
-msgstr "Seleciona unidad de producto"
+msgstr ""
 
 #: views/management/jornual.html:41
 msgid "Please select a field to enable button"
-msgstr "Por favor, seleccione un campo para habilitar el botón"
+msgstr ""
 
 #: views/map/jobsWizard.html:108
 msgid "Please select field supervisor to continue"
-msgstr "Por favor selecciona un supervisor de campo para continuar"
+msgstr ""
 
 #: views/map/jobsWizard.html:75
 msgid "Please select parcels to continue"
-msgstr "Por favor selecciona parcelas para continuar"
+msgstr ""
 
 #: views/login/setnewpassword.html:20
 msgid "Please, enter your recovery code and your new password"
-msgstr "Por favor, introduce tu código de recuperación y tu contraseña"
+msgstr ""
 
 #: views/map/components/i18n.html:121
 msgid "Pluviometers"
-msgstr "Pluviómetros"
+msgstr ""
 
 #: controllers/field.py:603
 msgid "Polygon is required"
@@ -3383,47 +3356,47 @@ msgstr ""
 #: models/Employee.py:494 views/map/getAgentInfo.html:27
 #: views/map/getAgentInfo.html:74
 msgid "Position"
-msgstr "Puesto"
+msgstr ""
 
 #: models/Employee.py:266 models/Employee.py:390
 msgid "Position: *"
-msgstr "Puesto: *"
+msgstr ""
 
 #: models/Position.py:16
 msgid "Positions"
-msgstr "Puestos"
+msgstr ""
 
 #: views/map/components/i18n.html:112
 msgid "Precipitation (last hour)"
-msgstr "Precipitación (última hora)"
+msgstr ""
 
 #: views/map/components/i18n.html:107
 msgid "Precipitation (today)"
-msgstr "Precipitación (hoy)"
+msgstr ""
 
 #: views/map/components/i18n.html:129
 msgid "Pressure trend"
-msgstr "Tendencia de presión"
+msgstr ""
 
 #: views/map/index.html:40 views/map/index.html:84
 msgid "Private stations"
-msgstr "Estaciones privadas"
+msgstr ""
 
 #: views/assets/machinery.html:10 views/assets/products.html:9
 #: views/catalogs/machinery.html:10 views/catalogs/products.html:9
 #: views/management/purchaseOrder.html:9
 msgid "Processing information"
-msgstr "Procesando información"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:129
 msgid "Processing information."
-msgstr "Procesando información"
+msgstr ""
 
 #: views/assets/machinery.html:14 views/assets/products.html:13
 #: views/catalogs/machinery.html:14 views/catalogs/products.html:13
 #: views/management/purchaseOrder.html:13
 msgid "Processing purchase"
-msgstr "Procesando nueva compra"
+msgstr ""
 
 #: contents/jobsmodal.html:238 contents/jobsmodal.html:265
 #: models/ProductReturn.py:117 views/_scheduleTabContent.html:197
@@ -3434,35 +3407,35 @@ msgstr "Procesando nueva compra"
 #: views/field/planning.html:406 views/field/planning.html:430
 #: views/map/jobsWizard.html:242 views/map/jobsWizard.html:271
 msgid "Product"
-msgstr "Insumo"
+msgstr ""
 
 #: models/ProductCategory.py:16 views/management/purchaseOrder.html:128
 msgid "Product Categories"
-msgstr "Categorías de Producto"
+msgstr ""
 
 #: models/ProductReturn.py:117 views/assets/products.html:148
 msgid "Product Category"
-msgstr "Categoría de producto"
+msgstr ""
 
 #: models/Product.py:223 models/Product.py:303
 msgid "Product Category:"
-msgstr "Categoría del Producto:"
+msgstr ""
 
 #: views/assets/products.html:52 views/assets/products.html:178
 msgid "Product Return"
-msgstr "Devoluciones de insumos"
+msgstr ""
 
 #: controllers/assets.py:233
 msgid "Product stock"
-msgstr "Stock de producto"
+msgstr ""
 
 #: views/dashboards/crop.html:6
 msgid "Production"
-msgstr "Producción"
+msgstr ""
 
 #: controllers/dashboards.py:139
 msgid "Productivity"
-msgstr "Productividad"
+msgstr ""
 
 #: contents/jobsmodal.html:45 controllers/assets.py:112
 #: controllers/assets.py:124 controllers/catalogs.py:279
@@ -3472,19 +3445,19 @@ msgstr "Productividad"
 #: views/field/operation.html:96 views/management/purchaseOrder.html:47
 #: views/map/jobsWizard.html:60 views/parcel/getTaskDetail.html:121
 msgid "Products"
-msgstr "Insumos"
+msgstr ""
 
 #: controllers/dashboards.py:222
 msgid "Products Dashboard"
-msgstr "Reporte de Insumos"
+msgstr ""
 
 #: controllers/inventory.py:325
 msgid "Products are missing"
-msgstr "Faltan productos"
+msgstr ""
 
 #: controllers/dashboards.py:1363 views/management/finances.html:9
 msgid "Profit"
-msgstr "Ganancias"
+msgstr ""
 
 #: controllers/dashboards.py:196 views/activities/getActivityDetail.html:38
 #: views/activities/progressdetail.html:113 views/dashboards/jobs.html:27
@@ -3492,7 +3465,7 @@ msgstr "Ganancias"
 #: views/field/getJobDetail.html:36 views/map/getInfoModal.html:28
 #: views/parcel/getTaskDetail.html:38
 msgid "Progress"
-msgstr "Progreso"
+msgstr ""
 
 #: controllers/activities.py:690
 msgid "Progress has been added"
@@ -3504,48 +3477,48 @@ msgstr ""
 
 #: views/dashboards/crop.html:107 views/field/planning.html:198
 msgid "Progress unit"
-msgstr "Unidad de progreso"
+msgstr ""
 
 #: views/field/planning.html:223
 msgid "Progress unit per land area unit"
-msgstr "Unidad de progreso por unidad de área de tierra"
+msgstr ""
 
 #: controllers/settings.py:116
 msgid "Project"
-msgstr "Proyecto"
+msgstr ""
 
 #: views/settings/project.html:21
 msgid "Project name"
-msgstr "Nombre del proyecto"
+msgstr ""
 
 #: controllers/settings.py:157
 msgid "Project settings inputs are required."
-msgstr "Datos para ajustes del proyecto son requeridos"
+msgstr ""
 
 #: controllers/settings.py:152
 msgid "Project settings updated"
-msgstr "Actualización de configuración del proyecto"
+msgstr ""
 
 #: views/dashboards/crop.html:291
 msgid "Projection month by month"
-msgstr "Proyección mes por mes"
+msgstr ""
 
 #: views/dashboards/crop.html:244
 msgid "Projection name"
-msgstr "Nombre de la proyección"
+msgstr ""
 
 #: views/dashboards/crop.html:215
 msgid "Projections"
-msgstr "Proyecciones"
+msgstr ""
 
 #: views/management/purchaseOrder.html:82
 #: views/management/purchaseOrder.html:192
 msgid "Provider"
-msgstr "Proveedor"
+msgstr ""
 
 #: views/map/components/i18n.html:93
 msgid "Pruning required"
-msgstr "Poda requerida"
+msgstr ""
 
 #: controllers/map.py:286
 msgid "Public Stations"
@@ -3553,7 +3526,7 @@ msgstr ""
 
 #: views/map/index.html:46 views/map/index.html:90
 msgid "Public stations"
-msgstr "Estaciones públicas"
+msgstr ""
 
 #: views/field/harvest.html:232 views/harvest/downloadSale.html:5
 #: views/management/purchaseOrder.html:252
@@ -3566,21 +3539,21 @@ msgstr "Estaciones públicas"
 #: views/resources/downloadPreconfirm.html:161 views/test/pdfexport.html:4
 #: views/test/pdfexport.html:9
 msgid "Purchase Order"
-msgstr "Orden de compra"
+msgstr ""
 
 #: views/management/purchaseOrder.html:325
 #: views/management/purchaseOrder.html:638
 msgid "Purchase Order Status"
-msgstr "Estatus de la orden de compra"
+msgstr ""
 
 #: views/management/purchaseOrder.html:321
 #: views/management/purchaseOrder.html:634
 msgid "Purchase Orders"
-msgstr "Órdenes de compra"
+msgstr ""
 
 #: controllers/management.py:203
 msgid "Purchase order"
-msgstr "Órdenes de compra"
+msgstr ""
 
 #: controllers/inventory.py:192 controllers/inventory.py:373
 msgid "PurchaseOrder couldn't been registered"
@@ -3588,11 +3561,11 @@ msgstr ""
 
 #: controllers/inventory.py:322
 msgid "PurchaseOrder is canceled"
-msgstr "La orden ha sido cancelada"
+msgstr ""
 
 #: controllers/inventory.py:191 controllers/inventory.py:372
 msgid "PurchaseOrder is register"
-msgstr "La orden ha sido registrada"
+msgstr ""
 
 #: controllers/inventory.py:304 controllers/inventory.py:481
 msgid "PurchaseOrder was paid"
@@ -3608,7 +3581,7 @@ msgstr ""
 #: views/management/sales.html:203 views/management/sales.html:301
 #: views/management/sales.html:440 views/social/donation.html:87
 msgid "Quantity"
-msgstr "Cantidad"
+msgstr ""
 
 #: views/management/sales.html:419 views/social/donation.html:73
 msgid "Queretaro"
@@ -3616,22 +3589,22 @@ msgstr ""
 
 #: views/login/recovery.html:34
 msgid "RECOVER MY PASSWORD"
-msgstr "RECUPERAR MI CONTRASEÑA"
+msgstr ""
 
 #: views/catalogs/employees.html:140 views/management/laborPayroll.html:108
 #: views/resources/payroll.html:100
 msgid "REPORT PAYMENT"
-msgstr "REPORTE DE PAGOS"
+msgstr ""
 
 #: views/demorequest/index.html:26
 msgid "REQUEST A DEMO"
-msgstr "SOLICITA UN DEMO"
+msgstr ""
 
 #: views/assets/machinery.html:20 views/assets/products.html:19
 #: views/catalogs/machinery.html:20 views/catalogs/products.html:19
 #: views/management/purchaseOrder.html:19
 msgid "Received"
-msgstr "Recibido"
+msgstr ""
 
 #: views/management/purchaseOrder.html:227
 #: views/management/purchaseOrder.html:301
@@ -3639,24 +3612,24 @@ msgstr "Recibido"
 #: views/management/purchaseOrder.html:614 views/resources/download.html:203
 #: views/resources/downloadEquipmentOrder.html:203
 msgid "Recieved Quantity"
-msgstr "Cantidad recibida"
+msgstr ""
 
 #: views/login/setnewpassword.html:31
 msgid "Recovery code"
-msgstr "Codigo de recuperación"
+msgstr ""
 
 #: views/field/planning.html:58 views/field/weather.html:55
 msgid "Refreshing Field Plan Data"
-msgstr "Recargando los datos del plan de campo"
+msgstr ""
 
 #: views/map/components/i18n.html:114
 msgid "Relative humidity"
-msgstr "Humedad relativa"
+msgstr ""
 
 #: views/field/planning.html:52 views/field/weather.html:50
 #: views/map/components/i18n.html:12
 msgid "Remove field plan from field"
-msgstr "Eliminar plan del campo"
+msgstr ""
 
 #: views/field/planning.html:40
 msgid "Remove plan template"
@@ -3664,7 +3637,7 @@ msgstr ""
 
 #: views/field/planning.html:56 views/field/weather.html:53
 msgid "Removing filed plan from field"
-msgstr "Eliminando plan archivado del campo"
+msgstr ""
 
 #: views/field/planning.html:46
 msgid "Removing plan template"
@@ -3672,7 +3645,7 @@ msgstr ""
 
 #: views/management/laborPayroll.html:47 views/resources/payroll.html:38
 msgid "Report payment"
-msgstr "REPORTE DE PAGO"
+msgstr ""
 
 #: views/map/components/i18n.html:161
 msgid "Reported"
@@ -3682,35 +3655,35 @@ msgstr ""
 #: views/management/purchaseOrder.html:539
 #: views/resources/downloadPreconfirm.html:203
 msgid "Request Quantity"
-msgstr "Cantidad requerida"
+msgstr ""
 
 #: views/login/index.html:38
 msgid "Request a Demo"
-msgstr "Solicita un demo"
+msgstr ""
 
 #: controllers/resources.py:75
 msgid "Resources"
-msgstr "Recursos"
+msgstr ""
 
 #: views/field/sampling.html:28
 msgid "Results"
-msgstr "Resultados"
+msgstr ""
 
 #: views/assets/products.html:171
 msgid "Return Product"
-msgstr "Devolver insumo"
+msgstr ""
 
 #: views/map/index.html:145
 msgid "Return to general map"
-msgstr "Regresar al mapa general"
+msgstr ""
 
 #: controllers/dashboards.py:1361
 msgid "Revenue"
-msgstr "Ventas por área"
+msgstr ""
 
 #: models/User.py:123
 msgid "Role"
-msgstr "Rol"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:80 views/assets/machinery.html:77
 #: views/assets/products.html:98 views/assets/products.html:210
@@ -3719,88 +3692,88 @@ msgstr "Rol"
 #: views/field/scouting.html:89 views/management/purchaseOrder.html:357
 #: views/management/purchaseOrder.html:670
 msgid "Rows per page"
-msgstr "Registros por página"
+msgstr ""
 
 #: views/map/components/i18n.html:142
 msgid "S"
-msgstr "S"
+msgstr ""
 
 #: views/field/planning.html:248 views/field/planning.html:491
 #: views/field/planning.html:538 views/management/jornual.html:175
 #: views/settings/user.html:35
 msgid "SAVE"
-msgstr "GUARDAR"
+msgstr ""
 
 #: views/settings/project.html:66
 msgid "SAVE AND APPLY CHANGES"
-msgstr "GUARDAR Y APLICAR CAMBIOS"
+msgstr ""
 
 #: views/map/components/i18n.html:141
 msgid "SE"
-msgstr "SE"
+msgstr ""
 
 #: views/dashboards/crop.html:81 views/dashboards/plan.html:36
 msgid "SEASON PLANS"
-msgstr "PLANES DE TEMPORADA"
+msgstr ""
 
 #: views/map/getInfoModal.html:15
 msgid "SEE FIELD PLAN"
-msgstr "VER PLAN DE CAMPO"
+msgstr ""
 
 #: views/dashboards/plan.html:48
 msgid "SEE JOBS"
-msgstr "VER TRABAJOS"
+msgstr ""
 
 #: views/demorequest/index.html:79
 msgid "SEND DEMO REQUEST"
-msgstr "ENVIAR SOLICITUD DE DEMO"
+msgstr ""
 
 #: views/login/setnewpassword.html:40
 msgid "SET NEW PASSWORD"
-msgstr "Establecer nueva contraseña"
+msgstr ""
 
 #: views/catalogs/employees.html:129 views/management/laborPayroll.html:97
 #: views/resources/payroll.html:89
 msgid "SSN"
-msgstr "SSN"
+msgstr ""
 
 #: views/help/index.html:42 views/help/index.html:138
 msgid "SUBMIT"
-msgstr "ENVIAR"
+msgstr ""
 
 #: views/map/components/i18n.html:143
 msgid "SW"
-msgstr "SO"
+msgstr ""
 
 #: views/field/harvest.html:305 views/harvest/downloadSale.html:135
 #: views/management/sales.html:75 views/management/sales.html:251
 msgid "Sale"
-msgstr "Venta"
+msgstr ""
 
 #: views/field/harvest.html:236 views/management/sales.html:159
 msgid "Sale number"
-msgstr "Número de venta"
+msgstr ""
 
 #: controllers/management.py:58 views/field/harvest.html:209
 #: views/management/sales.html:127 views/management/sales.html:262
 msgid "Sales"
-msgstr "Ventas"
+msgstr ""
 
 #: views/dashboards/crop.html:113
 msgid "Sales unit"
-msgstr "Unidades de venta"
+msgstr ""
 
 #: views/field/sampling.html:184
 msgid "Sample variables"
-msgstr "Variables de la muestra"
+msgstr ""
 
 #: controllers/field.py:315 views/field/sampling.html:256
 msgid "Sampling"
-msgstr "Muestreo"
+msgstr ""
 
 #: views/field/sampling.html:43
 msgid "Samplings"
-msgstr "Muestreos"
+msgstr ""
 
 #: views/management/sales.html:421 views/social/donation.html:75
 msgid "San Luis Potosi"
@@ -3815,39 +3788,39 @@ msgstr ""
 #: views/settings/field.html:15 views/settings/field.html:134
 #: views/settings/field.html:160 views/settings/field.html:202
 msgid "Save"
-msgstr "Guardar"
+msgstr ""
 
 #: views/management/purchaseOrder.html:167
 #: views/management/purchaseOrder.html:480
 msgid "Save Purchase Order"
-msgstr "Guardar compra"
+msgstr ""
 
 #: contents/jobsmodal.html:329
 msgid "Save activity"
-msgstr "Guardar actividad"
+msgstr ""
 
 #: views/map/jobsWizard.html:355
 msgid "Save plan"
-msgstr "Guardar plan"
+msgstr ""
 
 #: views/settings/field.html:136
 msgid "Saving block data..."
-msgstr "Guardando "
+msgstr ""
 
 #: views/assets/products.html:28 views/catalogs/products.html:28
 #: views/management/purchaseOrder.html:28
 msgid "Saving product return"
-msgstr "Guardar devolución"
+msgstr ""
 
 #: controllers/dashboards.py:915 views/field/scouting.html:70
 #: views/field/scouting.html:136 views/map/components/i18n.html:55
 msgid "Scout Category"
-msgstr "Categoría de Exploración"
+msgstr ""
 
 #: controllers/dashboards.py:916 views/field/scouting.html:71
 #: views/field/scouting.html:140 views/map/components/i18n.html:56
 msgid "Scout Subcategory"
-msgstr "Subcategoría de Exploración"
+msgstr ""
 
 #: controllers/dashboards.py:711
 msgid "Scout not found"
@@ -3859,36 +3832,36 @@ msgstr ""
 
 #: views/map/components/i18n.html:53 views/map/components/i18n.html:54
 msgid "Scouting record"
-msgstr "Reporte de exploración"
+msgstr ""
 
 #: views/map/components/modals.html:41
 msgid "Scouting record image"
-msgstr "Imagen de reporte de exploración"
+msgstr ""
 
 #: views/dashboards/activity.html:39
 msgid "Scouting report"
-msgstr "Reporte de exploración"
+msgstr ""
 
 #: controllers/field.py:278 views/field/scouting.html:118
 #: views/map/components/i18n.html:32 views/map/index.html:58
 #: views/map/index.html:102
 msgid "Scouting reports"
-msgstr "Reportes de exploración"
+msgstr ""
 
 #: controllers/dashboards.py:923
 msgid "Scouting-report"
-msgstr "Reporte-exploración"
+msgstr ""
 
 #: views/field/harvest.html:62 views/field/harvest.html:149
 msgid "Scrap"
-msgstr "Desecho"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:63 views/assets/machinery.html:60
 #: views/assets/products.html:81 views/assets/products.html:191
 #: views/catalogs/employees.html:60 views/management/purchaseOrder.html:338
 #: views/management/purchaseOrder.html:651 views/settings/field.html:26
 msgid "Search"
-msgstr "Buscar"
+msgstr ""
 
 #: controllers/cron.py:176
 msgid "Season End notifications"
@@ -3896,59 +3869,59 @@ msgstr ""
 
 #: views/dashboards/jobs.html:34 views/dashboards/plan.html:18
 msgid "Season Plan"
-msgstr "Plan de temporada"
+msgstr ""
 
 #: views/field/weather.html:33
 msgid "Season Plan assinged successfully"
-msgstr "Plan de temporada asignado satisfactoriamente"
+msgstr ""
 
 #: controllers/seasonplan.py:61 views/field/weather.html:32
 msgid "Season Plan saved successfully"
-msgstr "Plan de temporada guardado exitosamente."
+msgstr ""
 
 #: models/ShippingAddress.py:136 models/ShippingAddress.py:197
 msgid "Second Address: "
-msgstr "Segunda Dirección:"
+msgstr ""
 
 #: models/Employee.py:291 models/Employee.py:415
 msgid "Security Number:"
-msgstr "Número de Seguridad Social:"
+msgstr ""
 
 #: views/map/components/i18n.html:74
 msgid "Segment"
-msgstr "Segmento"
+msgstr ""
 
 #: views/map/components/i18n.html:64
 msgid "Select"
-msgstr "Elegir"
+msgstr ""
 
 #: contents/jobsmodal.html:147 contents/jobsmodal.html:149
 #: views/field/operation.html:185 views/field/operation.html:187
 #: views/map/jobsWizard.html:146
 msgid "Select All"
-msgstr "Seleccionar todo"
+msgstr ""
 
 #: views/field/harvest.html:29
 msgid "Select a FieldPlan"
-msgstr "Selecciona un plan de campo"
+msgstr ""
 
 #: views/field/operation.html:418
 msgid "Select a block"
-msgstr "Seleccionar parcela"
+msgstr ""
 
 #: contents/jobsmodal.html:201 views/_scheduleTabContent.html:148
 #: views/field/operation.html:240 views/field/planning.html:368
 #: views/map/jobsWizard.html:194
 msgid "Select a category"
-msgstr "Selecciona una categoría"
+msgstr ""
 
 #: views/management/jornual.html:95
 msgid "Select a field plan Book to see and add records"
-msgstr "Seleccione un plan de campo para ver y agregar registros"
+msgstr ""
 
 #: views/field/planning.html:282
 msgid "Select a name for your Plan Template"
-msgstr "Selecciona un nombre para tu plantilla de plan"
+msgstr ""
 
 #: views/field/planning.html:313
 msgid "Select activity type"
@@ -3956,7 +3929,7 @@ msgstr ""
 
 #: views/map/components/i18n.html:30
 msgid "Select all"
-msgstr "Seleccionar todo"
+msgstr ""
 
 #: views/field/planning.html:14
 msgid "Select all Fields"
@@ -3966,19 +3939,19 @@ msgstr ""
 #: views/field/weather.html:20 views/map/components/i18n.html:39
 #: views/map/components/i18n.html:162
 msgid "Select all blocks"
-msgstr "Seleccionar todos las parcelas"
+msgstr ""
 
 #: views/dashboards/heatMap.html:23 views/field/weather.html:16
 msgid "Select all fields"
-msgstr "Selecciona todos los campos"
+msgstr ""
 
 #: views/field/sampling.html:8
 msgid "Select all supervisors"
-msgstr "Seleccionar supervisores"
+msgstr ""
 
 #: views/_scheduleTabContent.html:79
 msgid "Select an employee"
-msgstr "Seleciona un empleado"
+msgstr ""
 
 #: contents/jobsmodal.html:209 views/_scheduleTabContent.html:140
 #: views/_scheduleTabContent.html:156 views/_scheduleTabContent.html:288
@@ -3986,24 +3959,24 @@ msgstr "Seleciona un empleado"
 #: views/field/planning.html:376 views/map/jobsWizard.html:200
 #: views/map/jobsWizard.html:329
 msgid "Select an equipment"
-msgstr "Seleccionar un equipo"
+msgstr ""
 
 #: views/_scheduleTabContent.html:87
 msgid "Select an parcel"
-msgstr "Selecciona una parcela"
+msgstr ""
 
 #: views/map/components/i18n.html:78
 msgid "Select another point on the map and click it."
-msgstr "Cree un nuevo segmento dando clic en el mapa"
+msgstr ""
 
 #: views/_scheduleTabContent.html:44
 msgid "Select block"
-msgstr "Selecciona parcela"
+msgstr ""
 
 #: contents/jobsmodal.html:97 views/field/operation.html:151
 #: views/map/jobsWizard.html:94
 msgid "Select blocks"
-msgstr "Seleccionar parcelas"
+msgstr ""
 
 #: views/field/planning.html:70
 msgid "Select crop"
@@ -4011,87 +3984,87 @@ msgstr ""
 
 #: views/dashboards/heatMap.html:25
 msgid "Select field"
-msgstr "Selecciona el campo"
+msgstr ""
 
 #: views/map/jobsWizard.html:74
 msgid "Select fields and blocks. (You can select more than one)"
-msgstr "Selecciona los campos y parcelas. Puedes seleccionar más de una."
+msgstr ""
 
 #: views/builk/index.html:5 views/map/components/i18n.html:59
 #: views/test/upload.html:5
 msgid "Select image to upload"
-msgstr "Seleciona una imagen"
+msgstr ""
 
 #: views/field/operation.html:415 views/field/planning.html:20
 #: views/field/weather.html:22 views/map/components/i18n.html:41
 #: views/map/components/i18n.html:164
 msgid "Select one or more blocks"
-msgstr "Seleciona una o mas parcelas"
+msgstr ""
 
 #: views/field/planning.html:16 views/field/weather.html:18
 msgid "Select one or more fields"
-msgstr "Seleccionar uno o mas campos"
+msgstr ""
 
 #: views/field/planning.html:75
 msgid "Select plan template"
-msgstr "Seleccionar plantilla de plan"
+msgstr ""
 
 #: controllers/map.py:170 controllers/map.py:205 controllers/map.py:244
 #: controllers/map.py:277 controllers/map.py:299 controllers/map.py:333
 #: controllers/map.py:341 controllers/map.py:349 controllers/map.py:368
 #: controllers/map.py:396 controllers/system.py:38 controllers/system.py:569
 msgid "Select project before."
-msgstr "Seleccione proyecto."
+msgstr ""
 
 #: contents/jobsmodal.html:108 views/_scheduleTabContent.html:20
 #: views/_scheduleTabContent.html:33 views/field/operation.html:122
 #: views/field/operation.html:137 views/field/sampling.html:10
 #: views/map/jobsWizard.html:116
 msgid "Select supervisor"
-msgstr "Selecciona supervisor"
+msgstr ""
 
 #: models/Employee.py:350 models/Employee.py:474
 msgid "Select the date of the employee admission"
-msgstr "Seleccione una fecha de alta del empleado"
+msgstr ""
 
 #: views/map/jobsWizard.html:169
 msgid "Select the equipment that you need"
-msgstr "Selecciona el equipo que necesites"
+msgstr ""
 
 #: views/map/jobsWizard.html:233
 msgid "Select the products that you need"
-msgstr "Selecciona los insumos que necesites"
+msgstr ""
 
 #: views/map/jobsWizard.html:107
 msgid "Select the supervisor and the workgroups than you need"
-msgstr "Selecciona el supervisor y los grupos de trabajo que necesites"
+msgstr ""
 
 #: views/management/sales.html:455 views/social/donation.html:100
 msgid "Send"
-msgstr "Enviar"
+msgstr ""
 
 #: views/field/harvest.html:113 views/resources/download.html:181
 #: views/resources/downloadEquipmentOrder.html:181
 #: views/resources/downloadPreconfirm.html:181
 msgid "Send to"
-msgstr "Enviar a"
+msgstr ""
 
 #: controllers/map.py:326 views/map/getInfoModal.html:31
 msgid "Sensors"
-msgstr "Sensores"
+msgstr ""
 
 #: views/dashboards/crop.html:31
 msgid "September"
-msgstr "Septiembre"
+msgstr ""
 
 #: controllers/settings.py:43 controllers/settings.py:67
 #: controllers/settings.py:116 controllers/settings.py:174
 msgid "Settings"
-msgstr "Configuraciones"
+msgstr ""
 
 #: views/settings/project.html:15
 msgid "Settings apply to all users and fields in this project."
-msgstr "La configuración aplica a todos los usuarios y campos de este proyecto"
+msgstr ""
 
 #: views/management/purchaseOrder.html:108
 #: views/management/purchaseOrder.html:214
@@ -4100,29 +4073,29 @@ msgstr "La configuración aplica a todos los usuarios y campos de este proyecto"
 #: views/management/purchaseOrder.html:527
 #: views/management/purchaseOrder.html:602
 msgid "Shipping Address"
-msgstr "Dirección de envío"
+msgstr ""
 
 #: controllers/catalogs.py:565 views/management/purchaseOrder.html:111
 #: views/management/purchaseOrder.html:425
 msgid "Shipping Addresses"
-msgstr "Direcciones de Envío"
+msgstr ""
 
 #: controllers/catalogs.py:555
 msgid "Shipping addresses"
-msgstr "Direcciones de envío"
+msgstr ""
 
 #: views/field/harvest.html:24 views/management/sales.html:28
 #: views/social/donation.html:8
 msgid "Shortly we will get in touch with you"
-msgstr "Pronto nos pondremos en contacto usted"
+msgstr ""
 
 #: views/field/planning.html:76 views/map/components/i18n.html:175
 msgid "Show completed activities"
-msgstr "Mostrar actividades completadas"
+msgstr ""
 
 #: views/map/components/i18n.html:48
 msgid "Show topographic charts at this point"
-msgstr "Mostrar cartas topográficas en este punto"
+msgstr ""
 
 #: views/map/getAgentInfo.html:17 views/map/getAgentInfo.html:64
 msgid "Show trajectory"
@@ -4130,19 +4103,19 @@ msgstr ""
 
 #: views/management/laborPayroll.html:26 views/resources/payroll.html:19
 msgid "Showing labor records with pending payment"
-msgstr "Mostrando registros de labores pendientes de pago"
+msgstr ""
 
 #: views/map/components/i18n.html:86
 msgid "Sickness"
-msgstr "Enfermedad"
+msgstr ""
 
 #: views/recovery/change_password.html:10
 msgid "Sign in"
-msgstr "Iniciar sesión"
+msgstr ""
 
 #: views/field/sampling.html:158 views/field/sampling.html:159
 msgid "Size"
-msgstr "Tamaño"
+msgstr ""
 
 #: controllers/social.py:27
 msgid "Social"
@@ -4150,31 +4123,31 @@ msgstr ""
 
 #: views/map/components/i18n.html:106
 msgid "Soil electric conductivity"
-msgstr "Conductividad eléctrica del suelo"
+msgstr ""
 
 #: views/map/components/i18n.html:104
 msgid "Soil pore water electric conductivity"
-msgstr "Conductividad eléctrica del agua del poro del suelo"
+msgstr ""
 
 #: views/map/components/i18n.html:103
 msgid "Soil temperature"
-msgstr "Temperatura del suelo"
+msgstr ""
 
 #: views/map/components/i18n.html:130
 msgid "Solar radiaton"
-msgstr "Radiación solar"
+msgstr ""
 
 #: views/field/sampling.html:24
 msgid "Some information has empty data, please complete information"
-msgstr "Hay información incompleta, por favor complétela"
+msgstr ""
 
 #: controllers/inventory.py:285 controllers/inventory.py:459
 msgid "Something goes wrong"
-msgstr "Algo salió mal"
+msgstr ""
 
 #: views/dashboards/crop.html:22
 msgid "Something is wrong, please try again"
-msgstr "Algo anda mal, por favor intente de nuevo"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:134 views/assets/products.html:29
 #: views/catalogs/products.html:29 views/dashboards/activity.html:13
@@ -4187,7 +4160,7 @@ msgstr ""
 #: views/field/harvest.html:9 views/management/sales.html:20
 #: views/settings/field.html:24 views/social/donation.html:7
 msgid "Something was wrong. Please review the information and try again latter."
-msgstr "Algo ocurrió.Por favor, revisa la information e intenta más tarde"
+msgstr ""
 
 #: controllers/api.py:1007
 msgid "Something wrong"
@@ -4195,26 +4168,26 @@ msgstr ""
 
 #: views/settings/field.html:10
 msgid "Sorry! You can't draw that!"
-msgstr "¡Lo sentimos!, no puedes hacer eso"
+msgstr ""
 
 #: views/map/components/i18n.html:137
 msgid "Speed km/h"
-msgstr "Velocidad km/h"
+msgstr ""
 
 #: views/dashboards/products.html:64
 msgid "Spent Products"
-msgstr "Productos gastados"
+msgstr ""
 
 #: views/field/sampling.html:19
 msgid "Standard Deviation"
-msgstr "Desviación estandar"
+msgstr ""
 
 #: contents/jobsmodal.html:80 views/dashboards/crop.html:280
 #: views/map/components/i18n.html:33 views/map/components/i18n.html:151
 #: views/map/getAgentInfo.html:44 views/map/getAgentInfo.html:95
 #: views/map/jobsWizard.html:35
 msgid "Start date"
-msgstr "Fecha de inicio"
+msgstr ""
 
 #: views/map/components/i18n.html:159
 msgid "Start date can't be higher than end date"
@@ -4222,25 +4195,25 @@ msgstr ""
 
 #: views/field/getJobDetail.html:13
 msgid "Start:"
-msgstr "Inicio:"
+msgstr ""
 
 #: models/Buyer.py:360 models/Company.py:290 models/ShippingAddress.py:238
 #: models/Supplier.py:369 views/management/sales.html:396
 #: views/management/sales.html:398 views/social/donation.html:50
 #: views/social/donation.html:52
 msgid "State"
-msgstr "Estado"
+msgstr ""
 
 #: models/Buyer.py:210 models/Buyer.py:330 models/Company.py:199
 #: models/Company.py:270 models/ShippingAddress.py:156
 #: models/ShippingAddress.py:217 models/Supplier.py:217 models/Supplier.py:338
 #: models/Warehouse.py:204 models/Warehouse.py:323
 msgid "State: *"
-msgstr "Estado: *"
+msgstr ""
 
 #: views/map/components/i18n.html:120
 msgid "Stations"
-msgstr "Estaciones"
+msgstr ""
 
 #: contents/jobsmodal.html:22 models/Employee.py:494
 #: models/Equipment_Warehouse.py:112 models/Product_Warehouse.py:126
@@ -4250,11 +4223,11 @@ msgstr "Estaciones"
 #: views/field/planning.html:48 views/field/weather.html:46
 #: views/map/components/i18n.html:8 views/parcel/getTaskDetail.html:26
 msgid "Status"
-msgstr "Estatus"
+msgstr ""
 
 #: models/Employee.py:311 models/Employee.py:435
 msgid "Status:"
-msgstr "Estatus:"
+msgstr ""
 
 #: contents/jobsmodal.html:193 contents/jobsmodal.html:249
 #: views/_scheduleTabContent.html:210 views/field/operation.html:232
@@ -4262,7 +4235,7 @@ msgstr "Estatus:"
 #: views/field/planning.html:414 views/map/jobsWizard.html:188
 #: views/map/jobsWizard.html:255
 msgid "Storage"
-msgstr "Almacenamiento"
+msgstr ""
 
 #: views/dashboards/plan.html:101
 msgid "Sub Type"
@@ -4270,11 +4243,11 @@ msgstr ""
 
 #: views/dashboards/activity.html:97
 msgid "Subcategory"
-msgstr "Subcategoría"
+msgstr ""
 
 #: views/help/index.html:29 views/help/index.html:125
 msgid "Subject"
-msgstr "Asunto"
+msgstr ""
 
 #: controllers/newsletter.py:33 controllers/newsletter.py:42
 msgid "Subscription added"
@@ -4289,23 +4262,23 @@ msgstr ""
 #: views/management/sales.html:317 views/resources/download.html:221
 #: views/resources/downloadEquipmentOrder.html:222
 msgid "Subtotal"
-msgstr "Subtotal"
+msgstr ""
 
 #: views/settings/field.html:23
 msgid "Success creating field perimeter"
-msgstr "Éxito creando el perímetro"
+msgstr ""
 
 #: views/dashboards/crop.html:20
 msgid "Success!"
-msgstr "¡Operación Exitosa!"
+msgstr ""
 
 #: views/field/harvest.html:8
 msgid "Success! Harvest Record has been inserted"
-msgstr "El registro de cosecha ha sido insertado exitosamente."
+msgstr ""
 
 #: views/management/sales.html:8
 msgid "Success! Sales has been inserted"
-msgstr "Excito! Las ventas se han insertado"
+msgstr ""
 
 #: controllers/sampling.py:70
 msgid "Successfulllisty added"
@@ -4317,7 +4290,7 @@ msgstr ""
 
 #: controllers/seasonplan.py:127
 msgid "Successfully assigned season plan"
-msgstr "Plan de temporada asignado con éxito."
+msgstr ""
 
 #: controllers/system.py:271
 msgid "Successfully created"
@@ -4329,11 +4302,11 @@ msgstr ""
 
 #: controllers/fieldplan.py:111
 msgid "Successfully get field plan"
-msgstr "Plan de Campos obtenido con éxito"
+msgstr ""
 
 #: controllers/field.py:366 controllers/field.py:404 controllers/field.py:473
 msgid "Successfully get fields"
-msgstr "Campos obtenidos con éxito"
+msgstr ""
 
 #: controllers/system.py:475
 msgid "Successfully initialized"
@@ -4341,7 +4314,7 @@ msgstr ""
 
 #: controllers/field.py:593
 msgid "Successfully removed field plan form field"
-msgstr "Se ha eliminado el plan de campo exitosamente."
+msgstr ""
 
 #: controllers/seasonplan.py:142
 msgid "Successfully removed plan template"
@@ -4349,7 +4322,7 @@ msgstr ""
 
 #: controllers/system.py:375
 msgid "Successfully synchronized"
-msgstr "Sicronización exitosa"
+msgstr ""
 
 #: controllers/crop.py:74
 msgid "Successfully terminated crop"
@@ -4366,15 +4339,15 @@ msgstr ""
 #: views/dashboards/activity.html:7 views/dashboards/jobs.html:7
 #: views/dashboards/products.html:7 views/field/scouting.html:7
 msgid "Sucess"
-msgstr "Exito"
+msgstr ""
 
 #: views/field/planning.html:344
 msgid "Suggested equipment"
-msgstr "Equipo sugerido"
+msgstr ""
 
 #: views/field/planning.html:398
 msgid "Suggested products"
-msgstr "Productos sugeridos"
+msgstr ""
 
 #: contents/jobsmodal.html:106 views/field/operation.html:132
 msgid "Supervisor:"
@@ -4382,7 +4355,7 @@ msgstr ""
 
 #: views/field/sampling.html:162 views/field/sampling.html:164
 msgid "Supervisors"
-msgstr "Supervisores"
+msgstr ""
 
 #: models/EquipmentPurchaseOrder.py:99 models/PurchaseOrder.py:109
 #: views/management/purchaseOrder.html:266
@@ -4392,20 +4365,20 @@ msgstr "Supervisores"
 #: views/resources/downloadEquipmentOrder.html:180
 #: views/resources/downloadPreconfirm.html:180
 msgid "Supplier"
-msgstr "Proveedor"
+msgstr ""
 
 #: controllers/catalogs.py:173 controllers/catalogs.py:184
 #: controllers/resources.py:88
 msgid "Suppliers"
-msgstr "Proveedores"
+msgstr ""
 
 #: views/help/index.html:14 views/help/index.html:110
 msgid "Support"
-msgstr "Soporte"
+msgstr ""
 
 #: views/field/getJobDetail.html:10
 msgid "TIME WINDOW"
-msgstr "VENTANA DE TIEMPO"
+msgstr ""
 
 #: views/activities/getActivities.html:7 views/dashboards/activity.html:5
 #: views/dashboards/activity.html:24 views/dashboards/heatMap.html:35
@@ -4413,56 +4386,56 @@ msgstr "VENTANA DE TIEMPO"
 #: views/dashboards/products.html:39 views/field/sampling.html:54
 #: views/field/scouting.html:5 views/field/scouting.html:28
 msgid "TO"
-msgstr "A"
+msgstr ""
 
 #: views/dashboards/activity.html:6 views/dashboards/jobs.html:6
 #: views/dashboards/products.html:6 views/field/scouting.html:6
 msgid "TODAY"
-msgstr "HOY"
+msgstr ""
 
 #: views/dashboards/crop.html:37 views/dashboards/crop.html:188
 msgid "TOTAL"
-msgstr "TOTAL"
+msgstr ""
 
 #: views/field/harvest.html:285 views/harvest/downloadSale.html:200
 #: views/management/sales.html:78 views/management/sales.html:227
 #: views/management/sales.html:325 views/resources/download.html:227
 #: views/resources/downloadEquipmentOrder.html:228
 msgid "Tax"
-msgstr "Impuesto"
+msgstr ""
 
 #: models/Buyer.py:180 models/Buyer.py:300 models/Supplier.py:187
 #: models/Supplier.py:308
 msgid "Tax Id:"
-msgstr "RFC:"
+msgstr ""
 
 #: views/field/harvest.html:276
 msgid "Tax type"
-msgstr "Tipo de impuesto"
+msgstr ""
 
 #: models/Company.py:169 models/Company.py:240
 msgid "Taxpayer ID number: *"
-msgstr "R.F.C.: *"
+msgstr ""
 
 #: views/map/components/i18n.html:110
 msgid "Temperature"
-msgstr "Temperatura"
+msgstr ""
 
 #: views/field/planning.html:33 views/field/weather.html:35
 msgid "Terminate crop"
-msgstr "Terminar cultivo"
+msgstr ""
 
 #: views/field/weather.html:41
 msgid "Terminate season plan"
-msgstr "Terminar el plan de temporada"
+msgstr ""
 
 #: views/field/planning.html:36 views/field/weather.html:38
 msgid "Terminating the crop"
-msgstr "Terminando la cosecha"
+msgstr ""
 
 #: views/field/weather.html:44
 msgid "Terminating the season plan"
-msgstr "Terminando el plan de temporada"
+msgstr ""
 
 #: views/demorequest/index.html:21
 msgid "Thank you for your interest in ActiveTerra, we will contact you soon."
@@ -4478,11 +4451,11 @@ msgstr ""
 
 #: controllers/crop.py:75
 msgid "The crop does not exists"
-msgstr "El cultivo no existe"
+msgstr ""
 
 #: views/field/planning.html:38 views/field/weather.html:39
 msgid "The crop has been terminated successfully"
-msgstr "La cosecha ha sido terminada satisfactoriamente"
+msgstr ""
 
 #: controllers/map.py:488
 msgid "The employee does not exists"
@@ -4497,23 +4470,23 @@ msgstr ""
 #: controllers/resources.py:221 controllers/resources.py:245
 #: controllers/resources.py:272
 msgid "The export process has struggle."
-msgstr "El proceso de exportar fallo"
+msgstr ""
 
 #: controllers/field.py:594 controllers/fieldplan.py:126
 msgid "The field plan does not exists"
-msgstr "La planeación de campo no existe"
+msgstr ""
 
 #: views/field/planning.html:55 views/field/weather.html:52
 msgid "The field plan was unassigned successfully"
-msgstr "El plan de campo fue deasignado satisfactoriamente"
+msgstr ""
 
 #: views/field/harvest.html:21
 msgid "The harvest has been deleted"
-msgstr "La cosecha ha sido borrada"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:127
 msgid "The information has been saved correctly."
-msgstr "La información se ha guardado correctamente."
+msgstr ""
 
 #: controllers/login.py:88
 msgid "The new password has been set."
@@ -4521,11 +4494,11 @@ msgstr ""
 
 #: controllers/resources.py:195
 msgid "The payroll payment has been succefully registered."
-msgstr "El pago ha sido registrado exitosamente."
+msgstr ""
 
 #: views/management/sales.html:450 views/social/donation.html:97
 msgid "The pickup of your donation depend on your location"
-msgstr "La recolección de la donación estará sujeta a su ubicación."
+msgstr ""
 
 #: models/SeasonPlan.py:103 models/SeasonPlan.py:104
 msgid "The plan template already exists"
@@ -4543,26 +4516,26 @@ msgstr ""
 #: views/catalogs/machinery.html:7 views/catalogs/products.html:6
 #: views/management/purchaseOrder.html:6
 msgid "The purchase has been cancel"
-msgstr "La orden de compra ha sido eliminada"
+msgstr ""
 
 #: views/assets/machinery.html:8 views/assets/products.html:7
 #: views/catalogs/machinery.html:8 views/catalogs/products.html:7
 #: views/management/purchaseOrder.html:7
 msgid "The purchase is now confirm as paid"
-msgstr "La orden de compra se ha confirmado como pagada"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:130 views/assets/machinery.html:11
 #: views/assets/products.html:10 views/catalogs/employees.html:13
 #: views/catalogs/machinery.html:11 views/catalogs/products.html:10
 #: views/management/laborPayroll.html:13 views/management/purchaseOrder.html:10
 msgid "The record has been deleted"
-msgstr "El registro ha sido eliminado"
+msgstr ""
 
 #: views/assets/machinery.html:6 views/assets/products.html:5
 #: views/catalogs/machinery.html:6 views/catalogs/products.html:5
 #: views/management/purchaseOrder.html:5
 msgid "The record has been save"
-msgstr "La orden de compra ha sido confirmada"
+msgstr ""
 
 #: views/map/components/i18n.html:172
 msgid "The record has been saved"
@@ -4570,49 +4543,49 @@ msgstr ""
 
 #: views/management/sales.html:16
 msgid "The sale is now confirm as paid"
-msgstr "La venta esta confirmada como pagada"
+msgstr ""
 
 #: views/field/sampling.html:29
 msgid "The sampling has been saved"
-msgstr "Muestreo guardado correctamente"
+msgstr ""
 
 #: views/field/weather.html:45
 msgid "The season plan has been terminated successfully"
-msgstr "El plan de temporada ha sido terminado satisfactoriamente"
+msgstr ""
 
 #: views/dashboards/crop.html:16
 msgid "The sum should be equal 100"
-msgstr "La suma debe ser igual al 100"
+msgstr ""
 
 #: views/dashboards/crop.html:15
 msgid "The sum should be equal to the total amount"
-msgstr "La suma debe ser igual a la cantidad total"
+msgstr ""
 
 #: views/field/harvest.html:15
 msgid "The total quantity does not match the crop classes quantity"
-msgstr "La cantidad total de las clasificaciones y las los desechos debe coincidir"
+msgstr ""
 
 #: views/catalogs/employees.html:5 views/management/laborPayroll.html:5
 #: views/management/laborPayroll.html:70 views/resources/payroll.html:5
 #: views/resources/payroll.html:61
 msgid "There are no outstanding labor records for this field plan"
-msgstr "No hay registros extraordinarios de labores para esta plan de campo"
+msgstr ""
 
 #: views/field/sampling.html:22
 msgid "There are no sampling"
-msgstr "No hay muestras"
+msgstr ""
 
 #: views/field/planning.html:7 views/field/weather.html:9
 msgid "There are not crops currently"
-msgstr "No hay cultivos actualmente"
+msgstr ""
 
 #: views/field/planning.html:11
 msgid "There are not plan templates currently"
-msgstr "No hay plantillas de plan actualmente"
+msgstr ""
 
 #: views/field/weather.html:13
 msgid "There are not season plans currently"
-msgstr "No hay planes de temporada actualmente"
+msgstr ""
 
 #: controllers/demorequest.py:92 controllers/demorequest.py:119
 #: controllers/help.py:67 controllers/job.py:240 controllers/login.py:92
@@ -4621,26 +4594,24 @@ msgstr "No hay planes de temporada actualmente"
 #: controllers/settings.py:156
 msgid "There are some errors in your inputs, please check and try again."
 msgstr ""
-"Existen algunos errores en los datos ingresados, porfavor revisalos e "
-"intenta más tarde"
 
 #: views/field/planning.html:78
 msgid "There is another crop with the same type and cultivation year"
-msgstr "Existe otro cultivo con el mismo tipo y año de cultivación"
+msgstr ""
 
 #: views/field/planning.html:80
 msgid "There is another template with the same name and crop type"
-msgstr "Existe otra plantilla con el mismo tipo y año de cultivación"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:128 views/assets/machinery.html:9
 #: views/assets/products.html:8 views/catalogs/machinery.html:9
 #: views/catalogs/products.html:8 views/management/purchaseOrder.html:8
 msgid "There was an error"
-msgstr "Hubo un error"
+msgstr ""
 
 #: views/map/components/i18n.html:158
 msgid "There was an error loading the public stations"
-msgstr "Hubo un error cargando las estaciones públicas"
+msgstr ""
 
 #: views/field/sampling.html:12
 msgid "There was and error loading sampling"
@@ -4648,15 +4619,15 @@ msgstr ""
 
 #: views/map/components/i18n.html:127
 msgid "Thermal sensation"
-msgstr "Sensación térmica"
+msgstr ""
 
 #: controllers/activities.py:299
 msgid "This activity already have progress"
-msgstr "Esta actividad esta en progreso"
+msgstr ""
 
 #: views/map/jobsWizard.html:358
 msgid "This activity will be apply to all the fields and blocks selected."
-msgstr "Esta actividad se asignará a todos los campos y parcelas que selecciones."
+msgstr ""
 
 #: views/field/harvest.html:59 views/field/harvest.html:134
 msgid "Ticket"
@@ -4664,15 +4635,15 @@ msgstr ""
 
 #: views/settings/project.html:41
 msgid "Timezone"
-msgstr "Zona horaria"
+msgstr ""
 
 #: views/field/harvest.html:126
 msgid "To Buyer"
-msgstr "Para comprador"
+msgstr ""
 
 #: views/field/harvest.html:120
 msgid "To Warehouse"
-msgstr "Hacia Almacén"
+msgstr ""
 
 #: views/field/operation.html:66
 msgid "To assign:"
@@ -4681,11 +4652,11 @@ msgstr ""
 #: views/dashboards/activity.html:37 views/dashboards/activity.html:85
 #: views/dashboards/products.html:67 views/field/scouting.html:60
 msgid "Today"
-msgstr "Hoy"
+msgstr ""
 
 #: views/map/components/i18n.html:37
 msgid "Tools"
-msgstr "Herramientas"
+msgstr ""
 
 #: controllers/map.py:452
 msgid "Topographical Chart"
@@ -4705,35 +4676,33 @@ msgstr ""
 #: views/resources/downloadEquipmentOrder.html:205
 #: views/resources/downloadEquipmentOrder.html:232
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 #: views/catalogs/employees.html:131 views/management/laborPayroll.html:66
 #: views/management/laborPayroll.html:99 views/resources/payroll.html:57
 #: views/resources/payroll.html:91
 msgid "Total amount"
-msgstr "Cantidad total"
+msgstr ""
 
 #: controllers/resources.py:180 controllers/resources.py:188
 msgid "Total amount or worked hours are not consistent with your sent data."
 msgstr ""
-"La cantidad total o las horas trabajadas no son consistentes con los "
-"datos."
 
 #: views/dashboards/crop.html:249
 msgid "Total amount projected in period"
-msgstr "Cantidad total proyectada en el periodo"
+msgstr ""
 
 #: views/settings/field.html:105
 msgid "Total area:"
-msgstr "Área total:"
+msgstr ""
 
 #: views/activities/getActivityDetail.html:166
 msgid "Total cost"
-msgstr "Costo total"
+msgstr ""
 
 #: views/field/harvest.html:138
 msgid "Total quantity"
-msgstr "Cantidad total"
+msgstr ""
 
 #: controllers/map.py:468
 msgid "Tracked Employees"
@@ -4741,24 +4710,24 @@ msgstr ""
 
 #: views/map/index.html:68 views/map/index.html:70
 msgid "Tracked agents"
-msgstr "Rastreo de agentes"
+msgstr ""
 
 #: views/map/getAgentInfo.html:38 views/map/getAgentInfo.html:89
 msgid "Tracking"
-msgstr "Rastreo"
+msgstr ""
 
 #: views/dashboards/plan.html:97 views/field/sampling.html:214
 msgid "Type"
-msgstr "Tipo"
+msgstr ""
 
 #: models/Buyer.py:232 models/Buyer.py:352 models/Supplier.py:239
 #: models/Supplier.py:360
 msgid "Type Zipcode"
-msgstr "Ingresa código postal"
+msgstr ""
 
 #: views/help/index.html:37 views/help/index.html:133
 msgid "Type a message"
-msgstr "Escribe el mensaje"
+msgstr ""
 
 #: views/settings/project.html:22
 msgid "Type a name for your project"
@@ -4766,89 +4735,89 @@ msgstr ""
 
 #: contents/jobsmodal.html:303 views/field/planning.html:466
 msgid "Type a note"
-msgstr "Ingresa una nota"
+msgstr ""
 
 #: views/help/index.html:31 views/help/index.html:127
 msgid "Type a subject"
-msgstr "Escribe el asunto"
+msgstr ""
 
 #: models/Buyer.py:142 models/Buyer.py:262 models/Supplier.py:149
 #: models/Supplier.py:270
 msgid "Type contact name"
-msgstr "Ingresa el nombre del contacto"
+msgstr ""
 
 #: models/ShippingAddress.py:168 models/ShippingAddress.py:229
 #: models/Warehouse.py:216 models/Warehouse.py:335
 msgid "Type country"
-msgstr "Ingresa el país"
+msgstr ""
 
 #: views/field/planning.html:191
 msgid "Type cultivation year"
-msgstr "Ingresa el año de cultivación"
+msgstr ""
 
 #: models/Buyer.py:133 models/Buyer.py:253 models/CropClass.py:116
 #: models/CropClass.py:144 models/Supplier.py:139 models/Supplier.py:260
 msgid "Type description"
-msgstr "Ingresa la descripción"
+msgstr ""
 
 #: models/Warehouse.py:266 models/Warehouse.py:385
 msgid "Type details of the warehouse"
-msgstr "Ingresa los detalles del almacen"
+msgstr ""
 
 #: models/Buyer.py:172 models/Buyer.py:292 models/Supplier.py:179
 #: models/Supplier.py:300
 msgid "Type email"
-msgstr "Ingresa el email"
+msgstr ""
 
 #: models/Buyer.py:162 models/Buyer.py:282 models/Supplier.py:169
 #: models/Supplier.py:290
 msgid "Type phone"
-msgstr "Ingresa el telefono"
+msgstr ""
 
 #: models/Buyer.py:182 models/Buyer.py:302 models/Supplier.py:189
 #: models/Supplier.py:310
 msgid "Type tax Id"
-msgstr "Ingresa el identificador de pago de impuestos"
+msgstr ""
 
 #: models/Employee.py:303 models/Employee.py:427
 msgid "Type the CURP"
-msgstr "Ingresa el CURP"
+msgstr ""
 
 #: models/Company.py:171 models/Company.py:242
 msgid "Type the TIN"
-msgstr "Ingrese R.F.C."
+msgstr ""
 
 #: models/Company.py:161 models/Company.py:232
 msgid "Type the business name"
-msgstr "Ingrese razón social"
+msgstr ""
 
 #: models/Employee.py:275 models/Employee.py:399 models/Equipment.py:148
 #: models/Equipment.py:214 models/Product.py:187 models/Product.py:267
 #: models/Warehouse.py:158 models/Warehouse.py:277
 msgid "Type the code"
-msgstr "Ingresa el código"
+msgstr ""
 
 #: models/Warehouse.py:256 models/Warehouse.py:375
 msgid "Type the contact name"
-msgstr "Ingresa el nombre de contacto"
+msgstr ""
 
 #: controllers/catalogs.py:60 controllers/catalogs.py:73
 #: controllers/management.py:395 controllers/management.py:408
 #: models/Employee.py:341 models/Employee.py:465
 msgid "Type the cost per hour"
-msgstr "Ingresa el costo por hora"
+msgstr ""
 
 #: models/Product.py:215 models/Product.py:295
 msgid "Type the description"
-msgstr "Ingresa la descripción"
+msgstr ""
 
 #: models/Equipment.py:176 models/Equipment.py:242
 msgid "Type the descriptions"
-msgstr "Ingresa la Descripción"
+msgstr ""
 
 #: models/Employee.py:330 models/Employee.py:454
 msgid "Type the email"
-msgstr "Ingresa el email"
+msgstr ""
 
 #: views/management/purchaseOrder.html:89
 #: views/management/purchaseOrder.html:199
@@ -4861,15 +4830,15 @@ msgstr "Ingresa el email"
 #: views/management/purchaseOrder.html:586
 #: views/management/purchaseOrder.html:594
 msgid "Type the external order No."
-msgstr "Ingresa No. de orden externa"
+msgstr ""
 
 #: models/Employee.py:248 models/Employee.py:372
 msgid "Type the first name"
-msgstr "Ingresa el nombre"
+msgstr ""
 
 #: models/Employee.py:258 models/Employee.py:382
 msgid "Type the last name"
-msgstr "Ingresa el apellido"
+msgstr ""
 
 #: models/Buyer.py:123 models/Buyer.py:243 models/Company.py:151
 #: models/Company.py:222 models/CropClass.py:106 models/CropClass.py:134
@@ -4879,87 +4848,87 @@ msgstr "Ingresa el apellido"
 #: models/Warehouse.py:176 models/Warehouse.py:295
 #: views/catalogs/employees.html:163 views/management/laborPayroll.html:130
 msgid "Type the name"
-msgstr "Ingresa el nombre"
+msgstr ""
 
 #: models/Buyer.py:152 models/Buyer.py:272 models/Supplier.py:159
 #: models/Supplier.py:280 models/Warehouse.py:246 models/Warehouse.py:365
 msgid "Type the opening hours"
-msgstr "Ingresa el horario de operación"
+msgstr ""
 
 #: models/Employee.py:320 models/Employee.py:444
 msgid "Type the phone"
-msgstr "Ingresa el telefono del empleado"
+msgstr ""
 
 #: models/Equipment.py:193 models/Equipment.py:203 models/Equipment.py:259
 #: models/Equipment.py:269 models/Product.py:239 models/Product.py:249
 #: models/Product.py:319 models/Product.py:329 views/assets/products.html:164
 msgid "Type the quantity"
-msgstr "Escribe la cantidad"
+msgstr ""
 
 #: models/Role.py:26 models/Role.py:36
 msgid "Type the role name"
-msgstr "Ingresa el nombre del rol"
+msgstr ""
 
 #: models/Employee.py:293 models/Employee.py:417
 msgid "Type the security number"
-msgstr "Ingresa el numero de seguridad del empleado"
+msgstr ""
 
 #: models/ShippingAddress.py:158 models/ShippingAddress.py:219
 #: models/Warehouse.py:206 models/Warehouse.py:325
 msgid "Type the state"
-msgstr "Ingresa el estado"
+msgstr ""
 
 #: models/Warehouse.py:226 models/Warehouse.py:345
 msgid "Type warehouse Zipcode"
-msgstr "Ingresa el código postal del almacén"
+msgstr ""
 
 #: models/Warehouse.py:236 models/Warehouse.py:355
 msgid "Type warehouse phone"
-msgstr "Ingresa el teléfono del almacén"
+msgstr ""
 
 #: models/Buyer.py:212 models/Buyer.py:332 models/Company.py:201
 #: models/Company.py:272 models/Supplier.py:219 models/Supplier.py:340
 msgid "Type your State"
-msgstr "Ingresa tu estado"
+msgstr ""
 
 #: models/Buyer.py:202 models/Buyer.py:322 models/Company.py:191
 #: models/Company.py:262 models/ShippingAddress.py:148
 #: models/ShippingAddress.py:209 models/Supplier.py:209 models/Supplier.py:330
 #: models/Warehouse.py:196 models/Warehouse.py:315
 msgid "Type your city"
-msgstr "Ingresa tu ciudad"
+msgstr ""
 
 #: models/Buyer.py:222 models/Buyer.py:342 models/Supplier.py:229
 #: models/Supplier.py:350
 msgid "Type your country"
-msgstr "Ingresa tu país"
+msgstr ""
 
 #: models/Buyer.py:192 models/Buyer.py:312 models/Company.py:181
 #: models/Company.py:252 models/ShippingAddress.py:128
 #: models/ShippingAddress.py:189 models/Supplier.py:199 models/Supplier.py:320
 #: models/Warehouse.py:186 models/Warehouse.py:305
 msgid "Type your first address"
-msgstr "Ingresa tu dirección principal"
+msgstr ""
 
 #: views/settings/user.html:19
 msgid "Type your firstname"
-msgstr "Ingresa tu nombre"
+msgstr ""
 
 #: views/settings/user.html:23
 msgid "Type your lastname"
-msgstr "Ingresa tu apellido"
+msgstr ""
 
 #: models/ShippingAddress.py:138 models/ShippingAddress.py:199
 msgid "Type your second address"
-msgstr "Ingresa la 2da dirección"
+msgstr ""
 
 #: views/field/planning.html:37
 msgid "Unassigined job"
-msgstr "Trabajo sin asignar"
+msgstr ""
 
 #: views/dashboards/crop.html:267
 msgid "Unassigned"
-msgstr "Sin asignar"
+msgstr ""
 
 #: controllers/api.py:806 controllers/api.py:833 controllers/api.py:884
 #: controllers/dashboards.py:898 controllers/dashboards.py:932
@@ -4967,20 +4936,20 @@ msgstr "Sin asignar"
 #: controllers/login.py:200 controllers/resources.py:225
 #: controllers/resources.py:249 controllers/resources.py:276
 msgid "Unauthorized"
-msgstr "Acceso denegado"
+msgstr ""
 
 #: controllers/api.py:964 controllers/api.py:1008 controllers/map.py:198
 #: controllers/map.py:237 controllers/system.py:81 controllers/system.py:573
 msgid "Unauthorized request, please signin."
-msgstr "Petición no permitida, por favor ingrese al sistema."
+msgstr ""
 
 #: models/ProductReturn.py:117 views/management/purchaseOrder.html:151
 msgid "Unit"
-msgstr "Unidad"
+msgstr ""
 
 #: models/Product.py:230 models/Product.py:310
 msgid "Unit:"
-msgstr "Unidad"
+msgstr ""
 
 #: models/Product.py:345 views/_scheduleTabContent.html:129
 #: views/_scheduleTabContent.html:198 views/_scheduleTabContent.html:231
@@ -4989,21 +4958,21 @@ msgstr "Unidad"
 #: views/map/jobsWizard.html:177 views/map/jobsWizard.html:206
 #: views/map/jobsWizard.html:243 views/map/jobsWizard.html:277
 msgid "Units"
-msgstr "Unidades"
+msgstr ""
 
 #: views/_scheduleTabContent.html:199 views/_scheduleTabContent.html:238
 #: views/field/operation.html:292 views/field/operation.html:333
 #: views/map/jobsWizard.html:244 views/map/jobsWizard.html:286
 msgid "Units per area"
-msgstr "Unidades por área"
+msgstr ""
 
 #: controllers/api.py:134
 msgid "Unittest"
-msgstr "Prueba unitaria"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:33
 msgid "Update"
-msgstr "Actualizar"
+msgstr ""
 
 #: views/map/components/i18n.html:176
 msgid "Uploading scout report"
@@ -5011,40 +4980,40 @@ msgstr ""
 
 #: views/field/planning.html:145
 msgid "Usable area"
-msgstr "Área usable"
+msgstr ""
 
 #: views/settings/field.html:118
 msgid "Usable area:"
-msgstr "Área Utilizable:"
+msgstr ""
 
 #: controllers/settings.py:67 views/settings/user.html:13
 msgid "User edition"
-msgstr "Edición del usuario"
+msgstr ""
 
 #: controllers/settings.py:99
 msgid "User settings inputs are required."
-msgstr "Datos de configuración del usuario son requeridas."
+msgstr ""
 
 #: models/User.py:123 views/login/index.html:23
 #: views/loginSecundary/index.html:16
 msgid "Username"
-msgstr "Nombre de usuario"
+msgstr ""
 
 #: views/map/components/i18n.html:131
 msgid "Uv index"
-msgstr "Índice UV"
+msgstr ""
 
 #: controllers/builk.py:36
 msgid "Validation fail"
-msgstr "Fallo validación"
+msgstr ""
 
 #: views/dashboards/heatMap.html:22
 msgid "Value"
-msgstr "Valor"
+msgstr ""
 
 #: views/field/sampling.html:17
 msgid "Variance"
-msgstr "Varianza"
+msgstr ""
 
 #: views/help/index.html:177
 msgid "Video"
@@ -5052,11 +5021,11 @@ msgstr ""
 
 #: views/field/harvest.html:16 views/management/sales.html:27
 msgid "View order"
-msgstr "Ver orden"
+msgstr ""
 
 #: views/map/components/i18n.html:156
 msgid "View public stations"
-msgstr "Ver estaciones públicas"
+msgstr ""
 
 #: views/map/index.html:72
 msgid "View reports"
@@ -5064,7 +5033,7 @@ msgstr ""
 
 #: views/map/index.html:71
 msgid "View scouting records"
-msgstr "Ver reportes de exploración"
+msgstr ""
 
 #: views/map/index.html:73
 msgid "View scouting reports"
@@ -5072,15 +5041,15 @@ msgstr ""
 
 #: views/map/components/i18n.html:132
 msgid "Visibility"
-msgstr "Visibilidad"
+msgstr ""
 
 #: views/map/components/i18n.html:102
 msgid "Volumetric water content"
-msgstr "Contenido volumétrico de agua"
+msgstr ""
 
 #: views/map/components/i18n.html:144
 msgid "W"
-msgstr "O"
+msgstr ""
 
 #: contents/jobsmodal.html:180 contents/jobsmodal.html:236
 #: models/EquipmentPurchaseOrder.py:99 models/Equipment_Warehouse.py:112
@@ -5099,11 +5068,11 @@ msgstr "O"
 #: views/management/sales.html:199 views/management/sales.html:298
 #: views/map/jobsWizard.html:174 views/map/jobsWizard.html:239
 msgid "Warehouse"
-msgstr "Almacén"
+msgstr ""
 
 #: views/assets/productStock.html:39
 msgid "Warehouse stock"
-msgstr "Existencias en almacén"
+msgstr ""
 
 #: controllers/catalogs.py:335 controllers/catalogs.py:346
 #: controllers/resources.py:86 models/Warehouse.py:77
@@ -5112,58 +5081,58 @@ msgstr "Existencias en almacén"
 #: views/management/purchaseOrder.html:329
 #: views/management/purchaseOrder.html:642
 msgid "Warehouses"
-msgstr "Almacenes"
+msgstr ""
 
 #: controllers/field.py:337 views/map/components/i18n.html:133
 msgid "Weather"
-msgstr "Clima"
+msgstr ""
 
 #: views/map/components/i18n.html:122
 msgid "Weather Station"
-msgstr "Estación de clima"
+msgstr ""
 
 #: contents/header.html:61
 msgid "Welcome"
-msgstr "Bienvenido"
+msgstr ""
 
 #: views/login/hub.html:11
 msgid "Welcome back "
-msgstr "Bienvenido de vuelta"
+msgstr ""
 
 #: views/map/components/i18n.html:109
 msgid "Wind"
-msgstr "Viento"
+msgstr ""
 
 #: views/map/components/i18n.html:135
 msgid "Wind chill"
-msgstr "Temperatura de viento"
+msgstr ""
 
 #: views/map/components/i18n.html:134
 msgid "Wind direction"
-msgstr "Dirección de viento"
+msgstr ""
 
 #: views/map/components/i18n.html:108
 msgid "Wind gust speed"
-msgstr "Ráfaga de viento velocidad"
+msgstr ""
 
 #: views/map/components/i18n.html:113
 msgid "Wind speed"
-msgstr "Velocidad del viento"
+msgstr ""
 
 #: views/catalogs/employees.html:14 views/management/laborPayroll.html:14
 msgid "Work Group cannot be empty"
-msgstr "El grupo no puede estar vacío"
+msgstr ""
 
 #: models/Employee.py:494 views/catalogs/employees.html:24
 #: views/catalogs/employees.html:50 views/catalogs/employees.html:53
 #: views/catalogs/employees.html:153 views/management/laborPayroll.html:120
 msgid "Work Team"
-msgstr "Equipos de trabajo"
+msgstr ""
 
 #: controllers/dashboards.py:1359 views/activities/getActivityDetail.html:32
 #: views/parcel/getTaskDetail.html:32
 msgid "Worked Hours"
-msgstr "Horas trabajadas"
+msgstr ""
 
 #: views/activities/getActivityDetail.html:84
 #: views/activities/getActivityDetail.html:133
@@ -5173,7 +5142,7 @@ msgstr "Horas trabajadas"
 #: views/parcel/getTaskDetail.html:99 views/resources/payroll.html:56
 #: views/resources/payroll.html:90
 msgid "Worked hours"
-msgstr "Horas trabajadas"
+msgstr ""
 
 #: contents/jobsmodal.html:37 views/field/operation.html:88
 msgid "Workforce"
@@ -5186,23 +5155,23 @@ msgstr ""
 #: views/field/operation.html:440 views/management/laborPayroll.html:10
 #: views/management/purchaseOrder.html:14 views/management/sales.html:14
 msgid "Yes"
-msgstr "Sí"
+msgstr ""
 
 #: controllers/dashboards.py:1360
 msgid "Yield per area"
-msgstr "Producción por área"
+msgstr ""
 
 #: views/field/planning.html:209
 msgid "Yield unit"
-msgstr "Unidad de rendimiento"
+msgstr ""
 
 #: controllers/job.py:93
 msgid "You cannot delete blocks with progress in this job"
-msgstr "No puede quitar parcelas que ya tienen progreso en este trabajo"
+msgstr ""
 
 #: views/management/finances.html:96
 msgid "You still have"
-msgstr "Usted cuenta con una existencia de"
+msgstr ""
 
 #: views/help/index.html:188
 msgid "Your browser does not support HTML5 video."
@@ -5210,7 +5179,7 @@ msgstr ""
 
 #: views/login/setnewpassword.html:25
 msgid "Your password has been set."
-msgstr "El password ha sido establecido."
+msgstr ""
 
 #: views/management/sales.html:428 views/social/donation.html:82
 msgid "Yucatan"
@@ -5219,15 +5188,15 @@ msgstr ""
 #: models/Buyer.py:230 models/Buyer.py:350 models/Supplier.py:237
 #: models/Supplier.py:358 models/Warehouse.py:224 models/Warehouse.py:343
 msgid "Zipcode: *"
-msgstr "Código Postal: *"
+msgstr ""
 
 #: views/map/index.html:130
 msgid "Zoom"
-msgstr "Zoom"
+msgstr ""
 
 #: views/dashboards/heatMap.html:15 views/settings/field.html:27
 msgid "Zoom in"
-msgstr "Acercar"
+msgstr ""
 
 #: controllers/map.py:372 controllers/map.py:400
 msgid "Zoom level is required"
@@ -5235,7 +5204,7 @@ msgstr ""
 
 #: views/dashboards/heatMap.html:16 views/settings/field.html:28
 msgid "Zoom out"
-msgstr "Alejar"
+msgstr ""
 
 #: controllers/inventory.py:52
 msgid "add transfer order"
@@ -5244,7 +5213,7 @@ msgstr ""
 #: controllers/inventory.py:189 controllers/inventory.py:197
 #: controllers/inventory.py:370 controllers/inventory.py:376
 msgid "an error has occurred"
-msgstr "Ha ocurrido un error"
+msgstr ""
 
 #: controllers/api.py:1006
 msgid "backups "
@@ -5260,7 +5229,7 @@ msgstr ""
 
 #: views/management/sales.html:11
 msgid "buyers"
-msgstr "compradores"
+msgstr ""
 
 #: controllers/notification.py:62
 msgid "cannot delete notification"
@@ -5280,11 +5249,11 @@ msgstr ""
 
 #: views/management/sales.html:12
 msgid "companies"
-msgstr "compañías"
+msgstr ""
 
 #: views/field/harvest.html:11 views/management/sales.html:13
 msgid "crop classes"
-msgstr "clasificacines de cultivo"
+msgstr ""
 
 #: controllers/field.py:668
 msgid "cropBlocks updated"
@@ -5300,7 +5269,7 @@ msgstr ""
 
 #: views/field/operation.html:22 views/field/operation.html:431
 msgid "date"
-msgstr "fecha"
+msgstr ""
 
 #: controllers/notification.py:60
 msgid "delete"
@@ -5312,20 +5281,20 @@ msgstr ""
 
 #: models/Buyer.py:171 models/Buyer.py:291
 msgid "e.i johnsmith@walmart.com"
-msgstr "ej. jaimego@walmart.com"
+msgstr ""
 
 #: models/Buyer.py:161 models/Buyer.py:281 models/Employee.py:319
 #: models/Employee.py:443 models/Supplier.py:168 models/Supplier.py:289
 msgid "e.i. +1 480-7777-777"
-msgstr "ej. 56452589"
+msgstr ""
 
 #: models/Employee.py:274 models/Employee.py:398
 msgid "e.i. 0023"
-msgstr "ej. 0023"
+msgstr ""
 
 #: models/Product.py:248 models/Product.py:328
 msgid "e.i. 100 (quantity only)"
-msgstr "ej. 100 (solo cantidad)"
+msgstr ""
 
 #: models/Equipment.py:202 models/Equipment.py:268
 msgid "e.i. 100 (quantiy only)"
@@ -5333,21 +5302,21 @@ msgstr ""
 
 #: models/CropClass.py:115 models/CropClass.py:143
 msgid "e.i. 12 perfect green limes of 150 g per net."
-msgstr "ej. Limón Italiano, LM, 2010, árbol, Kg, 100 arboles/hectarea"
+msgstr ""
 
 #: models/Buyer.py:181 models/Buyer.py:301 models/Supplier.py:188
 #: models/Supplier.py:309
 msgid "e.i. 12-3456789"
-msgstr "ej. WME4394990"
+msgstr ""
 
 #: models/Equipment.py:192 models/Equipment.py:258 models/Product.py:238
 #: models/Product.py:318
 msgid "e.i. 20 (quantity only)"
-msgstr "ej. 20 (solo cantidad)"
+msgstr ""
 
 #: models/Warehouse.py:225 models/Warehouse.py:344
 msgid "e.i. 3056"
-msgstr "ej. 45256"
+msgstr ""
 
 #: models/Buyer.py:191 models/Buyer.py:311 models/Company.py:180
 #: models/Company.py:251 models/Supplier.py:198 models/Supplier.py:319
@@ -5358,83 +5327,82 @@ msgstr "ej. 45256"
 #: views/management/purchaseOrder.html:528
 #: views/management/purchaseOrder.html:603
 msgid "e.i. 456 Conrad Street"
-msgstr "ej. Paseo de los tulipanes  #43"
+msgstr ""
 
 #: models/ShippingAddress.py:127 models/ShippingAddress.py:137
 #: models/ShippingAddress.py:188 models/ShippingAddress.py:198
 #: models/Warehouse.py:185 models/Warehouse.py:304
 msgid "e.i. 478 Smith Steet"
-msgstr "ej. Paseo de los tulipanes  #43"
+msgstr ""
 
 #: models/Warehouse.py:235 models/Warehouse.py:354
 msgid "e.i. 555 777 7777"
-msgstr "ej. 555 777 7777"
+msgstr ""
 
 #: models/Buyer.py:231 models/Buyer.py:351 models/Supplier.py:238
 #: models/Supplier.py:359
 msgid "e.i. 85014"
-msgstr "ej. 45256 "
+msgstr ""
 
 #: models/Company.py:170 models/Company.py:241
 msgid "e.i. A-46557039"
-msgstr "ACFG230918"
+msgstr ""
 
 #: views/management/purchaseOrder.html:436
 msgid "e.i. Accesories / Tractor sower"
-msgstr "ej. Accesorios/ Tractor Sembrador"
+msgstr ""
 
 #: models/Product.py:204 models/Product.py:284
 msgid "e.i. Affinity"
-msgstr "ej. Fertilizante Affinity"
+msgstr ""
 
 #: models/Buyer.py:211 models/Buyer.py:331 models/Company.py:200
 #: models/Company.py:271 models/Supplier.py:218 models/Supplier.py:339
 msgid "e.i. Arizona"
-msgstr "ej. Guanajuato"
+msgstr ""
 
 #: models/ShippingAddress.py:167 models/ShippingAddress.py:228
 #: models/Warehouse.py:215 models/Warehouse.py:334
 msgid "e.i. Australia"
-msgstr "e.j. México"
+msgstr ""
 
 #: models/Employee.py:302 models/Employee.py:426
 msgid "e.i. BADD110313HCMLNS09"
-msgstr "ej. BADD110313HCMLNS09"
+msgstr ""
 
 #: models/ShippingAddress.py:147 models/ShippingAddress.py:208
 #: models/Warehouse.py:195 models/Warehouse.py:314
 msgid "e.i. Brunswick"
-msgstr "ej. Guanajuato"
+msgstr ""
 
 #: models/Employee.py:257 models/Employee.py:381
 msgid "e.i. Doe"
-msgstr "ej. Martínez"
+msgstr ""
 
 #: models/Product.py:186 models/Product.py:266
 msgid "e.i. FE54"
-msgstr "ej. FE54"
+msgstr ""
 
 #: models/Supplier.py:138 models/Supplier.py:259
 msgid "e.i. Fertilizers compost and pest traps "
-msgstr "ej. Fertilizantes y pesticidas"
+msgstr ""
 
 #: models/Company.py:160 models/Company.py:231
 msgid "e.i. Grand Valley Farms"
-msgstr "Granjas el Gran Valle"
+msgstr ""
 
-# views/resources/inventory.html:164
 #: views/management/purchaseOrder.html:122
 msgid "e.i. Herbicides / Herbicide 123"
-msgstr "ej. Herbicida / Herbicida 123"
+msgstr ""
 
 #: models/ShippingAddress.py:117 models/ShippingAddress.py:178
 #: models/Warehouse.py:175 models/Warehouse.py:294
 msgid "e.i. Holt-Wh02"
-msgstr "ej. Almacén Principal"
+msgstr ""
 
 #: models/Employee.py:292 models/Employee.py:416
 msgid "e.i. IMSS-02-008"
-msgstr "ej. IMSS-02-008"
+msgstr ""
 
 #: models/Employee.py:247 models/Employee.py:371
 msgid "e.i. John"
@@ -5442,51 +5410,51 @@ msgstr ""
 
 #: models/Equipment.py:175 models/Equipment.py:241
 msgid "e.i. John Deere mod.4534XL Diesel 4X4"
-msgstr "ej. mod.4534XL Diesel 4x4"
+msgstr ""
 
 #: models/Buyer.py:141 models/Buyer.py:261 models/Supplier.py:148
 #: models/Supplier.py:269 models/Warehouse.py:255 models/Warehouse.py:374
 msgid "e.i. John Smith"
-msgstr "ej. Jaime Gomez"
+msgstr ""
 
 #: models/Supplier.py:128 models/Supplier.py:249
 msgid "e.i. McGregor Fertilizers"
-msgstr "ej: Fertilizanctes S.A de C.V"
+msgstr ""
 
 #: models/Buyer.py:151 models/Buyer.py:271 models/Supplier.py:158
 #: models/Supplier.py:279 models/Warehouse.py:245 models/Warehouse.py:364
 msgid "e.i. Monday to Friday 9 TO 5 PM"
-msgstr "ej. L-V de 8:00 a 18:00 hrs."
+msgstr ""
 
 #: models/Product.py:214 models/Product.py:294
 msgid "e.i. NP in 2mg pieces"
-msgstr "ej. NP en 2mg"
+msgstr ""
 
 #: models/Buyer.py:201 models/Buyer.py:321 models/Company.py:190
 #: models/Company.py:261 models/Supplier.py:208 models/Supplier.py:329
 msgid "e.i. Phoenix"
-msgstr "ej. Guanajuato"
+msgstr ""
 
 #: models/CropClass.py:105 models/CropClass.py:133
 msgid "e.i. Premium local"
-msgstr "ej. Premium local"
+msgstr ""
 
 #: models/Equipment.py:147 models/Equipment.py:213
 msgid "e.i. TR08"
-msgstr "ej. TR08"
+msgstr ""
 
 #: views/catalogs/employees.html:162 views/management/laborPayroll.html:129
 msgid "e.i. Team 1"
-msgstr "ej. Equipo 1"
+msgstr ""
 
 #: models/Equipment.py:165 models/Equipment.py:231
 msgid "e.i. Tractor XL-34"
-msgstr "ej. Tractor XL-34"
+msgstr ""
 
 #: models/Buyer.py:221 models/Buyer.py:341 models/Company.py:210
 #: models/Company.py:281 models/Supplier.py:228 models/Supplier.py:349
 msgid "e.i. USA"
-msgstr "ej. México"
+msgstr ""
 
 #: models/Company.py:150 models/Company.py:221
 msgid "e.i. Valley Farms"
@@ -5495,11 +5463,11 @@ msgstr ""
 #: models/ShippingAddress.py:157 models/ShippingAddress.py:218
 #: models/Warehouse.py:205 models/Warehouse.py:324
 msgid "e.i. Victoria"
-msgstr "ej. Guanajuato"
+msgstr ""
 
 #: models/Buyer.py:122 models/Buyer.py:242
 msgid "e.i. Walmart"
-msgstr "ej. Walmart de México SA de CV"
+msgstr ""
 
 #: models/Warehouse.py:265 models/Warehouse.py:384
 msgid "e.i. Warehouse for the A, B and C fields."
@@ -5512,21 +5480,20 @@ msgstr ""
 #: views/management/purchaseOrder.html:518
 #: views/management/purchaseOrder.html:592
 msgid "e.i. West Field"
-msgstr "e.i. El Tamarindo"
+msgstr ""
 
 #: models/Buyer.py:132 models/Buyer.py:252
 msgid "e.i. \tRetail "
-msgstr "ej. Retail"
+msgstr ""
 
 #: models/Employee.py:329 models/Employee.py:453
 msgid "e.i. johnd@hotmail.com"
-msgstr "ej. dmartinez@hotmail.com"
+msgstr ""
 
 #: models/Employee.py:360 models/Employee.py:484
 msgid "e.i. notes"
 msgstr ""
 
-# views/resources/inventory.html:146 views/resources/inventory.html:246
 #: views/management/purchaseOrder.html:88
 #: views/management/purchaseOrder.html:198
 #: views/management/purchaseOrder.html:272
@@ -5534,7 +5501,7 @@ msgstr ""
 #: views/management/purchaseOrder.html:511
 #: views/management/purchaseOrder.html:585
 msgid "e.i: 02A"
-msgstr "ej. 02A"
+msgstr ""
 
 #: views/assets/products.html:134 views/assets/products.html:139
 #: views/management/purchaseOrder.html:77
@@ -5544,9 +5511,8 @@ msgstr "ej. 02A"
 #: views/management/purchaseOrder.html:501
 #: views/management/purchaseOrder.html:575
 msgid "e.i: Main Warehouse"
-msgstr "ej. Almacén Principal"
+msgstr ""
 
-# views/resources/inventory.html:141 views/resources/inventory.html:241
 #: views/assets/products.html:149 views/assets/products.html:154
 #: views/management/purchaseOrder.html:83
 #: views/management/purchaseOrder.html:102
@@ -5561,11 +5527,11 @@ msgstr "ej. Almacén Principal"
 #: views/management/purchaseOrder.html:580
 #: views/management/purchaseOrder.html:598
 msgid "e.i: McGregor Fertilizers"
-msgstr "ej: Fertilizanctes S.A de C.V."
+msgstr ""
 
 #: models/Warehouse.py:157 models/Warehouse.py:276
 msgid "e.i: WH-02A"
-msgstr "ej. WH-02A"
+msgstr ""
 
 #: controllers/api.py:650
 msgid "employeepositionname"
@@ -5601,7 +5567,7 @@ msgstr ""
 
 #: views/field/operation.html:30
 msgid "field plans"
-msgstr "Planes de campo"
+msgstr ""
 
 #: controllers/field.py:643
 msgid "fieldplan cropBlocks"
@@ -5618,7 +5584,7 @@ msgstr ""
 
 #: controllers/builk.py:34
 msgid "file validation pass"
-msgstr "Validación exitosa"
+msgstr ""
 
 #: controllers/harvest.py:447
 msgid "harvest detail"
@@ -5627,11 +5593,11 @@ msgstr ""
 #: views/field/harvest.html:12 views/field/harvest.html:168
 #: views/management/sales.html:10
 msgid "here"
-msgstr "aquí"
+msgstr ""
 
 #: views/field/getJobDetail.html:49
 msgid "hours"
-msgstr "horas"
+msgstr ""
 
 #: controllers/map.py:481
 msgid "idEmployee is required"
@@ -5639,7 +5605,7 @@ msgstr ""
 
 #: views/management/finances.html:96
 msgid "in warehouses"
-msgstr "en Almacén"
+msgstr ""
 
 #: controllers/harvest.py:665
 msgid "insert sale"
@@ -5655,7 +5621,7 @@ msgstr ""
 
 #: controllers/recovery.py:58
 msgid "invalid token"
-msgstr "Token inválido"
+msgstr ""
 
 #: controllers/harvest.py:687 controllers/harvest.py:699
 msgid "inventory"
@@ -5687,7 +5653,7 @@ msgstr ""
 
 #: controllers/recovery.py:32 controllers/recovery.py:56
 msgid "message"
-msgstr "Mensaje"
+msgstr ""
 
 #: controllers/workgroup.py:88
 msgid "missing employees list"
@@ -5733,11 +5699,11 @@ msgstr ""
 
 #: views/field/planning.html:458
 msgid "note"
-msgstr "nota"
+msgstr ""
 
 #: controllers/notification.py:32 controllers/test.py:662
 msgid "notification has been pushed"
-msgstr "La notificación ha sido enviada"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:76 layouts/blueprints/jscrud.html:89
 #: views/assets/machinery.html:73 views/assets/machinery.html:86
@@ -5753,15 +5719,15 @@ msgstr "La notificación ha sido enviada"
 #: views/management/purchaseOrder.html:666
 #: views/management/purchaseOrder.html:679
 msgid "of"
-msgstr "de"
+msgstr ""
 
 #: controllers/notification.py:44
 msgid "open"
-msgstr "Abrir"
+msgstr ""
 
 #: views/login/hub.html:11
 msgid "please, select a project"
-msgstr "seleciona un proyecto, por favor"
+msgstr ""
 
 #: controllers/api.py:653
 msgid "positionname"
@@ -5793,11 +5759,11 @@ msgstr ""
 
 #: controllers/inventory.py:195 controllers/inventory.py:378
 msgid "products are missing"
-msgstr "Faltan productos"
+msgstr ""
 
 #: views/dashboards/crop.html:305
 msgid "projection"
-msgstr "proyección"
+msgstr ""
 
 #: controllers/projections.py:137
 msgid "projection detail"
@@ -5809,11 +5775,11 @@ msgstr ""
 
 #: controllers/notification.py:38
 msgid "pull"
-msgstr "Jalar"
+msgstr ""
 
 #: controllers/notification.py:52
 msgid "read"
-msgstr "Leer"
+msgstr ""
 
 #: layouts/blueprints/jscrud.html:91 views/assets/machinery.html:88
 #: views/assets/products.html:109 views/assets/products.html:221
@@ -5822,7 +5788,7 @@ msgstr "Leer"
 #: views/management/purchaseOrder.html:368
 #: views/management/purchaseOrder.html:681
 msgid "records"
-msgstr "registros"
+msgstr ""
 
 #: controllers/api.py:178
 msgid "result"
@@ -5862,7 +5828,7 @@ msgstr ""
 
 #: views/map/components/i18n.html:61
 msgid "selected"
-msgstr "seleccionada"
+msgstr ""
 
 #: controllers/activities.py:352
 msgid "something went wrong"
@@ -5880,7 +5846,7 @@ msgstr ""
 #: controllers/workgroup.py:54 controllers/workgroup.py:77
 #: controllers/workgroup.py:103 controllers/workgroup.py:117
 msgid "success"
-msgstr "Éxito"
+msgstr ""
 
 #: controllers/harvest.py:507 controllers/harvest.py:545
 #: controllers/harvest.py:546
@@ -5897,7 +5863,7 @@ msgstr ""
 
 #: controllers/recovery.py:34
 msgid "unvalid username"
-msgstr "Nombre de usuario inválido"
+msgstr ""
 
 #: controllers/field.py:669
 msgid "update has an error"
@@ -5910,1059 +5876,4 @@ msgstr ""
 #: controllers/api.py:179
 msgid "xCo issue"
 msgstr ""
-
-msgid ""
-msgstr ""
-
-#~ msgid " Fields selected."
-#~ msgstr " Campos seleccionados"
-
-#~ msgid ""
-#~ "A Season Plan is a template that"
-#~ " defines a list of jobs, when a"
-#~ " season plan is assigned to a "
-#~ "field becomes to a Field Plan."
-#~ msgstr ""
-#~ "Un plan de temporada es una "
-#~ "plantilla que define una lista de "
-#~ "trabajos. Cuando un plan de temporada"
-#~ " se asigna a un campo, se "
-#~ "convierte en un plan de campo."
-
-#~ msgid ""
-#~ "Stock levels of {} are below "
-#~ "minimum quantity, they need your "
-#~ "attention."
-#~ msgstr ""
-#~ "Cuidado, tus niveles de stock de "
-#~ "{} están por debajo del límite "
-#~ "mínimo de stock, te recomendamos comprar"
-#~ " o modificar los límites de stock."
-
-#~ msgid ""
-#~ "You can verify the classification later."
-#~ "  Verifying will allow you to "
-#~ "classify products in the warehouse."
-#~ msgstr ""
-#~ "Puedes verificar después. Verificar permitirá"
-#~ " que se clasifiquen los productos en"
-#~ " el almacén. "
-
-#~ msgid ""
-#~ "Your season plan {} is comming to"
-#~ " an end on {}. Update ending "
-#~ "dates or terminate to start a new"
-#~ " one."
-#~ msgstr ""
-#~ "La temporada {} está por terminarse "
-#~ "el {}. Recuerda terminar el plan "
-#~ "para crear uno nuevo."
-
-#~ msgid "+ Add new"
-#~ msgstr "+ Agregar nuevo"
-
-#~ msgid "ACCOUNT BOOKS"
-#~ msgstr "LIBRO CONTABLE"
-
-#~ msgid "Acaricide"
-#~ msgstr "Acaricida"
-
-#~ msgid "Accesories"
-#~ msgstr "Accesorios"
-
-#~ msgid "Account book "
-#~ msgstr "Libro contable"
-
-#~ msgid "Account manager"
-#~ msgstr "Manejo de cuenta"
-
-#~ msgid "Account-book "
-#~ msgstr "Libro-contable"
-
-#~ msgid "Accountant"
-#~ msgstr "Contador"
-
-#~ msgid "Accountant "
-#~ msgstr "Contador"
-
-#~ msgid "Accountant Assistant"
-#~ msgstr "Auxiliar de Contabilidad"
-
-#~ msgid "Accounting"
-#~ msgstr "Contabilidad"
-
-#~ msgid "Accounting records"
-#~ msgstr "Contabilidad"
-
-#~ msgid "Acre"
-#~ msgstr "Acre"
-
-#~ msgid "Active"
-#~ msgstr "Activo"
-
-#~ msgid "Activities for today"
-#~ msgstr "Actividades para hoy"
-
-#~ msgid "Activity detail"
-#~ msgstr "Detalles de actividad"
-
-#~ msgid "Add New"
-#~ msgstr "Agregar nuevo"
-
-#~ msgid "Address 1"
-#~ msgstr "Dirección 1"
-
-#~ msgid "Adherent"
-#~ msgstr "Adherente"
-
-#~ msgid "Adjuvant"
-#~ msgstr "Coadyuvante"
-
-#~ msgid "Admin"
-#~ msgstr "Admin"
-
-#~ msgid "Administrative"
-#~ msgstr "Administrativo"
-
-#~ msgid "Administrator "
-#~ msgstr "Administrador"
-
-#~ msgid "Administrator Assistant"
-#~ msgstr "Auxiliar Administrativo"
-
-#~ msgid "Agent"
-#~ msgstr "Agente"
-
-#~ msgid "Aggregated"
-#~ msgstr "Acumulado"
-
-#~ msgid "Agrochem application"
-#~ msgstr "Aplicacion de agroquímicos"
-
-#~ msgid "Algicide"
-#~ msgstr "Alguicida"
-
-#~ msgid "All Activity"
-#~ msgstr "Todas las actividades"
-
-#~ msgid "All Harvest Records"
-#~ msgstr "Todos registros de cosecha"
-
-#~ msgid "All Sales"
-#~ msgstr "Todas las ventas"
-
-#~ msgid "All croptypes"
-#~ msgstr "Todos los tipos de cultivo"
-
-#~ msgid "All season plan"
-#~ msgstr "Todos los planes de temporada"
-
-#~ msgid "All season plans"
-#~ msgstr "Todos los planes de temporada"
-
-#~ msgid "Amount to complete total"
-#~ msgstr "Cantidad faltante"
-
-#~ msgid "Assign Job"
-#~ msgstr "Asignar trabajo"
-
-#~ msgid "Assign season plan"
-#~ msgstr "Asignar plan de temporada"
-
-#~ msgid "BN"
-#~ msgstr "BN"
-
-#~ msgid "Banana"
-#~ msgstr "Banana"
-
-#~ msgid "Basic license"
-#~ msgstr "Licencia basica"
-
-#~ msgid "Blocks assigned:"
-#~ msgstr "Parcelas assignadas"
-
-#~ msgid "Blocks selected."
-#~ msgstr "Parcelas seleccionadas"
-
-#~ msgid "Blocks to assign:"
-#~ msgstr "Parcelas a asignar:"
-
-#~ msgid "Bolivian Peso"
-#~ msgstr "Peso Boliviano"
-
-#~ msgid "Box"
-#~ msgstr "Caja"
-
-#~ msgid "Bucket"
-#~ msgstr "Cubeta"
-
-#~ msgid "Bunch"
-#~ msgstr "manojo"
-
-#~ msgid "Bush"
-#~ msgstr "Arbusto"
-
-#~ msgid "Business name"
-#~ msgstr "Razón social"
-
-#~ msgid "CF"
-#~ msgstr "CF"
-
-#~ msgid "CROPS"
-#~ msgstr "CULTIVO"
-
-#~ msgid "Cancel purchase"
-#~ msgstr "Cancelar Compra"
-
-#~ msgid "Cannot synchronize users"
-#~ msgstr "No se pueden sincronizar los usuarios"
-
-#~ msgid "Captain"
-#~ msgstr "Capitán"
-
-#~ msgid "Cashier"
-#~ msgstr "Encargado de Pagos"
-
-#~ msgid "Central Time (CT)"
-#~ msgstr "Tiempo central (CT)"
-
-#~ msgid "Characters accepted: Letters, numbers, #,-,&"
-#~ msgstr "Caracteres aceptados: letras, número, #,-,&"
-
-#~ msgid "Class name"
-#~ msgstr "Nombre de la clase:"
-
-#~ msgid "Classified"
-#~ msgstr "Clasificación"
-
-#~ msgid "Clean path"
-#~ msgstr "Limpiar ruta"
-
-#~ msgid "Cleaning"
-#~ msgstr "Limpieza"
-
-#~ msgid "Click on the map to measure distance to that point."
-#~ msgstr "Da clic en el mapa para medir la distancia desde ese punto."
-
-#~ msgid "Clogging prevention"
-#~ msgstr "Revisar taponamiento"
-
-#~ msgid "Code"
-#~ msgstr "Código"
-
-#~ msgid "Code:"
-#~ msgstr "Código:"
-
-#~ msgid "Code: *"
-#~ msgstr "Código: *"
-
-#~ msgid "Coffee"
-#~ msgstr "Café"
-
-#~ msgid "Consumables and products"
-#~ msgstr "Consumibles y productos"
-
-#~ msgid "Contact Name"
-#~ msgstr "Nombre del contacto"
-
-#~ msgid "Contact food bank"
-#~ msgstr "Contactar banco de alimentos"
-
-#~ msgid "Country*"
-#~ msgstr "País"
-
-#~ msgid "Critical stock level"
-#~ msgstr "Nivel crítico de stock"
-
-#~ msgid "Crop Classes"
-#~ msgstr "Clasificación de cultivo"
-
-#~ msgid "Crop Overview"
-#~ msgstr "Resumen de cultivos"
-
-#~ msgid "Crop Types"
-#~ msgstr "Tipos de cultivo:"
-
-#~ msgid "Crop overview"
-#~ msgstr "Resumen de cultivo"
-
-#~ msgid "Crops and field plans"
-#~ msgstr "Planes y cultivos"
-
-#~ msgid "Crops and fields"
-#~ msgstr "Cultivos y campos"
-
-#~ msgid "Dashboard/Activity Overview"
-#~ msgstr "Dashboard/Resumen de actividades"
-
-#~ msgid "Dashboard/Products"
-#~ msgstr "Dashboard/Insumos"
-
-#~ msgid "Dashboard/Scouting Records"
-#~ msgstr "Dashboard/Exploración"
-
-#~ msgid "Database created"
-#~ msgstr "Base de datos creada"
-
-#~ msgid "Database deleted"
-#~ msgstr "Base de datos eliminada"
-
-#~ msgid "Database initialized"
-#~ msgstr "Base de datos inicializada"
-
-#~ msgid "Date range:"
-#~ msgstr "rango de fechas"
-
-#~ msgid "Defoliate"
-#~ msgstr "Deshoje"
-
-#~ msgid "Deleted"
-#~ msgstr "Borrado"
-
-#~ msgid "Description: *"
-#~ msgstr "Descripción: *"
-
-#~ msgid "Do you need help?"
-#~ msgstr "¿Necesitas ayuda?"
-
-#~ msgid "Driver"
-#~ msgstr "Chofer"
-
-#~ msgid "Earnings"
-#~ msgstr "Ganancias"
-
-#~ msgid "Eastern Time (ET)"
-#~ msgstr "Tiempo del este (ET)"
-
-#~ msgid "Elevation map for perimeter"
-#~ msgstr "Elevación"
-
-#~ msgid "End of season"
-#~ msgstr "Final de temporada"
-
-#~ msgid "English"
-#~ msgstr "Ingles"
-
-#~ msgid "Equipment Category"
-#~ msgstr "Categoría del equipo"
-
-#~ msgid "Equipment Inventory"
-#~ msgstr "Inventario de Equipos"
-
-#~ msgid "Español"
-#~ msgstr "Español"
-
-#~ msgid "Excess"
-#~ msgstr "En exceso"
-
-#~ msgid "Expected Start"
-#~ msgstr "Expectativa de inicio"
-
-#~ msgid "Expenses"
-#~ msgstr "Gastos"
-
-#~ msgid "Extraordinary"
-#~ msgstr "Extraordinario"
-
-#~ msgid "Fertilization"
-#~ msgstr "Fertilización"
-
-#~ msgid "Fertilizers"
-#~ msgstr "Fertilizantes"
-
-#~ msgid "Field Manager"
-#~ msgstr "Gerente de Finca"
-
-#~ msgid "Field Supervisor"
-#~ msgstr "Supervisor de campo"
-
-#~ msgid "Fields selected."
-#~ msgstr "Campos seleccionados"
-
-#~ msgid "Finances"
-#~ msgstr "Finanzas"
-
-#~ msgid "Findings"
-#~ msgstr "Hallazgo"
-
-#~ msgid "Firstname"
-#~ msgstr "Nombre"
-
-#~ msgid "From Field Plan"
-#~ msgstr "Del campo"
-
-#~ msgid "From Season Plan"
-#~ msgstr "Del plan de temporada"
-
-#~ msgid "Frost control"
-#~ msgstr "Control de heladas"
-
-#~ msgid "Fumigation"
-#~ msgstr "Fumigación"
-
-#~ msgid "Fungicides"
-#~ msgstr "Fungicidas"
-
-#~ msgid "GP"
-#~ msgstr "GP"
-
-#~ msgid "Grapefruit"
-#~ msgstr "Toronja"
-
-#~ msgid "Grapes"
-#~ msgstr "Uva"
-
-#~ msgid "Grass cutting"
-#~ msgstr "Corte de hierba"
-
-#~ msgid "Guard"
-#~ msgstr "Velador"
-
-#~ msgid "Harvest Records"
-#~ msgstr "Registro de cosecha"
-
-#~ msgid "Harvest and sales"
-#~ msgstr "Venta y cosecha"
-
-#~ msgid "Hectare"
-#~ msgstr "Hectárea"
-
-#~ msgid "Herbicides"
-#~ msgstr "Herbicidas"
-
-#~ msgid "Hola"
-#~ msgstr ""
-
-#~ msgid "Home"
-#~ msgstr "Inicio"
-
-#~ msgid "I am a message or some stuff!"
-#~ msgstr "Mensaje de prueba"
-
-#~ msgid "ID Crop must be an integer"
-#~ msgstr "ID cultivo debe ser un numero entero"
-
-#~ msgid "In stock"
-#~ msgstr "En stock"
-
-#~ msgid "Included Fields"
-#~ msgstr "Campos incluidos"
-
-#~ msgid "Input by purchase order"
-#~ msgstr "Entrada por orden de compra"
-
-#~ msgid "Input by transfer"
-#~ msgstr "Entrada por transferencia"
-
-#~ msgid "Insecticides"
-#~ msgstr "Insecticidas"
-
-#~ msgid "Internal Code"
-#~ msgstr "No de orden interna"
-
-#~ msgid "Internal code"
-#~ msgstr "No de orden externa"
-
-#~ msgid "International phone*"
-#~ msgstr "Teléfono internacional*"
-
-#~ msgid "Invoices"
-#~ msgstr "Facturas"
-
-#~ msgid "Irrigation"
-#~ msgstr "Riego"
-
-#~ msgid "JOBS"
-#~ msgstr "TRABAJOS"
-
-#~ msgid "Job detail"
-#~ msgstr "Detalles del trabajo"
-
-#~ msgid "Job:"
-#~ msgstr "Trabajo:"
-
-#~ msgid "Jobs"
-#~ msgstr "Trabajos"
-
-#~ msgid "Jobs Wizard Assistance"
-#~ msgstr "Asistente de Trabajos"
-
-#~ msgid "Jobs:"
-#~ msgstr "Trabajos"
-
-#~ msgid "Jot type:"
-#~ msgstr "Tipo de trabajo"
-
-#~ msgid "KG"
-#~ msgstr "KG"
-
-#~ msgid "Kilogram"
-#~ msgstr "Kilogramo"
-
-#~ msgid "L"
-#~ msgstr "L"
-
-#~ msgid "LM"
-#~ msgstr "LM"
-
-#~ msgid "Laborer"
-#~ msgstr "Obrero"
-
-#~ msgid "Last month"
-#~ msgstr "Mes pasado"
-
-#~ msgid "Leave"
-#~ msgstr "Retirado"
-
-#~ msgid "Lemon/Lime"
-#~ msgstr "Limón"
-
-#~ msgid "Line"
-#~ msgstr "Linea"
-
-#~ msgid "Liter"
-#~ msgstr "Litro"
-
-#~ msgid "Look out"
-#~ msgstr "Cuidado"
-
-#~ msgid "M"
-#~ msgstr "M"
-
-#~ msgid "Machinery and equipment"
-#~ msgstr "Equipo y maquinaria"
-
-#~ msgid "Maintenance"
-#~ msgstr "Mantenimiento"
-
-#~ msgid "Manager"
-#~ msgstr "Gerente"
-
-#~ msgid "Manual Tools"
-#~ msgstr "Herramientas manuales"
-
-#~ msgid "Meter"
-#~ msgstr "Metro"
-
-#~ msgid "Mexican Peso"
-#~ msgstr "Peso Mexicano"
-
-#~ msgid "Motorized vehicles"
-#~ msgstr "Vehículos motorizados"
-
-#~ msgid "NEW CROP"
-#~ msgstr "NUEVO CULTIVO"
-
-#~ msgid "NEW SEASON PLAN"
-#~ msgstr "NUEVO PLAN DE TEMPORADA"
-
-#~ msgid "Name to identify your Season Plan."
-#~ msgstr "Nombre que identifica tu plan de temporada"
-
-#~ msgid "Name to identify your crop."
-#~ msgstr "Nombre que identifica tu cultivo"
-
-#~ msgid "Needs attention"
-#~ msgstr "Necesita atención"
-
-#~ msgid "New Purchase"
-#~ msgstr "Nueva compra"
-
-#~ msgid "No account books available for this project."
-#~ msgstr "No existen libros contables para éste proyecto"
-
-#~ msgid "No orthophoto available"
-#~ msgstr "Ho hay ortofotos disponibles"
-
-#~ msgid "No posicions found"
-#~ msgstr "No se encontraron posiciones"
-
-#~ msgid "Normal"
-#~ msgstr "Normal"
-
-#~ msgid "Note"
-#~ msgstr "Nota"
-
-#~ msgid "OR"
-#~ msgstr "OR"
-
-#~ msgid "One week"
-#~ msgstr "Periodo a aplicar"
-
-#~ msgid "Operator"
-#~ msgstr "Operador Trascabo"
-
-#~ msgid "Orange"
-#~ msgstr "Naranja"
-
-#~ msgid "Order By"
-#~ msgstr "Ordenado por"
-
-#~ msgid "Organization"
-#~ msgstr "Organización"
-
-#~ msgid "Other expenses"
-#~ msgstr "Otros gastos"
-
-#~ msgid "Other incomes"
-#~ msgstr "Otros ingresos"
-
-#~ msgid "Out of stock"
-#~ msgstr "Agotado"
-
-#~ msgid "Output by activity"
-#~ msgstr "Salida por actividad"
-
-#~ msgid "Output by transfer"
-#~ msgstr "Salida por transferencia"
-
-#~ msgid "PH + EC Sampling"
-#~ msgstr "Toma de muestras de Ph y Ce"
-
-#~ msgid "PL"
-#~ msgstr "PL"
-
-#~ msgid "PLANS"
-#~ msgstr "PLANES"
-
-#~ msgid "Palm"
-#~ msgstr "Palma"
-
-#~ msgid "Palm oil"
-#~ msgstr "Palma de aceite"
-
-#~ msgid "Payment Manager"
-#~ msgstr "Responsable de pagos"
-
-#~ msgid "Pce"
-#~ msgstr "Pza"
-
-#~ msgid "Percent"
-#~ msgstr "Porcentaje"
-
-#~ msgid "Period to apply"
-#~ msgstr "Periodo a aplicar"
-
-#~ msgid "Personnel"
-#~ msgstr "Personal"
-
-#~ msgid "Peso Mexicano"
-#~ msgstr "Peso Mexicano"
-
-#~ msgid "Phone Number"
-#~ msgstr "Número de telefono"
-
-#~ msgid "Phone: *"
-#~ msgstr "Teléfono: *"
-
-#~ msgid "Piece"
-#~ msgstr "Pieza"
-
-#~ msgid "Plague control"
-#~ msgstr "Control de plagas"
-
-#~ msgid "Plan Overview"
-#~ msgstr "Resumen del plan"
-
-#~ msgid "Plan overview"
-#~ msgstr "Resumen de planes"
-
-#~ msgid "Plan progress"
-#~ msgstr "Progreso"
-
-#~ msgid "Planned Start Date"
-#~ msgstr "Fecha planeada de inicio"
-
-#~ msgid "Position:"
-#~ msgstr "Posición:"
-
-#~ msgid "Post-harvest"
-#~ msgstr "Post-cosecha"
-
-#~ msgid "Pot"
-#~ msgstr "Maceta"
-
-#~ msgid "Pre-sowing"
-#~ msgstr "Pre-siembra"
-
-#~ msgid "Precipitation last hour"
-#~ msgstr "Ultima hora de precipitación"
-
-#~ msgid "Process"
-#~ msgstr "Proceso"
-
-#~ msgid "Product code or name"
-#~ msgstr "Nombre o código de producto"
-
-#~ msgid "Production Manager"
-#~ msgstr "Encargado de Producción"
-
-#~ msgid "Production and current existences"
-#~ msgstr "Producción y existencias"
-
-#~ msgid "Products Inventory"
-#~ msgstr "Inventario de Productos"
-
-#~ msgid "Profit per area"
-#~ msgstr "Ganancias por área"
-
-#~ msgid "Project settings"
-#~ msgstr "Configuración"
-
-#~ msgid "Projection input type"
-#~ msgstr "Tipo de Proyección"
-
-#~ msgid "Pruning"
-#~ msgstr "Poda"
-
-#~ msgid "Public and private stations"
-#~ msgstr "Estaciones públicas y privadas"
-
-#~ msgid "PurchaseOrder"
-#~ msgstr "Orden de compra"
-
-#~ msgid "Ranch Administrator"
-#~ msgstr "Administrador de Rancho"
-
-#~ msgid "Ranchman"
-#~ msgstr "Ranchero"
-
-#~ msgid "Remember, Aedrotec has a support section, you can contact us."
-#~ msgstr "Recuerda, Aedrotec cuenta con sección de ayuda. ¡Contáctanos!"
-
-#~ msgid "Rodenticides"
-#~ msgstr "Rodenticidas"
-
-#~ msgid "Root"
-#~ msgstr "Root"
-
-#~ msgid "SEE PLAN DETAILS"
-#~ msgstr "VER DETALLES DEL PLAN"
-
-#~ msgid "SEE PLANS"
-#~ msgstr "VER PLANES"
-
-#~ msgid "Save Purchase"
-#~ msgstr "Guardar Compra"
-
-#~ msgid "Save job"
-#~ msgstr "Guardar trabajo"
-
-#~ msgid "Schedule"
-#~ msgstr "Agenda de trabajo"
-
-#~ msgid "Scouting"
-#~ msgstr "Hallazgos"
-
-#~ msgid "Scouting types"
-#~ msgstr "Tipos de hallazgos"
-
-#~ msgid "Secretary"
-#~ msgstr "Secretaria"
-
-#~ msgid "Security Number"
-#~ msgstr "Número de seguridad"
-
-#~ msgid "See field plan"
-#~ msgstr "Ver plan de campo"
-
-#~ msgid "Select Scout Subcategories"
-#~ msgstr "Seleciona las Subcategorías de exploración"
-
-#~ msgid "Select a job type"
-#~ msgstr "Seleciona un tipo de trabajo"
-
-#~ msgid "Select a name for your Season Plan"
-#~ msgstr "Selecciona un nombre para tu plan de temporada"
-
-#~ msgid "Select agent"
-#~ msgstr "Seleccione agente"
-
-#~ msgid "Select fields"
-#~ msgstr "Selecciona un campo"
-
-#~ msgid "Sent"
-#~ msgstr "Enviado"
-
-#~ msgid "Services"
-#~ msgstr "Servicios"
-
-#~ msgid "Setting"
-#~ msgstr "Establecimiento"
-
-#~ msgid "Show stations"
-#~ msgstr "Mostrar estaciones"
-
-#~ msgid "Social impact"
-#~ msgstr "Impacto social"
-
-#~ msgid "Some jobs are overdue"
-#~ msgstr "Algunas tareas están retrasadas."
-
-#~ msgid "Some jobs are overdue, check in Crop and field plans section."
-#~ msgstr ""
-#~ "Algunas tareas están retrasada, revisa "
-#~ "la sección de cultivos y campos, "
-#~ "planes y cultivos."
-
-#~ msgid "Sowing"
-#~ msgstr "Siembra"
-
-#~ msgid "Square meter"
-#~ msgstr "Metro cuadrado"
-
-#~ msgid "Start date can\\'t be higher than end date"
-#~ msgstr "Fecha de inicio no debe ser mayor a la fecha final"
-
-#~ msgid "Success"
-#~ msgstr "Exito"
-
-#~ msgid "Successfully terminated season plan"
-#~ msgstr "Plan de temporada terminado satisfactoriamente"
-
-#~ msgid "Supervisor"
-#~ msgstr "Supervisor"
-
-#~ msgid "TB"
-#~ msgstr "TB"
-
-#~ msgid "Task"
-#~ msgstr "Tarea"
-
-#~ msgid "Tasks"
-#~ msgstr "Tareas"
-
-#~ msgid "Tax Id"
-#~ msgstr "Identificador de pago de impuestos"
-
-#~ msgid "Tax Reference:"
-#~ msgstr "Referencia de la razón social:"
-
-#~ msgid "Tax Reference: *"
-#~ msgstr "Referencia de la razón social: *"
-
-#~ msgid "Tax name:"
-#~ msgstr "Razón social:"
-
-#~ msgid "Taxpayer ID number"
-#~ msgstr "R.F.C."
-
-#~ msgid "Technical Assistant"
-#~ msgstr "Asistente Técnico"
-
-#~ msgid "Technical Supervisor"
-#~ msgstr "Supervisor Técnico"
-
-#~ msgid "Technical support"
-#~ msgstr "Soporte técnico"
-
-#~ msgid "Thank you for your interest in Aedrotec, we will contact you soon."
-#~ msgstr "Gracias por tu interes en Aedrotec, Te contactaremos en breve"
-
-#~ msgid "The code for warehouse"
-#~ msgstr "El código del almacén"
-
-#~ msgid "The code of the product"
-#~ msgstr "El código del producto"
-
-#~ msgid "The description"
-#~ msgstr "La descripción"
-
-#~ msgid "The description of the equiptment"
-#~ msgstr "La Descripción del equipo"
-
-#~ msgid "The employee cost"
-#~ msgstr "El costo del empleado"
-
-#~ msgid "The employee email"
-#~ msgstr "El correo electrónico del empleado"
-
-#~ msgid "The employee first name"
-#~ msgstr "El nombre del empleado"
-
-#~ msgid "The employee last name"
-#~ msgstr "El apellido del empleado"
-
-#~ msgid "The employee phone"
-#~ msgstr "El telefono del empleado"
-
-#~ msgid "The employee security number"
-#~ msgstr "El numero de seguiridad del empleado"
-
-#~ msgid "The name for warehouse"
-#~ msgstr "El nombre del almacén"
-
-#~ msgid "The name of the product"
-#~ msgstr "Ingresa un nombre para el cultivo"
-
-#~ msgid "The season plan does not exists"
-#~ msgstr "El plan de la temporada no existe"
-
-#~ msgid "The user {} has not checked in the system since {}, check out why."
-#~ msgstr "El usuario {} no ha iniciado sesión desde {}, échale un vistazo"
-
-#~ msgid "Theres no orthophotos"
-#~ msgstr "No hay orthophotos"
-
-#~ msgid "This feature is currently not available for Demo version."
-#~ msgstr "Esta funcionalidad no esta disponible en el demo"
-
-#~ msgid "Tillage"
-#~ msgstr "Preparación de suelo"
-
-#~ msgid "Timber"
-#~ msgstr "Madera"
-
-#~ msgid "Ton"
-#~ msgstr "Tonelada"
-
-#~ msgid "Total Amount"
-#~ msgstr "Cantidad Total"
-
-#~ msgid "Total Worked hours"
-#~ msgstr "Total de horas trabajadas"
-
-#~ msgid "Totals"
-#~ msgstr "Con Total"
-
-#~ msgid "Tractor driver"
-#~ msgstr "Tractorista"
-
-#~ msgid "Transportation"
-#~ msgstr "Transporte"
-
-#~ msgid "Tree"
-#~ msgstr "Árbol"
-
-#~ msgid "Tutoring"
-#~ msgstr "Tutoreo"
-
-#~ msgid "Two weeks"
-#~ msgstr "Periodo a aplicar"
-
-#~ msgid "Type  country"
-#~ msgstr "Ingresa el pais"
-
-#~ msgid "Type a name for the crop"
-#~ msgstr "Ingresa un nombre para el cultivo"
-
-#~ msgid "Type tax reference"
-#~ msgstr "Ingresa la referencia"
-
-#~ msgid "Type the last cost"
-#~ msgstr "Ingresa el ultimo costo"
-
-#~ msgid "Type the tax name"
-#~ msgstr "Ingresa el nombre del impuesto"
-
-#~ msgid "Type warehouse contact name"
-#~ msgstr "Ingresa el nombre de contacto de almacén"
-
-#~ msgid "Type warehouse country"
-#~ msgstr "Ingresa el paíss del almacén"
-
-#~ msgid "Type warehouse description"
-#~ msgstr "Ingresa la descripción del almacén"
-
-#~ msgid "Type warehouse email"
-#~ msgstr "Ingresa el email del almacén"
-
-#~ msgid "Type warehouse tax Id"
-#~ msgstr "Ingresa el id de impuesto del almacén"
-
-#~ msgid "US Dollar"
-#~ msgstr "Dolar Américano"
-
-#~ msgid "Unassigned:"
-#~ msgstr "Sin asignar:"
-
-#~ msgid "Urgent"
-#~ msgstr "Urgente"
-
-#~ msgid "User settings updated"
-#~ msgstr "Actualización configuración de usuario"
-
-#~ msgid "Verified"
-#~ msgstr "Verificado"
-
-#~ msgid "Verified classification"
-#~ msgstr "Clasificación verificada"
-
-#~ msgid "Virtual Existence"
-#~ msgstr "Existencia Virtual"
-
-#~ msgid "WEEK"
-#~ msgstr "SEMANA"
-
-#~ msgid "Waiting"
-#~ msgstr "En espera"
-
-#~ msgid "Warehouse manager"
-#~ msgstr "Encargado de Almacén"
-
-#~ msgid "What fields are included in this crop"
-#~ msgstr "Que campos estan incluidos en este cultivo"
-
-#~ msgid "Worked Hour"
-#~ msgstr "Horas trabajadas"
-
-#~ msgid "Yields"
-#~ msgstr "Cosecha"
-
-#~ msgid "Zipcode"
-#~ msgstr "Código postal"
-
-#~ msgid "ac"
-#~ msgstr "ac"
-
-#~ msgid "e.i. JR98"
-#~ msgstr "ej. IVA16"
-
-#~ msgid "e.i. Payroll Tax"
-#~ msgstr "ej. IVA"
-
-#~ msgid "edit job"
-#~ msgstr "editar trabajo"
-
-#~ msgid "ej. Daniel"
-#~ msgstr ""
-
-#~ msgid "fair"
-#~ msgstr "soleado"
-
-#~ msgid "falling"
-#~ msgstr "decreciente"
-
-#~ msgid "ha"
-#~ msgstr "ha"
-
-#~ msgid "harvest"
-#~ msgstr "cosecha"
-
-#~ msgid "invalid session"
-#~ msgstr "Sesión inválida"
-
-#~ msgid "label"
-#~ msgstr "Etiqueta"
-
-#~ msgid "m2"
-#~ msgstr "m2"
-
-#~ msgid "shipping addresses"
-#~ msgstr "Direcciones de Envío"
-
-#~ msgid "something wrong"
-#~ msgstr "Algo salió mal"
-
-#~ msgid "sunny"
-#~ msgstr "soleado"
-
-#~ msgid "update Purchase"
-#~ msgstr "Actualizacion de compra"
-
-#~ msgid "{} has found {}-{} at {},{} take a look."
-#~ msgstr "{} encontró {}-{}  en {},{}, échale un vistazo."
-
-#~ msgid "{} has found {}-{} take a look."
-#~ msgstr "{} encontró {}-{}, échale un vistazo."
 

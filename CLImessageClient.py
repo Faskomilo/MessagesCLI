@@ -4,8 +4,18 @@ try:
 except:
     print("")
     print("Install Babel before trying to run this program")
+    #puntualizar
     print("")
     sys.exit(0)
+#comments new 
+# add force option
+#path languages hardcodeado encapsulamiento
+#bash scripting
+
+basePath = os.path.join(".", "languages")
+pathToPot = os.path.join(".", "messages.pot")
+
+
 
 class CLImessageClient(object):
     def __init__(self):
@@ -49,7 +59,7 @@ class CLImessageClient(object):
         if language == "all":
             pathToMessages = self.pathToPot
         else:
-            pathToMessages = self.buildPathMessages(pathToLanguages, language)
+            pathToMessages = self.pathHandler.buildPathMessages(pathToLanguages, language)
         __message = self.readfile(pathToMessages)
         __message = self.cleanMessages(__message)
         __messageDictionary = self.textToDictionary(__message)
@@ -300,17 +310,19 @@ class CLImessageClient(object):
         return messageDictionary
 
 class PathHandler(object):
+        def __init__(self, basePath):
+            self.basePath = basePath
+
         def buildPathMessages(self, pathToLanguages, language):
-            path = os.path.join("languages", language, "LC_MESSAGES", "messages.po")
+            print(pathToLanguages)
+            path = os.path.join(self.buildPath(language), "messages.po")
             return path
         
         def buildPath(self, language):
-            path = os.path.join("languages", language, "LC_MESSAGES")
-            return path
+            return os.path.join(self.basePath, language, "LC_MESSAGES")
         
         def listLanguages(self,pathLanguages):
-            options = os.listdir(os.path.join(".", pathLanguages)) 
-            return options
+            return os.listdir(self.basePath)
             
 class SpecificRecord(object):
     pass
@@ -318,6 +330,7 @@ class SpecificRecord(object):
 class FileManager(CommandLineInterface):
 
     def readfile(self, path):
+        print(path)
         messages = open(path).read()
         return messages
 
@@ -413,15 +426,16 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
     option = 0
 
 
-    def __init__(self):
-        self.pathLanguages = os.path.join(".","languages")
-        self.pathToPot = os.path.join("..","messages.pot")
+    def __init__(self, basePath, pathToPot):
+        self.pathLanguages = basePath
+        self.pathToPot = pathToPot
+        self.pathHandler = PathHandler(basePath)
         self.CLI(sys.argv)
     
     def CLI(self, args):
         options = ["aL","aM", "s", "mM", "v", "dM", "dL", "h", "aT"]
         optionsLong = ["addLanguage","addMessage", "search", "modifyMessage", "verify", "deleteMessage", "deleteCatalog", "--help", "addTranslations"]
-        languages = self.listLanguages(self.pathLanguages)
+        languages = self.pathHandler.listLanguages(self.pathLanguages)
         languages.append("all")
 
         option = []
@@ -471,13 +485,13 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
                 parser_aM.set_defaults(func=self.addMessageToCatalogs)
 
                 parser_mM = subparsers.add_parser("mM",help = "modifyMessage:    Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
-                parser_mM.add_argument("exMessageId", metavar="Message_Id")
+                parser_mM.add_argument("exMessageId", metavar="Message_Id", help="The Message Id should be wrapped wrapped in quotation marks and it's Caps Sensitive")
                 if(("all" in argsL) or "-h" in argsL or "--help" in argsL):
-                    parser_mM.add_argument("messageId", metavar="New_Message_Id", help="The New message Id should be wrapped wrapped in quotation marks, only allowed to be used when applied to all languages")
-                parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
+                    parser_mM.add_argument("messageId", metavar="New_Message_Id", help="The New message Id should be wrapped in quotation marks, only allowed to be used when applied to all languages")
+                parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks, only allowed to be used when applied to a certain language")
                 parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language to search in, for changes on Translation use ")
                 if(("all" not in argsL) or "-h" in argsL or "--help" in argsL):
-                    parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks")
+                    parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
                 parser_mM.set_defaults(func=self.modifyMessageInCatalog)
 
                 parser_dM = subparsers.add_parser("dM",help = "deleteMessage:    Allow to delete a Message Id in all catalogs or if language provided only in said language")
@@ -494,11 +508,12 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
                 parser_aT.set_defaults(func=self.addTranslations)
 
                 arguments = parser.parse_args(argsL)
+                arguments.__setattr__("hola", "hola")
                 arguments.func(arguments)
 
     def verifyCatalogs(self, args):
         pathLanguages = self.pathLanguages
-        allLanguages = self.listLanguages(pathLanguages)
+        allLanguages = self.pathHandler.listLanguages(pathLanguages)
         for x in allLanguages:
             print("#########  " + x + " Catalog  #########")
             self.compareCatalogs("all", x)
@@ -513,7 +528,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         __messageDictionary = {}
         allLanguages = [language]
         if language == "all":
-            allLanguages = self.listLanguages(pathLanguages)
+            allLanguages = self.pathHandler.listLanguages(pathLanguages)
         for x in range(len(allLanguages)):
             language = allLanguages[x]
             __messageDictionary = self.getDictionary(language)
@@ -526,17 +541,24 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
     
     def addLanguageCatalog(self, args):
         language = args.newLan
-        pathToPot = self.pathToPot
-        pathToCatalog = self.buildPath(language)
-        self.init(language,pathToCatalog,pathToPot)
-        self.compile(pathToCatalog, language)
+        pathLanguages = self.pathLanguages
+        allLanguages = self.pathHandler.listLanguages(pathLanguages)
+        if language not in allLanguages:
+            pathToPot = self.pathToPot
+            pathToCatalog = self.pathHandler.buildPath(language)
+            self.init(language,pathToCatalog,pathToPot)
+            self.compile(pathToCatalog, language)
+        else:
+            print("")
+            print("The \"" + language + "\" language already exists.")
+            print("")
 
     def addMessageToCatalogs(self, args):
         newMessage = args.messageId
         newComment = args.Comment
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
-        allLanguages = self.listLanguages(pathLanguages)
+        allLanguages = self.pathHandler.listLanguages(pathLanguages)
         __message = ""
         __messageDictionary = {}
         __messageDictionary = self.getDictionary("all")
@@ -569,7 +591,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         self.option = 2
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
-        allLanguages = self.listLanguages(pathLanguages)
+        allLanguages = self.pathHandler.listLanguages(pathLanguages)
         __messageDictionary = self.getDictionary(language)
         toBeModified = self.searchMessage(exMessage, __messageDictionary, language)
         ask = None 
@@ -596,7 +618,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         self.option = 3
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
-        allLanguages = self.listLanguages(pathLanguages)
+        allLanguages = self.pathHandler.listLanguages(pathLanguages)
         __messageDictionary = self.getDictionary(language)
         toBeDeleted = self.searchMessage(message, __messageDictionary, language)
         ask = None 
@@ -637,7 +659,6 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         notUsedDic = {}
         notExistingList = []
         for x in __translationsDictionary: 
-            print x
             if x != "//Repeated" and x != "//Obsolete":
                 translation = __translationsDictionary[x]["msgstr"]
                 if x in __lanDictionary:
@@ -666,5 +687,5 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         print("")
 
 if __name__ == "__main__":
-    Runner()
+    Runner(basePath, pathToPot)
 
