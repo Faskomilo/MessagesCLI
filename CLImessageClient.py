@@ -47,8 +47,7 @@ class CLImessageClient(object):
     def getDictionary(self, language):
         pathToLanguages = self.pathLanguages
         if language == "all":
-            pathToPot = os.path.join(pathToLanguages, "messages.pot")
-            pathToMessages = pathToPot
+            pathToMessages = self.pathToPot
         else:
             pathToMessages = self.buildPathMessages(pathToLanguages, language)
         __message = self.readfile(pathToMessages)
@@ -77,7 +76,7 @@ class CLImessageClient(object):
                 print("The catalog for the .pot file is larger than the " + secondLanguage + " catalog")
                 for x in helperList:
                     print("")
-                    print("Message id: " + x + " is on the .pot file catalog but not in the " + secondLanguage + " catalog")
+                    print("Message id: " + x + " is on the .pot file catalog but not in the \"" + secondLanguage + "\" catalog")
         else:
             for x in secondMessages:
                 firstHelper = helper
@@ -85,7 +84,7 @@ class CLImessageClient(object):
                     if x == y:
                         helper += 1
                 if firstHelper == helper:
-                    helperList.append(x.keys())
+                    helperList.append(x)
             print("")
             print("The catalog for " + secondLanguage + " is larger than the .pot file catalog")
             for x in helperList:
@@ -404,6 +403,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
     pathLanguages = ""
     language = ""
     __pathCatalog = ""
+    pathToPot = ""
     __pathMessages = ""
     optionLan = 0
     __message = ""
@@ -415,6 +415,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
 
     def __init__(self):
         self.pathLanguages = os.path.join(".","languages")
+        self.pathToPot = os.path.join("..","messages.pot")
         self.CLI(sys.argv)
     
     def CLI(self, args):
@@ -493,13 +494,11 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
                 parser_aT.set_defaults(func=self.addTranslations)
 
                 arguments = parser.parse_args(argsL)
-                print(arguments)
                 arguments.func(arguments)
 
     def verifyCatalogs(self, args):
         pathLanguages = self.pathLanguages
         allLanguages = self.listLanguages(pathLanguages)
-        allLanguages.pop()
         for x in allLanguages:
             print("#########  " + x + " Catalog  #########")
             self.compareCatalogs("all", x)
@@ -515,7 +514,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         allLanguages = [language]
         if language == "all":
             allLanguages = self.listLanguages(pathLanguages)
-        for x in range(len(allLanguages)-1):
+        for x in range(len(allLanguages)):
             language = allLanguages[x]
             __messageDictionary = self.getDictionary(language)
             help = self.searchMessage(message ,__messageDictionary, language)
@@ -527,8 +526,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
     
     def addLanguageCatalog(self, args):
         language = args.newLan
-        pathLanguages = self.pathLanguages
-        pathToPot = os.path.join(pathLanguages, "messages.pot")
+        pathToPot = self.pathToPot
         pathToCatalog = self.buildPath(language)
         self.init(language,pathToCatalog,pathToPot)
         self.compile(pathToCatalog, language)
@@ -537,7 +535,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         newMessage = args.messageId
         newComment = args.Comment
         pathLanguages = self.pathLanguages
-        pathToPot = os.path.join(pathLanguages, "messages.pot")
+        pathToPot = self.pathToPot
         allLanguages = self.listLanguages(pathLanguages)
         __message = ""
         __messageDictionary = {}
@@ -546,7 +544,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         if __messageDictionary != None:
             __message = self.dictionaryToText(__messageDictionary)
             self.writefile(__message, pathToPot)
-            for x in range(len(allLanguages)-1):
+            for x in range(len(allLanguages)):
                 __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
                 self.update(__pathToCatalog, pathToPot, allLanguages[x])
                 self.compile(__pathToCatalog, allLanguages[x])  
@@ -570,7 +568,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
             comment = ""
         self.option = 2
         pathLanguages = self.pathLanguages
-        pathToPot = os.path.join(pathLanguages, "messages.pot")
+        pathToPot = self.pathToPot
         allLanguages = self.listLanguages(pathLanguages)
         __messageDictionary = self.getDictionary(language)
         toBeModified = self.searchMessage(exMessage, __messageDictionary, language)
@@ -587,7 +585,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
                 self.compile(__pathToCatalog, language)
             else:
                 self.writefile(__message, pathToPot)
-                for x in range(len(allLanguages) -1):
+                for x in range(len(allLanguages)):
                     __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
                     self.update(__pathToCatalog, pathToPot, allLanguages[x])
                     self.compile(__pathToCatalog, allLanguages[x])
@@ -597,7 +595,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         message = args.messageId.split("\"")[0]
         self.option = 3
         pathLanguages = self.pathLanguages
-        pathToPot = os.path.join(pathLanguages, "messages.pot")
+        pathToPot = self.pathToPot
         allLanguages = self.listLanguages(pathLanguages)
         __messageDictionary = self.getDictionary(language)
         toBeDeleted = self.searchMessage(message, __messageDictionary, language)
@@ -609,7 +607,7 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
                 __messageDictionary = self.modifyMessage(__messageDictionary, toBeDeleted, "", "", "")
                 __message = self.dictionaryToText(__messageDictionary)
                 self.writefile(__message, pathToPot)
-                for x in range(len(allLanguages) -1):
+                for x in range(len(allLanguages)):
                     __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
                     self.update(__pathToCatalog, pathToPot, allLanguages[x])
                     self.compile(__pathToCatalog, allLanguages[x])
