@@ -3,13 +3,10 @@ try:
     from babel.messages.frontend import CommandLineInterface
 except:
     print("")
-    print("Install Babel before trying to run this program")
-    #puntualizar
+    print("Install Babel 2.8.0 before trying to run this program")
     print("")
     sys.exit(0)
 #comments new 
-# add force option
-#path languages hardcodeado encapsulamiento
 #bash scripting
 
 basePath = os.path.join(".", "languages")
@@ -27,26 +24,20 @@ class CLImessageClient(object):
         else: 
             _ = os.system('clear') 
 
-    def cleanMessages(self, message):
-        cleanMessage = message
-        messagesDictionary = self.textToDictionary(message)
-        cleanMessage = self.dictionaryToText(messagesDictionary)
-        return cleanMessage
-
-    def askIfConfident(self, message):
+    def askIfConfident(self, message, option):
         try:
-            if self.option == 2:
+            if option == 2:
                 print("Are you sure you want to modify the record: \nMessage id: " + message)
-            elif self.option == 3:
+            elif option == 3:
                 print("Are you sure you want to delete the record: \nMessage id: " + message)
-            elif self.option == 4:
+            elif option == 4:
                 print("Are you sure you want to delete the whole \"" + message + "\" language")
             confident = int(raw_input("0: No\n1: Yes\n:"))
             if confident > 1 or confident < 0:
                 raise Exception("Invalid Option")
             if confident == 0:
                 print("Action aborted succesfully")
-                return None
+                return False
             return confident
         except:
             print("")
@@ -54,13 +45,21 @@ class CLImessageClient(object):
             print("")
             return None
 
+class CoreMotor(object):
+
+    def cleanMessages(self, message):
+        cleanMessage = message
+        messagesDictionary = self.textToDictionary(message)
+        cleanMessage = self.dictionaryToText(messagesDictionary)
+        return cleanMessage
+
     def getDictionary(self, language):
         pathToLanguages = self.pathLanguages
         if language == "all":
             pathToMessages = self.pathToPot
         else:
-            pathToMessages = self.pathHandler.buildPathMessages(pathToLanguages, language)
-        __message = self.readfile(pathToMessages)
+            pathToMessages = self.PathHandler.buildPathMessages(pathToLanguages, language)
+        __message = self.PathHandler.readfile(pathToMessages)
         __message = self.cleanMessages(__message)
         __messageDictionary = self.textToDictionary(__message)
         return __messageDictionary
@@ -247,7 +246,7 @@ class CLImessageClient(object):
             print("")
             return "Empty"
                 
-    def modifyMessage(self, messageDictionary, exMessage, newMessageId, comment, translation):
+    def modifyMessage(self, messageDictionary, exMessage, newMessageId, comment, translation, option):
         messageDictionary = messageDictionary
         message = exMessage
         messageId = message.keys()[0]
@@ -256,7 +255,7 @@ class CLImessageClient(object):
         newMessageId = newMessageId
         newMessageStr = translation
         newMessageComments = comment
-        if self.option == 2:
+        if option == 2:
             if newMessageId != "":
                 try:
                     newMessageId = newMessageId
@@ -303,7 +302,7 @@ class CLImessageClient(object):
                         return None
             del messageDictionary[messageId]
             messageDictionary[newMessageId] = {"Comments" : newMessageComments, "msgstr" : newMessageStr}
-        elif self.option == 3:
+        elif option == 3:
             del messageDictionary[messageId]
             print("\nThe element has been succesfully deleted")
             print("")
@@ -324,21 +323,7 @@ class PathHandler(object):
         def listLanguages(self,pathLanguages):
             return os.listdir(self.basePath)
             
-class SpecificRecord(object):
-    pass
-
-class FileManager(CommandLineInterface):
-
-    def readfile(self, path):
-        print(path)
-        messages = open(path).read()
-        return messages
-
-    def writefile(self, message, path):
-        file = open(path, "w")
-        file.write(message)
-        print("Write succesfull on \"" + path + "\"") 
-
+class BabelManager(CommandLineInterface):
     def compile(self, pathToCatalog, language):
         print("")
         path = os.path.join(pathToCatalog,"messages")
@@ -412,7 +397,19 @@ class FileManager(CommandLineInterface):
             pass
         print("")
 
-class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
+class FileManager(object):
+
+    def readfile(self, path):
+        print(path)
+        messages = open(path).read()
+        return messages
+
+    def writefile(self, message, path):
+        file = open(path, "w")
+        file.write(message)
+        print("Write succesfull on \"" + path + "\"") 
+
+class Runner(object):
     pathLanguages = ""
     language = ""
     __pathCatalog = ""
@@ -429,13 +426,17 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
     def __init__(self, basePath, pathToPot):
         self.pathLanguages = basePath
         self.pathToPot = pathToPot
-        self.pathHandler = PathHandler(basePath)
+        self.PathHandler = PathHandler(basePath)
+        self.CLImessageClient = CLImessageClient()
+        self.FileManager = FileManager()
+        self.BabelManager = BabelManager()
+        self.CoreMotor = CoreMotor()
         self.CLI(sys.argv)
     
     def CLI(self, args):
         options = ["aL","aM", "s", "mM", "v", "dM", "dL", "h", "aT"]
         optionsLong = ["addLanguage","addMessage", "search", "modifyMessage", "verify", "deleteMessage", "deleteCatalog", "--help", "addTranslations"]
-        languages = self.pathHandler.listLanguages(self.pathLanguages)
+        languages = self.PathHandler.listLanguages(self.pathLanguages)
         languages.append("all")
 
         option = []
@@ -463,28 +464,28 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
                 print("Too many actions, just one per run allowed, see --help if needed.")
                 print("")
             else:
-                parser = argparse.ArgumentParser(prog="MsgManager", description="Options for management of .po catalogs")
-                parser.add_argument("CLImessageClient.py")
+                parser = argparse.ArgumentParser(prog=argsL[0], description="Options for management of .po catalogs")
+                del argsL[0]
                 subparsers = parser.add_subparsers(title="Accepted commands", description="Available Options")
 
-                parser_v = subparsers.add_parser("v",help = "verify:          Allows to verify that every Language Catalog has the same Message Id's")
+                parser_v = subparsers.add_parser("v",help = "verify:\n Allows to verify that every Language Catalog has the same Message Id's")
                 parser_v.set_defaults(func=self.verifyCatalogs)
 
-                parser_s = subparsers.add_parser("s",help = "search:           Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
+                parser_s = subparsers.add_parser("s",help = "search:\n Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
                 parser_s.add_argument("messageId", metavar="Message_Id")
                 parser_s.add_argument("exLan", choices=languages, nargs='?',  default = "all",  metavar="Language", help="Language to search in, for all languages: all")
                 parser_s.set_defaults(func=self.searchMessageInCatalogs)
 
-                parser_aL = subparsers.add_parser("aL",help = "addLanguage:      Allows to add a new language with the Message Id's already added")
+                parser_aL = subparsers.add_parser("aL",help = "addLanguage:\n Allows to add a new language with the Message Id's already added")
                 parser_aL.add_argument("newLan", metavar="New_Language", help="Language to be added")
                 parser_aL.set_defaults(func=self.addLanguageCatalog)
 
-                parser_aM = subparsers.add_parser("aM",help = "addMessage:       Allows to add a message, either to one language or all")
+                parser_aM = subparsers.add_parser("aM",help = "addMessage:\n Allows to add a message, either to one language or all")
                 parser_aM.add_argument("messageId", metavar="New_Message_Id", help="The Message Id should go wrapped in quotation marks")
                 parser_aM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
                 parser_aM.set_defaults(func=self.addMessageToCatalogs)
 
-                parser_mM = subparsers.add_parser("mM",help = "modifyMessage:    Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
+                parser_mM = subparsers.add_parser("mM",help = "modifyMessage:\n Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
                 parser_mM.add_argument("exMessageId", metavar="Message_Id", help="The Message Id should be wrapped wrapped in quotation marks and it's Caps Sensitive")
                 if(("all" in argsL) or "-h" in argsL or "--help" in argsL):
                     parser_mM.add_argument("messageId", metavar="New_Message_Id", help="The New message Id should be wrapped in quotation marks, only allowed to be used when applied to all languages")
@@ -492,31 +493,34 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
                 parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language to search in, for changes on Translation use ")
                 if(("all" not in argsL) or "-h" in argsL or "--help" in argsL):
                     parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
+                parser_mM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
                 parser_mM.set_defaults(func=self.modifyMessageInCatalog)
 
-                parser_dM = subparsers.add_parser("dM",help = "deleteMessage:    Allow to delete a Message Id in all catalogs or if language provided only in said language")
+                parser_dM = subparsers.add_parser("dM",help = "deleteMessage:\n Allow to delete a Message Id in all catalogs or if language provided only in said language")
                 parser_dM.add_argument("messageId", metavar="Message_Id", help = "Message Id to be deleted")
+                parser_dM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
                 parser_dM.set_defaults(func=self.deleteMessageInCatalogs)
 
-                parser_dL = subparsers.add_parser("dL",help = "deleteCatalog:    Allows to delete a whole Language's Message Catalog")
+                parser_dL = subparsers.add_parser("dL",help = "deleteCatalog:\n Allows to delete a whole Language's Message Catalog")
                 parser_dL.add_argument("exLan", choices=languages, metavar="Language", help= "Language to delete its Catalog")
+                parser_dL.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
                 parser_dL.set_defaults(func=self.deleteLanguageCatalog)
 
-                parser_aT = subparsers.add_parser("aT",help = "addTranslations:    Allows to allow a massive catalog of translations to an initiated Catalog")
+                parser_aT = subparsers.add_parser("aT",help = "addTranslations:\n Allows to allow a massive catalog of translations to an initiated Catalog")
                 parser_aT.add_argument("exLan", choices=languages, metavar="Language", help= "Language to add Translations to its Catalog")
-                parser_aT.add_argument("pathToTrans", metavar="Translations_File", help= "Catalog of Translations")                
+                parser_aT.add_argument("pathToTrans", metavar="Translations_File", help= "Catalog of Translations")                                      
                 parser_aT.set_defaults(func=self.addTranslations)
 
                 arguments = parser.parse_args(argsL)
-                arguments.__setattr__("hola", "hola")
                 arguments.func(arguments)
+                print("")
 
     def verifyCatalogs(self, args):
         pathLanguages = self.pathLanguages
-        allLanguages = self.pathHandler.listLanguages(pathLanguages)
+        allLanguages = self.PathHandler.listLanguages(pathLanguages)
         for x in allLanguages:
             print("#########  " + x + " Catalog  #########")
-            self.compareCatalogs("all", x)
+            self.CoreMotor.compareCatalogs("all", x)
             print("")
             print("")
 
@@ -528,11 +532,11 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         __messageDictionary = {}
         allLanguages = [language]
         if language == "all":
-            allLanguages = self.pathHandler.listLanguages(pathLanguages)
+            allLanguages = self.PathHandler.listLanguages(pathLanguages)
         for x in range(len(allLanguages)):
             language = allLanguages[x]
-            __messageDictionary = self.getDictionary(language)
-            help = self.searchMessage(message ,__messageDictionary, language)
+            __messageDictionary = self.CoreMotor.getDictionary(language)
+            help = self.CoreMotor.searchMessage(message ,__messageDictionary, language)
             print("")
             if help == None:
                 break
@@ -542,12 +546,12 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
     def addLanguageCatalog(self, args):
         language = args.newLan
         pathLanguages = self.pathLanguages
-        allLanguages = self.pathHandler.listLanguages(pathLanguages)
+        allLanguages = self.PathHandler.listLanguages(pathLanguages)
         if language not in allLanguages:
             pathToPot = self.pathToPot
-            pathToCatalog = self.pathHandler.buildPath(language)
-            self.init(language,pathToCatalog,pathToPot)
-            self.compile(pathToCatalog, language)
+            pathToCatalog = self.PathHandler.buildPath(language)
+            self.BabelManager.init(language,pathToCatalog,pathToPot)
+            self.BabelManager.compile(pathToCatalog, language)
         else:
             print("")
             print("The \"" + language + "\" language already exists.")
@@ -558,18 +562,18 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         newComment = args.Comment
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
-        allLanguages = self.pathHandler.listLanguages(pathLanguages)
+        allLanguages = self.PathHandler.listLanguages(pathLanguages)
         __message = ""
         __messageDictionary = {}
-        __messageDictionary = self.getDictionary("all")
-        __messageDictionary = self.addMessage(newMessage, newComment, __messageDictionary)
+        __messageDictionary = self.CoreMotor.getDictionary("all")
+        __messageDictionary = self.CoreMotor.addMessage(newMessage, newComment, __messageDictionary)
         if __messageDictionary != None:
-            __message = self.dictionaryToText(__messageDictionary)
-            self.writefile(__message, pathToPot)
+            __message = self.CoreMotor.dictionaryToText(__messageDictionary)
+            self.FileManager.writefile(__message, pathToPot)
             for x in range(len(allLanguages)):
                 __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                self.update(__pathToCatalog, pathToPot, allLanguages[x])
-                self.compile(__pathToCatalog, allLanguages[x])  
+                self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x])
+                self.BabelManager.compile(__pathToCatalog, allLanguages[x])  
         __message = ""
         __messageDictionary = {} 
         
@@ -591,26 +595,26 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         self.option = 2
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
-        allLanguages = self.pathHandler.listLanguages(pathLanguages)
-        __messageDictionary = self.getDictionary(language)
-        toBeModified = self.searchMessage(exMessage, __messageDictionary, language)
+        allLanguages = self.PathHandler.listLanguages(pathLanguages)
+        __messageDictionary = self.CoreMotor.getDictionary(language)
+        toBeModified = self.CoreMotor.searchMessage(exMessage, __messageDictionary, language)
         ask = None 
         if toBeModified != None and toBeModified != "Empty":
-            ask = self.askIfConfident(exMessage)
+            ask = self.CLImessageClient.askIfConfident(exMessage, self.option)
         if ask != None:
-            __messageDictionary = self.modifyMessage(__messageDictionary, toBeModified, newMessageId, comment, translation)
-            __message = self.dictionaryToText(__messageDictionary)
+            __messageDictionary = self.CoreMotor.modifyMessage(__messageDictionary, toBeModified, newMessageId, comment, translation, self.option)
+            __message = self.CoreMotor.dictionaryToText(__messageDictionary)
             if language != "all":
                 __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
                 __pathMessages = os.path.join(__pathToCatalog, "messages.po")
-                self.writefile(__message, __pathMessages)
-                self.compile(__pathToCatalog, language)
+                self.FileManager.writefile(__message, __pathMessages)
+                self.BabelManager.compile(__pathToCatalog, language)
             else:
-                self.writefile(__message, pathToPot)
+                self.FileManager.writefile(__message, pathToPot)
                 for x in range(len(allLanguages)):
                     __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                    self.update(__pathToCatalog, pathToPot, allLanguages[x])
-                    self.compile(__pathToCatalog, allLanguages[x])
+                    self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x])
+                    self.BabelManager.compile(__pathToCatalog, allLanguages[x])
                 
     def deleteMessageInCatalogs(self, args):
         language = "all"
@@ -618,44 +622,45 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
         self.option = 3
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
-        allLanguages = self.pathHandler.listLanguages(pathLanguages)
-        __messageDictionary = self.getDictionary(language)
-        toBeDeleted = self.searchMessage(message, __messageDictionary, language)
-        ask = None 
-        if toBeDeleted != None and toBeDeleted != "Empty":
-            ask = self.askIfConfident(message)
-        if ask != None:
+        allLanguages = self.PathHandler.listLanguages(pathLanguages)
+        __messageDictionary = self.CoreMotor.getDictionary(language)
+        toBeDeleted = self.CoreMotor.searchMessage(message, __messageDictionary, language)
+        ask = args.force
+        if toBeDeleted != None and toBeDeleted != "Empty" and ask == False:
+            ask = self.CLImessageClient.askIfConfident(message, self.option)
+        if ask != False:
             if toBeDeleted != None:
-                __messageDictionary = self.modifyMessage(__messageDictionary, toBeDeleted, "", "", "")
-                __message = self.dictionaryToText(__messageDictionary)
-                self.writefile(__message, pathToPot)
+                __messageDictionary = self.CoreMotor.modifyMessage(__messageDictionary, toBeDeleted, "", "", "", self.option)
+                __message = self.CoreMotor.dictionaryToText(__messageDictionary)
+                self.FileManager.writefile(__message, pathToPot)
                 for x in range(len(allLanguages)):
                     __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                    self.update(__pathToCatalog, pathToPot, allLanguages[x])
-                    self.compile(__pathToCatalog, allLanguages[x])
+                    self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x])
+                    self.BabelManager.compile(__pathToCatalog, allLanguages[x])
             
     def deleteLanguageCatalog(self, args):
         language = args.exLan
         self.option = 4
         pathLanguages = self.pathLanguages
-        ask = self.askIfConfident(language)
-        if ask != None:
+        ask = args.force
+        if ask == False:
+            ask = self.CLImessageClient.askIfConfident(language, self.option)
+        if ask != False:
             pathLanguage = os.path.join(pathLanguages, language)
             shutil.rmtree(pathLanguage)
-            print("The deletion of the " + language + " language was succesful")
-            print("")
+            print("The deletion of the \"" + language + "\" language was succesful")
 
     def addTranslations(self,args):
         language = args.exLan
         translationPath = args.pathToTrans
-        __lanDictionary = self.getDictionary(language)
+        __lanDictionary = self.CoreMotor.getDictionary(language)
         try:
-            __translations = self.readfile(translationPath)
+            __translations = self.FileManager.readfile(translationPath)
         except: 
             print("")
             print("path doesn't lead to a language translations")
             return None
-        __translationsDictionary = self.textToDictionary(__translations)
+        __translationsDictionary = self.CoreMotor.textToDictionary(__translations)
         notUsedDic = {}
         notExistingList = []
         for x in __translationsDictionary: 
@@ -678,11 +683,11 @@ class Runner(CLImessageClient,PathHandler,SpecificRecord,FileManager):
             print(notExistingList)
             print("")
         print("")
-        messages = self.dictionaryToText(__lanDictionary)
+        messages = self.CoreMotor.dictionaryToText(__lanDictionary)
         pathLanguages = self.pathLanguages
         __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
         __pathMessages = os.path.join(__pathToCatalog, "messages.po")
-        self.writefile(messages, __pathMessages)
+        self.FileManager.writefile(messages, __pathMessages)
         print("Translations added")
         print("")
 
