@@ -1,5 +1,0 @@
-{
-    "python.pythonPath": "../virtualEnvs/babelenv/bin/python",
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
-}

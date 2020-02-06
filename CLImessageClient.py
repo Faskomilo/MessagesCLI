@@ -6,8 +6,6 @@ except:
     print("Install Babel 2.8.0 before trying to run this program")
     print("")
     sys.exit(0)
-#comments new 
-#bash scripting
 
 basePath = os.path.join(".", "languages")
 pathToPot = os.path.join(".", "messages.pot")
@@ -15,9 +13,6 @@ pathToPot = os.path.join(".", "messages.pot")
 
 
 class CLImessageClient(object):
-    def __init__(self):
-        print("")
-
     def clearScreen(self):
         if os.name == 'nt':
             _ = os.system('cls') 
@@ -42,7 +37,6 @@ class CLImessageClient(object):
         except:
             print("")
             print("Invalid Option")
-            print("")
             return False
 
 class CoreMotor(object):
@@ -82,13 +76,13 @@ class CoreMotor(object):
                     helperList.append(x)
             if helper == len(firstMessages):
                 print("")
-                print("Every Message in the .pot file exists in " + secondLanguage)
+                print("Every Message in the \"" + firstLanguage + "\" file exists in \"" + secondLanguage + "\"")
                 return None
             else:
-                print("The catalog for the .pot file is larger than the " + secondLanguage + " catalog")
+                print("The catalog for the \"" + firstLanguage + "\" file is larger than the \"" + secondLanguage + "\" catalog")
                 for x in helperList:
                     print("")
-                    print("Message id: " + x + " is on the .pot file catalog but not in the \"" + secondLanguage + "\" catalog")
+                    print("Message id: \"" + x + "\" is on the .pot file catalog but not in the \"" + secondLanguage + "\" catalog")
         else:
             for x in secondMessages:
                 firstHelper = helper
@@ -98,10 +92,10 @@ class CoreMotor(object):
                 if firstHelper == helper:
                     helperList.append(x)
             print("")
-            print("The catalog for " + secondLanguage + " is larger than the .pot file catalog")
+            print("The catalog for \"" + secondLanguage + "\" is larger than the \"" + firstLanguage + "\" file catalog")
             for x in helperList:
                 print("")
-                print("Message id: " + x + " is on " + secondLanguage + " catalog but not in the .pot file")
+                print("Message id: \"" + x + "\" is on \"" + secondLanguage + "\" catalog but not in the \"" + firstLanguage + "\" file")
 
     def dictionaryToText(self, messagesDictionary, option = 0):
         messagesDictionary = messagesDictionary
@@ -224,7 +218,7 @@ class CoreMotor(object):
         newMsgid = newMessage
         Comment = newComment
         if newMsgid in messageDictionary:
-            print("That Message Id already exists")
+            print("The \"" +  newMessage + "\" Message Id already exists")
             print("")
             return None
         else:  
@@ -246,7 +240,7 @@ class CoreMotor(object):
             messageInfo = {specificMessage : messageDictionary[specificMessage]}
             return messageInfo
         else:
-            print("That Message Id doesn't exist in the \"" + language + "\" Catalog")
+            print("The \"" +  message + "\" Message Id doesn't exist in the \"" + language + "\" Catalog")
             print("")
             return "Empty"
                 
@@ -266,7 +260,6 @@ class CoreMotor(object):
                     if any(char.isdigit() for char in newMessageId):
                         raise Exception("Message Id's should have only letters")
                 except:
-                    print("")
                     print("Error: Message Translations should have only letters")
                     print("")
                     return None
@@ -276,7 +269,6 @@ class CoreMotor(object):
                     try:
                         newMessageComments = newMessageComments
                     except:
-                        print("")
                         print("Error: Unknown Comment changes errors")
                         print("")
                         return None                    
@@ -290,7 +282,6 @@ class CoreMotor(object):
                         if any(char.isdigit() for char in newMessageStr):
                             raise Exception("Message Translations should have only letters")
                     except:
-                        print("")
                         print("Error: Message Translations should have only letters")
                         print("")
                         return None
@@ -300,7 +291,6 @@ class CoreMotor(object):
                     try:
                         newMessageComments = newMessageComments
                     except:
-                        print("")
                         print("Error: Unknown Comment changes errors")
                         print("")
                         return None
@@ -308,7 +298,7 @@ class CoreMotor(object):
             messageDictionary[newMessageId] = {"Comments" : newMessageComments, "msgstr" : newMessageStr}
         elif option == 3:
             del messageDictionary[messageId]
-            print("\nThe element has been succesfully deleted")
+            print("\nThe \"" + exMessage + "\" Message Id has been succesfully deleted")
             print("")
         return messageDictionary
 
@@ -317,7 +307,6 @@ class PathHandler(object):
             self.basePath = basePath
 
         def buildPathMessages(self, pathToLanguages, language):
-            print(pathToLanguages)
             path = os.path.join(self.buildPath(language), "messages.po")
             return path
         
@@ -329,7 +318,6 @@ class PathHandler(object):
             
 class BabelManager(CommandLineInterface):
     def compile(self, pathToCatalog, language):
-        print("")
         path = os.path.join(pathToCatalog,"messages")
         babArgs = []
         babArgs.append("pybabel")
@@ -348,7 +336,6 @@ class BabelManager(CommandLineInterface):
         print("")
 
     def extract(self, pathToCatalog):
-        print("")
         path = os.path.join(pathToCatalog,"messages")
         babArgs = []
         babArgs.append("pybabel")
@@ -364,7 +351,6 @@ class BabelManager(CommandLineInterface):
         print("")
 
     def init(self, newLanguage, pathToCatalog, pathToPot):
-        print("")
         path = os.path.join(pathToCatalog,"messages.po")
         babArgs = []
         babArgs.append("pybabel")
@@ -383,7 +369,6 @@ class BabelManager(CommandLineInterface):
         print("")
     
     def update(self, pathToCatalog, pathToPot, language):
-        print("")
         path = os.path.join(pathToCatalog,"messages.po")
         babArgs = []
         babArgs.append("pybabel")
@@ -511,8 +496,9 @@ class Runner(object):
 
                 parser_aT = subparsers.add_parser("aT",help = "addTranslations:\n Allows to allow a massive catalog of translations to an initiated Catalog")
                 parser_aT.add_argument("exLan", choices=languages, metavar="Language", help= "Language to add Translations to its Catalog")
-                parser_aT.add_argument("-F","--File", nargs='?',  default = "False", help = "Expect a file path")
+                parser_aT.add_argument("-F","--File", nargs='?',  default = False, help = "Expect a file path")
                 parser_aT.add_argument("-S","--Stdin", action='store_true', help = "Expect a Standard Input before")
+                parser_aT.add_argument("-V","--Verbose", action='store_true', help = "Show the whole list of messages not updated and not used")
                 parser_aT.set_defaults(func=self.addTranslations)
 
                 arguments = parser.parse_args(argsL)
@@ -525,7 +511,6 @@ class Runner(object):
         for x in allLanguages:
             print("#########  " + x + " Catalog  #########")
             self.CoreMotor.compareCatalogs("all", x, pathLanguages, self.pathToPot)
-            print("")
             print("")
 
     def searchMessageInCatalogs(self, args):
@@ -559,7 +544,6 @@ class Runner(object):
         else:
             print("")
             print("The \"" + language + "\" language already exists.")
-            print("")
 
     def addMessageToCatalogs(self, args):
         newMessage = args.messageId
@@ -658,49 +642,57 @@ class Runner(object):
         print(args)
         language = args.exLan
         translationPath = args.File
-        if args.File != None and args.Stdin:
+        verbose = args.Verbose
+        if args.File != (None or False) and args.Stdin:
             print("Error, only one option between File and Stdin can be used")
             sys.exit()
         __lanDictionary = self.CoreMotor.getDictionary(language, self.pathLanguages, self.pathToPot)
-        if args.File != None:
+        if args.File != (None or False):
             try:
-                __translations = self.FileManager.readfile(translationPath)
+                __translations = csv.reader(open(translationPath), delimiter=',')
             except: 
                 print("")
-                print("path doesn't lead to a language translations")
+                print("The path:\"" + translationPath + "\"doesn't lead to a language translations")
                 return None
-            __translationsDictionary = self.CoreMotor.textToDictionary(__translations)
+            __translationsDictionary = [x for x in __translations]
         elif args.Stdin:
-            
+            __translations = sys.stdin.readlines()
+            __translationsDictionary = [x[:-1].split(",") for x in __translations]
         notUsedDic = {}
         notExistingList = []
         for x in __translationsDictionary: 
-            if x != "//Repeated" and x != "//Obsolete":
-                translation = __translationsDictionary[x]["msgstr"]
-                if x in __lanDictionary:
-                    if translation != "":
-                        __lanDictionary[x]["msgstr"] = translation
-                    else:
-                        notUsedDic[x] = __translationsDictionary[x] 
+            translation = x[1]
+            if x[0] in __lanDictionary:
+                if translation != "":
+                    __lanDictionary[x[0]]["msgstr"] = translation
                 else:
-                    notExistingList.append(translation)
+                    notUsedDic[x] = x
+            else:
+                notExistingList.append(translation)
         notUsedDic = __lanDictionary
-        if notUsedDic != {}:
-            print("The next dictionary contains the elements that didn't got a translation")
-            print(notUsedDic)
-            print("")
-        if notExistingList != []:
-            print("The next list contains the elements that didn't exist on the selected language")
-            print(notExistingList)
-            print("")
+        if verbose:
+            if notUsedDic != {}:
+                print("The next dictionary contains the elements that didn't get a translation")
+                notUsed = self.CoreMotor.dictionaryToText(__lanDictionary)
+                print(notUsed)
+                print("")
+            if notExistingList != []:
+                print("The next list contains the elements that didn't exist on the selected language")
+                print(notExistingList)
+                print("")
+        print("")
+        print("Elements that didn't get a translation: " + str(len(notUsedDic)))
+        print("Elements that didn't exist in the selected language: " + str(len(notExistingList)))
         print("")
         messages = self.CoreMotor.dictionaryToText(__lanDictionary)
         pathLanguages = self.pathLanguages
         __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
         __pathMessages = os.path.join(__pathToCatalog, "messages.po")
         self.FileManager.writefile(messages, __pathMessages)
-        print("Translations added")
+        print("Translations added Succesfully")
         print("")
+        
+        
 
 if __name__ == "__main__":
     Runner(basePath, pathToPot)
