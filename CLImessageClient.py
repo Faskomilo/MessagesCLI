@@ -9,13 +9,20 @@ except:
 
 try:
     Config = ConfigParser.ConfigParser()
+    open("config.ini", "r")
     Config.read("config.ini")
-except Exception as e:
-    print(e)
-    print("config.ini file needed to run")
+    basePath = Config.get("PATHS", "catalogsDir")
+    pathToPot = Config.get("PATHS", ".potFile")
+    if not os.path.isfile(pathToPot):
+        print("Invalid path to .potFile on config.ini")
+        raise Exception("Invalid paths on config.ini")
+    if not os.path.isdir(basePath):
+        print("Invalid path to catalogsDir  on config.ini")
+        raise Exception("Invalid paths on config.ini")
+except:
+    print("Valid config.ini file needed to run")
+    print("")
     sys.exit(0)
-basePath = os.path.join(Config.get("PATHS", "catalogsDir"))
-pathToPot = os.path.join(Config.get("PATHS", ".potFile"))
 
 class CLImessageClient(object):
     def clearScreen(self):
@@ -223,7 +230,7 @@ class CentralMechanism(object):
         newMsgid = newMessage
         Comment = newComment
         if newMsgid in messageDictionary:
-            print("-- The \"" +  newMessage + "\" Message Id already exists")
+            print("** The \"" +  newMessage + "\" Message Id already exists **")
             print("")
             return None
         else:  
@@ -246,7 +253,7 @@ class CentralMechanism(object):
             messageInfo = {specificMessage : messageDictionary[specificMessage]}
             return messageInfo
         else:
-            print("-- The \"" +  message + "\" Message Id doesn't exist in the \"" + language + "\" Catalog")
+            print("** The \"" +  message + "\" Message Id doesn't exist in the \"" + language + "\" Catalog **")
             print("")
             return "Empty"
                 
@@ -470,7 +477,7 @@ class Core(object):
             self.BabelManager.compile(pathToCatalog, language, verbose)
             print("-- Language \"" + language + "\" added successfully")
         else:
-            print("The \"" + language + "\" language already exists.")
+            print("** The \"" + language + "\" language already exists **")
             print("")
 
     def addMessageToCatalogs(self, args):
@@ -527,11 +534,11 @@ class Core(object):
                 __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
                 __pathMessages = os.path.join(__pathToCatalog, "messages.po")
                 self.FileManager.writefile(__message, __pathMessages, verbose)
-                print("-- Message modified successfully on \""+ language +"\" file")
+                print("-- Message \"" + exMessage + "\" modified successfully on \""+ language +"\" file")
                 self.BabelManager.compile(__pathToCatalog, language, verbose)
             else:
                 self.FileManager.writefile(__message, pathToPot, verbose)
-                print("-- Message modified successfully on .pot file")
+                print("-- Message \"" + exMessage + "\" modified successfully on .pot file")
                 for x in range(len(allLanguages)):
                     __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
                     self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x], verbose)
@@ -586,7 +593,7 @@ class Core(object):
             try:
                 __translations = csv.reader(open(translationPath), delimiter=',')
             except: 
-                print("The path:\"" + translationPath + "\"doesn't lead to a language translations")
+                print("** The path:\"" + translationPath + "\"doesn't lead to a language translations **")
                 print("")
                 return None
             __translationsDictionary = [x for x in __translations]
