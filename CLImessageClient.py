@@ -1,4 +1,4 @@
-import os, time, argparse, sys, shutil, csv
+import os, time, argparse, sys, shutil, csv, ConfigParser
 try:
     from babel.messages.frontend import CommandLineInterface
 except:
@@ -7,8 +7,20 @@ except:
     print("")
     sys.exit(0)
 
-basePath = os.path.join(".", "languages")
-pathToPot = os.path.join(".", "messages.pot")
+try:
+    Config = ConfigParser.ConfigParser()
+    Config.read("config.ini")
+    print(Config.get("PATHS", ".potFile"))
+
+except Exception as e:
+    print(e)
+    print("config.ini file needed to run")
+    sys.exit(0)
+basePath = os.path.join(".", Config.get("PATHS", "catalogsDir"))
+pathToPot = os.path.join(".", Config.get("PATHS", ".potFile"))
+
+print(basePath)
+print(pathToPot)
 
 
 
@@ -397,19 +409,16 @@ class FileManager(object):
         file.write(message)
         print("Write succesfull on \"" + path + "\"") 
 
-class Runner(object):
+class Invoker(object):
     pathLanguages = ""
     language = ""
     __pathCatalog = ""
     pathToPot = ""
     __pathMessages = ""
-    optionLan = 0
     __message = ""
     __messageDictionary = {}
-    __repeatedDic = {}
     __repeated = 0
     option = 0
-
 
     def __init__(self, basePath, pathToPot):
         self.pathLanguages = basePath
@@ -419,91 +428,6 @@ class Runner(object):
         self.FileManager = FileManager()
         self.BabelManager = BabelManager()
         self.CoreMotor = CoreMotor()
-        self.CLI(sys.argv)
-    
-    def CLI(self, args):
-        options = ["aL","aM", "s", "mM", "v", "dM", "dL", "h", "aT"]
-        optionsLong = ["addLanguage","addMessage", "search", "modifyMessage", "verify", "deleteMessage", "deleteCatalog", "--help", "addTranslations"]
-        languages = self.PathHandler.listLanguages(self.pathLanguages)
-        languages.append("all")
-
-        option = []
-        argsL = args
-
-        self.__pathCatalog = ""
-        self.__pathMessages = ""
-        if len(argsL) < 2:
-            print("No argument recieved, exiting. See --help if needed.")
-            print("")
-        else:
-            for x in options:
-                if argsL[1] == x:
-                    option.append(x)
-            if len(option) == 0:
-                for x in range(len(optionsLong)):
-                    if argsL[1] == optionsLong[x]:
-                        optionShort = options[x]
-                        option.append(optionShort)
-                        argsL[1] = optionShort
-            if len(option) == 0:
-                print("No valid first argument given, see --help if needed.")
-                print("")
-            elif len(option) > 1:
-                print("Too many actions, just one per run allowed, see --help if needed.")
-                print("")
-            else:
-                parser = argparse.ArgumentParser(prog=argsL[0], description="Options for management of .po catalogs")
-                del argsL[0]
-                subparsers = parser.add_subparsers(title="Accepted commands", description="Available Options")
-
-                parser_v = subparsers.add_parser("v",help = "verify:\n Allows to verify that every Language Catalog has the same Message Id's")
-                parser_v.set_defaults(func=self.verifyCatalogs)
-
-                parser_s = subparsers.add_parser("s",help = "search:\n Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
-                parser_s.add_argument("messageId", metavar="Message_Id")
-                parser_s.add_argument("exLan", choices=languages, nargs='?',  default = "all",  metavar="Language", help="Language to search in, for all languages: all")
-                parser_s.set_defaults(func=self.searchMessageInCatalogs)
-
-                parser_aL = subparsers.add_parser("aL",help = "addLanguage:\n Allows to add a new language with the Message Id's already added")
-                parser_aL.add_argument("newLan", metavar="New_Language", help="Language to be added")
-                parser_aL.set_defaults(func=self.addLanguageCatalog)
-
-                parser_aM = subparsers.add_parser("aM",help = "addMessage:\n Allows to add a message, either to one language or all")
-                parser_aM.add_argument("messageId", metavar="New_Message_Id", help="The Message Id should go wrapped in quotation marks")
-                parser_aM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
-                parser_aM.set_defaults(func=self.addMessageToCatalogs)
-
-                parser_mM = subparsers.add_parser("mM",help = "modifyMessage:\n Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
-                parser_mM.add_argument("exMessageId", metavar="Message_Id", help="The Message Id should be wrapped wrapped in quotation marks and it's Caps Sensitive")
-                if(("all" in argsL) or "-h" in argsL or "--help" in argsL):
-                    parser_mM.add_argument("messageId", metavar="New_Message_Id", help="The New message Id should be wrapped in quotation marks, only allowed to be used when applied to all languages")
-                parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks, only allowed to be used when applied to a certain language")
-                parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language to search in, for changes on Translation use ")
-                if(("all" not in argsL) or "-h" in argsL or "--help" in argsL):
-                    parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
-                parser_mM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
-                parser_mM.set_defaults(func=self.modifyMessageInCatalog)
-
-                parser_dM = subparsers.add_parser("dM",help = "deleteMessage:\n Allow to delete a Message Id in all catalogs or if language provided only in said language")
-                parser_dM.add_argument("messageId", metavar="Message_Id", help = "Message Id to be deleted")
-                parser_dM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
-                parser_dM.set_defaults(func=self.deleteMessageInCatalogs)
-
-                parser_dL = subparsers.add_parser("dL", help = "deleteCatalog:\n Allows to delete a whole Language's Message Catalog")
-                parser_dL.add_argument("exLan", choices=languages, metavar="Language", help= "Language to delete its Catalog")
-                parser_dL.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
-                parser_dL.set_defaults(func=self.deleteLanguageCatalog)
-
-                parser_aT = subparsers.add_parser("aT",help = "addTranslations:\n Allows to allow a massive catalog of translations to an initiated Catalog")
-                parser_aT.add_argument("exLan", choices=languages, metavar="Language", help= "Language to add Translations to its Catalog")
-                parser_aT.add_argument("-F","--File", nargs='?',  default = False, help = "Expect a file path")
-                parser_aT.add_argument("-S","--Stdin", action='store_true', help = "Expect a Standard Input before")
-                parser_aT.add_argument("-V","--Verbose", action='store_true', help = "Show the whole list of messages not updated and not used")
-                parser_aT.set_defaults(func=self.addTranslations)
-
-                arguments = parser.parse_args(argsL)
-                arguments.func(arguments)
-                print("")
 
     def verifyCatalogs(self, args):
         pathLanguages = self.pathLanguages
@@ -691,8 +615,97 @@ class Runner(object):
         self.FileManager.writefile(messages, __pathMessages)
         print("Translations added Succesfully")
         print("")
-        
-        
+
+class Runner(object):
+    def __init__(self, basePath, pathToPot):
+        self.pathLanguages = basePath
+        self.PathHandler = PathHandler(basePath)
+        self.Invoker = Invoker(self.pathLanguages, pathToPot)
+        self.CLI(sys.argv)
+    
+    def CLI(self, args):
+        options = ["aL","aM", "s", "mM", "v", "dM", "dL", "h", "aT"]
+        optionsLong = ["addLanguage","addMessage", "search", "modifyMessage", "verify", "deleteMessage", "deleteCatalog", "--help", "addTranslations"]
+        languages = self.PathHandler.listLanguages(self.pathLanguages)
+        languages.append("all")
+
+        option = []
+        argsL = args
+
+        self.__pathCatalog = ""
+        self.__pathMessages = ""
+        if len(argsL) < 2:
+            print("No argument recieved, exiting. See --help if needed.")
+            print("")
+        else:
+            for x in options:
+                if argsL[1] == x:
+                    option.append(x)
+            if len(option) == 0:
+                for x in range(len(optionsLong)):
+                    if argsL[1] == optionsLong[x]:
+                        optionShort = options[x]
+                        option.append(optionShort)
+                        argsL[1] = optionShort
+            if len(option) == 0:
+                print("No valid first argument given, see --help if needed.")
+                print("")
+            elif len(option) > 1:
+                print("Too many actions, just one per run allowed, see --help if needed.")
+                print("")
+            else:
+                parser = argparse.ArgumentParser(prog=argsL[0], description="Options for management of .po catalogs")
+                del argsL[0]
+                subparsers = parser.add_subparsers(title="Accepted commands", description="Available Options")
+
+                parser_v = subparsers.add_parser("v",help = "verify:\n Allows to verify that every Language Catalog has the same Message Id's")
+                parser_v.set_defaults(func=self.Invoker.verifyCatalogs)
+
+                parser_s = subparsers.add_parser("s",help = "search:\n Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
+                parser_s.add_argument("messageId", metavar="Message_Id")
+                parser_s.add_argument("exLan", choices=languages, nargs='?',  default = "all",  metavar="Language", help="Language to search in, for all languages: all")
+                parser_s.set_defaults(func=self.Invoker.searchMessageInCatalogs)
+
+                parser_aL = subparsers.add_parser("aL",help = "addLanguage:\n Allows to add a new language with the Message Id's already added")
+                parser_aL.add_argument("newLan", metavar="New_Language", help="Language to be added")
+                parser_aL.set_defaults(func=self.Invoker.addLanguageCatalog)
+
+                parser_aM = subparsers.add_parser("aM",help = "addMessage:\n Allows to add a message, either to one language or all")
+                parser_aM.add_argument("messageId", metavar="New_Message_Id", help="The Message Id should go wrapped in quotation marks")
+                parser_aM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
+                parser_aM.set_defaults(func=self.Invoker.addMessageToCatalogs)
+
+                parser_mM = subparsers.add_parser("mM",help = "modifyMessage:\n Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
+                parser_mM.add_argument("exMessageId", metavar="Message_Id", help="The Message Id should be wrapped wrapped in quotation marks and it's Caps Sensitive")
+                if(("all" in argsL) or "-h" in argsL or "--help" in argsL):
+                    parser_mM.add_argument("messageId", metavar="New_Message_Id", help="The New message Id should be wrapped in quotation marks, only allowed to be used when applied to all languages")
+                parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks, only allowed to be used when applied to a certain language")
+                parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language to search in, for changes on Translation use ")
+                if(("all" not in argsL) or "-h" in argsL or "--help" in argsL):
+                    parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
+                parser_mM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
+                parser_mM.set_defaults(func=self.Invoker.modifyMessageInCatalog)
+
+                parser_dM = subparsers.add_parser("dM",help = "deleteMessage:\n Allow to delete a Message Id in all catalogs or if language provided only in said language")
+                parser_dM.add_argument("messageId", metavar="Message_Id", help = "Message Id to be deleted")
+                parser_dM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
+                parser_dM.set_defaults(func=self.Invoker.deleteMessageInCatalogs)
+
+                parser_dL = subparsers.add_parser("dL", help = "deleteCatalog:\n Allows to delete a whole Language's Message Catalog")
+                parser_dL.add_argument("exLan", choices=languages, metavar="Language", help= "Language to delete its Catalog")
+                parser_dL.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
+                parser_dL.set_defaults(func=self.Invoker.deleteLanguageCatalog)
+
+                parser_aT = subparsers.add_parser("aT",help = "addTranslations:\n Allows to allow a massive catalog of translations to an initiated Catalog")
+                parser_aT.add_argument("exLan", choices=languages, metavar="Language", help= "Language to add Translations to its Catalog")
+                parser_aT.add_argument("-F","--File", nargs='?',  default = False, help = "Expect a file path")
+                parser_aT.add_argument("-S","--Stdin", action='store_true', help = "Expect a Standard Input before")
+                parser_aT.add_argument("-V","--Verbose", action='store_true', help = "Show the whole list of messages not updated and not used")
+                parser_aT.set_defaults(func=self.Invoker.addTranslations)
+
+                arguments = parser.parse_args(argsL)
+                arguments.func(arguments)
+                print("")      
 
 if __name__ == "__main__":
     Runner(basePath, pathToPot)
