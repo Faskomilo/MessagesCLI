@@ -298,7 +298,7 @@ class CoreMotor(object):
             messageDictionary[newMessageId] = {"Comments" : newMessageComments, "msgstr" : newMessageStr}
         elif option == 3:
             del messageDictionary[messageId]
-            print("\nThe \"" + exMessage + "\" Message Id has been succesfully deleted")
+            print("\nThe \"" + exMessage.keys()[0] + "\" Message Id has been succesfully deleted")
             print("")
         return messageDictionary
 
