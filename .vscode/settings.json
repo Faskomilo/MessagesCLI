@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "/home/faskomilo/Documents/Projects/Python/virtualEnvs/babelenv/bin/python"
+    "python.pythonPath": "/home/overa/Documents/Projects/Python/virtualEnvs/babelenv/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
