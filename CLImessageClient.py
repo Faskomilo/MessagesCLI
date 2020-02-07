@@ -10,19 +10,13 @@ except:
 try:
     Config = ConfigParser.ConfigParser()
     Config.read("config.ini")
-    print(Config.get("PATHS", ".potFile"))
 
 except Exception as e:
     print(e)
     print("config.ini file needed to run")
     sys.exit(0)
-basePath = os.path.join(".", Config.get("PATHS", "catalogsDir"))
-pathToPot = os.path.join(".", Config.get("PATHS", ".potFile"))
-
-print(basePath)
-print(pathToPot)
-
-
+basePath = os.path.join(Config.get("PATHS", "catalogsDir"))
+pathToPot = os.path.join(Config.get("PATHS", ".potFile"))
 
 class CLImessageClient(object):
     def clearScreen(self):
@@ -43,12 +37,12 @@ class CLImessageClient(object):
             if confident > 1 or confident < 0:
                 raise Exception("Invalid Option")
             if confident == 0:
-                print("Action aborted succesfully")
+                print("Action aborted successfully")
                 return False
             return confident
         except:
-            print("")
             print("Invalid Option")
+            print("")
             return False
 
 class CoreMotor(object):
@@ -87,14 +81,14 @@ class CoreMotor(object):
                 if firstHelper == helper:
                     helperList.append(x)
             if helper == len(firstMessages):
-                print("")
                 print("Every Message in the \"" + firstLanguage + "\" file exists in \"" + secondLanguage + "\"")
+                print("")
                 return None
             else:
                 print("The catalog for the \"" + firstLanguage + "\" file is larger than the \"" + secondLanguage + "\" catalog")
                 for x in helperList:
-                    print("")
                     print("Message id: \"" + x + "\" is on the .pot file catalog but not in the \"" + secondLanguage + "\" catalog")
+                    print("")
         else:
             for x in secondMessages:
                 firstHelper = helper
@@ -103,11 +97,11 @@ class CoreMotor(object):
                         helper += 1
                 if firstHelper == helper:
                     helperList.append(x)
-            print("")
             print("The catalog for \"" + secondLanguage + "\" is larger than the \"" + firstLanguage + "\" file catalog")
+            print("")
             for x in helperList:
-                print("")
                 print("Message id: \"" + x + "\" is on \"" + secondLanguage + "\" catalog but not in the \"" + firstLanguage + "\" file")
+                print("")
 
     def dictionaryToText(self, messagesDictionary, option = 0):
         messagesDictionary = messagesDictionary
@@ -230,29 +224,30 @@ class CoreMotor(object):
         newMsgid = newMessage
         Comment = newComment
         if newMsgid in messageDictionary:
-            print("The \"" +  newMessage + "\" Message Id already exists")
+            print("-- The \"" +  newMessage + "\" Message Id already exists")
             print("")
             return None
         else:  
             messageDictionary[newMsgid] = {"Comments" : Comment, "msgstr" : ""}
             return messageDictionary
 
-    def searchMessage(self, message, messageDictionary, language):
+    def searchMessage(self, message, messageDictionary, language, verbose):
         specificMessage = message
         if any(char.isdigit() for char in specificMessage):
             print("Message id's does not contain numbers")
             print("")
             return None
         if specificMessage in messageDictionary:
-            print("#########  \"" + language + "\" Catalog  #########")
-            print("Message Id: " + specificMessage)
-            print("Message Translation: " + messageDictionary[specificMessage]["msgstr"])
-            print("Message Comments: " + messageDictionary[specificMessage]["Comments"])
-            print("")
+            if verbose:
+                print("#########  \"" + language + "\" Catalog  #########")
+                print("Message Id: " + specificMessage)
+                print("Message Translation: " + messageDictionary[specificMessage]["msgstr"])
+                print("Message Comments: " + messageDictionary[specificMessage]["Comments"])
+                print("")
             messageInfo = {specificMessage : messageDictionary[specificMessage]}
             return messageInfo
         else:
-            print("The \"" +  message + "\" Message Id doesn't exist in the \"" + language + "\" Catalog")
+            print("-- The \"" +  message + "\" Message Id doesn't exist in the \"" + language + "\" Catalog")
             print("")
             return "Empty"
                 
@@ -310,8 +305,6 @@ class CoreMotor(object):
             messageDictionary[newMessageId] = {"Comments" : newMessageComments, "msgstr" : newMessageStr}
         elif option == 3:
             del messageDictionary[messageId]
-            print("\nThe \"" + exMessage.keys()[0] + "\" Message Id has been succesfully deleted")
-            print("")
         return messageDictionary
 
 class PathHandler(object):
@@ -329,10 +322,12 @@ class PathHandler(object):
             return os.listdir(self.basePath)
             
 class BabelManager(CommandLineInterface):
-    def compile(self, pathToCatalog, language):
+    def compile(self, pathToCatalog, language, verbose):
         path = os.path.join(pathToCatalog,"messages")
         babArgs = []
         babArgs.append("pybabel")
+        if not verbose:
+            babArgs.append("-q")
         babArgs.append("compile")
         babArgs.append("-i")
         babArgs.append(path + ".po")
@@ -342,10 +337,11 @@ class BabelManager(CommandLineInterface):
         babArgs.append(path + ".mo")
         try:
             CommandLineInterface().run(babArgs)
-            print("Compile Completed")
+            if verbose:
+                print("Compile Completed")
+                print("")
         except:
             pass
-        print("")
 
     def extract(self, pathToCatalog):
         path = os.path.join(pathToCatalog,"messages")
@@ -358,14 +354,16 @@ class BabelManager(CommandLineInterface):
         try:
             CommandLineInterface().run(babArgs)
             print("Extract to .pot Completed")
+            print("")
         except:
             pass
-        print("")
 
-    def init(self, newLanguage, pathToCatalog, pathToPot):
+    def init(self, newLanguage, pathToCatalog, pathToPot, verbose):
         path = os.path.join(pathToCatalog,"messages.po")
         babArgs = []
         babArgs.append("pybabel")
+        if verbose:
+            babArgs.append("-q")
         babArgs.append("init")
         babArgs.append("-l")
         babArgs.append(newLanguage)
@@ -375,15 +373,18 @@ class BabelManager(CommandLineInterface):
         babArgs.append(path)
         try:
             CommandLineInterface().run(babArgs)
-            print("\"" + newLanguage + "\" Initialized Succesfully")
+            if verbose:
+                print("\"" + newLanguage + "\" Initialized successfully")
+                print("")
         except:
             pass
-        print("")
     
-    def update(self, pathToCatalog, pathToPot, language):
+    def update(self, pathToCatalog, pathToPot, language, verbose):
         path = os.path.join(pathToCatalog,"messages.po")
         babArgs = []
         babArgs.append("pybabel")
+        if not verbose:
+            babArgs.append("-q")
         babArgs.append("update")
         babArgs.append("-i")
         babArgs.append(pathToPot)
@@ -393,10 +394,11 @@ class BabelManager(CommandLineInterface):
         babArgs.append(path)
         try:
             CommandLineInterface().run(babArgs)
-            print("Update Completed")
+            if verbose:
+                print("Update Completed")
+                print("")
         except:
             pass
-        print("")
 
 class FileManager(object):
 
@@ -404,10 +406,11 @@ class FileManager(object):
         messages = open(path).read()
         return messages
 
-    def writefile(self, message, path):
+    def writefile(self, message, path, verbose):
         file = open(path, "w")
         file.write(message)
-        print("Write succesfull on \"" + path + "\"") 
+        if verbose:
+            print("Successful write on \"" + path + "\"") 
 
 class Invoker(object):
     pathLanguages = ""
@@ -449,7 +452,7 @@ class Invoker(object):
         for x in range(len(allLanguages)):
             language = allLanguages[x]
             __messageDictionary = self.CoreMotor.getDictionary(language, self.pathLanguages, self.pathToPot)
-            help = self.CoreMotor.searchMessage(message ,__messageDictionary, language)
+            help = self.CoreMotor.searchMessage(message ,__messageDictionary, language, True)
             print("")
             if help == None:
                 break
@@ -460,18 +463,21 @@ class Invoker(object):
         language = args.newLan
         pathLanguages = self.pathLanguages
         allLanguages = self.PathHandler.listLanguages(pathLanguages)
+        verbose = args.Verbose
         if language not in allLanguages:
             pathToPot = self.pathToPot
             pathToCatalog = self.PathHandler.buildPath(language)
-            self.BabelManager.init(language,pathToCatalog,pathToPot)
-            self.BabelManager.compile(pathToCatalog, language)
+            self.BabelManager.init(language,pathToCatalog,pathToPot, verbose)
+            self.BabelManager.compile(pathToCatalog, language, verbose)
+            print("-- Language \"" + language + "\" added successfully")
         else:
-            print("")
             print("The \"" + language + "\" language already exists.")
+            print("")
 
     def addMessageToCatalogs(self, args):
         newMessage = args.messageId
         newComment = args.Comment
+        verbose = args.Verbose
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
         allLanguages = self.PathHandler.listLanguages(pathLanguages)
@@ -481,35 +487,37 @@ class Invoker(object):
         __messageDictionary = self.CoreMotor.addMessage(newMessage, newComment, __messageDictionary)
         if __messageDictionary != None:
             __message = self.CoreMotor.dictionaryToText(__messageDictionary)
-            self.FileManager.writefile(__message, pathToPot)
+            self.FileManager.writefile(__message, pathToPot, verbose)
+            print("-- Message \"" + newMessage + "\" added successfully")
             for x in range(len(allLanguages)):
                 __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x])
-                self.BabelManager.compile(__pathToCatalog, allLanguages[x])  
+                self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x], verbose)
+                self.BabelManager.compile(__pathToCatalog, allLanguages[x], verbose)  
         __message = ""
         __messageDictionary = {} 
         
     def modifyMessageInCatalog(self, args):
         language = args.exLan
         exMessage = args.exMessageId.split("\"")[0]
+        verbose = args.Verbose
         try:
             newMessageId = args.messageId.split("\"")[0]
-        except AttributeError:
+        except:
             newMessageId = ""
         try:
             translation = args.Translation.split("\"")[0]
-        except AttributeError:
+        except:
             translation = ""
         try:
             comment = args.Comment.split("\"")[0]
-        except AttributeError:
+        except:
             comment = ""
         self.option = 2
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
         allLanguages = self.PathHandler.listLanguages(pathLanguages)
         __messageDictionary = self.CoreMotor.getDictionary(language, self.pathLanguages, self.pathToPot)
-        toBeModified = self.CoreMotor.searchMessage(exMessage, __messageDictionary, language)
+        toBeModified = self.CoreMotor.searchMessage(exMessage, __messageDictionary, language, verbose)
         ask = args.force
         if toBeModified != None and toBeModified != "Empty" and ask == False:
             ask = self.CLImessageClient.askIfConfident(exMessage, self.option)
@@ -519,24 +527,27 @@ class Invoker(object):
             if language != "all":
                 __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
                 __pathMessages = os.path.join(__pathToCatalog, "messages.po")
-                self.FileManager.writefile(__message, __pathMessages)
-                self.BabelManager.compile(__pathToCatalog, language)
+                self.FileManager.writefile(__message, __pathMessages, verbose)
+                print("-- Message modified successfully on \""+ language +"\" file")
+                self.BabelManager.compile(__pathToCatalog, language, verbose)
             else:
-                self.FileManager.writefile(__message, pathToPot)
+                self.FileManager.writefile(__message, pathToPot, verbose)
+                print("-- Message modified successfully on .pot file")
                 for x in range(len(allLanguages)):
                     __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                    self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x])
-                    self.BabelManager.compile(__pathToCatalog, allLanguages[x])
+                    self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x], verbose)
+                    self.BabelManager.compile(__pathToCatalog, allLanguages[x], verbose)
                 
     def deleteMessageInCatalogs(self, args):
         language = "all"
         message = args.messageId.split("\"")[0]
+        verbose = args.Verbose
         self.option = 3
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
         allLanguages = self.PathHandler.listLanguages(pathLanguages)
         __messageDictionary = self.CoreMotor.getDictionary(language, self.pathLanguages, self.pathToPot)
-        toBeDeleted = self.CoreMotor.searchMessage(message, __messageDictionary, language)
+        toBeDeleted = self.CoreMotor.searchMessage(message, __messageDictionary, language, verbose)
         ask = args.force
         if toBeDeleted != None and toBeDeleted != "Empty" and ask == False:
             ask = self.CLImessageClient.askIfConfident(message, self.option)
@@ -544,11 +555,12 @@ class Invoker(object):
             if toBeDeleted != None:
                 __messageDictionary = self.CoreMotor.modifyMessage(__messageDictionary, toBeDeleted, "", "", "", self.option)
                 __message = self.CoreMotor.dictionaryToText(__messageDictionary)
-                self.FileManager.writefile(__message, pathToPot)
+                self.FileManager.writefile(__message, pathToPot, verbose)
+                print("-- Message \"" + message + "\" deleted successfully")
                 for x in range(len(allLanguages)):
                     __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                    self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x])
-                    self.BabelManager.compile(__pathToCatalog, allLanguages[x])
+                    self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x], verbose)
+                    self.BabelManager.compile(__pathToCatalog, allLanguages[x], verbose)
             
     def deleteLanguageCatalog(self, args):
         language = args.exLan
@@ -560,7 +572,7 @@ class Invoker(object):
         if ask != False:
             pathLanguage = os.path.join(pathLanguages, language)
             shutil.rmtree(pathLanguage)
-            print("The deletion of the \"" + language + "\" language was succesful")
+            print("-- The deletion of the \"" + language + "\" language was successful")
 
     def addTranslations(self,args):
         print(args)
@@ -575,8 +587,8 @@ class Invoker(object):
             try:
                 __translations = csv.reader(open(translationPath), delimiter=',')
             except: 
-                print("")
                 print("The path:\"" + translationPath + "\"doesn't lead to a language translations")
+                print("")
                 return None
             __translationsDictionary = [x for x in __translations]
         elif args.Stdin:
@@ -604,7 +616,6 @@ class Invoker(object):
                 print("The next list contains the elements that didn't exist on the selected language")
                 print(notExistingList)
                 print("")
-        print("")
         print("Elements that didn't get a translation: " + str(len(notUsedDic)))
         print("Elements that didn't exist in the selected language: " + str(len(notExistingList)))
         print("")
@@ -612,8 +623,8 @@ class Invoker(object):
         pathLanguages = self.pathLanguages
         __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
         __pathMessages = os.path.join(__pathToCatalog, "messages.po")
-        self.FileManager.writefile(messages, __pathMessages)
-        print("Translations added Succesfully")
+        self.FileManager.writefile(messages, __pathMessages, verbose)
+        print("Translations added succesfully")
         print("")
 
 class Runner(object):
@@ -668,11 +679,13 @@ class Runner(object):
 
                 parser_aL = subparsers.add_parser("aL",help = "addLanguage:\n Allows to add a new language with the Message Id's already added")
                 parser_aL.add_argument("newLan", metavar="New_Language", help="Language to be added")
+                parser_aL.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
                 parser_aL.set_defaults(func=self.Invoker.addLanguageCatalog)
 
                 parser_aM = subparsers.add_parser("aM",help = "addMessage:\n Allows to add a message, either to one language or all")
                 parser_aM.add_argument("messageId", metavar="New_Message_Id", help="The Message Id should go wrapped in quotation marks")
                 parser_aM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
+                parser_aM.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
                 parser_aM.set_defaults(func=self.Invoker.addMessageToCatalogs)
 
                 parser_mM = subparsers.add_parser("mM",help = "modifyMessage:\n Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
@@ -680,20 +693,23 @@ class Runner(object):
                 if(("all" in argsL) or "-h" in argsL or "--help" in argsL):
                     parser_mM.add_argument("messageId", metavar="New_Message_Id", help="The New message Id should be wrapped in quotation marks, only allowed to be used when applied to all languages")
                 parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks, only allowed to be used when applied to a certain language")
-                parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language to search in, for changes on Translation use ")
                 if(("all" not in argsL) or "-h" in argsL or "--help" in argsL):
                     parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
+                parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language to search in, for changes on Translation use ")
                 parser_mM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
+                parser_mM.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
                 parser_mM.set_defaults(func=self.Invoker.modifyMessageInCatalog)
 
                 parser_dM = subparsers.add_parser("dM",help = "deleteMessage:\n Allow to delete a Message Id in all catalogs or if language provided only in said language")
                 parser_dM.add_argument("messageId", metavar="Message_Id", help = "Message Id to be deleted")
                 parser_dM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
+                parser_dM.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
                 parser_dM.set_defaults(func=self.Invoker.deleteMessageInCatalogs)
 
                 parser_dL = subparsers.add_parser("dL", help = "deleteCatalog:\n Allows to delete a whole Language's Message Catalog")
                 parser_dL.add_argument("exLan", choices=languages, metavar="Language", help= "Language to delete its Catalog")
                 parser_dL.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
+                parser_dL.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
                 parser_dL.set_defaults(func=self.Invoker.deleteLanguageCatalog)
 
                 parser_aT = subparsers.add_parser("aT",help = "addTranslations:\n Allows to allow a massive catalog of translations to an initiated Catalog")
@@ -702,7 +718,8 @@ class Runner(object):
                 parser_aT.add_argument("-S","--Stdin", action='store_true', help = "Expect a Standard Input before")
                 parser_aT.add_argument("-V","--Verbose", action='store_true', help = "Show the whole list of messages not updated and not used")
                 parser_aT.set_defaults(func=self.Invoker.addTranslations)
-
+                
+                print("")
                 arguments = parser.parse_args(argsL)
                 arguments.func(arguments)
                 print("")      
