@@ -109,46 +109,45 @@ class CentralMechanism(object):
                 print("Message id: \"" + x + "\" is on \"" + secondLanguage + "\" catalog but not in the \"" + firstLanguage + "\" file")
                 print("")
 
-    def dictionaryToText(self, messagesDictionary, option = 0):
-        messagesDictionary = messagesDictionary
-        idsList = sorted(messagesDictionary)
-        repeatedIdsList = []
-        obsoleteIdsList = []
-        newString = ""
-        repeatedString = ""
-        obsoleteString = ""
+    def dictionaryToText(self, messagesDictionary, option = 1):
+        self.messagesDictionary = messagesDictionary
         obsoleteQuantity = 0
         repeatedQuantity = 0
-        for x in range(len(idsList)):
-            if idsList[x] == "//Repeated":
-                repeatedIdsList = sorted(messagesDictionary[idsList[x]])
-                for y in range(len(repeatedIdsList)):
-                    repeatedQuantity += 1
-                    if messagesDictionary[idsList[x]][repeatedIdsList[y]]["Comments"] != "":
-                        repeatedString += messagesDictionary[idsList[x]][repeatedIdsList[y]]["Comments"] + "\n"
-                    repeatedString += "msgid \""
-                    repeatedString += repeatedIdsList[y] + "\"\n"
-                    repeatedString += "msgstr \""
-                    repeatedString += messagesDictionary[idsList[x]][repeatedIdsList[y]]["msgstr"] + "\"\n\n"
-            elif idsList[x] == "//Obsolete":
-                obsoleteIdsList = sorted(messagesDictionary[idsList[x]])
-                for y in range(len(obsoleteIdsList)):
-                    obsoleteQuantity += 1
-                    if messagesDictionary[idsList[x]][obsoleteIdsList[y]]["Comments"] != "":
-                        obsoleteString += messagesDictionary[idsList[x]][obsoleteIdsList[y]]["Comments"] + "\n"
-                    obsoleteString += "#~ msgid \""
-                    obsoleteString += obsoleteIdsList[y] + "\"\n"
-                    obsoleteString += "#~ msgstr \""
-                    obsoleteString += messagesDictionary[idsList[x]][obsoleteIdsList[y]]["msgstr"] + "\"\n\n"
-            else:
-                if messagesDictionary[idsList[x]]["Comments"] != "" and messagesDictionary[idsList[x]]["Comments"] != None:
-                    if "#:" not in messagesDictionary[idsList[x]]["Comments"]:
-                        newString += "#: "
-                    newString += messagesDictionary[idsList[x]]["Comments"] + "\n"
-                newString += "msgid \""
-                newString += idsList[x] + "\"\n"
-                newString += "msgstr \""
-                newString += messagesDictionary[idsList[x]]["msgstr"] + "\"\n\n"
+        newString = ""
+        if "//Repeated" in self.messagesDictionary:
+            repeatedDic = messagesDictionary["//Repeated"]
+            repeatedQuantity = len(repeatedDic)
+            del self.messagesDictionary["//Repeated"]
+            repeatedString = ""
+            for x in repeatedDic:
+                if repeatedDic[x]["Comments"] != "":
+                    repeatedString += repeatedDic[x]["Comments"] + "\n"
+                repeatedString += "msgid \""
+                repeatedString += x + "\"\n"
+                repeatedString += "msgstr \""
+                repeatedString += repeatedDic[x]["msgstr"] + "\"\n\n"
+        if "//Obsolete" in self.messagesDictionary:
+            print(self.messagesDictionary["//Obsolete"])
+            obsoleteDic = messagesDictionary["//Obsolete"]
+            del self.messagesDictionary["//Obsolete"]
+            obsoleteQuantity = len(obsoleteDic)
+            obsoleteString = ""
+            for x in obsoleteDic:
+                if obsoleteDic[x]["Comments"] != "":
+                    obsoleteString += obsoleteDic[x]["Comments"] + "\n"
+                obsoleteString += "#~ msgid \""
+                obsoleteString += x + "\"\n"
+                obsoleteString += "#~ msgstr \""
+                obsoleteString += obsoleteDic[x]["msgstr"] + "\"\n\n"
+        for x in self.messagesDictionary:
+            if self.messagesDictionary[x]["Comments"] != "" and self.messagesDictionary[x]["Comments"] != None:
+                if "#:" not in self.messagesDictionary[x]["Comments"]:
+                    newString += "#: "
+                newString += self.messagesDictionary[x]["Comments"] + "\n"
+            newString += "msgid \""
+            newString += x + "\"\n"
+            newString += "msgstr \""
+            newString += self.messagesDictionary[x]["msgstr"] + "\"\n\n"
         if option == 1 and repeatedQuantity > 0:
             newString += "\n############################################ Repeated Message Id's ############################################\n"
         newString += repeatedString
