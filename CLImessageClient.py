@@ -419,14 +419,6 @@ class FileManager(object):
             print("Successful write on \"" + path + "\"") 
 
 class Core(object):
-    pathLanguages = ""
-    language = ""
-    __pathCatalog = ""
-    pathToPot = ""
-    __pathMessages = ""
-    __message = ""
-    __messageDictionary = {}
-    __repeated = 0
     option = 0
 
     def __init__(self, basePath, pathToPot):
@@ -581,7 +573,6 @@ class Core(object):
             print("-- The deletion of the \"" + language + "\" language was successful")
 
     def addTranslations(self,args):
-        print(args)
         language = args.exLan
         translationPath = args.File
         verbose = args.Verbose
@@ -649,8 +640,6 @@ class Runner(object):
         option = []
         argsL = args
 
-        self.__pathCatalog = ""
-        self.__pathMessages = ""
         if len(argsL) < 2:
             print("No argument recieved, exiting. See --help if needed.")
             print("")

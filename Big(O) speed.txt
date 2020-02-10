@@ -1,0 +1,222 @@
+Speed:
+
+1
+1
+1
+1
+
+CLImessageClient
+	clearScreen: 1
+		1
+
+	askIfConfident: 1
+		1
+		1
+
+CentralMechanism
+	__init__: 1
+			1
+			1
+
+	cleanMessages: n^2
+			1
+			textToDictionary n	
+			dictionaryToText n^2
+
+	getDictionary: n^2
+			1
+			1
+			FileManager.readfile 1
+			cleanMessages n^2
+			textToDictionary n
+
+	compareCatalogs: n^2
+			getDictionary n^2
+			getDictionary n^2
+			1
+			1
+			n^2
+			n
+			n^2
+			n
+
+	dictionaryToText: n^2
+			n^2
+			1
+			1
+
+	textToDictionary: n
+			1
+			1
+			n
+
+	addMessage: 1
+			1
+			1
+			1
+
+	searchMessages: 1
+			1
+			1
+			1
+
+	modifyMessage: 1
+			1
+			1
+			1
+
+PathHandler
+	__init__: 1
+		1
+
+	buildPathMessages: 1
+		1
+
+	buildPath: 1
+		1	
+
+	listLanguages: 1
+		1	
+
+BabelManager
+	compile: n
+		1
+		1
+		CommandLineInterface.init n
+
+	extract: n
+	    1
+		1
+		CommandLineInterface.init n
+
+	init: n
+		1
+		1
+		CommandLineInterface.init n
+
+	update: n^2
+		1
+		1
+		CommandLineInterface.init n^2
+
+FileManager:
+	readfile: 1
+		1
+
+	writefile: 1
+		1
+		1
+
+Core:
+	__init__: 1
+		1
+
+	verifyCatalogs: b*n^2
+		1
+		PathHandler.listLanguages 1
+		b
+			CentralMechanism.compareCatalogs: n^2
+
+	searchMessageInCatalogs: b*n^2
+		1
+		1
+		1
+		PathHandler.listLanguages 1
+		b
+			CentralMechanism.getDictionary
+			CentralMechanism.searchMessage
+			1
+		1
+
+	addLanguageCatalog: n
+		1
+		1
+		PathHandler.listLanguages 1
+		1
+		BabelManager.init n
+		BabelManager.compile n
+
+	addMessageToCatalog: b*n^2
+		1
+		1
+		PathHandler.listLanguages 1
+		CentralMechanism.getDictionary n^2
+		CentralMechanism.addMessage 1
+		CentralMechanism.dictionaryToText n^2
+		FileManager.writefile 1
+		b
+			BabelManager.update n^2
+			BabelManager.compile n
+
+	modifyMessageInCatalog: b*n^2
+		1
+		1
+		1
+		1
+		PathHandler.listLanguages 1
+		CentralMechanism.getDictionary n^2
+		CentralMechanism.searchMessage 1
+		CLImessageClient.askIfConfident 1
+		CentralMechanism.modifyMessage 1
+		CentralMechanism.dictionaryToText n^2
+		FileManager.writefile 1
+		b
+			BabelManager.update n^2
+			BabelManager.compile n
+
+	deleteMessageInCatalogs: b*n^2
+		1
+		1
+		1
+		PathHandler.listLanguages 1
+		CentralMechanism.getDictionary n^2
+		CentralMechanism.searchMessage 1
+		CLImessageClient.askIfConfident 1
+		CentralMechanism.modifyMessage 1
+		CentralMechanism.dictionaryToText n^2
+		FileManager.writefile 1
+		b
+			BabelManager.update n^2
+			BabelManager.compile n
+
+	deleteLanguageCatalog: 1
+		1
+		1
+		1
+
+	addTranslations: n^2
+		1
+		1
+		1
+		CentralMechanism.getDictionary n^2
+		n
+		1
+		n
+		1
+		CentralMechanism.dictionaryToText n^2
+		1
+		1
+		FileManager.writefile 1
+
+
+
+Runner:
+	__init__: 1
+		1
+		1
+		1
+
+	CLI: c
+		1
+		1
+		PathHandler.listLanguages 1
+		1
+		1
+		c
+		1
+		1
+		1
+		1
+		1
+		1
+		c
