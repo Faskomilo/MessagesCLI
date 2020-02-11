@@ -1,4 +1,4 @@
-import os, time, argparse, sys, shutil, csv, ConfigParser
+import os, argparse, sys, shutil, csv, ConfigParser
 try:
     from babel.messages.frontend import CommandLineInterface
 except:
@@ -109,7 +109,8 @@ class CentralMechanism(object):
                 print("Message id: \"" + x + "\" is on \"" + secondLanguage + "\" catalog but not in the \"" + firstLanguage + "\" file")
                 print("")
 
-    def dictionaryToText(self, messagesDictionary, option = 1):
+    def dictionaryToText(self, messagesDictionary, option = 0):
+        self.option = option
         self.messagesDictionary = messagesDictionary
         obsoleteQuantity = 0
         repeatedQuantity = 0
@@ -127,7 +128,6 @@ class CentralMechanism(object):
                 repeatedString += "msgstr \""
                 repeatedString += repeatedDic[x]["msgstr"] + "\"\n\n"
         if "//Obsolete" in self.messagesDictionary:
-            print(self.messagesDictionary["//Obsolete"])
             obsoleteDic = messagesDictionary["//Obsolete"]
             del self.messagesDictionary["//Obsolete"]
             obsoleteQuantity = len(obsoleteDic)
@@ -148,15 +148,15 @@ class CentralMechanism(object):
             newString += x + "\"\n"
             newString += "msgstr \""
             newString += self.messagesDictionary[x]["msgstr"] + "\"\n\n"
-        if option == 1 and repeatedQuantity > 0:
+        if self.option == 1 and repeatedQuantity > 0:
             newString += "\n############################################ Repeated Message Id's ############################################\n"
         newString += repeatedString
-        if option == 1 and obsoleteQuantity > 0:
+        if self.option == 1 and obsoleteQuantity > 0:
             newString += "\n############################################ Obsolete Message Id's ############################################\n"
         newString += obsoleteString
-        if option == 1 and repeatedQuantity > 0:
+        if self.option == 1 and repeatedQuantity > 0:
             newString += "############# Repeated Quantity: " + str(repeatedQuantity) + " #############\n"
-        if option == 1 and obsoleteQuantity > 0:
+        if self.option == 1 and obsoleteQuantity > 0:
             newString += "############# Obsolete Quantity:    " + str(obsoleteQuantity) + " #############\n"
         return newString
 
@@ -260,8 +260,8 @@ class CentralMechanism(object):
         messageDictionary = messageDictionary
         message = exMessage
         messageId = message.keys()[0]
-        messageStr = message[message.keys()[0]]["msgstr"]
-        messageComments = message[message.keys()[0]]["Comments"]
+        messageStr = message[messageId]["msgstr"]
+        messageComments = message[messageId]["Comments"]
         newMessageId = newMessageId
         newMessageStr = translation
         newMessageComments = comment
@@ -586,13 +586,13 @@ class Core(object):
                 print("** The path:\"" + translationPath + "\"doesn't lead to a language translations **")
                 print("")
                 return None
-            __translationsDictionary = [x for x in __translations]
+            __translationsList = [x for x in __translations]
         elif args.Stdin:
             __translations = sys.stdin.readlines()
-            __translationsDictionary = [x[:-1].split(",") for x in __translations]
+            __translationsList = [x[:-1].split(",") for x in __translations]
         notUsedDic = {}
         notExistingList = []
-        for x in __translationsDictionary: 
+        for x in __translationsList: 
             translation = x[1]
             if x[0] in __lanDictionary:
                 if translation != "":

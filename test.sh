@@ -22,6 +22,6 @@ python CLImessageClient.py v
 python CLImessageClient.py search "New projection"
 python CLImessageClient.py search "Yields"
 python CLImessageClient.py search "Cool"
-python CLImessageClient.py search "Unautorized"
+python CLImessageClient.py search "Unauthorized"
 python CLImessageClient.py dL en -f
 python CLImessageClient.py dL fr -f
