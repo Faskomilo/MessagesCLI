@@ -626,7 +626,7 @@ class Core(object):
             print("Translations added succesfully")
             print("")
         else:
-            print("Error, no option for input selected, see \"aT --help\" for further reference")
+            print("** Error, no option for input selected, see \"aT --help\" for further reference **")
             print("")
 
 class Runner(object):
