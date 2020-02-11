@@ -529,6 +529,8 @@ class Core(object):
                 self.BabelManager.compile(__pathToCatalog, language, verbose)
             else:
                 self.FileManager.writefile(__message, pathToPot, verbose)
+                if newMessageId is not "":
+                    exMessage = newMessageId
                 print("-- Message \"" + exMessage + "\" modified successfully on .pot file")
                 for x in range(len(allLanguages)):
                     __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
