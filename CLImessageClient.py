@@ -166,7 +166,7 @@ class CentralMechanism(object):
         repeatedDic = {}
         obsoleteDic = {}
         a = 0
-        for x in range(len(messageList)):
+        for x in messageList:
             a = a +1
             wholeLine = ""
             commentsLine = ""
@@ -175,7 +175,7 @@ class CentralMechanism(object):
             msgid = ""
             msgstr = ""
             try:
-                wholeLine = messageList[x]
+                wholeLine = x
                 if "#" in wholeLine:
                     if "#~" in wholeLine:
                         commentsLine = ""
@@ -367,7 +367,7 @@ class BabelManager(CommandLineInterface):
         path = os.path.join(pathToCatalog,"messages.po")
         babArgs = []
         babArgs.append("pybabel")
-        if verbose:
+        if not verbose:
             babArgs.append("-q")
         babArgs.append("init")
         babArgs.append("-l")
@@ -446,8 +446,8 @@ class Core(object):
         allLanguages = [language]
         if language == "all":
             allLanguages = self.PathHandler.listLanguages(pathLanguages)
-        for x in range(len(allLanguages)):
-            language = allLanguages[x]
+        for x in allLanguages:
+            language = x
             __messageDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
             help = self.CentralMechanism.searchMessage(message ,__messageDictionary, language, True)
             print("")
@@ -486,10 +486,10 @@ class Core(object):
             __message = self.CentralMechanism.dictionaryToText(__messageDictionary)
             self.FileManager.writefile(__message, pathToPot, verbose)
             print("-- Message \"" + newMessage + "\" added successfully")
-            for x in range(len(allLanguages)):
-                __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x], verbose)
-                self.BabelManager.compile(__pathToCatalog, allLanguages[x], verbose)  
+            for x in allLanguages:
+                __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
+                self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
+                self.BabelManager.compile(__pathToCatalog, x, verbose)  
         __message = ""
         __messageDictionary = {} 
         
@@ -532,10 +532,10 @@ class Core(object):
                 if newMessageId is not "":
                     exMessage = newMessageId
                 print("-- Message \"" + exMessage + "\" modified successfully on .pot file")
-                for x in range(len(allLanguages)):
-                    __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                    self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x], verbose)
-                    self.BabelManager.compile(__pathToCatalog, allLanguages[x], verbose)
+                for x in allLanguages:
+                    __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
+                    self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
+                    self.BabelManager.compile(__pathToCatalog, x, verbose)
                 
     def deleteMessageInCatalogs(self, args):
         language = "all"
@@ -556,10 +556,10 @@ class Core(object):
                 __message = self.CentralMechanism.dictionaryToText(__messageDictionary)
                 self.FileManager.writefile(__message, pathToPot, verbose)
                 print("-- Message \"" + message + "\" deleted successfully")
-                for x in range(len(allLanguages)):
-                    __pathToCatalog = os.path.join(pathLanguages, allLanguages[x], "LC_MESSAGES")
-                    self.BabelManager.update(__pathToCatalog, pathToPot, allLanguages[x], verbose)
-                    self.BabelManager.compile(__pathToCatalog, allLanguages[x], verbose)
+                for x in allLanguages:
+                    __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
+                    self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
+                    self.BabelManager.compile(__pathToCatalog, x, verbose)
             
     def deleteLanguageCatalog(self, args):
         language = args.exLan
@@ -581,49 +581,53 @@ class Core(object):
             print("Error, only one option between File and Stdin can be used")
             sys.exit()
         __lanDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
-        if args.File != (None or False):
-            try:
-                __translations = csv.reader(open(translationPath), delimiter=',')
-            except: 
-                print("** The path:\"" + translationPath + "\"doesn't lead to a language translations **")
-                print("")
-                return None
-            __translationsList = [x for x in __translations]
-        elif args.Stdin:
-            __translations = sys.stdin.readlines()
-            __translationsList = [x[:-1].split(",") for x in __translations]
-        notUsedDic = {}
-        notExistingList = []
-        for x in __translationsList: 
-            translation = x[1]
-            if x[0] in __lanDictionary:
-                if translation != "":
-                    __lanDictionary[x[0]]["msgstr"] = translation
+        if args.File != (None or False) or args.Stdin:
+            if args.File is not (None or False):
+                try:
+                    __translations = csv.reader(open(translationPath), delimiter=',')
+                except: 
+                    print("** The path:\"" + translationPath + "\"doesn't lead to a language translations **")
+                    print("")
+                    return None
+                __translationsList = [x for x in __translations]
+            elif args.Stdin:
+                __translations = sys.stdin.readlines()
+                __translationsList = [x[:-1].split(",") for x in __translations]
+            notUsedDic = {}
+            notExistingList = []
+            for x in __translationsList: 
+                translation = x[1]
+                if x[0] in __lanDictionary:
+                    if translation != "":
+                        __lanDictionary[x[0]]["msgstr"] = translation
+                    else:
+                        notUsedDic[x] = x
                 else:
-                    notUsedDic[x] = x
-            else:
-                notExistingList.append(translation)
-        notUsedDic = __lanDictionary
-        if verbose:
-            if notUsedDic != {}:
-                print("The next dictionary contains the elements that didn't get a translation")
-                notUsed = self.CentralMechanism.dictionaryToText(__lanDictionary)
-                print(notUsed)
-                print("")
-            if notExistingList != []:
-                print("The next list contains the elements that didn't exist on the selected language")
-                print(notExistingList)
-                print("")
-        print("Elements that didn't get a translation: " + str(len(notUsedDic)))
-        print("Elements that didn't exist in the selected language: " + str(len(notExistingList)))
-        print("")
-        messages = self.CentralMechanism.dictionaryToText(__lanDictionary)
-        pathLanguages = self.pathLanguages
-        __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
-        __pathMessages = os.path.join(__pathToCatalog, "messages.po")
-        self.FileManager.writefile(messages, __pathMessages, verbose)
-        print("Translations added succesfully")
-        print("")
+                    notExistingList.append(translation)
+            notUsedDic = __lanDictionary
+            if verbose:
+                if notUsedDic != {}:
+                    print("The next dictionary contains the elements that didn't get a translation")
+                    notUsed = self.CentralMechanism.dictionaryToText(__lanDictionary)
+                    print(notUsed)
+                    print("")
+                if notExistingList != []:
+                    print("The next list contains the elements that didn't exist on the selected language")
+                    print(notExistingList)
+                    print("")
+            print("Elements that didn't get a translation: " + str(len(notUsedDic)))
+            print("Elements that didn't exist in the selected language: " + str(len(notExistingList)))
+            print("")
+            messages = self.CentralMechanism.dictionaryToText(__lanDictionary)
+            pathLanguages = self.pathLanguages
+            __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
+            __pathMessages = os.path.join(__pathToCatalog, "messages.po")
+            self.FileManager.writefile(messages, __pathMessages, verbose)
+            print("Translations added succesfully")
+            print("")
+        else:
+            print("Error, no option for input selected, see \"aT --help\" for further reference")
+            print("")
 
 class Runner(object):
     def __init__(self, basePath, pathToPot):
