@@ -18,21 +18,21 @@ CentralMechanism
 			1
 			1
 
-	cleanMessages: n^2
+	cleanMessages: n
 			1
 			textToDictionary n	
-			dictionaryToText n^2
+			dictionaryToText n
 
-	getDictionary: n^2
+	getDictionary: n
 			1
 			1
 			FileManager.readfile 1
-			cleanMessages n^2
+			cleanMessages n
 			textToDictionary n
 
 	compareCatalogs: n^2
-			getDictionary n^2
-			getDictionary n^2
+			getDictionary n
+			getDictionary n
 			1
 			1
 			n^2
@@ -40,8 +40,8 @@ CentralMechanism
 			n^2
 			n
 
-	dictionaryToText: n^2
-			n^2
+	dictionaryToText: n
+			n
 			1
 			1
 
@@ -82,12 +82,12 @@ BabelManager
 	compile: n
 		1
 		1
-		CommandLineInterface.init n
+		CommandLineInterface.compile n
 
 	extract: n
 	    1
 		1
-		CommandLineInterface.init n
+		CommandLineInterface.extract n
 
 	init: n
 		1
@@ -97,7 +97,7 @@ BabelManager
 	update: n^2
 		1
 		1
-		CommandLineInterface.init n^2
+		CommandLineInterface.update n^2
 
 FileManager:
 	readfile: 1
@@ -117,14 +117,14 @@ Core:
 		b
 			CentralMechanism.compareCatalogs: n^2
 
-	searchMessageInCatalogs: b*n^2
+	searchMessageInCatalogs: b*n
 		1
 		1
 		1
 		PathHandler.listLanguages 1
 		b
-			CentralMechanism.getDictionary
-			CentralMechanism.searchMessage
+			CentralMechanism.getDictionary n
+			CentralMechanism.searchMessage 1
 			1
 		1
 
@@ -140,9 +140,9 @@ Core:
 		1
 		1
 		PathHandler.listLanguages 1
-		CentralMechanism.getDictionary n^2
+		CentralMechanism.getDictionary n
 		CentralMechanism.addMessage 1
-		CentralMechanism.dictionaryToText n^2
+		CentralMechanism.dictionaryToText n
 		FileManager.writefile 1
 		b
 			BabelManager.update n^2
@@ -154,11 +154,11 @@ Core:
 		1
 		1
 		PathHandler.listLanguages 1
-		CentralMechanism.getDictionary n^2
+		CentralMechanism.getDictionary n
 		CentralMechanism.searchMessage 1
 		CLImessageClient.askIfConfident 1
 		CentralMechanism.modifyMessage 1
-		CentralMechanism.dictionaryToText n^2
+		CentralMechanism.dictionaryToText n
 		FileManager.writefile 1
 		b
 			BabelManager.update n^2
@@ -169,11 +169,11 @@ Core:
 		1
 		1
 		PathHandler.listLanguages 1
-		CentralMechanism.getDictionary n^2
+		CentralMechanism.getDictionary n
 		CentralMechanism.searchMessage 1
 		CLImessageClient.askIfConfident 1
 		CentralMechanism.modifyMessage 1
-		CentralMechanism.dictionaryToText n^2
+		CentralMechanism.dictionaryToText n
 		FileManager.writefile 1
 		b
 			BabelManager.update n^2
@@ -184,16 +184,16 @@ Core:
 		1
 		1
 
-	addTranslations: n^2
+	addTranslations: n
 		1
 		1
 		1
-		CentralMechanism.getDictionary n^2
+		CentralMechanism.getDictionary n
 		n
 		1
 		n
 		1
-		CentralMechanism.dictionaryToText n^2
+		CentralMechanism.dictionaryToText n
 		1
 		1
 		FileManager.writefile 1
