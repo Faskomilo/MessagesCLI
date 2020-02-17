@@ -9,17 +9,18 @@ except:
 
 try:
     Config = ConfigParser.ConfigParser()
-    open("config.ini", "r")
+    if not os.path.isfile("config.ini"):
+        raise Exception("config.ini not existant")
     Config.read("config.ini")
     basePath = Config.get("PATHS", "catalogsDir")
     pathToPot = Config.get("PATHS", ".potFile")
     if not os.path.isfile(pathToPot):
-        print("Invalid path to .potFile on config.ini")
-        raise Exception("Invalid paths on config.ini")
+        raise Exception("Invalid path to .potFile on config.ini")
     if not os.path.isdir(basePath):
-        print("Invalid path to catalogsDir  on config.ini")
-        raise Exception("Invalid paths on config.ini")
-except:
+        raise Exception("Invalid path to catalogsDir on config.ini")
+except Exception as e:
+    print(e)
+    print("")
     print("Valid config.ini file needed to run")
     print("")
     sys.exit(0)
@@ -115,11 +116,12 @@ class CentralMechanism(object):
         obsoleteQuantity = 0
         repeatedQuantity = 0
         newString = ""
+        repeatedString = ""
+        obsoleteString = ""
         if "//Repeated" in self.messagesDictionary:
             repeatedDic = messagesDictionary["//Repeated"]
             repeatedQuantity = len(repeatedDic)
             del self.messagesDictionary["//Repeated"]
-            repeatedString = ""
             for x in repeatedDic:
                 if repeatedDic[x]["Comments"] != "":
                     repeatedString += repeatedDic[x]["Comments"] + "\n"
@@ -131,7 +133,6 @@ class CentralMechanism(object):
             obsoleteDic = messagesDictionary["//Obsolete"]
             del self.messagesDictionary["//Obsolete"]
             obsoleteQuantity = len(obsoleteDic)
-            obsoleteString = ""
             for x in obsoleteDic:
                 if obsoleteDic[x]["Comments"] != "":
                     obsoleteString += obsoleteDic[x]["Comments"] + "\n"
@@ -158,6 +159,30 @@ class CentralMechanism(object):
             newString += "############# Repeated Quantity: " + str(repeatedQuantity) + " #############\n"
         if self.option == 1 and obsoleteQuantity > 0:
             newString += "############# Obsolete Quantity:    " + str(obsoleteQuantity) + " #############\n"
+        return newString
+
+    def dictionaryToCSV(self, messagesDictionary, pathToFile):
+        self.messagesDictionary = messagesDictionary
+        newString = ""
+        repeatedDic = {}
+        obsoleteDic = {}
+        with open(pathToFile, "w") as csvfile:
+            filewriter = csv.writer(csvfile, delimiter=',', dialect=csv.excel, escapechar='\'', quoting=csv.QUOTE_NONE)
+            if "//Repeated" in self.messagesDictionary:
+                repeatedDic = messagesDictionary["//Repeated"]
+                del self.messagesDictionary["//Repeated"]
+            if "//Obsolete" in self.messagesDictionary:
+                obsoleteDic = messagesDictionary["//Obsolete"]
+                del self.messagesDictionary["//Obsolete"]
+            for x in self.messagesDictionary:
+                filewriter.writerow([x, self.messagesDictionary[x]["msgstr"]])
+            if len(repeatedDic) > 0:
+                for x in repeatedDic:
+                    filewriter.writerow([x, repeatedDic[x]["msgstr"]])
+            if len(repeatedDic) > 0:
+                for x in obsoleteDic:
+                    filewriter.writerow([x, obsoleteDic[x]["msgstr"]])
+        print("Successful writing of " + pathToFile)
         return newString
 
     def textToDictionary(self, message):
@@ -202,12 +227,9 @@ class CentralMechanism(object):
                     print("Unexpected error on " + wholeLine)
             if "#~" in msgidLine:
                 index = message.index(msgidLine[3:])
-                secondIndex = message.index(msgidLine)
                 firstInstance = len(message[:index].split("\n"))
-                secondInstance = len(message[:secondIndex].split("\n"))
                 obsoleteDic[msgid] = {"Comments" : commentsLine, "msgstr" : msgstr, 
-                    "Instance 1" : firstInstance,
-                    "Instance 2" : secondInstance}
+                    "Line" : firstInstance}
             elif msgid in messageDic:
                 index = message.index(msgidLine)
                 secondIndex = message.index(msgidLine,index + 2)
@@ -577,14 +599,14 @@ class Core(object):
         language = args.exLan
         translationPath = args.File
         verbose = args.Verbose
-        if args.File != (None or False) and args.Stdin:
+        if args.File is not None and args.Stdin:
             print("Error, only one option between File and Stdin can be used")
             sys.exit()
         __lanDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
-        if args.File != (None or False) or args.Stdin:
-            if args.File is not (None or False):
+        if args.File is not None or args.Stdin:
+            if args.File is not None:
                 try:
-                    __translations = csv.reader(open(translationPath), delimiter=',')
+                    __translations = csv.reader(open(translationPath), delimiter='|', dialect=csv.excel, escapechar='\\', quoting=csv.QUOTE_NONE)
                 except: 
                     print("** The path:\"" + translationPath + "\"doesn't lead to a language translations **")
                     print("")
@@ -593,29 +615,18 @@ class Core(object):
             elif args.Stdin:
                 __translations = sys.stdin.readlines()
                 __translationsList = [x[:-1].split(",") for x in __translations]
-            notUsedDic = {}
             notExistingList = []
             for x in __translationsList: 
                 translation = x[1]
                 if x[0] in __lanDictionary:
-                    if translation != "":
-                        __lanDictionary[x[0]]["msgstr"] = translation
-                    else:
-                        notUsedDic[x] = x
+                    __lanDictionary[x[0]]["msgstr"] = translation
                 else:
                     notExistingList.append(translation)
-            notUsedDic = __lanDictionary
             if verbose:
-                if notUsedDic != {}:
-                    print("The next dictionary contains the elements that didn't get a translation")
-                    notUsed = self.CentralMechanism.dictionaryToText(__lanDictionary)
-                    print(notUsed)
-                    print("")
                 if notExistingList != []:
                     print("The next list contains the elements that didn't exist on the selected language")
                     print(notExistingList)
                     print("")
-            print("Elements that didn't get a translation: " + str(len(notUsedDic)))
             print("Elements that didn't exist in the selected language: " + str(len(notExistingList)))
             print("")
             messages = self.CentralMechanism.dictionaryToText(__lanDictionary)
@@ -628,6 +639,15 @@ class Core(object):
         else:
             print("** Error, no option for input selected, see \"aT --help\" for further reference **")
             print("")
+    
+    def extractCSV(self, args):
+        pathToFile = args.File
+        language = args.exLan
+        __lanDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
+        __csvFormated = self.CentralMechanism.dictionaryToCSV(__lanDictionary, pathToFile)
+        
+
+
 
 class Runner(object):
     def __init__(self, basePath, pathToPot):
@@ -637,92 +657,79 @@ class Runner(object):
         self.CLI(sys.argv)
     
     def CLI(self, args):
-        options = ["aL","aM", "s", "mM", "v", "dM", "dL", "h", "aT"]
-        optionsLong = ["addLanguage","addMessage", "search", "modifyMessage", "verify", "deleteMessage", "deleteCatalog", "--help", "addTranslations"]
         languages = self.PathHandler.listLanguages(self.pathLanguages)
         languages.append("all")
-
-        option = []
         argsL = args
 
         if len(argsL) < 2:
             print("No argument recieved, exiting. See --help if needed.")
             print("")
         else:
-            for x in options:
-                if argsL[1] == x:
-                    option.append(x)
-            if len(option) == 0:
-                for x in range(len(optionsLong)):
-                    if argsL[1] == optionsLong[x]:
-                        optionShort = options[x]
-                        option.append(optionShort)
-                        argsL[1] = optionShort
-            if len(option) == 0:
-                print("No valid first argument given, see --help if needed.")
-                print("")
-            elif len(option) > 1:
-                print("Too many actions, just one per run allowed, see --help if needed.")
-                print("")
-            else:
-                parser = argparse.ArgumentParser(prog=argsL[0], description="Options for management of .po catalogs")
-                del argsL[0]
-                subparsers = parser.add_subparsers(title="Accepted commands", description="Available Options")
+            parser = argparse.ArgumentParser(prog=argsL[0], description="Options for management of .po catalogs")
+            subparsers = parser.add_subparsers(metavar= "{command}", title="Available Commands", description="Each should be used with their respective sub-subcommands. Use \"" + argsL[0] + " {option} -h\" to see the individual use of each")
 
-                parser_v = subparsers.add_parser("v",help = "verify:\n Allows to verify that every Language Catalog has the same Message Id's")
-                parser_v.set_defaults(func=self.Core.verifyCatalogs)
+            parser_V = subparsers.add_parser("V", description="Verify the integrity of the catalogs against the .pot file" ,help = "Verify:  Allows to verify that every Language Catalog has the same Message Id's")
+            parser_V.set_defaults(func=self.Core.verifyCatalogs)
 
-                parser_s = subparsers.add_parser("s",help = "search:\n Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
-                parser_s.add_argument("messageId", metavar="Message_Id")
-                parser_s.add_argument("exLan", choices=languages, nargs='?',  default = "all",  metavar="Language", help="Language to search in, for all languages: all")
-                parser_s.set_defaults(func=self.Core.searchMessageInCatalogs)
+            parser_S = subparsers.add_parser("S",help = "Search:  Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
+            parser_S.add_argument("messageId", metavar="Message_Id")
+            parser_S.add_argument("exLan", choices=languages, nargs='?',  default = "all",  metavar="Language", help="Language to search in, for all languages: all")
+            parser_S.set_defaults(func=self.Core.searchMessageInCatalogs)
 
-                parser_aL = subparsers.add_parser("aL",help = "addLanguage:\n Allows to add a new language with the Message Id's already added")
-                parser_aL.add_argument("newLan", metavar="New_Language", help="Language to be added")
-                parser_aL.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
-                parser_aL.set_defaults(func=self.Core.addLanguageCatalog)
+            parser_aL = subparsers.add_parser("aL",help = "Add Language:  Allows to add a new language with the Message Id's already added")
+            parser_aL.add_argument("newLan", metavar="New_Language", help="Language to be added")
+            parser_aL.add_argument("-v","--Verbose", action='store_true', help = "Show as much of the process")
+            parser_aL.set_defaults(func=self.Core.addLanguageCatalog)
 
-                parser_aM = subparsers.add_parser("aM",help = "addMessage:\n Allows to add a message, either to one language or all")
-                parser_aM.add_argument("messageId", metavar="New_Message_Id", help="The Message Id should go wrapped in quotation marks")
-                parser_aM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
-                parser_aM.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
-                parser_aM.set_defaults(func=self.Core.addMessageToCatalogs)
+            parser_aM = subparsers.add_parser("aM",help = "Add Message:  Allows to add a message, either to one language or all")
+            parser_aM.add_argument("messageId", metavar="New_Message_Id", help="The Message Id should go wrapped in quotation marks")
+            parser_aM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks")
+            parser_aM.add_argument("-v","--Verbose", action='store_true', help = "Show as much of the process")
+            parser_aM.set_defaults(func=self.Core.addMessageToCatalogs)
 
-                parser_mM = subparsers.add_parser("mM",help = "modifyMessage:\n Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
-                parser_mM.add_argument("exMessageId", metavar="Message_Id", help="The Message Id should be wrapped wrapped in quotation marks and it's Caps Sensitive")
-                if(("all" in argsL) or "-h" in argsL or "--help" in argsL):
-                    parser_mM.add_argument("messageId", metavar="New_Message_Id", help="The New message Id should be wrapped in quotation marks, only allowed to be used when applied to all languages")
-                parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks, only allowed to be used when applied to a certain language")
-                if(("all" not in argsL) or "-h" in argsL or "--help" in argsL):
-                    parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
-                parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language to search in, for changes on Translation use ")
-                parser_mM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
-                parser_mM.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
-                parser_mM.set_defaults(func=self.Core.modifyMessageInCatalog)
+            parser_mM = subparsers.add_parser("mM",help = "Modify Message:  Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
+            parser_mM.add_argument("exMessageId", metavar="Message_Id", help="The Message Id should be wrapped wrapped in quotation marks and it's Caps Sensitive")
+            if(("all" in argsL) or "-h" in argsL or "--help" in argsL):
+                parser_mM.add_argument("messageId", metavar="New_Message_Id", help="The New message Id should be wrapped in quotation marks, only allowed to be used when applied to all languages")
+            parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks, only allowed to be used when applied to a certain language")
+            if(("all" not in argsL) or "-h" in argsL or "--help" in argsL):
+                parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
+            parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language to search in, for changes on Translation use ")
+            parser_mM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
+            parser_mM.add_argument("-v","--Verbose", action='store_true', help = "Show as much of the process")
+            parser_mM.set_defaults(func=self.Core.modifyMessageInCatalog)
 
-                parser_dM = subparsers.add_parser("dM",help = "deleteMessage:\n Allow to delete a Message Id in all catalogs or if language provided only in said language")
-                parser_dM.add_argument("messageId", metavar="Message_Id", help = "Message Id to be deleted")
-                parser_dM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
-                parser_dM.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
-                parser_dM.set_defaults(func=self.Core.deleteMessageInCatalogs)
+            parser_dM = subparsers.add_parser("dM",help = "Delete Message:  Allow to delete a Message Id in all catalogs or if language provided only in said language")
+            parser_dM.add_argument("messageId", metavar="Message_Id", help = "Message Id to be deleted")
+            parser_dM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
+            parser_dM.add_argument("-v","--Verbose", action='store_true', help = "Show as much of the process")
+            parser_dM.set_defaults(func=self.Core.deleteMessageInCatalogs)
 
-                parser_dL = subparsers.add_parser("dL", help = "deleteCatalog:\n Allows to delete a whole Language's Message Catalog")
-                parser_dL.add_argument("exLan", choices=languages, metavar="Language", help= "Language to delete its Catalog")
-                parser_dL.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
-                parser_dL.add_argument("-V","--Verbose", action='store_true', help = "Show as much of the process")
-                parser_dL.set_defaults(func=self.Core.deleteLanguageCatalog)
+            parser_dL = subparsers.add_parser("dL", help = "Delete Catalog:  Allows to delete a whole Language's Message Catalog")
+            parser_dL.add_argument("exLan", choices=languages, metavar="Language", help= "Language to delete its Catalog")
+            parser_dL.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
+            parser_dL.add_argument("-v","--Verbose", action='store_true', help = "Show as much of the process")
+            parser_dL.set_defaults(func=self.Core.deleteLanguageCatalog)
 
-                parser_aT = subparsers.add_parser("aT",help = "addTranslations:\n Allows to allow a massive catalog of translations to an initiated Catalog")
-                parser_aT.add_argument("exLan", choices=languages, metavar="Language", help= "Language to add Translations to its Catalog")
-                parser_aT.add_argument("-F","--File", nargs='?',  default = False, help = "Expect a file path")
-                parser_aT.add_argument("-S","--Stdin", action='store_true', help = "Expect a Standard Input before")
-                parser_aT.add_argument("-V","--Verbose", action='store_true', help = "Show the whole list of messages not updated and not used")
-                parser_aT.set_defaults(func=self.Core.addTranslations)
-                
-                print("")
-                arguments = parser.parse_args(argsL)
-                arguments.func(arguments)
-                print("")      
+            parser_aT = subparsers.add_parser("aT",help = "Add Translations:  Allows to allow a massive catalog of translations to an initiated Catalog")
+            if "aT" in argsL:
+                languages.pop()
+            parser_aT.add_argument("exLan", choices=languages, metavar="Language", help= "Language to add Translations to its Catalog")
+            parser_aT.add_argument("-F","--File", nargs='?',  default = None, help = "Expect a file path")
+            parser_aT.add_argument("-S","--Stdin", action='store_true', help = "Expect a Standard Input before")
+            parser_aT.add_argument("-v","--Verbose", action='store_true', help = "Show the whole list of messages not updated and not used")
+            parser_aT.set_defaults(func=self.Core.addTranslations)
 
+            parser_xCSV = subparsers.add_parser("xCSV", help = "")
+            parser_xCSV.add_argument("exLan", choices=languages, metavar="Language", help= "Language to add Translations to its Catalog")
+            parser_xCSV.add_argument("-F","--File", nargs='?',  default = os.path.join(".","translations.csv"), help = "Path for csv creation, default is: \"" + os.path.join(".","translations.csv") + "\"")
+            parser_xCSV.set_defaults(func=self.Core.extractCSV)
+
+            del argsL[0]
+            print("")
+            arguments = parser.parse_args(argsL)
+            arguments.func(arguments)
+            print("")      
+            
 if __name__ == "__main__":
     Runner(basePath, pathToPot)

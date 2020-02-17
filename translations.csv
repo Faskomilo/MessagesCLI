@@ -1,0 +1,1618 @@
+,'"'
+'"Project-Id-Version: PROJECT VERSION\n'"'
+'"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n'"'
+'"POT-Creation-Date: 2018-10-12 18:50-0500\n'"'
+'"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n'"'
+'"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n'"'
+'"Language: es\n'"'
+'"Language-Team: es <LL@li.org>\n'"'
+'"Plural-Forms: nplurals=2; plural=(n != 1)\n'"'
+'"MIME-Version: 1.0\n'"'
+'"Content-Type: text/plain; charset=utf-8\n'"'
+'"Content-Transfer-Encoding: 8bit\n'"'
+'"Generated-By: Babel 2.8.0\n
+Scouting reports,Reportes de exploración
+Density,Densidad
+Expected Completion,Expectativa de termino
+Tax Id:,RFC:
+Invalid cost,Formato de primer nombre invalido
+Company name*,Nombre de la compañía
+Agrosuite: Request a demo,Agrosuite: Solicita un demo
+Department,Departamento
+Progress,Progreso
+Suggested equipment,Equipo sugerido
+ID Currency does not exists,El identificador de moneda no existe
+Sucess,Exito
+Today,Hoy
+Sorry! You can''t draw that!,¡Lo sentimos!', no puedes hacer eso
+Agrosuite Checkin,Registro Agrosuite
+Carto API call,Llamada Carto API
+Please select a field to enable button,Por favor', seleccione un campo para habilitar el botón
+Jobs Overview,Resumen de trabajos
+Click cancel to undo changes,Da click en cancelar para descartar cambios
+Scouting report,Reporte de exploración
+Add New,Agregar nuevo
+Select a category,Selecciona una categoría
+Measure distance,Medir distancia
+Buyer,Comprador
+ Cost per hour: *,Costo por hora: *
+Quantity,Cantidad
+Purchase Order Status,Estatus de la orden de compra
+Project settings inputs are required.,Datos para ajustes del proyecto son requeridos
+Available quantity,Cantidad disponible
+New record,Nuevo registro
+WEEK,SEMANA
+ID Project does not exists,El identificador del proyecto no existe
+Agrosuite: Password recovery,Agrosuite: Recuperar contraseña
+e.i. Walmart,ej. Walmart de México SA de CV
+Type your firstname,Ingresa tu nombre
+Invalid details format,
+Sale,Venta
+DemoRequest added,Solicitud de demo procesada
+jobtypes,
+Amount,Cantidad
+NEW FIELD,Nuevo campo
+e.i. 456 Conrad Street,ej. Paseo de los tulipanes  #43
+Select all blocks,Seleccionar todos las parcelas
+Type the state,Ingresa el estado
+Error sending help data', please try again later.,
+cropBlocks updated,
+Pruning required,Poda requerida
+Refreshing Field Plan Data,Recargando los datos del plan de campo
+All Crops,Todas los cultivos
+Polygon is required,
+Tax,Impuesto
+e.i. 20 (quantity only),ej. 20 (solo cantidad)
+Loading orthophoto,Cargando ortofotos
+Precipitation (last hour),Precipitación (última hora)
+Projections,Proyecciones
+fieldplan cropBlocks,
+ Fields selected., Campos seleccionados
+Select a name for your Season Plan,Selecciona un nombre para tu plan de temporada
+PurchaseOrder is canceled,La orden ha sido cancelada
+Please add crop,Agrega un cultivo
+Completed blocks,Parcelas completadas
+Something is wrong', please try later.,
+e.i. 100 (quantiy only),
+Block:,Parcela:
+Equipment,Equipo
+State,Estado
+categoriesname,
+Cost per hour,Costo por hora
+No perimeters to edit,No hay perímetros para editar
+No records,Sin registros
+Add sale,Agregar venta
+Removing filed plan from field,Eliminando plan archivado del campo
+Deleted,Registro borrado
+Demo request inputs are required.,Los datos de solicitud de demo son obligatorios
+Are you sure you want to delete this projection?,¿Está seguro de quere borrar esta proyección?
+Job detail,Detalles del trabajo
+Harvest Records,Registro de cosecha
+Successfully created,
+No products added,
+GO TO PROJECT,IR AL PROYECTO
+Select an employee,Seleciona un empleado
+cropclass by fieldPlan,
+BLOCKS,PARCELAS
+e.i. Premium local,ej. Premium local
+Unauthorized,Acceso denegado
+Soil temperature,Temperatura del suelo
+No data,
+All Scout Categories,Todas las Categorías de exploración
+Zoom,Zoom
+here,aquí
+Status:,Estatus:
+EquipmentPurchaseOrder is canceled,
+Successfully get field plan,Plan de Campos obtenido con éxito
+Machinery,Maquinaria
+ID Project must be an integer,Indentificador del proyecto debe ser un numero entero
+Agrosuite: Select a project,Agrosuite: Seleccione un proyecto
+Labor payroll summary,Resumen del pago de labores
+Total cost,Costo total
+Map View,Mapa
+Concept,Concepto
+Go to parcel,Ir a la parcela
+ID Client must be an integer,ID cliente debe ser un numero entero
+No fields to show,No hay campos a mostrar
+REQUEST A DEMO,SOLICITA UN DEMO
+employees,
+Back,Regresar
+Please add season plans,
+SUBMIT,ENVIAR
+Usable area:,Área Utilizable:
+Additional notes,Notas adicionales
+error at insert sales,
+Invalid credentials', please', try again,Credenciales invalidas', intenta de nuevo
+Invalid notes format,
+Assingning season plan to field,Assignando plan de temporada al campo
+No blocks available for this field.,No hay bloques disponibles para este campo.
+Go to sensor,Ir al sensor
+Category,Categoría
+Name of the role,Nombre del rol
+Invalid phone,Formato telefónico inválido
+projection,proyección
+Crop saved successfully,Cultivos guardadas satisfactoriamente
+PurchaseOrder was paid,
+Support,Soporte
+Invalid externalID format,Formato de identificador externo invalido
+crop classes,clasificacines de cultivo
+Crops and field plans,Planes y cultivos
+Grass cutting,Corte de hierba
+e.i. Arizona,ej. Guanajuato
+Yield unit,Unidad de rendimiento
+e.i contact@mcgregor.com,
+View scouting reports,
+Status,Estatus
+Type your State,Ingresa tu estado
+Invalid quantity format,Formato de cantidad invalido
+User settings updated,Actualización configuración de usuario
+Fields,Campo
+Click to continue drawing perimeter,Da click para continuar dibujando el perímetro
+cool !!,
+Processing purchase,Procesando nueva compra
+Block,Parcela
+The export process has struggle.,El proceso de exportar fallo
+Show topographic charts at this point,Mostrar cartas topográficas en este punto
+Holes in soil,Agujeros en suelo
+Account book ,Libro contable
+New purchase added,Nueva compra
+In progress,En progreso
+Progress unit per land area unit,Unidad de progreso por unidad de área de tierra
+e.i. John Smith,ej. Jaime Gomez
+the order can''t be saved somethong goes wrone,
+equipments,
+Project settings updated,Actualización de configuración del proyecto
+Invalid last name format,Formato de segundo nombre invalido
+No jobs founded,No se encontraron trabajos
+e.i. Phoenix,ej. Guanajuato
+No ortophotos available,Ortofotos no disponibles
+No topographic charts found,No se han encontrado cartas topográficas
+No records found ,
+End date,Fecha de término
+Elevation profile,
+All Activity,Todas las actividades
+Invalid email format,Formato de correo electrónico invalido
+e.i. +1 480-7777-777,ej. 56452589
+sale doesn''t exist,
+No records found.,Sin registros
+Non existence available,Sin existencias
+Bad request,Petición errónea
+Video,
+Type the email,Ingresa el email
+Getting and drawing perimeters,Dibujando perímetros
+Dryness,Sequedad
+Assign season plan,Asignar plan de temporada
+Buyers,Clientes
+New Purchase Order,Nueva compra
+Error saving user settings', please try again later.,Error al guardar la configuración del usuario', por favor intente de nuevo.
+Type warehouse contact name,Ingresa el nombre de contacto de almacén
+No employees added,Ningun empleado agregado
+Loading topographical chart,Cargando capas topográficas
+Type the cost per hour,Ingresa el costo por hora
+Order can be paid,
+update has an error,
+e.i. Australia,e.j. México
+Edit crop details,Editar detalles de cultivos
+Crop type,Tipo de cultivo
+SAVE AND APPLY CHANGES,GUARDAR Y APLICAR CAMBIOS
+Export Activities,Exportar actividades
+Production and current existences,Producción y existencias
+Thank you for your interest in Aedrotec', we will contact you soon.,Gracias por tu interes en Aedrotec', Te contactaremos en breve
+Opening Hours:,Horario de apertura:
+No account records for this book.,Sin registros
+SSN,SSN
+Something is wrong', please try again,Algo anda mal', por favor intente de nuevo
+Box parameter is invalid,
+Order doesn''t exist,La orden no existe
+File can''t be processed,Archivo no pudo ser procesado
+Segment,Segmento
+No jobs found for this field,Ningun trabajo encontrado para este campo
+non existence,
+CROPS,CULTIVO
+Cannot load crops. Try again.,No se pudieron cargar los cultivos. Intenta más tarde
+Invalid Crop Class,Clase de cosecha invalida
+e.i: WH-02A,ej. WH-02A
+Batch,Lote
+No products were required for this task,Ningun producto fue necesario para esta tarea
+Add Product,Agregar Insumo
+Yields,Cosecha
+JobSubTypes,
+CANCEL,CANCELAR
+Invalid tax format,Formato del inpuesto inválido
+Grass cutting required,Corte de hierba requerido
+HELP TITLE,
+Last month,Mes pasado
+Crop classes,Clasificación de cultivo
+Invalid invoice format,
+Email*,Correo electrónico*
+Cabo,
+Invalid firstname format,Formato de nombre invalido
+Email:,Correo electrónico:
+Field work costs,Costos operativos
+Existence,Existencia
+Financials,Finanzas
+3CAB01,
+Delete perimeter,Borrar perímetros
+3CAB03,
+3CAB02,
+3CAB04,
+3CAB07,
+3CAB06,
+Equipments catalog,Catalogo de Equipo
+3CAB08,
+Add a storage loaction and supplies,Agregar ubicación de almacenaje y Proveedores
+Assigning activity,Asignando actividad
+Field plan completed,Plan de campo terminado
+ID Currency must be an integer,ID de moneda debe ser un numero entero
+Income,Ingresos
+Supplier,Proveedor
+Contact us!,¡Contáctanos!
+SEE PLANS,VER PLANES
+Worked Hours,Horas trabajadas
+Finish,Terminar
+Field Successfully created,
+Schedule,Agenda de trabajo
+Add Projection,Agregar proyección
+No plans found,No se encontraron planes
+Cannot load equipment data,
+Employees,Empleados
+e.i. Monday to Friday 9 TO 5 PM,ej. L-V de 8:00 a 18:00 hrs.
+Invalid season plan name,Nombre del plan de temporada invalido
+TOTAL,TOTAL
+Subtotal,Subtotal
+Select one or more blocks,Seleciona una o mas parcelas
+Received,Recibido
+Block Name,
+e.i: 02A,ej. 02A
+insert sale,
+Suppliers,Proveedores
+Add notes,Agregar notas
+SEE FIELD PLAN,VER PLAN DE CAMPO
+The record has been save,La orden de compra ha sido confirmada
+Edit season plan details,Editar detalles de plan de temporada
+invalid token,Token inválido
+records,registros
+No notifications available,Sin notificaciones por el momento
+Path line distance,
+No account book selected.,Por favor seleccione un libro contable
+Job does not exists,Trabajo no existe
+e.i. Victoria,ej. Guanajuato
+Cultivation year,Año de cultivación
+Select an parcel,Selecciona una parcela
+The purchase has been cancel,La orden de compra ha sido eliminada
+Included Blocks,Bloques incluídos
+NEW CROP,NUEVO CULTIVO
+Not employees added,No se han agregado empleados
+Error loading employees,
+'"'
+'"Enter email registered in Agrosuite', we will send an email with the '"'
+'"instructions to recovery.,'"'
+'"Ingrese el correo electrónico registrado', le enviaremos  las '"'
+'"instrucciones para recuperar su contraseña por correo.
+Click on an added point to delete it.,Clic en el punto para borrarlo.
+Select block,Selecciona parcela
+Abbreviation,Abreviación
+Please draw a field perimeter,Por favor', dibuja un perímetro
+Validation fail,Fallo validación
+Invalid internal code,Ingresa el código interno
+Coordinates is required.,
+SAVE,GUARDAR
+Did not find what you need?,¿No encuentras lo que necesitas?
+Return to general map,Regresar al mapa general
+Subject,Asunto
+status,
+e.i. 85014,ej. 45256 
+Invalid project name,Nombre de proyecto invalido
+Invalid contact name,Formato del nombre de contacto inválido
+Grid ID is required,Id de cuadrícula es requerido
+Project name,Nombre del proyecto
+Loading financials...,Cargando Finanzas
+Field Supervisors,Supervisores de campo
+equipment code or name,
+Invalid phone format,Formato telefonico invalido
+FAQs,FAQs
+Setting,Establecimiento
+Jot type:,Tipo de trabajo
+Select another point on the map and click it.,Cree un nuevo segmento dando clic en el mapa
+Fumigation,Fumigación
+Start date,Fecha de inicio
+Save,Guardar
+Type,Tipo
+Field settings,Campos
+invalid or missing data,
+e.i. IMSS-02-008,ej. IMSS-02-008
+Invalid address 1,Formato de direccion inválido
+Completed Parcels,Parcelas completadas
+EXISTENCE,EXISTENCIA
+Planned Start Date,Fecha planeada de inicio
+Relative humidity,Humedad relativa
+Invalid zipcode,Formato de código postal inválido
+Do you really want to remove the field plan _FIELD_PLAN_ from your field?,¿Realmente desea remover el plan de campo _FIELD_PLAN_ de tu campo?
+Job,Trabajo
+Plague,Plaga
+Processing information,Procesando información
+Order can be canceled,La orden puede ser cancelada
+Successfully synchronized,Sicronización exitosa
+SEE JOBS,VER TRABAJOS
+Delete last point,Borrar el último punto
+Class,Clase
+La cañada 3,
+Cool,Exito
+3CAB05A,
+Equipments,Equipos
+3CAB05B,
+Zipcode: *,Código Postal: *
+Field Supervisor:,Supervisor de campo:
+Clear and exit measure distance,Limpiar y salir de medición de distancia
+'"'
+'"Do you want to save it as a paid purchase and register it in the '"'
+'"accounting books?,'"'
+'"¿Desea guardar la orden de compra como pagada y registrala en el libro de'"'
+'" contabilidad?
+e.i. Brunswick,ej. Guanajuato
+All concepts,Todos los conceptos
+Log in,Iniciar sesión
+Id Purchase Order missing,
+All Job Status,Todos los estatus de trabajo
+Username,Nombre de usuario
+Volumetric water content,Contenido volumétrico de agua
+Type warehouse email,Ingresa el email del almacén
+Please add jobs to your season plans,Por favor', agrega trabajos a tu plan de temporada
+There are not crops currently,No hay cultivos actualmente
+The record has been deleted,El registro ha sido eliminado
+file validation pass,Validación exitosa
+People,Personas
+Your browser does not support HTML5 video.,
+Season Plan,Plan de temporada
+Invalid position format,Formato del puesto invalido
+Type warehouse description,Ingresa la descripción del almacén
+No season plans available.,
+Blocks assigned:,Parcelas assignadas
+Currency,Moneda
+Linear distance,Distancia lineal
+Select one or more fields,Seleccionar uno o mas campos
+Pruning,Poda
+External order No,No de orden Externa
+e.i. USA,ej. México
+Cannot load inventory data,
+add transfer order,
+Assign Job,Asignar trabajo
+Product Categories,Categorías de Producto
+The employee does not exists,
+e.i: Main Warehouse,ej. Almacén Principal
+Detail,Detalle
+Position: *,Puesto: *
+date,fecha
+No blocks selected,No se han selecionado parcelas
+JOBS,TRABAJOS
+The crop has been terminated successfully,La cosecha ha sido terminada satisfactoriamente
+open,Abrir
+Error saving season plan', please try again later.,Error al guardar el plan de temporada', por favor intente de nuevo.
+Clear all,Borrar todo
+Click to draw the field perimeter,Da click para dibujar el perímetro
+'"'
+'"Do you really want to terminate the season plan _SEASON_PLAN_? If the '"'
+'"season plan is terminated all the associated plans will also be '"'
+'"terminated,'"'
+'"¿Realmente desea terminar el plan de temporada  _SEASON_PLAN_? Si el plan'"'
+'" termina todos los planes asociados tambien terminarán
+Transportation,Transporte
+Wind gust speed,Ráfaga de viento velocidad
+Total Amount,Cantidad Total
+Field plan,Plan de campo
+Remove field plan from field,Eliminar plan del campo
+in warehouses,en Almacén
+Othophoto mosaic,
+Date,Fecha
+Showing labor records with pending payment,Mostrando registros de labores pendientes de pago
+No data registered on this sensor,
+All fields selected,Todos los campos
+Search,Buscar
+Type the security number,Ingresa el numero de seguridad del empleado
+Language,Idioma
+Select a block,Seleccionar parcela
+Field name,Nombre del campo
+Type the descriptions,Ingresa la Descripción
+Type details of the warehouse,Ingresa los detalles del almacen
+Bugs,Bichos
+Go to field,Ir al campo
+No,No
+External Code,No. de orden externa
+CURP: (Identifier),CURP:
+Phone: ,Teléfono:
+PDF,
+Edit crop types,Editar tipo de cultivo
+All season plans,Todos los planes de temporada
+Code,Código
+All Job Types,Todos los tipos de trabajos
+Project settings,Configuración
+New user successfully created,
+no data,
+Invalid buyer format,
+Mature fruit,Fruta madura
+Field ID is required,Id de campo es requerido
+Invalid cost format,
+Cancel,Cancelar
+BOOK RECORDS,REGISTROS
+The payroll payment has been succefully registered.,El pago ha sido registrado exitosamente.
+SEASON PLANS,PLANES DE TEMPORADA
+Loading...,Cargando...
+The season plan does not exists,El plan de la temporada no existe
+PL-2012,
+ID Area unit must be an integer,ID unidad de área debe ser un numero entero
+Pay,Pagar
+Help and support inputs are required.,
+First name: *,Nombre: *
+Flood,Inundación
+Other,Otro
+Type your lastname,Ingresa tu apellido
+ Blocks selected.,Parcelas selecionadas
+e.i. Accesories / Tractor sower,ej. Accesorios/ Tractor Sembrador
+edit job,editar trabajo
+RECOVER MY PASSWORD,RECUPERAR MI CONTRASEÑA
+'"'
+'"Short abbreviation to identify your crops faster', Agrosuite help you to '"'
+'"create it.,'"'
+'"Abreviación corta para identificar más rapido los cultivos', Agrosuite te '"'
+'"ayuda a crearlos.
+'"'
+'"Recovery password email sent', please', check your email inbox to see the '"'
+'"instructions.,'"'
+'"Se ha envido por correo las instrucciones para recuperar su contraseña', '"'
+'"por favor revise su correo.
+Activities,Actividades
+Plague control,Control de plagas
+Type cultivation year,Ingresa el año de cultivación
+Parcel,Parcela
+e.i. John,
+Invalid lastname format,Formato de apellido invalido
+The sum should be equal to the total amount,La suma debe ser igual a la cantidad total
+Frost control,Control de heladas
+All Field Supervisor,Todos los supervisores
+Operation detail,Detalle de operación
+Invalid city format,Formato de cuidad inválido
+note,nota
+Current Feature,Caracteristica actual
+'"'
+'"A Season Plan is a template that defines a list of jobs', when a season '"'
+'"plan is assigned to a field becomes to a Field Plan.,'"'
+'"Un plan de temporada es una plantilla que define una lista de trabajos. '"'
+'"Cuando un plan de temporada se asigna a un campo', se convierte en un plan'"'
+'" de campo.
+Save Purchase Order,Guardar compra
+Error saving account record.,Ocurrió un error al intentar guardar los registros
+Please add,Agrega
+e.i. FE54,ej. FE54
+Scout Subcategory,Subcategoría de Exploración
+Show trajectory,
+Name,Nombre
+Box is required,
+e.i. West Field,e.i. El Tamarindo
+No data to display,No hay datos que mostrar
+NEW SEASON PLAN,NUEVO PLAN DE TEMPORADA
+No blocks assigned,Ningun bloque asignado
+Invalid crop class format,
+ID Crop must be an integer,ID cultivo debe ser un numero entero
+Saving block data...,Guardando 
+unvalid username,Nombre de usuario inválido
+Admission Date:,Fecha de Admisión:
+Number of employees,Número de empleados
+Detalles:,
+Field Plan,Plan de campo
+Projection input type,Tipo de Proyección
+Log out,Cerrar sesión
+Help and support,Ayuda y soporte
+Crop,Cultivo
+e.i. TR08,ej. TR08
+Cost,Costo
+Loading recods...,Cargando datos
+FIELDS,CAMPOS
+Accounting,Contabilidad
+PurchaseOrder couldn''t been registered,
+Not available,
+No notes added,Ninguna nota agregada
+Something goes wrong,Algo salió mal
+Loading fields...,Cargando campos...
+Last name: *,Apellido: *
+Profit,Ganancias
+e.i. \tRetail ,ej. Retail
+Field supervisor,Supervisor de campo
+Help request successfully sent,
+Type your first address,Ingresa tu dirección principal
+Not started,No iniciado
+Role,Rol
+Is used for the harvest register and for sales.,Es usado para el registro de cosecha y ventas
+Invalid status format,Formato del estatus invalido
+Loading page ...,Cargando página
+Cancel purchase,Cancelar Compra
+Internal Code:,
+e.i. Fertilizers compost and pest traps ,ej. Fertilizantes y pesticidas
+Balance,Balance
+fieldplan detail,
+Min: *,
+Blocks to assign:,Parcelas a asignar:
+Update,Actualizar
+International phone*,Teléfono internacional*
+Loading agent info,Cargando información de agentes
+e.i. Doe,ej. Martínez
+Sign in,Iniciar sesión
+Type the last cost,Ingresa el ultimo costo
+8,
+Type the name,Ingresa el nombre
+No assign date selected,No se ha seleccionado fecha
+Order by,Ordenar por
+ID Client does not exists,El identificador del cliente no existe
+The sum should be equal 100,La suma debe ser igual al 100
+Click on a perimeter to remove,Da click en un perímetro para borrarlo
+Select project before.,Seleccione proyecto.
+Notes,Notas
+missing idFieldPlan,
+Loading crops...,Cargando cultivos...
+Type the last name,Ingresa el apellido
+Soil electric conductivity,Conductividad eléctrica del suelo
+No equipment added.,Ningun equipo agregado.
+Products,Insumos
+Do you want to delete,Deseas eliminar
+Successfully initialized,
+Usable area,Área usable
+Please select Product Unit,Seleciona unidad de producto
+FINANCIALS,FINANZAS
+The season plan has been terminated successfully,El plan de temporada ha sido terminado satisfactoriamente
+delete,
+Type your city,Ingresa tu ciudad
+Help,Ayuda
+Select an equipment,Seleccionar un equipo
+e.i. Holt-Wh02,ej. Almacén Principal
+Unittest,Prueba unitaria
+Progress records,
+How to measure?,¿Cómo medir la distancia?
+Type warehouse tax Id,Ingresa el id de impuesto del almacén
+Expected completion,Termino previsto
+From field,Del campo
+Job removed from field plan susccessfully,Trabajo ha sido eliminado
+e.i. McGregor Fertilizers,ej: Fertilizanctes S.A de C.V
+To Warehouse,Hacia Almacén
+From Warehouse,Desde Almacén
+Invalid data or missing,Información inválida
+Block name:,Nombre de Parcela
+Select image to upload,Seleciona una imagen
+Storage,Almacenamiento
+Invalid field format,Formato de campo invalido
+PurchaseOrder,Orden de compra
+Inventory,Inventario
+Request Quantity,Cantidad requerida
+Units,Unidades
+The field plan does not exists,La planeación de campo no existe
+Tracked agents,Rastreo de agentes
+Select a field plan Book to see and add records,Seleccione un plan de campo para ver y agregar registros
+Phone:,Teléfono:
+No fields available for this project.,No hay campos disponibles en este proyecto.
+Work Team:,
+Plant/Fruit,Planta/Fruta
+Type the external order No.,Ingresa No. de orden externa
+missing FieldPlan id,
+Type a message,Escribe el mensaje
+Terminating the season plan,Terminando el plan de temporada
+e.i. Herbicides / Herbicide 123,ej. Herbicida / Herbicida 123
+Select all,Seleccionar todo
+Description: *,Descripción: *
+e.i. johnd@hotmail.com,ej. dmartinez@hotmail.com
+Company Name: *,Nombre de la Compañía: *
+Date completed,Fecha Completada
+Invalid name format,Formato del nombre inválido
+Post-harvest,Post-cosecha
+Email: *,
+Assign activity,Asignar actividad
+Wind speed,Velocidad del viento
+Click on a point to delete it.,
+User settings inputs are required.,Datos de configuración del usuario son requeridas.
+Select all fields,Selecciona todos los campos
+Total area:,Área total:
+Drawlayer,Capa de dibujo
+buyers,compradores
+JobStatus,
+Country: *,País: *
+Unit:,Unidad
+Loading season plans...,Cargando Planes de temporada...
+Progress unit,Unidad de progreso
+You cannot delete blocks with progress in this job,No puede quitar parcelas que ya tienen progreso en este trabajo
+TODAY,HOY
+Have an account?,¿Tienes una cuenta?
+Operation detail like ticket number', invoices numbers or purchase orders,Detalle de operación como: núm. de ticket', núm. de factura o núm. de orden
+Looks good !,Bien
+Projection month by month,Proyección mes por mes
+Terminating the crop,Terminando la cosecha
+Type the role name,Ingresa el nombre del rol
+Select supervisor,Selecciona supervisor
+hours,horas
+Date already selected for this user,
+Not all products are avialable,
+Loading crops error,Cargando error de cultivos
+Unit,Unidad
+External order No.,No. orden externa
+Harvest Record,Registro de cosecha
+Last data,Último dato
+Yes,Sí
+Cannot load season plans. Try again.,No se pudieron cargar los planes de temporada. Intenta más tarde
+Completed,Completado
+idEmployee is required,
+please', select a project,seleciona un proyecto', por favor
+Invalid opening hours,
+Date already used for this job,Ya se ha asignado esta fecha para este trabajo
+The purchase is now confirm as paid,La orden de compra se ha confirmado como pagada
+Temperature,Temperatura
+All Activity status,Todas los estatus de actividad
+Totals,Con Total
+Inventory catalog,Catalogo de inventario
+Sales unit,Unidades de venta
+Assigning season plan to field,
+Success!,¡Operación Exitosa!
+Click on another point on the map to create a segment.,
+Invalid security number format,Formato del numero se seguridad invalido
+Rows per page,Registros por página
+'"'
+'"Do you really want to complete the field plan _FIELD_PLAN_? If the field '"'
+'"plan is completed all the associated jobs will also be mark as complete,'"'
+'"¿Realmente desea completar el plan de campo  _FIELD_PLAN_? Si el plan '"'
+'"termina todos los trabajos asociados tambien se marcaran como completados
+The field plan was unassigned successfully,El plan de campo fue deasignado satisfactoriamente
+Forgot your password?,¿Olvidaste tu contraseña?
+Pending,Pendiente
+Success! Sales has been inserted,Excito! Las ventas se han insertado
+Invalid project,
+Only letters are accepted,Únicamente se aceptan letras.
+Elevation,Elevación
+Successfully assigned season plan,Plan de temporada asignado con éxito.
+Dashboard/Activity Overview,Dashboard/Resumen de actividades
+Paid,Pagado
+New Password,Contraseña
+Activity Status,Estatus de actividad
+Add the feature content,Agrega el contenido caracteristico
+Type description,Ingresa la descripción
+Mark as paid,Marcar como pagado
+Type the phone,Ingresa el telefono del empleado
+Code:,Código:
+Work Team,Equipos de trabajo
+Code: *,Código: *
+e.i. 12-3456789,ej. WME4394990
+Precipitation (today),Precipitación (hoy)
+Weather,Clima
+Message,Mensaje
+First Address: *,Dirección: *
+Job Status,Estatus de trabajo
+Crop Class,Clasificación de cultivo
+e.i. notes,
+Contact name:,
+Add an equipment,Agregar un equipo
+No equipments were required for this task,Ningun equipo fue requerido para esta tarea
+Open topographic chart,Abrir carta topográfica
+Number of hectares,Número de Hectáreas
+Irrigation,Riego
+The sale is now confirm as paid,La venta esta confirmada como pagada
+Create new job,Crear nuevo trabajo
+Field,Campo
+Error loading tracked agent,Error cargando información de agente
+Select all Fields,
+Invalid field plan format,
+Sales,Ventas
+Season Plan saved successfully,Plan de temporada guardado exitosamente.
+Cannot load activity', some data are corrupt.,
+e.i. 12 perfect green limes of 150 g per net.,ej. Limón Italiano', LM', 2010', árbol', Kg', 100 arboles/hectarea
+Min must be a number,
+The employee is not tracked,
+Invoice,Factura
+error,
+Notes:,Notas:
+Error saving project settings', please try again later.,Error al salvar los ajustes del proyecto', por favor intente de nuevo.
+Invalid labor progresses', please', vefiry them again.,
+Purchase Orders,Órdenes de compra
+There are not season plans currently,No hay planes de temporada actualmente
+City,Ciudad
+From Field Plan,Del campo
+e.i. N+P in 2mg pieces,
+e.i. 555 777 7777,ej. 555 777 7777
+Warehouses,Almacenes
+Type the code,Ingresa el código
+Select All,Seleccionar todo
+Select blocks,Seleccionar parcelas
+invalid or missing data something goes wrone,
+LOGIN,INICIAR SESIÓN
+Type a name for your project,
+Settings apply to all users and fields in this project.,La configuración aplica a todos los usuarios y campos de este proyecto
+Product,Insumo
+Please review available quantity product,Por favor revisa la disponibilidad de producto
+cannot delete notification,
+e.i. Tractor XL-34,ej. Tractor XL-34
+Lastname,Apellido
+missing employees list,
+Extraordinary,Extraordinario
+inventory,
+Address,Dirección
+Is used to specify the progress of your labor in the field.,Es usada para indicar el progreso de la mano de obra en el cultivo
+products,
+Expected Start,Expectativa de inicio
+Zoom level is required,
+Error saving Job', please try again later.,Error al guardar el trabajo', por favor intente de nuevo.
+Name to identify your Season Plan.,Nombre que identifica tu plan de temporada
+No product found,ningun producto asignado
+Assing season plan,
+Season Plan assinged successfully,Plan de temporada asignado satisfactoriamente
+Ortophotos,Ortofotos
+Mark as complete,Marcar como completado
+3CAB13,
+Activity,Actividad
+All Fields,Todos los campos
+Email input is required.,Email es requerido
+Fungy,Hongo
+Accumulated Cost,Costo acumulado
+e.i: McGregor Fertilizers,ej: Fertilizanctes S.A de C.V.
+Invalid description,Formato de descripción inválido
+Firstname,Nombre
+Loading layer,Cargando capa
+Add job,Agregar trabajo
+Max: *,
+3CAB09A,
+Other employees,Otros empleados
+3CAB09B,
+Last collection data,Últimos datos
+Equipment Categories,Categorías de Equipo
+Could not get currency information', please try again,'"'
+'"No se pudo obtener la información de la moneda', por favor intente más '"'
+'"tarde
+General,General
+ID Area unit does not exists,El identificador de la unidad de área no existe
+State: *,Estado: *
+No positions found for that interval,
+Virtual Existence,Existencia Virtual
+Name to identify your crop.,Nombre que identifica tu cultivo
+Total,Total
+Tools,Herramientas
+Inventory Storage Location,Localización del almacenaje del inventario
+products are missing,Faltan productos
+City or Province: *,Ciudad: *
+Start:,Inicio:
+transfer order products can''t be saved,
+Topographical Chart,
+No jobs added,Trabajos no agregados
+cannot set notification as open,
+Error loading orthophoto,
+No sensors on this field,No hay sensores en este campo
+No employees were required for this task,Ningun empleado fue requerido para esta tarea
+Couldn''t get distances for this segment,No se puede obtener la medida del segmento
+Type a note,Ingresa una nota
+No layers available,No hay capas disponibles
+No perimeters to delete,No hay perímetros para borrar
+Type warehouse phone,Ingresa el teléfono del almacén
+e.i. Affinity,ej. Fertilizante Affinity
+New supervisor,Nuevo supervisor
+User edition,Edición del usuario
+Jobs,Trabajos
+TO,A
+Report payment,REPORTE DE PAGO
+All segments,Todos los segmentos
+Confirm Reception,Confirmar recepción
+fieldplan doesn''t exist,
+Total amount or worked hours are not consistent with your sent data.,'"'
+'"La cantidad total o las horas trabajadas no son consistentes con los '"'
+'"datos.
+Equipment Category:,Categoría del Equipo:
+Invalid email,Formato de correo electrónico inválido
+No equipment found,Ningun equipo asignado
+e.i. Team 1,ej. Equipo 1
+Ok,Listo
+Success creating field perimeter,Éxito creando el perímetro
+read,Leer
+'"'
+'"Do you want to save it as a paid Sale and register it in the accounting '"'
+'"books?,'"'
+'"¿Realmente deseas marcar como venta pagada y registrar en los libros de '"'
+'"contabilidad?
+Error loading account records.,Ocurrió un error al intentar cargar los registros
+No crops found,No se encontraron cultivos
+Purchase Order,Orden de compra
+error at update sales,
+e.i. John Deere mod.4534XL Diesel 4X4,ej. mod.4534XL Diesel 4x4
+Recieved Quantity,Cantidad recibida
+Field:,Campo:
+an error has occurred,Ha ocurrido un error
+Position,Puesto
+Export account records,Exportar
+Wind,Viento
+name,
+notification has been pushed,La notificación ha sido enviada
+Password,Contraseña
+Click first point to close this perimeter,Da click en el primer punto para cerrar el perímetro
+Grids,Cuadrículas
+success,Éxito
+All Sales,Todas las ventas
+Cost per unit,Costo por unidad
+message,Mensaje
+Description is required,
+Save job,Guardar trabajo
+Date range,Rango de fechas
+Loading season plan error,Error en la carga del plan de temporada
+Select the date of the employee admission,Seleccione una fecha de alta del empleado
+Invalid state,Fomato de estado inválido
+Successfully terminated field plan,
+Layers,Capas
+No grids available,No hay cuadrículas disponibles
+Contact Name:,Nombre del contacto:
+Error assigning season plan,Error a asginar el plan de temporada
+Confirm,Confirmar
+Invalid project or fields,Proyectos o campos invalido
+Invalid code format,Formato del código invalido
+3CAB10,
+Job:,Trabajo:
+Processing information.,Procesando información
+All,Todos
+3CAB11,
+Employee,Empleado
+Employee Status,Estatus de empleado
+e.i johnsmith@walmart.com,ej. jaimego@walmart.com
+Email,Correo electrónico
+Polyline is required.,
+Sowing,Siembra
+Something was wrong. Please review the information and try again latter.,Algo ocurrió.Por favor', revisa la information e intenta más tarde
+Product Category,Categoría de producto
+Assign Date,Asigna fecha
+No season plans found,No se encontraron planes
+Job saved successfully,Trabajo guardado exitosamente.
+Success! Harvest Record has been inserted,El registro de cosecha ha sido insertado exitosamente.
+ID Crop does not exists,El identificador del cultivo no existe
+There are no outstanding labor records for this field plan,No hay registros extraordinarios de labores para esta plan de campo
+Invalid contact name format,
+Suggested products,Productos sugeridos
+Invalid description format,Formato de descrición invalido
+Public Stations,
+Pathline distance,Distancia de la ruta
+Sensors,Sensores
+Description:,Descripción:
+You still have,Usted cuenta con una existencia de
+Loading weather data,Cargando información del clima
+Clear and exit measure tool,
+No fields available,
+Successfully get fields,Campos obtenidos con éxito
+Country*,País
+No records found,No se encontraron registros
+'"'
+'"Do you really want to terminate the crop _CROP_? If the crop is '"'
+'"terminated all the associated plans will also be terminated,'"'
+'"¿Realmente desea finalizar el cultivo _CROP_? Si el cultivo termina todos'"'
+'" los planes asociados tambien terminarán
+Name: *,Nombre: *
+Soil pore water electric conductivity,Conductividad eléctrica del agua del poro del suelo
+Type the opening hours,Ingresa el horario de operación
+sales paid,
+Blocks,Parcelas
+Failure in irrigation system,Falla en sistema de riego
+No supervisor selected,No se ha seleccionado supervisor
+Add Equipment,Agregar Equipo
+Name is required,
+Tasks,Tareas
+Equipments are missing,
+of,de
+Welcome back ,Bienvenido de vuelta
+Products are missing,Faltan productos
+Canceled,Cancelado
+Product Category:,Categoría del Producto:
+'"'
+'"Do you really want to delete the _WORKGROUP_ team?. All employees of the '"'
+'"group will be disassigned,¿Desea eliminar el grupo? Todos los empleados del grupo serán desasignados
+Timezone,Zona horaria
+Type country,Ingresa el país
+Worked hours,Horas trabajadas
+From Field,Del Campo
+Class name,Nombre de la clase:
+Blocks selected,
+Unauthenticated user,
+Successfully terminated season plan,Plan de temporada terminado satisfactoriamente
+Error adding your demo request', please try again later.,Erro procesando solicitud de demo', porfavor intenta más tarde
+No jobs to show,No hay trabajos que mostrar
+No activities for this parcel,Ninguna actividad para esta parcela
+From Season Plan,Del plan de temporada
+Add,Agregar
+BLOCK DATA,DATOS DE PARCELA
+Maintenance,Mantenimiento
+Unauthorized request', please signin.,Petición no permitida', por favor ingrese al sistema.
+Terminate season plan,Terminar el plan de temporada
+REPORT PAYMENT,REPORTE DE PAGOS
+Type the first name,Ingresa el nombre
+Sickness,Enfermedad
+Blocks:,Parcelas:
+ supervisor, supervisor
+Zoom out,Alejar
+Atmospheric Pressure,Presión Atmosférica
+First Address,Dirección principal
+Please add plans,Es necesario agregar planes
+Agrosuite: Login,Agrosuite: Iniciar sesión
+Getting data,Obteniendo datos
+All Scout Subcategories,Todas las Subcategorías de exploración
+Company Address: *,Dirección de la Compañía: *
+Bulk relative permittivity,Permitividad relativa
+e.i. 478 Smith Steet,ej. Paseo de los tulipanes  #43
+Plan,Plan
+Animals,Animales
+Invalid purchaseOrder format,
+Type a name for the crop,Ingresa un nombre para el cultivo
+Percent,Porcentaje
+sale detail,
+cannot set notification as read,
+City: *,Ciudad: *
+Select a job type,Seleciona un tipo de trabajo
+Activities for today,Actividades para hoy
+Loading scouting reports,Cargando reportes de exploración
+Type the description,Ingresa la descripción
+Outcome,Salidas
+e.i. 0023,ej. 0023
+e.i. Warehouse for the A', B and C fields.,
+pull,Jalar
+Order Status,Estatus de orden
+Scout Category,Categoría de Exploración
+Crop density,Densidad de cultivo
+Please select Product Category,Seleciona una categoría de producto
+Max must be a number,
+Request a Demo,Solicita un demo
+End:,Final:
+See field plan,Ver plan de campo
+Locations,
+Tracked Employees,
+Do you want to know how much you can earn?,Le gustaría saber cuánto podría ganar?
+Edit perimeter,Editar perímetro
+Click to start drawing,Da click para dibujar
+Activity#,
+Close,Cerrar
+Type warehouse Zipcode,Ingresa el código postal del almacén
+EDIT BLOCKS,
+Harvest,Cosecha
+Please review quantities according existence.,
+Cannot create perimeter,
+looks good !,
+Invalid country,Formato de país inválido
+All crops,Todos los cultivos
+sales,
+There was an error,Hubo un error
+Warehouse,Almacén
+Job has activities,Trabajo tiene actividades', no se puede eliminar
+Production,Producción
+Invalid first name format,Formato de primer nombre invalido
+Security Number:,Número de Seguridad Social:
+New,Nuevo
+Labor payroll,Pago de labores
+TIME WINDOW,VENTANA DE TIEMPO
+Pre-sowing,Pre-siembra
+missing parameters,
+Admision Date,Fecha de admisión
+Zoom in,Acercar
+Payment Status,Estatus de pago
+Missing tree or bush,Falta árbol o arbusto
+Description,Descripción
+Forgotten picked fruit,Fruta olvidada
+Fertilization,Fertilización
+None selected,Nada seleccionado
+PurchaseOrder is register,La orden ha sido registrada
+All blocks selected,Todas las parcelas seleccionadas
+e.i. BADD110313HCMLNS09,ej. BADD110313HCMLNS09
+Scout SubCategory,
+Type the quantity,Escribe la cantidad
+Positions,Puestos
+Add an employee,Agregar empleado
+missing workgroup name,
+Invalid season Plan format,Formato invalido de plan de temporada
+field plans,Planes de campo
+3CAB12,
+Palma de aceite 2012,
+Ciclo 2018,
+Terminate crop,Terminar cultivo
+Account record save successfully,Registros guardados con éxito
+3CAB14,
+Feature description,Descripción de caracteristica
+Edit,
+Country,País
+Total amount,Cantidad total
+Crop Type,Tipo de cultivo:
+Type the contact name,Ingresa el nombre de contacto
+Invalid warehouse format,
+There are some errors in your inputs', please check and try again.,'"'
+'"Existen algunos errores en los datos ingresados', porfavor revisalos e '"'
+'"intenta más tarde
+SEND DEMO REQUEST,ENVIAR SOLICITUD DE DEMO
+Projection name,Nombre de la proyección
+Page,Página
+Overdue,Retraso
+The information has been saved correctly.,La información se ha guardado correctamente.
+Product code or name,Nombre o código de producto
+e.i. 3056,ej. 45256
+Invalid project or field,Proyecto o campo invalido
+Successfully removed field plan form field,Se ha eliminado el plan de campo exitosamente.
+Products Dashboard,Reporte de Insumos
+Work Group cannot be empty,El grupo no puede estar vacío
+The crop does not exists,El cultivo no existe
+crops data,
+Cultivation Year,Año de cultivo
+Type a subject,Escribe el asunto
+Land area unit,Unidades de área terrestre
+Operation type,Tipo de operación
+,
+Date range:,rango de fechas
+Send to,Enviar a
+Donation Type,Tipo de Donación
+All Product Categories,Todas las categorías
+Estimated Date,Fecha Estimada
+The total quantity does not match the crop classes quantity,'"'
+#~ '"La cantidad total de las clasificaciones'"'
+#~ '" y las los desechos debe coincidir
+Profit per area,Ganancias por área
+Fields selected.,Campos seleccionados
+All season plan,Todos los planes de temporada
+Pce,Pza
+Internal code,No de orden externa
+There are not plan templates currently,No hay plantillas de plan actualmente
+Dewpoint,Punto de rocío
+Precipitation last hour,Ultima hora de precipitación
+Histogram,Histograma
+Supervisors,Supervisores
+Company Name,Nombre de la Empresa
+Scouting,Hallazgos
+GP,GP
+something wrong,Algo salió mal
+Public stations,Estaciones públicas
+e.i. JR98,ej. IVA16
+The employee phone,El telefono del empleado
+Do yo want to delete this harvest?,¿Desea borrar el registro de cosecha?
+New Purchase,Nueva compra
+companies,compañías
+Scouting record image,Imagen de reporte de exploración
+From Block,De Parcela
+Go,Cargar
+ Fields selected., Campos seleccionados
+Information (Showed in the app form),Información (Desplegada el formulario de la aplicación)
+Select,Elegir
+Tractor driver,Tractorista
+View scouting records,Ver reportes de exploración
+{} has found {}-{} take a look.,{} encontró {}-{}', échale un vistazo.
+Please select field supervisor to continue,Por favor selecciona un supervisor de campo para continuar
+Autogenerate,Autogenerar
+All categories,Todas las categorías
+e.i. Payroll Tax,ej. IVA
+Return Product,Devolver insumo
+Orange,Naranja
+Select Scout Subcategories,Seleciona las Subcategorías de exploración
+Equipment Category,Categoría del equipo
+Remember', Aedrotec has a support section', you can contact us.,Recuerda', Aedrotec cuenta con sección de ayuda. ¡Contáctanos!
+Add photo,Agregar foto
+Deleted,Borrado
+selected,seleccionada
+All crop types,Todos: Tipos de cultivo
+falling,decreciente
+Amount to complete total,Cantidad faltante
+Invalid code has been used before.,Código invalido', ya fue usado anteriormente.
+Cannot synchronize users,No se pueden sincronizar los usuarios
+Contact Name,Nombre del contacto
+Classified,Clasificación
+Do you want to delete this activity?,¿Quiere borrar esta actividad?
+Yield per area,Producción por área
+Dashboard/Products,Dashboard/Insumos
+All status,Todos los estatus
+English,Ingles
+Distribution,Distribución
+Type Zipcode,Ingresa código postal
+'"'
+#~ '"We are a network of 53 food '"'
+#~ '"banks distribuited throughout the national '"'
+#~ '"country. Only in 2017', we rescue '"'
+#~ '"more than 128 thousand tons of '"'
+#~ '"food', helping more than 1.2 million '"'
+#~ '"constant beneficiaries. We are one of'"'
+#~ '" the most important civi association '"'
+#~ '"in our country: we are the only'"'
+#~ '" network of food banks in Mexico '"'
+#~ '"and we are one of the largest '"'
+#~ '"network around the world.,'"'
+#~ '"Somos una red de 53 bancos de '"'
+#~ '"alimentos distribuidos practicamente por todo'"'
+#~ '" el territorio nacional que tan solo'"'
+#~ '" en 2017', rescatamos más de 128 '"'
+#~ '"mil toneladas de alimento', ayudando así'"'
+#~ '" a más de 1.2 millones de '"'
+#~ '"beneficiarions constantes. Conformamos una de'"'
+#~ '" las asociaciones más importantes del '"'
+#~ '"país: somos la única red de bancos'"'
+#~ '" de alimentos de México y una '"'
+#~ '"de la más grandes en el mundo.
+Thermal sensation,Sensación térmica
+Invalid address format,Formato de dirección inválido
+Job type,Tipo de trabajo
+Palm,Palma
+Home,Inicio
+Ranchman,Ranchero
+Position:,Posición:
+Error downloading maps,Error descargando los mapas
+All Field Plans,Todos los planes de campo
+Type your second address,Ingresa la 2da dirección
+Ton,Tonelada
+Tax name:,Razón social:
+Database created,Base de datos creada
+Some jobs are overdue', check in Crop and field plans section.,'"'
+#~ '"Algunas tareas están retrasada', revisa '"'
+#~ '"la sección de cultivos y campos', '"'
+#~ '"planes y cultivos.
+August,Agosto
+June,Junio
+Equipment Inventory,Inventario de Equipos
+Type the TIN,Ingrese R.F.C.
+October,Octubre
+An internal code will be automatically generated,Se generará automáticamente un código interno
+Create and organize your jobs fields,Crea y organiza los trabajos de tus campos
+Services,Servicios
+'"'
+#~ '"A Plan Template is a list of '"'
+#~ '"activities', when a plan template is '"'
+#~ '"assigned to a field automatically all'"'
+#~ '" activities are placed in the field.,'"'
+#~ '"Una plantilla de plan es una lista'"'
+#~ '" de actividades que cuando se asignan'"'
+#~ '" a un campo dichas actividades se '"'
+#~ '"agregan al campo automaticamente.
+Select fields,Selecciona un campo
+harvest,cosecha
+Blocks selected.,Parcelas seleccionadas
+Plan overview,Resumen de planes
+SW,SO
+Dashboards,Tableros de control
+Verified classification,Clasificación verificada
+The name of the product,Ingresa un nombre para el cultivo
+SE,SE
+SEE PLAN DETAILS,VER DETALLES DEL PLAN
+Blocks and fields,Campos y parcelas
+Internal Code,No de orden interna
+Min,Min
+Scrap,Desecho
+Insecticides,Insecticidas
+DATA TABLE,TABLA DE DATOS
+Please select parcels to continue,Por favor selecciona parcelas para continuar
+Details,Detalles
+Finances,Finanzas
+Assets,Activos
+Elevation map for perimeter,Elevación
+LM,LM
+Delete activity,Borrar actividad
+Account manager,Manejo de cuenta
+No samplings found,No existen muestreos
+MY CROPS,MIS CULTIVOS
+Select a FieldPlan,Selecciona un plan de campo
+Crop Classes,Clasificación de cultivo
+Average,Promedio
+Warehouse stock,Existencias en almacén
+Kilogram,Kilogramo
+No pictures.,Sin imágenes.
+Password confirmation,Confirmación de contraseña
+By percentage,Por porcentaje
+Loading public stations,Cargando estaciones públicas
+No sampling records,No se han tomado registros de muestras
+Meter,Metro
+Guard,Velador
+update Purchase,Actualizacion de compra
+Motorized vehicles,Vehículos motorizados
+By quantity,Por cantidad
+Type email,Ingresa el email
+Select field,Selecciona el campo
+Type phone,Ingresa el telefono
+Plan Template,Plantilla de plan
+Wind direction,Dirección de viento
+Technical Supervisor,Supervisor Técnico
+Organization,Organización
+Save activity,Guardar actividad
+There was an error loading the public stations,Hubo un error cargando las estaciones públicas
+March,Marzo
+Harvest and sales,Venta y cosecha
+Loading Image,Cargando imagen
+New Product Return,Nueva devolución
+Purchase order,Órdenes de compra
+First name,Nombre
+Ranch Administrator,Administrador de Rancho
+Field Manager,Gerente de Finca
+Loading map,Cargando mapa
+Name to identify your Plan Template.,Nombre para idenficiar tu plantilla de plan
+Manual Tools,Herramientas manuales
+Cannot save Plan template,No se puede guardar la plantilla de plan
+Speed km/h,Velocidad km/h
+Task,Tarea
+Last name,Apellido
+L,L
+Grapes,Uva
+Phone: *,Teléfono: *
+Some jobs are overdue,Algunas tareas están retrasadas.
+Jobs:,Trabajos
+Sampling,Muestreo
+Wind chill,Temperatura de viento
+Planning,Planeación
+Type your country,Ingresa tu país
+Products Inventory,Inventario de Productos
+Public and private stations,Estaciones públicas y privadas
+Timber,Madera
+No employee for this user,Este usuario no tiene empleado
+Select fields and blocks. (You can select more than one),Selecciona los campos y parcelas. Puedes seleccionar más de una.
+Accountant,Contador
+The employee last name,El apellido del empleado
+Other expenses,Otros gastos
+Consumables and products,Consumibles y productos
+Welcome,Bienvenido
+End of season,Final de temporada
+None,Ninguna
+Other incomes,Otros ingresos
+Error loading grid,Error cargando las cuadricula
+Technical support,Soporte técnico
+W,O
+Integer numbers,Números enteros
+Security Number,Número de seguridad
+Options,Opciones
+No progresses available for this activity.,No hay progresos disponibles para esta actividad.
+Shipping addresses,Direcciones de envío
+Contact food bank,Contactar banco de alimentos
+Supervisor,Supervisor
+September,Septiembre
+Period to apply,Periodo a aplicar
+Please add cropclass,Agregar clasificación de cultivo
+Urgent,Urgente
+The employee security number,El numero de seguiridad del empleado
+Worked Hour,Horas trabajadas
+shipping addresses,Direcciones de Envío
+Select all supervisors,Seleccionar supervisores
+There is another template with the same name and crop type,Existe otra plantilla con el mismo tipo y año de cultivación
+Database initialized,Base de datos inicializada
+Error dowloading data,Error descargando datos
+Earnings,Ganancias
+Agrochem application,Aplicacion de agroquímicos
+Deallocate,Desasignar
+The sampling has been saved,Muestreo guardado correctamente
+Catalogs,Catálogos
+The user {} has not checked in the system since {}', check out why.,El usuario {} no ha iniciado sesión desde {}', échale un vistazo
+Shipping Address,Dirección de envío
+Hide projections,Ocultar proyecciones
+Crops and fields,Cultivos y campos
+Type contact name,Ingresa el nombre del contacto
+Jobs Wizard Assistance,Asistente de Trabajos
+Product stock,Stock de producto
+Solar radiaton,Radiación solar
+Success,Exito
+Plan Overview,Resumen del plan
+Tax Id,Identificador de pago de impuestos
+Companies,Compañias
+Zipcode,Código postal
+Peso Mexicano,Peso Mexicano
+Decimals,Decimales
+Clogging prevention,Revisar taponamiento
+KG,KG
+Central Time (CT),Tiempo central (CT)
+Start date can\\''t be higher than end date,Fecha de inicio no debe ser mayor a la fecha final
+Jornual,Libro diario
+This activity already have progress,Esta actividad esta en progreso
+Production Manager,Encargado de Producción
+Click on the map to measure distance to that point.,Da clic en el mapa para medir la distancia desde ese punto.
+Herbicides,Herbicidas
+Scouting record,Reporte de exploración
+Results,Resultados
+Allow Over-Subscription,Permitir suscripción excesiva
+Creating Scouting record,Creando reporte de exploración
+'"'
+#~ '"Stock levels of {} are below '"'
+#~ '"minimum quantity', they need your '"'
+#~ '"attention.,'"'
+#~ '"Cuidado', tus niveles de stock de '"'
+#~ '"{} están por debajo del límite '"'
+#~ '"mínimo de stock', te recomendamos comprar'"'
+#~ '" o modificar los límites de stock.
+No Cropclass,Sin clasificación de cultivo
+Drawing parcels..,Dibujando parcelas..
+This feature is currently not available for Demo version.,Esta funcionalidad no esta disponible en el demo
+Timesone,
+Tillage,Preparación de suelo
+Taxpayer ID number,R.F.C.
+Adherent,Adherente
+The code of the product,El código del producto
+Address 1,Dirección 1
+The harvest has been deleted,La cosecha ha sido borrada
+Show stations,Mostrar estaciones
+Administrator Assistant,Auxiliar Administrativo
+Photos,Fotos
+PRODUCTION (HARVEST),PRODUCCIÓN (COSECHA)
+The employee first name,El nombre del empleado
+Admin,Admin
+Donate,Donar
+M,M
+ACCOUNT BOOKS,LIBRO CONTABLE
+'"'
+#~ '"Your season plan {} is comming to'"'
+#~ '" an end on {}. Update ending '"'
+#~ '"dates or terminate to start a new'"'
+#~ '" one.,'"'
+#~ '"La temporada {} está por terminarse '"'
+#~ '"el {}. Recuerda terminar el plan '"'
+#~ '"para crear uno nuevo.
+Mode,Moda
+Save plan,Guardar plan
+Palm oil,Palma de aceite
+Activity detail,Detalles de actividad
+'"'
+#~ '"You can verify the classification later.'"'
+#~ '"  Verifying will allow you to '"'
+#~ '"classify products in the warehouse.,'"'
+#~ '"Puedes verificar después. Verificar permitirá'"'
+#~ '" que se clasifiquen los productos en'"'
+#~ '" el almacén. 
+Harvest classification,Clasificación de cosecha
+Pot,Maceta
+Payment Manager,Responsable de pagos
+Internal Code ,Código Interno 
+Internal Code: *,Código Interno: *
+SET NEW PASSWORD,Establecer nueva contraseña
+To Buyer,Para comprador
+Pressure trend,Tendencia de presión
+All croptypes,Todos los tipos de cultivo
+The employee cost,El costo del empleado
+Resources,Recursos
+Hours,Horas
+Liter,Litro
+'"'
+#~ '"You can confirm your harvest record '"'
+#~ '"later. Once the registration is '"'
+#~ '"confirmed you will not be able to'"'
+#~ '" make changes.,'"'
+#~ '"Puedes confirmar tu registro de cosecha'"'
+#~ '" posteriormente. Una vez confirmado no '"'
+#~ '"podrás realizar cambios.
+Heat Map,Mapa de calor
+Aggregated,Acumulado
+Out of stock,Agotado
+sunny,soleado
+Value,Valor
+Leave,Retirado
+Variance,Varianza
+Piece,Pieza
+Line,Linea
+Max file size 10mb,Tamaño maximo 10mb
+Square meter,Metro cuadrado
+Type the CURP,Ingresa el CURP
+HARVEST RECORD CONFIRMED,REGISTRO DE COSECHA CONFIRMADO
+Output by transfer,Salida por transferencia
+Agent,Agente
+Go to station,Ir a la estación
+Landing area unit,
+fair,soleado
+Accountant Assistant,Auxiliar de Contabilidad
++ Add new,+ Agregar nuevo
+Send,Enviar
+Type warehouse country,Ingresa el paíss del almacén
+Location,Ubicación
+Sent,Enviado
+Recovery code,Codigo de recuperación
+Needs attention,Necesita atención
+label,Etiqueta
+This activity will be apply to all the fields and blocks selected.,'"'
+#~ '"Esta actividad se asignará a todos '"'
+#~ '"los campos y parcelas que selecciones.
+Look out,Cuidado
+July,Julio
+PL,PL
+There are no sampling,No hay muestras
+Activities and jobs created successfully,Actividades y trabajos creados con éxito
+Settings,Configuraciones
+Output by activity,Salida por actividad
+Tree,Árbol
+Select a name for your Plan Template,Selecciona un nombre para tu plantilla de plan
+New password,Nueva contraseña
+S,S
+PH + EC Sampling,Toma de muestras de Ph y Ce
+Crop Overview,Resumen de cultivos
+Order By,Ordenado por
+Basic license,Licencia basica
+Administrator ,Administrador
+Subcategory,Subcategoría
+Hectare,Hectárea
+Scouting-report,Reporte-exploración
+Product Return,Devoluciones de insumos
+Shortly we will get in touch with you,Pronto nos pondremos en contacto usted
+Select the equipment that you need,Selecciona el equipo que necesites
+Productivity,Productividad
+Account-book ,Libro-contable
+The description,La descripción
+Pictures,Imágenes
+Authorized by,Autorizado por
+ac,ac
+Note,Nota
+US Dollar,Dolar Américano
+Technical Assistant,Asistente Técnico
+Mexican Peso,Peso Mexicano
+Lanjuage,
+Rodenticides,Rodenticidas
+Theres no orthophotos,No hay orthophotos
+There is another crop with the same type and cultivation year,Existe otro cultivo con el mismo tipo y año de cultivación
+Phone,Teléfono
+Cleaning,Limpieza
+Excess,En exceso
+Active,Activo
+New sale,Nueva venta
+Type tax Id,Ingresa el identificador de pago de impuestos
+Accounting records,Contabilidad
+All Harvest Records,Todos registros de cosecha
+All field,Todos los campos
+Add the notes that you consider,Agrega las notas que consideres
+CF,CF
+N,N
+No activities added,Actividades no agregadas
+Private stations,Estaciones privadas
+Secretary,Secretaria
+Fungicides,Fungicidas
+Social impact,Impacto social
+Please', enter your recovery code and your new password,Por favor', introduce tu código de recuperación y tu contraseña
+e.i. Grand Valley Farms,Granjas el Gran Valle
+Process,Proceso
+Field Supervisor,Supervisor de campo
+Español,Español
+e.i. A-46557039,ACFG230918
+Business name,Razón social
+Size,Tamaño
+Tax Reference:,Referencia de la razón social:
+April,Abril
+Type a name for your proyect,
+New projection,
+Bush,Arbusto
+Total quantity,Cantidad total
+Save Purchase,Guardar Compra
+In stock,En stock
+Plan progress,Progreso
+How do you prefer to enter the monthly data?,¿Cómo prefiere ingresar los datos mensuales?
+Administrative,Administrativo
+Type the tax name,Ingresa el nombre del impuesto
+The pickup of your donation depend on your location,La recolección de la donación estará sujeta a su ubicación.
+One week,Periodo a aplicar
+Shipping Addresses,Direcciones de Envío
+Sample variables,Variables de la muestra
+Type  country,Ingresa el pais
+Eastern Time (ET),Tiempo del este (ET)
+Second Address: ,Segunda Dirección:
+Bucket,Cubeta
+Root,Root
+Order,Orden
+Accountant ,Contador
+PLANS,PLANES
+Characters accepted: Letters', numbers', #',-',&,Caracteres aceptados: letras', número', #',-',&
+Your password has been set.,El password ha sido establecido.
+May,Mayo
+Manager,Gerente
+Acaricide,Acaricida
+No products added.,Ningún producto agregado.
+BN,BN
+Destination,Destino
+Included Fields,Campos incluidos
+Database deleted,Base de datos eliminada
+No posicions found,No se encontraron posiciones
+Total Worked hours,Total de horas trabajadas
+View public stations,Ver estaciones públicas
+Units per area,Unidades por área
+Company,Compañía
+View order,Ver orden
+Activity type,Tipo de actividad
+Machinery and equipment,Equipo y maquinaria
+The employee email,El correo electrónico del empleado
+Two weeks,Periodo a aplicar
+Cancel purchase?,¿Cancelar orden de compra?
+Donate to support vunerable population of Mexico,Haz una donación para apoyar a la población vunerable de México
+Tracking,Rastreo
+Select the products that you need,Selecciona los insumos que necesites
+Phone Number,Número de telefono
+Field supervisor plan,Plan de supervisor de campo
+Project,Proyecto
+Bolivian Peso,Peso Boliviano
+No account books available for this project.,No existen libros contables para éste proyecto
+Proyect name,
+e.i. 100 (quantity only),ej. 100 (solo cantidad)
+CHART,GRÁFICA
+Clean path,Limpiar ruta
+Select the supervisor and the workgroups than you need,Selecciona el supervisor y los grupos de trabajo que necesites
+Agents,Agentes
+Operator,Operador Trascabo
+Operation,Operación
+Pluviometers,Pluviómetros
+OR,OR
+Crop overview,Resumen de cultivo
+Management,Administración
+Spent Products,Productos gastados
+Omnimetrix control unit,Unidad de control Omnimetrix
+Samplings,Muestreos
+Grapefruit,Toronja
+Fertilizers,Fertilizantes
+Unassigned:,Sin asignar:
+Sale number,Número de venta
+invalid session,Sesión inválida
+Accesories,Accesorios
+Coffee,Café
+Do you need help?,¿Necesitas ayuda?
+Tax Reference: *,Referencia de la razón social: *
+Visibility,Visibilidad
+No orthophoto available,Ho hay ortofotos disponibles
+Authorization,Autorización
+CURRENT PLANS,PLANES ACTUALES
+Some information has empty data', please complete information,Hay información incompleta', por favor complétela
+Box,Caja
+Critical stock level,Nivel crítico de stock
+Uv index,Índice UV
+Warehouse manager,Encargado de Almacén
+Go to reports,Ir a los reportes
+Cost per area,Costo por área
+PLAN TEMPLATES,PLANTILLAS DE PLAN
+Heat index celsius,Índice de calor
+Tax type,Tipo de impuesto
+Business name: *,Razón social: *
+Revenue,Ventas por área
+Invoices,Facturas
+December,Diciembre
+Algicide,Alguicida
+Cannot save Crop,No se puede guardar el cultivo
+Captain,Capitán
+Bunch,manojo
+Crop Types,Tipos de cultivo:
+Verified,Verificado
+No notes.,Sin notas.
+Scouting types,Tipos de hallazgos
+Driver,Chofer
+The code for warehouse,El código del almacén
+Not files selected,Ninguna imagen seleccionada
+Adjuvant,Coadyuvante
+Provider,Proveedor
+NEW,Nuevo
+Invalid code.,Código invalido.
+All years,Todos los años
+Normal,Normal
+Select plan template,Seleccionar plantilla de plan
+Cashier,Encargado de Pagos
+NE,NE
+Go to agent,Ir al agente
+Defoliate,Deshoje
+November,Noviembre
+NW,NO
+January,Enero
+m2,m2
+What fields are included in this crop,Que campos estan incluidos en este cultivo
+ha,ha
+Tutoring,Tutoreo
+Assign,Asignar
+Input by transfer,Entrada por transferencia
+Findings,Hallazgo
+Waiting,En espera
+The description of the equiptment,La Descripción del equipo
+Unassigned,Sin asignar
+Autogenerate internal code,Autogenerar Código Interno
+New Sampling,Nuevo muestreo
+Banana,Banana
+Lemon/Lime,Limón
+Total amount projected in period,Cantidad total proyectada en el periodo
+Personnel,Personal
+Import activities from template,Importar actividades de la plantilla
+Acre,Acre
+I am a message or some stuff!,Mensaje de prueba
+The name for warehouse,El nombre del almacén
+Max,Max
+Stations,Estaciones
+Saving product return,Guardar devolución
+Weather Station,Estación de clima
+TB,TB
+Unassigined job,Trabajo sin asignar
+February,Febrero
+Laborer,Obrero
+Date Completed,Fecha Completada
+Data table,Tabla de datos
+Taxpayer ID number: *,R.F.C.: *
+e.i. NP in 2mg pieces,ej. NP en 2mg
+Activity overview,Resumen de actividades
+Input by purchase order,Entrada por orden de compra
+Please add elements to the sampling,Por favor', agregue elementos al muestreo
+Type tax reference,Ingresa la referencia
+{} has found {}-{} at {}',{} take a look.,{} encontró {}-{}  en {}',{}', échale un vistazo.
+Dashboard/Scouting Records,Dashboard/Exploración
+Expenses,Gastos
+ej. Daniel,
+Type the business name,Ingrese razón social
+Show completed activities,Mostrar actividades completadas
+Standard Deviation,Desviación estandar
+Select agent,Seleccione agente
