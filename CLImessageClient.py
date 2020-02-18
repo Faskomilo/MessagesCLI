@@ -42,13 +42,13 @@ class CLImessageClient(object):
                 print("Are you sure you want to delete the whole \"" + message + "\" language")
             confident = int(raw_input("0: No\n1: Yes\n:"))
             if confident > 1 or confident < 0:
-                raise Exception("Invalid Option")
+                raise Exception("** Invalid Option. **")
             if confident == 0:
-                print("Action aborted successfully")
+                print("\"" + message + "\" adition aborted.")
                 return False
             return confident
         except:
-            print("Invalid Option")
+            print("** Invalid Option. **")
             print("")
             return False
 
@@ -77,6 +77,10 @@ class CentralMechanism(object):
     def compareCatalogs(self, firstLanguage, secondLanguage, pathLanguages, pathToPot):
         firstMessages = self.getDictionary(firstLanguage, pathLanguages, pathToPot)
         secondMessages = self.getDictionary(secondLanguage, pathLanguages, pathToPot)
+        if firstLanguage is "All":
+            firstLanguage = ".pot file"
+        if secondLanguage is "All":
+            secondLanguage = ".pot file"
         helper = 0
         helperList = []
         if len(firstMessages) >= len(secondMessages):
@@ -88,13 +92,13 @@ class CentralMechanism(object):
                 if firstHelper == helper:
                     helperList.append(x)
             if helper == len(firstMessages):
-                print("Every Message in the \"" + firstLanguage + "\" file exists in \"" + secondLanguage + "\"")
+                print("\"" + firstLanguage + "\" content in \"" + secondLanguage + "\" content.")
                 print("")
                 return None
             else:
-                print("The catalog for the \"" + firstLanguage + "\" file is larger than the \"" + secondLanguage + "\" catalog")
+                print("** \"" + firstLanguage + "\" content is larger than \"" + secondLanguage + "\" content. **")
                 for x in helperList:
-                    print("Message id: \"" + x + "\" is on the .pot file catalog but not in the \"" + secondLanguage + "\" catalog")
+                    print("** \"" + x + "\" is on the " + firstLanguage + " but not in the \"" + secondLanguage + "\" catalog. **")
                     print("")
         else:
             for x in secondMessages:
@@ -104,10 +108,10 @@ class CentralMechanism(object):
                         helper += 1
                 if firstHelper == helper:
                     helperList.append(x)
-            print("The catalog for \"" + secondLanguage + "\" is larger than the \"" + firstLanguage + "\" file catalog")
+            print("** \"" + secondLanguage + "\" content is larger than \"" + firstLanguage + "\" content. **")
             print("")
             for x in helperList:
-                print("Message id: \"" + x + "\" is on \"" + secondLanguage + "\" catalog but not in the \"" + firstLanguage + "\" file")
+                print("** \"" + x + "\" is on \"" + secondLanguage + "\" catalog but not in the \"" + firstLanguage + "\" catalog. **")
                 print("")
 
     def dictionaryToText(self, messagesDictionary, option = 0):
@@ -162,27 +166,45 @@ class CentralMechanism(object):
         return newString
 
     def dictionaryToCSV(self, messagesDictionary, pathToFile):
-        self.messagesDictionary = messagesDictionary
+        self.messages = messagesDictionary
         newString = ""
-        repeatedDic = {}
-        obsoleteDic = {}
+        repeated = {}
+        obsolete = {}
+        tmp = []
+        if "//Repeated" in self.messages:
+                repeated = messagesDictionary["//Repeated"]
+                del self.messages["//Repeated"]
+                for x in repeated:
+                    tmp.append([x,repeated[x]["msgstr"]])
+                repeated = tmp
+                tmp = []
+        if "//Obsolete" in self.messages:
+                obsolete = messagesDictionary["//Obsolete"]
+                del self.messages["//Obsolete"]
+                for x in obsolete:
+                    tmp.append([x,obsolete[x]["msgstr"]])
+                obsolete = tmp
+                tmp = []
+        for x in self.messages:
+            tmp.append([x,self.messages[x]["msgstr"]])
+        self.messages = tmp
+        tmp = []
         with open(pathToFile, "w") as csvfile:
-            filewriter = csv.writer(csvfile, delimiter=',', dialect=csv.excel, escapechar='\'', quoting=csv.QUOTE_NONE)
-            if "//Repeated" in self.messagesDictionary:
-                repeatedDic = messagesDictionary["//Repeated"]
-                del self.messagesDictionary["//Repeated"]
-            if "//Obsolete" in self.messagesDictionary:
-                obsoleteDic = messagesDictionary["//Obsolete"]
-                del self.messagesDictionary["//Obsolete"]
-            for x in self.messagesDictionary:
-                filewriter.writerow([x, self.messagesDictionary[x]["msgstr"]])
-            if len(repeatedDic) > 0:
-                for x in repeatedDic:
-                    filewriter.writerow([x, repeatedDic[x]["msgstr"]])
-            if len(repeatedDic) > 0:
-                for x in obsoleteDic:
-                    filewriter.writerow([x, obsoleteDic[x]["msgstr"]])
-        print("Successful writing of " + pathToFile)
+            header = ["msgid", "msgstr"]
+            filewriter = csv.DictWriter(csvfile, fieldnames = header, extrasaction = "ignore", delimiter = ";")
+            filewriter.writeheader()
+            for x in self.messages:
+                if x[0] is not "":
+                    filewriter.writerow({"msgid": x[0], "msgstr": x[1]})
+            if repeated:
+                for x in repeated:
+                    if x[0] is not "":
+                        filewriter.writerow({"msgid": x[0], "msgstr": x[1]})
+            if obsolete:
+                for x in obsolete:
+                    if x[0] is not "":
+                        filewriter.writerow({"msgid": x[0], "msgstr": x[1]})
+        print(pathToFile + " written succesfully ")
         return newString
 
     def textToDictionary(self, message):
@@ -224,7 +246,7 @@ class CentralMechanism(object):
                 if wholeLine == "":
                     pass
                 else:
-                    print("Unexpected error on " + wholeLine)
+                    print("** Unexpected error on \"" + wholeLine + "\" **")
             if "#~" in msgidLine:
                 index = message.index(msgidLine[3:])
                 firstInstance = len(message[:index].split("\n"))
@@ -261,7 +283,7 @@ class CentralMechanism(object):
     def searchMessage(self, message, messageDictionary, language, verbose):
         specificMessage = message
         if any(char.isdigit() for char in specificMessage):
-            print("Message id's does not contain numbers")
+            print("** Message id's does not contain numbers **")
             print("")
             return None
         if specificMessage in messageDictionary:
@@ -274,9 +296,9 @@ class CentralMechanism(object):
             messageInfo = {specificMessage : messageDictionary[specificMessage]}
             return messageInfo
         else:
-            print("** The \"" +  message + "\" Message Id doesn't exist in the \"" + language + "\" Catalog **")
+            print("** \"" + message + "\" doesn't exist in the \"" + language + "\" Catalog **")
             print("")
-            return "Empty"
+            return None
                 
     def modifyMessage(self, messageDictionary, exMessage, newMessageId, comment, translation, option):
         messageDictionary = messageDictionary
@@ -294,7 +316,7 @@ class CentralMechanism(object):
                     if any(char.isdigit() for char in newMessageId):
                         raise Exception("Message Id's should have only letters")
                 except:
-                    print("Error: Message Translations should have only letters")
+                    print("** Error: Message Translations should have only letters. **")
                     print("")
                     return None
                 if newMessageComments == "":
@@ -303,7 +325,7 @@ class CentralMechanism(object):
                     try:
                         newMessageComments = newMessageComments
                     except:
-                        print("Error: Unknown Comment changes errors")
+                        print("** Error: Unknown Comment changes errors **")
                         print("")
                         return None                    
             else:
@@ -314,9 +336,9 @@ class CentralMechanism(object):
                     try:
                         newMessageStr = newMessageStr
                         if any(char.isdigit() for char in newMessageStr):
-                            raise Exception("Message Translations should have only letters")
+                            raise Exception("** Message Translations should have only letters **")
                     except:
-                        print("Error: Message Translations should have only letters")
+                        print("** Error: Message Translations should have only letters **")
                         print("")
                         return None
                 if newMessageComments == "":
@@ -325,7 +347,7 @@ class CentralMechanism(object):
                     try:
                         newMessageComments = newMessageComments
                     except:
-                        print("Error: Unknown Comment changes errors")
+                        print("** Error: Unknown Comment changes errors. **")
                         print("")
                         return None
             del messageDictionary[messageId]
@@ -365,23 +387,8 @@ class BabelManager(CommandLineInterface):
         try:
             CommandLineInterface().run(babArgs)
             if verbose:
-                print("Compile Completed")
+                print("\""+ language + "\" compiled correctly")
                 print("")
-        except:
-            pass
-
-    def extract(self, pathToCatalog):
-        path = os.path.join(pathToCatalog,"messages")
-        babArgs = []
-        babArgs.append("pybabel")
-        babArgs.append("extract")
-        babArgs.append(path + ".po")
-        babArgs.append("-o")
-        babArgs.append("messages.pot")
-        try:
-            CommandLineInterface().run(babArgs)
-            print("Extract to .pot Completed")
-            print("")
         except:
             pass
 
@@ -401,7 +408,7 @@ class BabelManager(CommandLineInterface):
         try:
             CommandLineInterface().run(babArgs)
             if verbose:
-                print("\"" + newLanguage + "\" Initialized successfully")
+                print("\"" + newLanguage + "\" initialized successfully")
                 print("")
         except:
             pass
@@ -422,7 +429,7 @@ class BabelManager(CommandLineInterface):
         try:
             CommandLineInterface().run(babArgs)
             if verbose:
-                print("Update Completed")
+                print("\"" + language + "\" updated correctly")
                 print("")
         except:
             pass
@@ -437,7 +444,7 @@ class FileManager(object):
         file = open(path, "w")
         file.write(message)
         if verbose:
-            print("Successful write on \"" + path + "\"") 
+            print("\"" + path + "\" succesfully written") 
 
 class Core(object):
     option = 0
@@ -488,9 +495,9 @@ class Core(object):
             pathToCatalog = self.PathHandler.buildPath(language)
             self.BabelManager.init(language,pathToCatalog,pathToPot, verbose)
             self.BabelManager.compile(pathToCatalog, language, verbose)
-            print("-- Language \"" + language + "\" added successfully")
+            print("\"" + language + "\" added and initiallized successfully")
         else:
-            print("** The \"" + language + "\" language already exists **")
+            print("** \"" + language + "\" language already exists **")
             print("")
 
     def addMessageToCatalogs(self, args):
@@ -507,7 +514,7 @@ class Core(object):
         if __messageDictionary != None:
             __message = self.CentralMechanism.dictionaryToText(__messageDictionary)
             self.FileManager.writefile(__message, pathToPot, verbose)
-            print("-- Message \"" + newMessage + "\" added successfully")
+            print("\"" + newMessage + "\" added successfully")
             for x in allLanguages:
                 __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
                 self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
@@ -538,7 +545,7 @@ class Core(object):
         __messageDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
         toBeModified = self.CentralMechanism.searchMessage(exMessage, __messageDictionary, language, verbose)
         ask = args.force
-        if toBeModified != None and toBeModified != "Empty" and ask == False:
+        if toBeModified != None and ask == False:
             ask = self.CLImessageClient.askIfConfident(exMessage, self.option)
         if ask != False:
             __messageDictionary = self.CentralMechanism.modifyMessage(__messageDictionary, toBeModified, newMessageId, comment, translation, self.option)
@@ -547,13 +554,13 @@ class Core(object):
                 __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
                 __pathMessages = os.path.join(__pathToCatalog, "messages.po")
                 self.FileManager.writefile(__message, __pathMessages, verbose)
-                print("-- Message \"" + exMessage + "\" modified successfully on \""+ language +"\" file")
+                print("\"" + exMessage + "\" modified successfully on \""+ language +"\" file")
                 self.BabelManager.compile(__pathToCatalog, language, verbose)
             else:
                 self.FileManager.writefile(__message, pathToPot, verbose)
                 if newMessageId is not "":
                     exMessage = newMessageId
-                print("-- Message \"" + exMessage + "\" modified successfully on .pot file")
+                print("\"" + exMessage + "\" modified successfully on .pot file")
                 for x in allLanguages:
                     __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
                     self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
@@ -570,14 +577,14 @@ class Core(object):
         __messageDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
         toBeDeleted = self.CentralMechanism.searchMessage(message, __messageDictionary, language, verbose)
         ask = args.force
-        if toBeDeleted != None and toBeDeleted != "Empty" and ask == False:
+        if toBeDeleted != None and ask == False:
             ask = self.CLImessageClient.askIfConfident(message, self.option)
         if ask != False:
             if toBeDeleted != None:
                 __messageDictionary = self.CentralMechanism.modifyMessage(__messageDictionary, toBeDeleted, "", "", "", self.option)
                 __message = self.CentralMechanism.dictionaryToText(__messageDictionary)
                 self.FileManager.writefile(__message, pathToPot, verbose)
-                print("-- Message \"" + message + "\" deleted successfully")
+                print("\"" + message + "\" deleted successfully")
                 for x in allLanguages:
                     __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
                     self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
@@ -593,22 +600,26 @@ class Core(object):
         if ask != False:
             pathLanguage = os.path.join(pathLanguages, language)
             shutil.rmtree(pathLanguage)
-            print("-- The deletion of the \"" + language + "\" language was successful")
+            print("\"" + language + "\" language deleted successfuly")
 
     def addTranslations(self,args):
         language = args.exLan
         translationPath = args.File
         verbose = args.Verbose
         if args.File is not None and args.Stdin:
-            print("Error, only one option between File and Stdin can be used")
+            print("** Error, only one option between File and Stdin can be used. **")
             sys.exit()
         __lanDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
         if args.File is not None or args.Stdin:
             if args.File is not None:
                 try:
-                    __translations = csv.reader(open(translationPath), delimiter='|', dialect=csv.excel, escapechar='\\', quoting=csv.QUOTE_NONE)
-                except: 
-                    print("** The path:\"" + translationPath + "\"doesn't lead to a language translations **")
+                    header = ["msgid", "msgstr"]
+                    __translations = csv.DictReader(open(translationPath), fieldnames = header, delimiter = ";")
+                    for x in __translations:
+                        print x
+                except Exception as e: 
+                    print (str(e))
+                    print("** \"" + translationPath + "\"doesn't lead to a valid translations file **")
                     print("")
                     return None
                 __translationsList = [x for x in __translations]
@@ -617,6 +628,7 @@ class Core(object):
                 __translationsList = [x[:-1].split(",") for x in __translations]
             notExistingList = []
             for x in __translationsList: 
+                print(x)
                 translation = x[1]
                 if x[0] in __lanDictionary:
                     __lanDictionary[x[0]]["msgstr"] = translation
@@ -641,8 +653,8 @@ class Core(object):
             print("")
     
     def extractCSV(self, args):
-        pathToFile = args.File
         language = args.exLan
+        pathToFile = os.path.join(".", language + args.File)
         __lanDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
         __csvFormated = self.CentralMechanism.dictionaryToCSV(__lanDictionary, pathToFile)
         
@@ -662,7 +674,7 @@ class Runner(object):
         argsL = args
 
         if len(argsL) < 2:
-            print("No argument recieved, exiting. See --help if needed.")
+            print("** No argument recieved, exiting. See --help if needed. **")
             print("")
         else:
             parser = argparse.ArgumentParser(prog=argsL[0], description="Options for management of .po catalogs")
@@ -722,7 +734,7 @@ class Runner(object):
 
             parser_xCSV = subparsers.add_parser("xCSV", help = "")
             parser_xCSV.add_argument("exLan", choices=languages, metavar="Language", help= "Language to add Translations to its Catalog")
-            parser_xCSV.add_argument("-F","--File", nargs='?',  default = os.path.join(".","translations.csv"), help = "Path for csv creation, default is: \"" + os.path.join(".","translations.csv") + "\"")
+            parser_xCSV.add_argument("-F","--File", nargs='?',  default = "translations.csv", help = "Path for csv creation, default is: \"" + os.path.join(".","\"language\"translations.csv") + "\"")
             parser_xCSV.set_defaults(func=self.Core.extractCSV)
 
             del argsL[0]

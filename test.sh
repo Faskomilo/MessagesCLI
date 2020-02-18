@@ -17,11 +17,11 @@ python CLImessageClient.py mM "Country" "Country"  all -f
 python CLImessageClient.py mM "Timesone" "Language" all -f
 python CLImessageClient.py mM "Lanjuage" "Language"  all -f
 python CLImessageClient.py mM "Landing area unit" "Land area unit"  all -f
-python CLImessageClient.py aT es ./translations.txt
-python CLImessageClient.py v
-python CLImessageClient.py search "New projection"
-python CLImessageClient.py search "Yields"
-python CLImessageClient.py search "Cool"
-python CLImessageClient.py search "Unauthorized"
+python CLImessageClient.py aT es -F ./entranslations.csv
+python CLImessageClient.py V
+python CLImessageClient.py S "New projection"
+python CLImessageClient.py S "Yields"
+python CLImessageClient.py S "Cool"
+python CLImessageClient.py S "Unauthorized"
 python CLImessageClient.py dL en -f
 python CLImessageClient.py dL fr -f
