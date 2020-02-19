@@ -74,12 +74,12 @@ class CentralMechanism(object):
         __messageDictionary = self.textToDictionary(__message)
         return __messageDictionary
 
-    def compareCatalogs(self, firstLanguage, secondLanguage, pathLanguages, pathToPot):
+    def compareCatalogs(self, firstLanguage, secondLanguage, pathLanguages, pathToPot, verbose):
         firstMessages = self.getDictionary(firstLanguage, pathLanguages, pathToPot)
         secondMessages = self.getDictionary(secondLanguage, pathLanguages, pathToPot)
-        if firstLanguage is "All":
+        if firstLanguage is "all":
             firstLanguage = ".pot file"
-        if secondLanguage is "All":
+        if secondLanguage is "all":
             secondLanguage = ".pot file"
         helper = 0
         helperList = []
@@ -97,9 +97,10 @@ class CentralMechanism(object):
                 return None
             else:
                 print("** \"" + firstLanguage + "\" content is larger than \"" + secondLanguage + "\" content. **")
-                for x in helperList:
-                    print("** \"" + x + "\" is on the " + firstLanguage + " but not in the \"" + secondLanguage + "\" catalog. **")
-                    print("")
+                if verbose:
+                    for x in helperList:
+                        print("** \"" + x + "\" is on the \"" + firstLanguage + "\" but not in the \"" + secondLanguage + "\" catalog. **")
+                        print("")
         else:
             for x in secondMessages:
                 firstHelper = helper
@@ -110,9 +111,10 @@ class CentralMechanism(object):
                     helperList.append(x)
             print("** \"" + secondLanguage + "\" content is larger than \"" + firstLanguage + "\" content. **")
             print("")
-            for x in helperList:
-                print("** \"" + x + "\" is on \"" + secondLanguage + "\" catalog but not in the \"" + firstLanguage + "\" catalog. **")
-                print("")
+            if verbose:
+                for x in helperList:
+                    print("** \"" + x + "\" is on \"" + secondLanguage + "\" catalog but not in the \"" + firstLanguage + "\" catalog. **")
+                    print("")
 
     def dictionaryToText(self, messagesDictionary, option = 0):
         self.option = option
@@ -467,9 +469,10 @@ class Core(object):
     def verifyCatalogs(self, args):
         pathLanguages = self.pathLanguages
         allLanguages = self.PathHandler.listLanguages(pathLanguages)
+        verbose = args.Verbose
         for x in allLanguages:
             print("#########  " + x + " Catalog  #########")
-            self.CentralMechanism.compareCatalogs("all", x, pathLanguages, self.pathToPot)
+            self.CentralMechanism.compareCatalogs("all", x, pathLanguages, self.pathToPot, verbose)
             print("")
 
     def searchMessageInCatalogs(self, args):
@@ -481,13 +484,10 @@ class Core(object):
         allLanguages = [language]
         if language == "all":
             allLanguages = self.PathHandler.listLanguages(pathLanguages)
+            allLanguages.append("all")
         for x in allLanguages:
             language = x
             __messageDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
-            help = self.CentralMechanism.searchMessage(message ,__messageDictionary, language, True)
-            print("")
-            if help == None:
-                break
         __message = ""
         __messageDictionary = {} 
     
@@ -533,7 +533,7 @@ class Core(object):
         exMessage = args.exMessageId.split("\"")[0]
         verbose = args.Verbose
         try:
-            newMessageId = args.messageId.split("\"")[0]
+            newMessageId = args.MessageId.split("\"")[0]
         except:
             newMessageId = ""
         try:
@@ -670,9 +670,6 @@ class Core(object):
         else:
             print("Couldn't create cvs")
             print("")
-        
-
-
 
 class Runner(object):
     def __init__(self, basePath, pathToPot):
@@ -694,6 +691,7 @@ class Runner(object):
             subparsers = parser.add_subparsers(metavar= "{command}", title="Available Commands", description="Each should be used with their respective sub-subcommands. Use \"" + argsL[0] + " {option} -h\" to see the individual use of each")
 
             parser_V = subparsers.add_parser("V", description="Verify the integrity of the catalogs against the .pot file" ,help = "Verify:  Allows to verify that every Language Catalog has the same Message Id's")
+            parser_V.add_argument("-v","--Verbose", action='store_true', help = "Show all the messages that do not exist in the pot file")
             parser_V.set_defaults(func=self.Core.verifyCatalogs)
 
             parser_S = subparsers.add_parser("S",help = "Search:  Allows to search a message through a Message Id, result is either if exists and if a language is selected also shows its Comments and Translation")
@@ -714,12 +712,15 @@ class Runner(object):
 
             parser_mM = subparsers.add_parser("mM",help = "Modify Message:  Allows to modify a Message Id, and if a language is selected then allow to modify Comment and/or Translation")
             parser_mM.add_argument("exMessageId", metavar="Message_Id", help="The Message Id should be wrapped wrapped in quotation marks and it's Caps Sensitive")
-            if(("all" in argsL) or "-h" in argsL or "--help" in argsL):
-                parser_mM.add_argument("messageId", metavar="New_Message_Id", help="The New message Id should be wrapped in quotation marks, only allowed to be used when applied to all languages")
+            group_mM = parser_mM.add_mutually_exclusive_group(required = True)
+            group_mM.add_argument("-M", "--MessageId", metavar="New_Message_Id", help="The New message Id should be wrapped in quotation marks, only allowed to be used when applied to all languages")
+            group_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
             parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks, only allowed to be used when applied to a certain language")
-            if(("all" not in argsL) or "-h" in argsL or "--help" in argsL):
-                parser_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
-            parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language to search in, for changes on Translation use ")
+            if (argsL[1] == "mM") and "-M" in argsL:
+                parser_mM.add_argument("exLan", choices="all", nargs="?", default= "all", metavar="Language", help= "Language in which the change will be made")
+            else:
+                languages.pop()
+                parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language in which the change will be made in, in case the change is the Message Id only \"all\" is permited")
             parser_mM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
             parser_mM.add_argument("-v","--Verbose", action='store_true', help = "Show as much of the process")
             parser_mM.set_defaults(func=self.Core.modifyMessageInCatalog)
@@ -754,6 +755,7 @@ class Runner(object):
             del argsL[0]
             print("")
             arguments = parser.parse_args(argsL)
+            print(arguments)
             arguments.func(arguments)
             print("")      
             
