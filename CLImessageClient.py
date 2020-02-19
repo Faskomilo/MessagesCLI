@@ -555,22 +555,25 @@ class Core(object):
             ask = self.CLImessageClient.askIfConfident(exMessage, self.option)
         if ask != False:
             __messageDictionary = self.CentralMechanism.modifyMessage(__messageDictionary, toBeModified, newMessageId, comment, translation, self.option)
-            __message = self.CentralMechanism.dictionaryToText(__messageDictionary)
-            if language != "all":
-                __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
-                __pathMessages = os.path.join(__pathToCatalog, "messages.po")
-                self.FileManager.writefile(__message, __pathMessages, verbose)
-                print("\"" + exMessage + "\" modified successfully on \""+ language +"\" file")
-                self.BabelManager.compile(__pathToCatalog, language, verbose)
+            if __messageDictionary is not None:
+                __message = self.CentralMechanism.dictionaryToText(__messageDictionary)
+                if language != "all":
+                    __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
+                    __pathMessages = os.path.join(__pathToCatalog, "messages.po")
+                    self.FileManager.writefile(__message, __pathMessages, verbose)
+                    print("\"" + exMessage + "\" modified successfully on \""+ language +"\" file")
+                    self.BabelManager.compile(__pathToCatalog, language, verbose)
+                else:
+                    self.FileManager.writefile(__message, pathToPot, verbose)
+                    if newMessageId is not "":
+                        exMessage = newMessageId
+                    print("\"" + exMessage + "\" modified successfully on .pot file")
+                    for x in allLanguages:
+                        __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
+                        self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
+                        self.BabelManager.compile(__pathToCatalog, x, verbose)
             else:
-                self.FileManager.writefile(__message, pathToPot, verbose)
-                if newMessageId is not "":
-                    exMessage = newMessageId
-                print("\"" + exMessage + "\" modified successfully on .pot file")
-                for x in allLanguages:
-                    __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
-                    self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
-                    self.BabelManager.compile(__pathToCatalog, x, verbose)
+                pass
                 
     def deleteMessageInCatalogs(self, args):
         language = "all"
@@ -718,7 +721,7 @@ class Runner(object):
             parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks, only allowed to be used when applied to a certain language")
             if (argsL[1] == "mM") and "-M" in argsL:
                 parser_mM.add_argument("exLan", choices="all", nargs="?", default= "all", metavar="Language", help= "Language in which the change will be made")
-            else:
+            elif argsL[1] == "mM":
                 languages.pop()
                 parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language in which the change will be made in, in case the change is the Message Id only \"all\" is permited")
             parser_mM.add_argument("-f","--force", action='store_true', help = "Force the action, no questions asked")
