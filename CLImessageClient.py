@@ -167,45 +167,51 @@ class CentralMechanism(object):
 
     def dictionaryToCSV(self, messagesDictionary, pathToFile):
         self.messages = messagesDictionary
-        newString = ""
         repeated = {}
         obsolete = {}
         tmp = []
-        if "//Repeated" in self.messages:
-                repeated = messagesDictionary["//Repeated"]
-                del self.messages["//Repeated"]
-                for x in repeated:
-                    tmp.append([x,repeated[x]["msgstr"]])
-                repeated = tmp
-                tmp = []
-        if "//Obsolete" in self.messages:
-                obsolete = messagesDictionary["//Obsolete"]
-                del self.messages["//Obsolete"]
-                for x in obsolete:
-                    tmp.append([x,obsolete[x]["msgstr"]])
-                obsolete = tmp
-                tmp = []
-        for x in self.messages:
-            tmp.append([x,self.messages[x]["msgstr"]])
-        self.messages = tmp
-        tmp = []
-        with open(pathToFile, "w") as csvfile:
-            header = ["msgid", "msgstr"]
-            filewriter = csv.DictWriter(csvfile, fieldnames = header, extrasaction = "ignore", delimiter = ";")
-            filewriter.writeheader()
+        try:
+            if "//Repeated" in self.messages:
+                    repeated = messagesDictionary["//Repeated"]
+                    del self.messages["//Repeated"]
+                    for x in repeated:
+                        tmp.append([x,repeated[x]["msgstr"]])
+                    repeated = tmp
+                    tmp = []
+            if "//Obsolete" in self.messages:
+                    obsolete = messagesDictionary["//Obsolete"]
+                    del self.messages["//Obsolete"]
+                    for x in obsolete:
+                        tmp.append([x,obsolete[x]["msgstr"]])
+                    obsolete = tmp
+                    tmp = []
             for x in self.messages:
-                if x[0] is not "":
-                    filewriter.writerow({"msgid": x[0], "msgstr": x[1]})
-            if repeated:
-                for x in repeated:
+                tmp.append([x,self.messages[x]["msgstr"]])
+            self.messages = tmp
+            tmp = []
+            with open(pathToFile, "w") as csvfile:
+                header = ["msgid", "msgstr"]
+                filewriter = csv.DictWriter(csvfile, fieldnames = header, extrasaction = "ignore", delimiter = ";")
+                filewriter.writeheader()
+                for x in self.messages:
                     if x[0] is not "":
                         filewriter.writerow({"msgid": x[0], "msgstr": x[1]})
-            if obsolete:
-                for x in obsolete:
-                    if x[0] is not "":
-                        filewriter.writerow({"msgid": x[0], "msgstr": x[1]})
-        print(pathToFile + " written succesfully ")
-        return newString
+                if repeated:
+                    for x in repeated:
+                        if x[0] is not "":
+                            filewriter.writerow({"msgid": x[0], "msgstr": x[1]})
+                if obsolete:
+                    for x in obsolete:
+                        if x[0] is not "":
+                            filewriter.writerow({"msgid": x[0], "msgstr": x[1]})
+        except Exception as e:
+            print("** " + str(e) + " **")
+            try:
+                os.remove(pathToFile)
+            except:
+                pass
+            return False
+        return True
 
     def textToDictionary(self, message):
         messageList = message.split("\n\n")
@@ -646,6 +652,7 @@ class Core(object):
             __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
             __pathMessages = os.path.join(__pathToCatalog, "messages.po")
             self.FileManager.writefile(messages, __pathMessages, verbose)
+            self.BabelManager.compile(__pathToCatalog,language,verbose)
             print("Translations added succesfully")
             print("")
         else:
@@ -657,6 +664,12 @@ class Core(object):
         pathToFile = os.path.join(".", language + args.File)
         __lanDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
         __csvFormated = self.CentralMechanism.dictionaryToCSV(__lanDictionary, pathToFile)
+        if __csvFormated is True:
+            print(pathToFile + " created correctly")
+            print("")
+        else:
+            print("Couldn't create cvs")
+            print("")
         
 
 
@@ -724,11 +737,12 @@ class Runner(object):
             parser_dL.set_defaults(func=self.Core.deleteLanguageCatalog)
 
             parser_aT = subparsers.add_parser("aT",help = "Add Translations:  Allows to allow a massive catalog of translations to an initiated Catalog")
-            if "aT" in argsL:
+            if argsL[1] is "aT":
                 languages.pop()
             parser_aT.add_argument("exLan", choices=languages, metavar="Language", help= "Language to add Translations to its Catalog")
-            parser_aT.add_argument("-F","--File", nargs='?',  default = None, help = "Expect a file path")
-            parser_aT.add_argument("-S","--Stdin", action='store_true', help = "Expect a Standard Input before")
+            group_aT = parser_aT.add_mutually_exclusive_group(required=True)
+            group_aT.add_argument("-F","--File", help = "Expect a file path")
+            group_aT.add_argument("-S","--Stdin", action='store_true', help = "Expect a Standard Input before")
             parser_aT.add_argument("-v","--Verbose", action='store_true', help = "Show the whole list of messages not updated and not used")
             parser_aT.set_defaults(func=self.Core.addTranslations)
 
