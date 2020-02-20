@@ -69,10 +69,11 @@ class CentralMechanism(object):
             pathToMessages = pathToPot
         else:
             pathToMessages = self.PathHandler.buildPathMessages(pathToLanguages, language)
-        __message = self.FileManager.readfile(pathToMessages)
-        __message = self.cleanMessages(__message)
-        __messageDictionary = self.textToDictionary(__message)
-        return __messageDictionary
+        if pathToMessages is not None:
+            __message = self.FileManager.readfile(pathToMessages)
+            __message = self.cleanMessages(__message)
+            __messageDictionary = self.textToDictionary(__message)
+            return __messageDictionary
 
     def compareCatalogs(self, firstLanguage, secondLanguage, pathLanguages, pathToPot, verbose):
         firstMessages = self.getDictionary(firstLanguage, pathLanguages, pathToPot)
@@ -94,13 +95,14 @@ class CentralMechanism(object):
             if helper == len(firstMessages):
                 print("\"" + firstLanguage + "\" content in \"" + secondLanguage + "\" content.")
                 print("")
-                return None
+                return True
             else:
                 print("** \"" + firstLanguage + "\" content is larger than \"" + secondLanguage + "\" content. **")
                 if verbose:
                     for x in helperList:
                         print("** \"" + x + "\" is on the \"" + firstLanguage + "\" but not in the \"" + secondLanguage + "\" catalog. **")
                         print("")
+                return False
         else:
             for x in secondMessages:
                 firstHelper = helper
@@ -115,6 +117,7 @@ class CentralMechanism(object):
                 for x in helperList:
                     print("** \"" + x + "\" is on \"" + secondLanguage + "\" catalog but not in the \"" + firstLanguage + "\" catalog. **")
                     print("")
+            return False
 
     def dictionaryToText(self, messagesDictionary, option = 0):
         self.option = option
@@ -306,7 +309,6 @@ class CentralMechanism(object):
         else:
             print("** \"" + message + "\" doesn't exist in the \"" + language + "\" Catalog **")
             print("")
-            return None
                 
     def modifyMessage(self, messageDictionary, exMessage, newMessageId, comment, translation, option):
         messageDictionary = messageDictionary
@@ -370,6 +372,9 @@ class PathHandler(object):
 
         def buildPathMessages(self, pathToLanguages, language):
             path = os.path.join(self.buildPath(language), "messages.po")
+            if not os.path.isfile(path):
+                print("** \"" + language + "\" messages file (.po) does not exist but Directory does exists **")
+                return None
             return path
         
         def buildPath(self, language):
@@ -397,8 +402,10 @@ class BabelManager(CommandLineInterface):
             if verbose:
                 print("\""+ language + "\" compiled correctly")
                 print("")
+            return True
         except:
-            pass
+            print("** \"" + language + "\" messages file (.po) does not exist but Directory does exists **")
+            return None
 
     def init(self, newLanguage, pathToCatalog, pathToPot, verbose):
         path = os.path.join(pathToCatalog,"messages.po")
@@ -418,8 +425,10 @@ class BabelManager(CommandLineInterface):
             if verbose:
                 print("\"" + newLanguage + "\" initialized successfully")
                 print("")
+            return True
         except:
-            pass
+            print("** Unknown language/locale **")
+            return None
     
     def update(self, pathToCatalog, pathToPot, language, verbose):
         path = os.path.join(pathToCatalog,"messages.po")
@@ -439,8 +448,10 @@ class BabelManager(CommandLineInterface):
             if verbose:
                 print("\"" + language + "\" updated correctly")
                 print("")
+            return True
         except:
-            pass
+            print("** \"" + language + "\" messages file (.po) does not exist but Directory does exists **")
+            return None
 
 class FileManager(object):
 
@@ -488,8 +499,9 @@ class Core(object):
         for x in allLanguages:
             language = x
             __messageDictionary = self.CentralMechanism.getDictionary(language, self.pathLanguages, self.pathToPot)
-        __message = ""
-        __messageDictionary = {} 
+            search = self.CentralMechanism.searchMessage(__message, __messageDictionary, language, True)
+            if search is None:
+                sys.exit()
     
     def addLanguageCatalog(self, args):
         language = args.newLan
@@ -499,9 +511,11 @@ class Core(object):
         if language not in allLanguages:
             pathToPot = self.pathToPot
             pathToCatalog = self.PathHandler.buildPath(language)
-            self.BabelManager.init(language,pathToCatalog,pathToPot, verbose)
-            self.BabelManager.compile(pathToCatalog, language, verbose)
-            print("\"" + language + "\" added and initiallized successfully")
+            init = self.BabelManager.init(language,pathToCatalog,pathToPot, verbose)
+            if init is not None:
+                compiled = self.BabelManager.compile(pathToCatalog, language, verbose)
+                if compiled is not None:
+                    print("\"" + language + "\" added and initiallized successfully")
         else:
             print("** \"" + language + "\" language already exists **")
             print("")
@@ -523,8 +537,9 @@ class Core(object):
             print("\"" + newMessage + "\" added successfully")
             for x in allLanguages:
                 __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
-                self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
-                self.BabelManager.compile(__pathToCatalog, x, verbose)  
+                updated = self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
+                if updated is not None:
+                    self.BabelManager.compile(__pathToCatalog, x, verbose)  
         __message = ""
         __messageDictionary = {} 
         
@@ -553,7 +568,7 @@ class Core(object):
         ask = args.force
         if toBeModified != None and ask == False:
             ask = self.CLImessageClient.askIfConfident(exMessage, self.option)
-        if ask != False:
+        if ask != False and toBeModified is not None:
             __messageDictionary = self.CentralMechanism.modifyMessage(__messageDictionary, toBeModified, newMessageId, comment, translation, self.option)
             if __messageDictionary is not None:
                 __message = self.CentralMechanism.dictionaryToText(__messageDictionary)
@@ -570,8 +585,9 @@ class Core(object):
                     print("\"" + exMessage + "\" modified successfully on .pot file")
                     for x in allLanguages:
                         __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
-                        self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
-                        self.BabelManager.compile(__pathToCatalog, x, verbose)
+                        updated = self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
+                        if updated is not None: 
+                            self.BabelManager.compile(__pathToCatalog, x, verbose)
             else:
                 pass
                 
@@ -591,13 +607,15 @@ class Core(object):
         if ask != False:
             if toBeDeleted != None:
                 __messageDictionary = self.CentralMechanism.modifyMessage(__messageDictionary, toBeDeleted, "", "", "", self.option)
-                __message = self.CentralMechanism.dictionaryToText(__messageDictionary)
-                self.FileManager.writefile(__message, pathToPot, verbose)
-                print("\"" + message + "\" deleted successfully")
-                for x in allLanguages:
-                    __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
-                    self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
-                    self.BabelManager.compile(__pathToCatalog, x, verbose)
+                if __messageDictionary is not None:
+                    __message = self.CentralMechanism.dictionaryToText(__messageDictionary)
+                    self.FileManager.writefile(__message, pathToPot, verbose)
+                    print("\"" + message + "\" deleted successfully")
+                    for x in allLanguages:
+                        __pathToCatalog = os.path.join(pathLanguages, x, "LC_MESSAGES")
+                        updated = self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
+                        if updated is not None: 
+                            self.BabelManager.compile(__pathToCatalog, x, verbose)
             
     def deleteLanguageCatalog(self, args):
         language = args.exLan
@@ -624,8 +642,6 @@ class Core(object):
                 try:
                     header = ["msgid", "msgstr"]
                     __translations = csv.DictReader(open(translationPath), fieldnames = header, delimiter = ";")
-                    for x in __translations:
-                        print x
                 except Exception as e: 
                     print (str(e))
                     print("** \"" + translationPath + "\"doesn't lead to a valid translations file **")
@@ -636,8 +652,7 @@ class Core(object):
                 __translations = sys.stdin.readlines()
                 __translationsList = [x[:-1].split(",") for x in __translations]
             notExistingList = []
-            for x in __translationsList: 
-                print(x)
+            for x in __translationsList:
                 translation = x[1]
                 if x[0] in __lanDictionary:
                     __lanDictionary[x[0]]["msgstr"] = translation
@@ -655,9 +670,10 @@ class Core(object):
             __pathToCatalog = os.path.join(pathLanguages, language, "LC_MESSAGES")
             __pathMessages = os.path.join(__pathToCatalog, "messages.po")
             self.FileManager.writefile(messages, __pathMessages, verbose)
-            self.BabelManager.compile(__pathToCatalog,language,verbose)
-            print("Translations added succesfully")
-            print("")
+            compiled = self.BabelManager.compile(__pathToCatalog,language,verbose)
+            if compiled is not None:
+                print("Translations added succesfully")
+                print("")
         else:
             print("** Error, no option for input selected, see \"aT --help\" for further reference **")
             print("")
@@ -720,7 +736,7 @@ class Runner(object):
             group_mM.add_argument("-T","--Translation", metavar="Message_Translation", help="The Message Translation should go wrapped in quotation marks, only allowed to be used when applied to only one language")
             parser_mM.add_argument("-C","--Comment", metavar="Message_Comment", help="The Message Comment should go wrapped in quotation marks, only allowed to be used when applied to a certain language")
             if (argsL[1] == "mM") and "-M" in argsL:
-                parser_mM.add_argument("exLan", choices="all", nargs="?", default= "all", metavar="Language", help= "Language in which the change will be made")
+                parser_mM.add_argument("exLan", choices=["all"], nargs="?", default= "all", metavar="Language", help= "Language in which the change will be made")
             elif argsL[1] == "mM":
                 languages.pop()
                 parser_mM.add_argument("exLan", choices=languages, metavar="Language", help= "Language in which the change will be made in, in case the change is the Message Id only \"all\" is permited")
@@ -758,7 +774,6 @@ class Runner(object):
             del argsL[0]
             print("")
             arguments = parser.parse_args(argsL)
-            print(arguments)
             arguments.func(arguments)
             print("")      
             

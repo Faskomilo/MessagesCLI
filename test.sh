@@ -11,12 +11,12 @@ python CLImessageClient.py aM "Timesone"
 python CLImessageClient.py aM "Lanjuage"
 python CLImessageClient.py aM "Landing area unit"
 python CLImessageClient.py dM "New projection" -f
-python CLImessageClient.py mM "Proyect name" -M "Project name"  all -f
-python CLImessageClient.py mM "Type a name for your proyect" -M "Type a name for your project"  all -f
-python CLImessageClient.py mM "Country" -M "Country"  all -f
-python CLImessageClient.py mM "Timesone" -M "Timezone" all -f
-python CLImessageClient.py mM "Lanjuage" -M "Language"  all -f
-python CLImessageClient.py mM "Landing area unit" -M "Land area unit"  all -f
+python CLImessageClient.py mM "Proyect name" -M "Project name" -f
+python CLImessageClient.py mM "Type a name for your proyect" -M "Type a name for your project" -f
+python CLImessageClient.py mM "Country" -M "Country" -f
+python CLImessageClient.py mM "Timesone" -M "Timezone" -f
+python CLImessageClient.py mM "Lanjuage" -M "Language" -f
+python CLImessageClient.py mM "Landing area unit" -M "Land area unit" -f
 python CLImessageClient.py aT es -F ./entranslations.csv
 python CLImessageClient.py V
 python CLImessageClient.py S "New projection"
