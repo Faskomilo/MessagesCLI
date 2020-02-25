@@ -301,7 +301,8 @@ class CentralMechanism(object):
         else:
             print("** \"" + message + "\" doesn't exist in the \"" + language + "\" Catalog **")
             print("")
-                
+            return None
+
     def modifyMessage(self, messageDictionary, exMessage, newMessageId, comment, translation, option):
         messageDictionary = messageDictionary
         message = exMessage
@@ -368,13 +369,13 @@ class PathHandler(object):
                 print("** \"" + language + "\" messages file (" + poFile + ".po) does not exist but Directory does exists **")
                 return None
             return path
-        
+
         def buildPath(self, language):
             return os.path.join(self.basePath, language, "LC_MESSAGES")
-        
+
         def listLanguages(self,pathLanguages):
             return os.listdir(self.basePath)
-            
+
 class BabelManager(CommandLineInterface):
     def compile(self, pathToCatalog, language, verbose):
         path = os.path.join(pathToCatalog,poFile)
@@ -421,7 +422,7 @@ class BabelManager(CommandLineInterface):
         except:
             print("** Unknown language/locale **")
             return None
-    
+
     def update(self, pathToCatalog, pathToPot, language, verbose):
         path = os.path.join(pathToCatalog,poFile + ".po")
         babArgs = []
@@ -446,7 +447,6 @@ class BabelManager(CommandLineInterface):
             return None
 
 class FileManager(object):
-
     def readfile(self, path):
         messages = open(path).read()
         return messages
@@ -479,7 +479,7 @@ class Core(object):
             print("")
 
     def searchMessageInCatalogs(self, args):
-        message = args.messageId.split("\"")[0]
+        message = args.messageId
         language = args.exLan
         pathLanguages = self.pathLanguages
         __message = message
@@ -534,23 +534,20 @@ class Core(object):
                     updated = self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
                     if updated is not None:
                         self.BabelManager.compile(__pathToCatalog, x, verbose)
-        
+
     def modifyMessageInCatalog(self, args):
         language = args.exLan
-        exMessage = args.exMessageId.split("\"")[0]
-        verbose = args.Verbose
-        try:
-            newMessageId = args.MessageId.split("\"")[0]
-        except:
+        exMessage = args.exMessageId
+        newMessageId = args.MessageId
+        if newMessageId is None:
             newMessageId = ""
-        try:
-            translation = args.Translation.split("\"")[0]
-        except:
+        translation = args.Translation
+        if translation is None:
             translation = ""
-        try:
-            comment = args.Comment.split("\"")[0]
-        except:
+        comment = args.Comment
+        if comment is None:
             comment = ""
+        verbose = args.Verbose
         self.option = 2
         pathLanguages = self.pathLanguages
         pathToPot = self.pathToPot
@@ -581,10 +578,10 @@ class Core(object):
                             updated = self.BabelManager.update(__pathToCatalog, pathToPot, x, verbose)
                             if updated is not None: 
                                 self.BabelManager.compile(__pathToCatalog, x, verbose)
-                
+
     def deleteMessageInCatalogs(self, args):
         language = "all"
-        message = args.messageId.split("\"")[0]
+        message = args.messageId
         verbose = args.Verbose
         self.option = 3
         pathLanguages = self.pathLanguages
@@ -680,7 +677,7 @@ class Core(object):
             else:
                 print("** Error, no option for input selected, see \"aT --help\" for further reference **")
                 print("")
-    
+
     def extractCSV(self, args):
         language = args.exLan
         pathToFile = os.path.join(".", language + args.File)
@@ -705,7 +702,6 @@ class Runner(object):
         languages = self.PathHandler.listLanguages(self.pathLanguages)
         languages.append("all")
         argsL = args
-
         if len(argsL) < 2:
             print("** No argument recieved, exiting. See --help if needed. **")
             print("")
@@ -779,7 +775,6 @@ class Runner(object):
             print("")
             arguments = parser.parse_args(argsL)
             arguments.func(arguments)
-            print("")      
-            
+
 if __name__ == "__main__":
     Runner(basePath, pathToPot)
